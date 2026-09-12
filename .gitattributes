@@ -1,0 +1,12 @@
+# The distribution repository is a checksummed artifact store, not source code.
+#
+# catalog.json carries a SHA-256 for every package, and PI-Desktop refuses a
+# download whose bytes do not match, so any line-ending conversion corrupts
+# published data. `-text` disables normalization for every path in both
+# directions; nothing in this repository should be treated as text.
+#
+# Maintained by pi-plugin-center. Do not edit by hand.
+* -text
+
+catalog.json -text -diff -merge
+*.piplug -text -diff -merge -filter

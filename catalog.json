@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "providerId": "official",
+  "catalogId": "pi-plugin-center",
+  "name": "PI-Desktop Official Plugins",
+  "homepage": "https://github.com/AIUO-Net/pi-desktop-plugins",
+  "updatedAt": "2026-09-12T00:00:00Z",
+  "generatedAt": "2026-09-12T00:00:00Z",
+  "artifactBaseUrl": null,
+  "plugins": []
+}
