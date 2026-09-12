@@ -2,10 +2,215 @@
   "schemaVersion": 1,
   "providerId": "official",
   "catalogId": "pi-plugin-center",
-  "name": "PI-Desktop Official Plugins",
+  "name": "PI-Desktop Plugin Center",
   "homepage": "https://github.com/AIUO-Net/pi-desktop-plugins",
-  "updatedAt": "2026-09-12T00:00:00Z",
-  "generatedAt": "2026-09-12T00:00:00Z",
+  "updatedAt": "2026-09-12T07:21:06Z",
+  "generatedAt": "2026-09-12T07:21:06Z",
+  "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
-  "plugins": []
+  "plugins": [
+    {
+      "id": "demo.workspace-summary",
+      "name": "工作区概览",
+      "description": "示例插件：统计当前工作区的文件与改动。",
+      "author": "PI 示例团队",
+      "categories": [
+        "demo"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "demo",
+      "downloads": 0,
+      "homepage": "https://github.com/example/demo.workspace-summary",
+      "readmeMarkdown": "## 工作区概览\n\n示例插件：统计当前工作区的文件与改动。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "versions": [
+        {
+          "version": "0.2.2",
+          "publishedAt": "2026-09-12T07:21:06Z",
+          "changelog": "示例插件，演示只读权限的用法。",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "db4aa24b93091d006bd63e66ea7206ae754b3af344f5e0a785e35256222166d8",
+          "url": "packages/demo.workspace-summary-0.2.2.piplug",
+          "sizeBytes": 28434,
+          "permissions": [
+            "agent.tool.register",
+            "clipboard.write",
+            "fs.read.workspace",
+            "notify",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.bianqian",
+      "name": "便签",
+      "description": "贴在窗口边上的便签纸，退出也不会丢。",
+      "author": "PI 示例团队",
+      "categories": [
+        "notes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/example/pi.bianqian",
+      "readmeMarkdown": "## 便签\n\n贴在窗口边上的便签纸，退出也不会丢。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "versions": [
+        {
+          "version": "0.1.3",
+          "publishedAt": "2026-09-12T07:21:05Z",
+          "changelog": "便签现在会记住上次的位置和大小。",
+          "minPiDesktop": "\u003e=0.7.1",
+          "shasum": "2816e551246ae259507a1919a4bbbe88d05895e82474cfc6963fa9dc581eecaa",
+          "url": "packages/pi.bianqian-0.1.3.piplug",
+          "sizeBytes": 1060399,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.scratch-calc",
+      "name": "随手算",
+      "description": "一个不需要打开的算式面板，选中即算。",
+      "author": "PI 示例团队",
+      "categories": [
+        "utilities"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/example/pi.scratch-calc",
+      "readmeMarkdown": "## 随手算\n\n一个不需要打开的算式面板，选中即算。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "versions": [
+        {
+          "version": "0.3.4",
+          "publishedAt": "2026-09-12T07:21:05Z",
+          "changelog": "修复了科学计数法在窄面板下换行的问题。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "e70272a0a84f0fbaf924f76894718aa32c09fbd0e0734dbc30eb91a9a1ad510e",
+          "url": "packages/pi.scratch-calc-0.3.4.piplug",
+          "sizeBytes": 444261,
+          "permissions": [
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.super-domain-man",
+      "name": "域名管家",
+      "description": "查看与切换本地域名解析，改 hosts 不用再手动编辑。",
+      "author": "PI 示例团队",
+      "categories": [
+        "developer"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/example/pi.super-domain-man",
+      "readmeMarkdown": "## 域名管家\n\n查看与切换本地域名解析，改 hosts 不用再手动编辑。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "versions": [
+        {
+          "version": "0.4.4",
+          "publishedAt": "2026-09-12T07:21:06Z",
+          "changelog": "新增解析结果缓存，切换域名不再等待。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "2583cebcce22392dfb314865106009b05a42966a1238ddb5f0c72b1e0cbac202",
+          "url": "packages/pi.super-domain-man-0.4.4.piplug",
+          "sizeBytes": 293425,
+          "permissions": [
+            "agent.tool.register",
+            "clipboard.read",
+            "clipboard.write",
+            "net.fetch",
+            "notify",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.todo",
+      "name": "TODO",
+      "description": "把今天要做的事放在侧边栏，随手勾掉。",
+      "author": "PI 示例团队",
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/example/pi.todo",
+      "readmeMarkdown": "## TODO\n\n把今天要做的事放在侧边栏，随手勾掉。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "versions": [
+        {
+          "version": "0.6.5",
+          "publishedAt": "2026-09-12T07:21:05Z",
+          "changelog": "### 首个公开版本\n\n- 侧边栏清单，勾选即完成\n- 支持拖拽排序\n- 快捷键 `⌘⇧T` 呼出面板",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "b31c5b013b9fb87bee5416a02fa419646ac8e680ed3d3c94290a656d119f667f",
+          "url": "packages/pi.todo-0.6.5.piplug",
+          "sizeBytes": 92853,
+          "permissions": [
+            "agent.tool.register",
+            "background.service",
+            "notify",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.token-insights",
+      "name": "用量洞察",
+      "description": "统计模型调用与用量，按天汇总。",
+      "author": "PI 示例团队",
+      "categories": [
+        "developer"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/example/pi.token-insights",
+      "readmeMarkdown": "## 用量洞察\n\n统计模型调用与用量，按天汇总。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "versions": [
+        {
+          "version": "0.4.5",
+          "publishedAt": "2026-09-12T07:21:06Z",
+          "changelog": "按天汇总的用量现在可以直接复制成 CSV。",
+          "minPiDesktop": "\u003e=0.2.9",
+          "shasum": "8fc1b3a5e510678135727a97c2a632df19eaca903a3735d32b944f1991bb0477",
+          "url": "packages/pi.token-insights-0.4.5.piplug",
+          "sizeBytes": 159356,
+          "permissions": [
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    }
+  ]
 }
