@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-13T15:26:01Z",
-  "generatedAt": "2026-09-13T15:26:01Z",
+  "updatedAt": "2026-09-13T15:55:28Z",
+  "generatedAt": "2026-09-13T15:55:28Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -90,6 +90,49 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.clipboard-history",
+      "name": "Clipboard History",
+      "description": "Capture clipboard text while PI-Desktop runs, keep 30 days of history, restore any entry with one click.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "剪贴板历史",
+          "description": "在 PI-Desktop 运行期间持续采集剪贴板文本，按天归档保留 30 天，一键恢复任意条目。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-09-13T15:55:28Z",
+          "changelog": "Release 0.2.0: 支持剪贴板图片采集与恢复（宿主 getHistory 可用时自动启用，可关闭）；新增保存图片开关。Image capture \u0026 restore when the host exposes getHistory, with a save-images toggle.",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "847ec718a7db0949112dad36931977e04ed0372cdc3c719435c4a6aa35431fd4",
+          "url": "packages/pi.clipboard-history-0.2.0.piplug",
+          "sizeBytes": 89974,
+          "permissions": [
+            "background.service",
+            "clipboard.read",
+            "clipboard.write",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-pi-clipboard-history",
+            "sourceRef": "v0.2.0",
+            "sourceCommit": "08e8918ced02b5d1af5153eb59c2477b880060fa",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-13T15:55:28Z"
+          }
         }
       ]
     },
