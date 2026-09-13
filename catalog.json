@@ -2,173 +2,129 @@
   "schemaVersion": 1,
   "providerId": "official",
   "catalogId": "pi-plugin-center",
-  "name": "PI-Desktop Plugin Center",
-  "homepage": "https://github.com/AIUO-Net/pi-desktop-plugins",
-  "updatedAt": "2026-09-12T07:21:06Z",
-  "generatedAt": "2026-09-12T07:21:06Z",
+  "name": "PI-Desktop Official Plugins",
+  "homepage": "https://github.com/vastsa/pi-desktop-plugins",
+  "updatedAt": "2026-09-13T15:25:50Z",
+  "generatedAt": "2026-09-13T15:25:50Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
     {
-      "id": "demo.workspace-summary",
-      "name": "工作区概览",
-      "description": "示例插件：统计当前工作区的文件与改动。",
-      "author": "PI 示例团队",
-      "categories": [
-        "demo"
-      ],
+      "id": "io.github.liushunqiu.pi-idea-git",
+      "name": "IDEA-GIT",
+      "description": "方便推送代码到git仓库",
+      "author": "",
+      "categories": [],
       "verified": false,
       "trust": "community",
-      "publisherId": "demo",
+      "publisherId": "github",
       "downloads": 0,
-      "homepage": "https://github.com/example/demo.workspace-summary",
-      "readmeMarkdown": "## 工作区概览\n\n示例插件：统计当前工作区的文件与改动。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
       "versions": [
         {
-          "version": "0.2.2",
-          "publishedAt": "2026-09-12T07:21:06Z",
-          "changelog": "示例插件，演示只读权限的用法。",
-          "minPiDesktop": "\u003e=0.2.0",
-          "shasum": "db4aa24b93091d006bd63e66ea7206ae754b3af344f5e0a785e35256222166d8",
-          "url": "packages/demo.workspace-summary-0.2.2.piplug",
-          "sizeBytes": 28434,
+          "version": "0.2.0",
+          "publishedAt": "2026-09-12T15:23:59Z",
+          "changelog": "仿idea里面的git工具,初版,暂时能用",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "cec452d21f363e5c3a6c11b6b1e7a6a94f58844864e1cc0c34be7b6bf2ad4a68",
+          "url": "packages/io.github.liushunqiu.pi-idea-git-0.2.0.piplug",
+          "sizeBytes": 926724,
           "permissions": [
-            "agent.tool.register",
+            "agent.complete",
             "clipboard.write",
-            "fs.read.workspace",
-            "notify",
-            "ui.panel"
+            "fs.read",
+            "models.list",
+            "ui.panel",
+            "ui.view"
           ],
-          "fs": {},
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
           "yanked": false
         }
       ]
     },
     {
-      "id": "pi.bianqian",
-      "name": "便签",
-      "description": "贴在窗口边上的便签纸，退出也不会丢。",
-      "author": "PI 示例团队",
-      "categories": [
-        "notes"
-      ],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "pi",
-      "downloads": 0,
-      "homepage": "https://github.com/example/pi.bianqian",
-      "readmeMarkdown": "## 便签\n\n贴在窗口边上的便签纸，退出也不会丢。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
-      "versions": [
-        {
-          "version": "0.1.3",
-          "publishedAt": "2026-09-12T07:21:05Z",
-          "changelog": "便签现在会记住上次的位置和大小。",
-          "minPiDesktop": "\u003e=0.7.1",
-          "shasum": "2816e551246ae259507a1919a4bbbe88d05895e82474cfc6963fa9dc581eecaa",
-          "url": "packages/pi.bianqian-0.1.3.piplug",
-          "sizeBytes": 1060399,
-          "permissions": [
-            "agent.prompt.inject",
-            "agent.tool.register",
-            "shell.openExternal",
-            "ui.panel"
-          ],
-          "fs": {},
-          "yanked": false
+      "id": "pi.file-manager",
+      "name": "File Manager",
+      "description": "Browse, view and edit the open project in the right work panel: a full directory tree with per-file-type icons, syntax-highlighted editing, a Markdown preview, image and media viewing, CSV/JSON structured views, read-only SQLite browsing with a SQL query box, a context menu for creating and renaming, and filename search.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "文件管理器",
+          "description": "在右侧工作面板中浏览、查看并编辑当前项目的文件：完整目录树（图标随文件类型变化）、左右分栏、代码高亮编辑与保存、Markdown 预览、图片与音视频查看、CSV/JSON 结构化查看、SQLite 只读浏览与 SQL 查询，以及右键新建、重命名/移动、按文件名搜索。"
         }
-      ]
-    },
-    {
-      "id": "pi.scratch-calc",
-      "name": "随手算",
-      "description": "一个不需要打开的算式面板，选中即算。",
-      "author": "PI 示例团队",
-      "categories": [
-        "utilities"
-      ],
+      },
+      "categories": [],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
       "downloads": 0,
-      "homepage": "https://github.com/example/pi.scratch-calc",
-      "readmeMarkdown": "## 随手算\n\n一个不需要打开的算式面板，选中即算。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
       "versions": [
         {
-          "version": "0.3.4",
-          "publishedAt": "2026-09-12T07:21:05Z",
-          "changelog": "修复了科学计数法在窄面板下换行的问题。",
-          "minPiDesktop": "\u003e=0.1.0",
-          "shasum": "e70272a0a84f0fbaf924f76894718aa32c09fbd0e0734dbc30eb91a9a1ad510e",
-          "url": "packages/pi.scratch-calc-0.3.4.piplug",
-          "sizeBytes": 444261,
+          "version": "0.3.1",
+          "publishedAt": "2026-09-13T15:25:50Z",
+          "changelog": "Release 0.3.1：文件右键新增「用默认应用打开」与「在文件夹中显示」，由宿主代为执行 fs.openDefault / fs.reveal，为此 manifest 首次声明 fs.read（root workspace、scope **，权限与范围同内置 Files 视图）；两个动作只对文件有效，目录会返回 INVALID_ARGUMENT。插件自身的读写仍走自己进程内的 Node fs，宿主权限网关不介入。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "dffe21e8c51e4abfd33767c193681856c2f24a1f5ee883e6ca727c0f5ca62488",
+          "url": "packages/pi.file-manager-0.3.1.piplug",
+          "sizeBytes": 1424006,
           "permissions": [
-            "ui.panel"
+            "fs.read",
+            "ui.view"
           ],
-          "fs": {},
-          "yanked": false
-        }
-      ]
-    },
-    {
-      "id": "pi.super-domain-man",
-      "name": "域名管家",
-      "description": "查看与切换本地域名解析，改 hosts 不用再手动编辑。",
-      "author": "PI 示例团队",
-      "categories": [
-        "developer"
-      ],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "pi",
-      "downloads": 0,
-      "homepage": "https://github.com/example/pi.super-domain-man",
-      "readmeMarkdown": "## 域名管家\n\n查看与切换本地域名解析，改 hosts 不用再手动编辑。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
-      "versions": [
-        {
-          "version": "0.4.4",
-          "publishedAt": "2026-09-12T07:21:06Z",
-          "changelog": "新增解析结果缓存，切换域名不再等待。",
-          "minPiDesktop": "\u003e=0.1.0",
-          "shasum": "2583cebcce22392dfb314865106009b05a42966a1238ddb5f0c72b1e0cbac202",
-          "url": "packages/pi.super-domain-man-0.4.4.piplug",
-          "sizeBytes": 293425,
-          "permissions": [
-            "agent.tool.register",
-            "clipboard.read",
-            "clipboard.write",
-            "net.fetch",
-            "notify",
-            "shell.openExternal",
-            "ui.panel"
-          ],
-          "fs": {},
-          "yanked": false
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-file-manager",
+            "sourceRef": "v0.3.1",
+            "sourceCommit": "f5f264803f626334d56a812e3b50ce41edcb8537",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-13T15:25:50Z"
+          }
         }
       ]
     },
     {
       "id": "pi.todo",
-      "name": "TODO",
-      "description": "把今天要做的事放在侧边栏，随手勾掉。",
-      "author": "PI 示例团队",
+      "name": "Todo List",
+      "description": "The official PI-Desktop todo list with list and four-quadrant layouts, due dates, native reminders and a todo_manage agent tool for querying, adding, splitting, completing and rescheduling tasks.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "小清新待办",
+          "description": "PI-Desktop 官方待办：支持四象限与简单列表双布局、到期时间和原生系统提醒，并提供 todo_manage 工具让 AI 查询、添加、拆分、完成和延期任务。"
+        }
+      },
       "categories": [
+        "official",
         "productivity"
       ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
       "downloads": 0,
-      "homepage": "https://github.com/example/pi.todo",
-      "readmeMarkdown": "## TODO\n\n把今天要做的事放在侧边栏，随手勾掉。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
+      "safetyNotes": "待办数据仅保存在本机插件数据目录（settings.json，localStorage 缓存同步）；到期提醒通过宿主原生系统通知（notify 权限）发出；agent 工具 todo_manage 只读写本插件自身数据；无网络请求、无其他文件访问、无自动执行代码。",
       "versions": [
         {
           "version": "0.6.5",
-          "publishedAt": "2026-09-12T07:21:05Z",
-          "changelog": "### 首个公开版本\n\n- 侧边栏清单，勾选即完成\n- 支持拖拽排序\n- 快捷键 `⌘⇧T` 呼出面板",
+          "publishedAt": "2026-09-12T06:02:55Z",
+          "changelog": "Release 0.6.5：到期提醒迁移到宿主托管后台服务（due-reminder service + background.service 权限），面板关闭时插件进程常驻调度，到期任务经原生系统通知提醒。\n\n- 新增 capsule-retint.js，面板内主题切换时实时重着色宿主窗口控制胶囊\n- 主进程与渲染端共用 reminded 字段去重，不重复通知",
           "minPiDesktop": "\u003e=0.1.0",
-          "shasum": "b31c5b013b9fb87bee5416a02fa419646ac8e680ed3d3c94290a656d119f667f",
+          "shasum": "70b61d3078f3d4b662e1a184597a8dcffba0bc41cf2560c1c0827c9ab92e37fa",
           "url": "packages/pi.todo-0.6.5.piplug",
-          "sizeBytes": 92853,
+          "sizeBytes": 92951,
           "permissions": [
             "agent.tool.register",
             "background.service",
@@ -176,39 +132,14 @@
             "ui.panel"
           ],
           "fs": {},
-          "yanked": false
-        }
-      ]
-    },
-    {
-      "id": "pi.token-insights",
-      "name": "用量洞察",
-      "description": "统计模型调用与用量，按天汇总。",
-      "author": "PI 示例团队",
-      "categories": [
-        "developer"
-      ],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "pi",
-      "downloads": 0,
-      "homepage": "https://github.com/example/pi.token-insights",
-      "readmeMarkdown": "## 用量洞察\n\n统计模型调用与用量，按天汇总。\n\n这是本地演示数据，由 `pi-plugin-center seed-demo` 写入。\n",
-      "versions": [
-        {
-          "version": "0.4.5",
-          "publishedAt": "2026-09-12T07:21:06Z",
-          "changelog": "按天汇总的用量现在可以直接复制成 CSV。",
-          "minPiDesktop": "\u003e=0.2.9",
-          "shasum": "8fc1b3a5e510678135727a97c2a632df19eaca903a3735d32b944f1991bb0477",
-          "url": "packages/pi.token-insights-0.4.5.piplug",
-          "sizeBytes": 159356,
-          "permissions": [
-            "agent.tool.register",
-            "ui.panel"
-          ],
-          "fs": {},
-          "yanked": false
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-pi-todo",
+            "sourceRef": "v0.6.5",
+            "sourceCommit": "33c9a41c603603f62c0e81e86bb931e02bb87f28",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-12T06:02:55Z"
+          }
         }
       ]
     }
