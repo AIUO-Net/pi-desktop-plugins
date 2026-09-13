@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-13T15:55:28Z",
-  "generatedAt": "2026-09-13T15:55:28Z",
+  "updatedAt": "2026-09-13T15:56:46Z",
+  "generatedAt": "2026-09-13T15:56:46Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -180,6 +180,46 @@
             "sourceCommit": "f5f264803f626334d56a812e3b50ce41edcb8537",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-13T15:25:50Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.scratch-calc",
+      "name": "Scratch Calculator",
+      "description": "A paper-like multi-line calculator: evaluate as you type, keep a draft history, add notes to each line, copy results or export the sheet as an image, with local draft management and dark mode.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "草稿计算器",
+          "description": "草稿纸式多行演算：输入行实时计算、回车确认入历史、每行可加备注、结果一键复制，也支持草稿管理、图片复制和深色模式。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.3.4",
+          "publishedAt": "2026-09-13T15:56:46Z",
+          "changelog": "Release 0.3.4：v3 头部对齐——右侧草稿列表头部让出右上角宿主窗口控制胶囊 104px 区域，新增 capsule-retint.js 按面板实际调色板实时重着色胶囊（面板内手动亮/暗切换即时生效）。Release 0.3.3：源码仓库对齐市场 0.3.2 基线（v3 穿透式顶部 chrome + panel-polish.css + i18n manifest 双语块）。Release 0.3.2：迁移到 v3 穿透式顶部 chrome，顶部控件保持可点击，空白区域继续可拖拽。Release 0.3.1：适配 PI-Desktop 跨平台 46px 主机拖拽带和简约三按钮窗口控制胶囊。Release 0.3.0：外观跟随 app 主体——默认跟随宿主主题（app 切换 light/dark 实时更新，无闪屏），面板内保留手动亮/暗切换（覆盖后不再跟随，可手动恢复）；可见 chrome 文案（标题、按钮、toast、占位提示等）支持 en/zh 跟随宿主语言。Release 0.2.0：重构为多草稿稿纸（干净利落的直角风格）——左侧当前草稿：输入行实时计算 + 本稿历史 + 每行可编辑备注 + 清空/复制为图片；右侧草稿列表：时间命名新建、点击切换、管理模式逐条删除。旧版历史自动迁移。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "21c759a0caf1f776a77342ae5aa8b20dfed4418ed18b484dbe184e2ef04effb6",
+          "url": "packages/pi.scratch-calc-0.3.4.piplug",
+          "sizeBytes": 444471,
+          "permissions": [
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-scratch-calc",
+            "sourceRef": "v0.3.4",
+            "sourceCommit": "a3438a0cce7c6cae00920858cae5726764e948ab",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-13T15:56:46Z"
           }
         }
       ]
