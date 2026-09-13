@@ -10,3 +10,4 @@
 
 catalog.json -text -diff -merge
 *.piplug -text -diff -merge -filter
+*.sig -text -diff -merge
