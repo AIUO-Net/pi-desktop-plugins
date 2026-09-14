@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-14T16:56:59Z",
-  "generatedAt": "2026-09-14T16:56:59Z",
+  "updatedAt": "2026-09-14T17:24:02Z",
+  "generatedAt": "2026-09-14T17:24:02Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -176,8 +176,37 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.5.1",
+          "publishedAt": "2026-09-14T17:24:02Z",
+          "changelog": "Release 0.5.1：修掉换文件夹后「用默认应用打开」与「在文件夹中显示」可能打开错文件的问题。这两条通道由宿主执行、只接受工作区相对路径：基点切到项目组里的兄弟文件夹时，相对路径会被宿主按主文件夹解析，两个文件夹里有同名文件就会打开另一个。现在基点不是主文件夹时改送绝对路径（宿主对「本项目已注册文件夹根」下的绝对路径有对应的窄放行：只对绝对路径、只对本项目已注册的根，作用域与凭据黑名单照旧，见 ADR 0253）；基点仍是主文件夹时与 0.5.0 / 0.4 完全一致。另外把换文件夹时的编辑器清理补全：树、展开、选中、搜索与已打开的文件整体重来，编辑器缓冲区也随文件关闭而清空，不会再留着上一个文件夹的文档。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "b1bf74b8e56caa9f47ea9bedf85bd4bd0fe440bd9c5dd6f148c48344b223c89c",
+          "url": "packages/pi.file-manager-0.5.1.piplug",
+          "sizeBytes": 1460149,
+          "permissions": [
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-file-manager",
+            "sourceRef": "v0.5.1",
+            "sourceCommit": "5499275284a1073be843f9be41420bdf3a156186",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-14T17:24:02Z"
+          }
+        },
+        {
           "version": "0.5.0",
-          "publishedAt": "2026-09-14T16:56:59Z",
+          "publishedAt": "2026-09-14T16:57:12Z",
           "changelog": "Release 0.5.0：项目组多文件夹。面板左上角的文件夹名成了切换器（组的文件夹多于一个时才有）：点开是这组 folder 的菜单，标出主文件夹、当前在看的那个打勾，键盘可达、带 aria-haspopup / aria-expanded，Escape 与点到外面都能关；只有一个文件夹（或老宿主不送组信息）时头部与 0.4.0 完全一样。看的是哪个 folder 按项目记住（键 p:\u003cprojectId\u003e，宿主没给 projectId 时用 r:\u003c主根路径\u003e；最多 20 条、按最近写入淘汰；记忆必须命中当前 roots 才被信任，否则退回主根），新项目从主文件夹开始。包含基点始终只有一个 root、绝不放大成整个组的并集：树 / 读 / 写 / 新建 / 重命名 / 移动 / 搜索 / SQLite 一律相对当前选中的那个 root 解析，..、符号链接与 junction 逃逸、凭据黑名单一条都没放松。宿主打开请求落在同项目另一个 root 下时会先把基点切过去、再按「相对该 root」解析。切换会重建视图状态（树、展开、选中、搜索、已打开的文件），并照旧先过「未保存改动」确认——取消就什么都不换。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "e130e5d523d1e85be3624a6df152c87ddd69d328328aaf31455e4d3b456ac21b",
