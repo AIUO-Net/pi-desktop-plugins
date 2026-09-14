@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-14T17:24:02Z",
-  "generatedAt": "2026-09-14T17:24:02Z",
+  "updatedAt": "2026-09-14T17:38:10Z",
+  "generatedAt": "2026-09-14T17:38:10Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -176,8 +176,37 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.5.2",
+          "publishedAt": "2026-09-14T17:38:10Z",
+          "changelog": "Release 0.5.2：修掉「切了文件夹但列表没跟着换」的问题。宿主报的项目目录是正斜杠（C:/Users/…），而插件把「当前在看哪个文件夹」写盘时用 Node 的 path.resolve 存成了反斜杠（C:\\Users\\…）；两边比较只做「原样」与「忽略大小写」两次比对，没有统一分隔符，于是记忆匹配不上任何一个 root，包含基点退回主文件夹——视图用自己那份原样字符串还能匹配（头部名字换了），主进程匹配不上（列表与编辑器停在主文件夹），关掉重开也记不住。现在路径比较与分隔符无关，而且已经写坏的旧记忆也一并救回，用户不需要重新切一次。用例补上这条链路：verify-jail.mjs 的桩宿主改成与真实宿主一致的正斜杠，新增断言「切到兄弟文件夹后列的是它自己的文件」（修复前必然失败）。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "c8416b755e5624ad30110176caa512cd433fdf699ef32c7a2ba2df7f2df2b0f5",
+          "url": "packages/pi.file-manager-0.5.2.piplug",
+          "sizeBytes": 1462096,
+          "permissions": [
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-file-manager",
+            "sourceRef": "v0.5.2",
+            "sourceCommit": "d36ebe9f7fb82ee71e87670b0a65403660b18a00",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-14T17:38:10Z"
+          }
+        },
+        {
           "version": "0.5.1",
-          "publishedAt": "2026-09-14T17:24:02Z",
+          "publishedAt": "2026-09-14T17:24:17Z",
           "changelog": "Release 0.5.1：修掉换文件夹后「用默认应用打开」与「在文件夹中显示」可能打开错文件的问题。这两条通道由宿主执行、只接受工作区相对路径：基点切到项目组里的兄弟文件夹时，相对路径会被宿主按主文件夹解析，两个文件夹里有同名文件就会打开另一个。现在基点不是主文件夹时改送绝对路径（宿主对「本项目已注册文件夹根」下的绝对路径有对应的窄放行：只对绝对路径、只对本项目已注册的根，作用域与凭据黑名单照旧，见 ADR 0253）；基点仍是主文件夹时与 0.5.0 / 0.4 完全一致。另外把换文件夹时的编辑器清理补全：树、展开、选中、搜索与已打开的文件整体重来，编辑器缓冲区也随文件关闭而清空，不会再留着上一个文件夹的文档。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "b1bf74b8e56caa9f47ea9bedf85bd4bd0fe440bd9c5dd6f148c48344b223c89c",
