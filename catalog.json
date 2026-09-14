@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-13T16:01:21Z",
-  "generatedAt": "2026-09-13T16:01:21Z",
+  "updatedAt": "2026-09-14T02:49:00Z",
+  "generatedAt": "2026-09-14T02:49:00Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -20,6 +20,39 @@
       "publisherId": "github",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-09-14T02:49:00Z",
+          "changelog": "生成按勾选范围并补齐 Git 操作\n- 生成提交信息改按已勾选/已暂存范围，多仓聚合一次描述，与提交一致\n- 日志提交者过滤支持指定人，名单按提交数排序加手输\n- 远端检出改为建本地跟踪分支，已存在则落到同名分支\n- 分支/标签/储藏右键与用户/日期/路径过滤补齐，文档同步更新",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "3c695b35af35d5517e795fb6d9cfbff7ab86a23bcecaa4bde2486600d105d568",
+          "url": "packages/io.github.liushunqiu.pi-idea-git-0.3.0.piplug",
+          "sizeBytes": 1056010,
+          "permissions": [
+            "agent.complete",
+            "clipboard.write",
+            "fs.read",
+            "models.list",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/liushunqiu/pi-idea-git",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "2b1ad099f302e713884aa90cb1d6f6fcbd46bd83",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-14T02:49:00Z"
+          }
+        },
         {
           "version": "0.2.0",
           "publishedAt": "2026-09-13T15:26:01Z",
