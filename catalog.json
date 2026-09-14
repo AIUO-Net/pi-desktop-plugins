@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-14T02:49:00Z",
-  "generatedAt": "2026-09-14T02:49:00Z",
+  "updatedAt": "2026-09-14T14:33:26Z",
+  "generatedAt": "2026-09-14T14:33:26Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -22,7 +22,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-09-14T02:49:00Z",
+          "publishedAt": "2026-09-14T02:49:12Z",
           "changelog": "生成按勾选范围并补齐 Git 操作\n- 生成提交信息改按已勾选/已暂存范围，多仓聚合一次描述，与提交一致\n- 日志提交者过滤支持指定人，名单按提交数排序加手输\n- 远端检出改为建本地跟踪分支，已存在则落到同名分支\n- 分支/标签/储藏右键与用户/日期/路径过滤补齐，文档同步更新",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "3c695b35af35d5517e795fb6d9cfbff7ab86a23bcecaa4bde2486600d105d568",
@@ -175,6 +175,35 @@
       "publisherId": "pi",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.4.0",
+          "publishedAt": "2026-09-14T14:33:26Z",
+          "changelog": "宿主驱动的打开请求 + 左侧文件列表可收起。\n\n- 宿主可以要求视图打开某个文件：入口 URL 的 ?piViewOpen= 载荷（挂载时同步读一次）与 view:open 推送（页面加载完成后用于实时更新）两条路径全部接住，同一条请求重复投递只处理一次。\n- 项目内路径照旧展开并加载祖先目录，效果与点击搜索结果一致；打开前照旧走「未保存改动」确认，绝不静默丢弃编辑。\n- 宿主自己选定的项目外绝对路径（会话临时目录 / 附件）也能打开与保存：视图带 external 标记，插件不做根内包含校验（它本来就在根外），但凭据类黑名单照旧全量生效，且在原始字符串、规范化后与 realpath 之后各查一遍；保存仍走原子写并记审计。\n- 左侧文件列表可整块收起，宽度照旧由 splitRatio 保留、展开即恢复；工具栏新增键盘可达的切换按钮，宿主请求打开文件时自动收起并持久化。\n\nmain.js 的根内通道行为（错误码、符号链接与 junction 校验）未改动。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "a8cbfd5a0c31c8685fb7d9ed2e0c57bcbd5871dcbbb701382bf7aecfbc5ae83b",
+          "url": "packages/pi.file-manager-0.4.0.piplug",
+          "sizeBytes": 1433256,
+          "permissions": [
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-file-manager",
+            "sourceRef": "v0.4.0",
+            "sourceCommit": "6c7ee2fc2744e7af5a16be9b9c9cab6a9956830f",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-14T14:33:26Z"
+          }
+        },
         {
           "version": "0.3.1",
           "publishedAt": "2026-09-13T15:26:01Z",
