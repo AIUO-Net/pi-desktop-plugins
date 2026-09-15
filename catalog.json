@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-15T08:44:52Z",
-  "generatedAt": "2026-09-15T08:44:52Z",
+  "updatedAt": "2026-09-15T08:45:22Z",
+  "generatedAt": "2026-09-15T08:45:22Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -473,13 +473,13 @@
       "downloads": 0,
       "versions": [
         {
-          "version": "0.4.8",
-          "publishedAt": "2026-09-15T08:44:52Z",
+          "version": "0.4.7",
+          "publishedAt": "2026-09-15T08:45:22Z",
           "changelog": "1",
           "minPiDesktop": "\u003e=0.2.9",
-          "shasum": "220506deb22c680074fb65856ad0b769435246a7a850184e8226f602bc9eb427",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.token-insights-0.4.8/pi.token-insights-0.4.8.piplug",
-          "sizeBytes": 171505,
+          "shasum": "95c23d65596cf45ab1cd3ef2af36f20cceb7f0b3f22c68744c483cbf67a4b2fc",
+          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.token-insights-0.4.7/pi.token-insights-0.4.7.piplug",
+          "sizeBytes": 164164,
           "permissions": [
             "agent.tool.register",
             "ui.panel"
