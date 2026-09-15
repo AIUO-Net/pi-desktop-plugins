@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-15T08:45:22Z",
-  "generatedAt": "2026-09-15T08:45:22Z",
+  "updatedAt": "2026-09-14T17:38:24Z",
+  "generatedAt": "2026-09-14T17:38:24Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -26,7 +26,7 @@
           "changelog": "生成按勾选范围并补齐 Git 操作\n- 生成提交信息改按已勾选/已暂存范围，多仓聚合一次描述，与提交一致\n- 日志提交者过滤支持指定人，名单按提交数排序加手输\n- 远端检出改为建本地跟踪分支，已存在则落到同名分支\n- 分支/标签/储藏右键与用户/日期/路径过滤补齐，文档同步更新",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "3c695b35af35d5517e795fb6d9cfbff7ab86a23bcecaa4bde2486600d105d568",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-io.github.liushunqiu.pi-idea-git-0.3.0/io.github.liushunqiu.pi-idea-git-0.3.0.piplug",
+          "url": "packages/io.github.liushunqiu.pi-idea-git-0.3.0.piplug",
           "sizeBytes": 1056010,
           "permissions": [
             "agent.complete",
@@ -59,7 +59,7 @@
           "changelog": "仿idea里面的git工具,初版,暂时能用",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "cec452d21f363e5c3a6c11b6b1e7a6a94f58844864e1cc0c34be7b6bf2ad4a68",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-io.github.liushunqiu.pi-idea-git-0.2.0/io.github.liushunqiu.pi-idea-git-0.2.0.piplug",
+          "url": "packages/io.github.liushunqiu.pi-idea-git-0.2.0.piplug",
           "sizeBytes": 926724,
           "permissions": [
             "agent.complete",
@@ -103,7 +103,7 @@
           "changelog": "Release 0.5.0：Agent 工具改为「预览模式打开文件」——以 preview_file 取代 open_file：按绝对路径以只读预览打开单个 Markdown/文本文件（本地 Node fs 读写，无需选定目录、任意路径可用），面板不显示侧边栏，只有「预览 / 编辑」两态，用户点「编辑」后才能修改并自动写回原文件；因此移除 fs.read / fs.write 权限与 manifest.fs 声明。面板配色改为 Typora Inkwell 主题（浅色柔和灰调 / 黑夜深蓝低饱和），编辑区宽度随窗口放宽（860 → 1024 → 1200）。修复代码块与公式的「双层边框」（改为单层圆角容器 + 语言标题栏）、代码块在浅色主题下被 oneDark 强撑深色配色、Mermaid 图表不随主题切换、任务列表勾选框对比度过低、状态栏按钮溢出 4px；公式与 Mermaid 默认显示渲染结果（点「编辑」看源码）、块级公式居中、去掉多余的「预览」标签；代码块标题栏与语言下拉收紧（49px → 31px，统一 22px 控件与滚动条样式）；清理 panel-polish.css 中一批从未生效的选择器（.sidebar-container / .editor-pane / .tab-button 等）。Release 0.4.8：合并市场 0.4.7 基线——迁移 v3 穿透式顶部 chrome、panel-polish、窗口控制胶囊实时重着色与 pimd.theme.v1 主题镜像预绘；manifest 增补 i18n 双语块；保留本仓库独有 open_file（宿主 pi.fs 权限网关 + 单文件模式）与面板中英 i18n。Release 0.4.7：宿主顶部拖拽带按页面元素切分，控件可点击、空白处可拖拽；面板改为 v3 全出血布局。Release 0.4.6：修复 v2 面板顶部安全区重复留白；侧栏搜索与笔记标题行从宿主 46px 拖拽带下沿直接开始，保留宿主拖拽区并消除额外 8px 顶部内边距；同时让根布局填满视口，避免底部出现对应空白。Release 0.4.5：压缩面板内部的大间隙。根因是 Crepe 自带主题在 bundle 中排在应用自定义样式之后，其 .ProseMirror { padding: 60px 120px } 在级联中胜出——正文第一行之前实际垫了约 190px（46px 拖拽带 + 53px 标题行 + 60px Crepe 内边距 + 28px 首个标题外边距）。现由最后加载的 panel-polish.css 重新声明紧凑内边距（上 12px、随宽自适应、底部 40vh 滚动余量），并去掉首块元素的外边距；同时收紧各行高：侧栏搜索行 49px→43px、tabs 行 34px→30px、笔记标题行 53px→45px；侧栏的 46px 拖拽带区域改绘为侧栏头部同色，与搜索行连成一体，不再呈现为空洞。Release 0.4.4：面板改为 v2 全出血布局，并修复亮色模式下窗口控制胶囊不可见的问题。(1) 声明 pi-plugin-chrome=v2，宿主不再向 body 注入 46px 顶部内边距——内容直接顶到窗口上沿，滚动时从透明的宿主拖拽带下方穿过（胶囊即悬浮在内容之上）；搜索框、tabs、笔记标题行等交互行固定在带下沿（top: var(--pi-plugin-titlebar-height, 46px)）之外，因该区域仅为拖拽区、不接收点击。(2) 宿主只在自家外观广播时给胶囊重新取色，面板内米白/黑夜切换后墨色停留在旧主题上，亮色页面配浅色墨几乎不可见；现由渲染端监听 data-theme 变化，实时把当前调色板覆写到宿主胶囊元素的两个取色变量上，任何来源的主题切换胶囊都立即重上色。(3) body 直接着色 rgb(var(--c-bg))/rgb(var(--c-ink))，宿主一次性取色与实际页面永远一致。Release 0.4.3：修复宿主切换外观后重开面板时窗口控制胶囊仍按旧配色绘制而不可见的问题——宿主驱动的主题变更此前只改写 data-theme，React 不感知、pimd.theme.v1 镜像不更新，下次打开即按过期主题首绘，宿主在 DOMContentLoaded 对页面颜色的一次性快照（胶囊取色）拿到错误墨色；现由外观运行时在每次实际应用的主题变化时把真实主题写回镜像，首帧与镜像永远一致。同时压紧 46px 宿主拖拽带之下的首行 UI：侧栏头部内边距与搜索框高度收紧、背景改用页面底色，编辑器顶栏最小高度 44px 收窄为 36px，消除「空拖拽带 + 高工具行」叠成双层头部的观感。Release 0.4.2：修复深色主题下窗口控制胶囊近乎不可见的问题——宿主在 DOMContentLoaded 时对页面颜色做快照为胶囊上色，而此刻 data-theme 可能仍是旧值/回放值；现于首帧前从本地镜像（pimd.theme.v1）同步恢复应用真实主题，主题变更时实时写回镜像，初始 state 也跟随已应用的 data-theme 避免闪屏；移除对宿主不存在通道 appearance.sync 的无效调用。Release 0.4.1：适配 PI-Desktop 跨平台 46px 主机拖拽带和简约三按钮窗口控制胶囊；Agent 工具 open_file 落地（需 agent.tool.register 高风险权限）——Agent 传入完整绝对路径，即可在面板单文件模式中打开该文件编辑（隐藏笔记列表，仅显示当前文件，无法切换其他文件），编辑经 800ms 防抖自动保存写回原文件（保留原 BOM），仅支持 .md/.markdown/.txt、≤5MB、utf8 文本（拒绝二进制），面板 1s 轮询拉取待打开文件、心跳 60s 过期后可被新调用接管、Plan 模式不可用；随后文件内容读写由插件进程内 Node fs 迁移至宿主 pi.fs 权限网关（manifest.fs 声明 userSelected 根，首次调用弹出原生目录选择器，仅能打开/写回用户选定目录内的文件；网关负责越界/符号链接/凭据路径校验与审计）；manifest.ui.title 改为宿主双语 { en, \"zh-CN\" }；命令标题/面板标题/工具提示按宿主语言（pi.app.getLocale）切换；面板默认跟随宿主主题（读宿主注入的 data-theme），面板内切换保留为手动覆盖（themeSource 持久化）。Release 0.4.0：面板跟随 app 主体的语言与颜色模式——宿主切换亮/暗或语言时，编辑器与界面配色实时更新（CSS 由 :root[data-theme=...] 驱动，配合宿主 app.getAppearance 通道与 appearance:changed 事件）；未手动覆盖主题时 settings.theme 自动同步为宿主 base，面板内的米白/黑夜切换仍可手动覆盖（此后不再被宿主覆盖）；旧版宿主自动降级为面板自带的主题跟随。Release 0.3.2：代码块支持 Mermaid 图表实时渲染（输入 ```mermaid 即出图表，源码始终可编辑、300ms 防抖随明暗主题切换；HTML/PNG 导出渲染为内嵌 SVG）。Release 0.3.1：修复 LaTeX 公式依赖 CodeMirror 导致编辑器无法初始化的问题；修复 HTML/PNG 导出中块级公式与代码高亮缺失的问题（改为 Markdown 源码经编辑器 parser/serializer 渲染）；新增米白（默认）/黑夜双主题与状态栏切换开关，主题偏好随 settings.json 持久化；代码块预览即所得（LaTeX 直接显示 KaTeX 公式、普通代码块显示高亮）。Release 0.3.0：编辑器由 Toast UI WYSIWYG（富文本+补丁）更换为 Milkdown Crepe——真正的所见即所得 Markdown 编辑，输入语法即出样式（含中文输入法）、斜杠菜单/块拖拽手柄、图片 data URL 内嵌、297 种语言 Prism 高亮。Release 0.2.0：完整 Markdown 笔记应用（React + TypeScript + Tailwind 重写面板）。Release 0.1.0：模板初始版本。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "d276b310c4db0461ab93d3dbdc2df5d563d3e7489a31912ee6cac9d1184e316a",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-local.pi-markdown-0.5.0/local.pi-markdown-0.5.0.piplug",
+          "url": "packages/local.pi-markdown-0.5.0.piplug",
           "sizeBytes": 19087107,
           "permissions": [
             "agent.prompt.inject",
@@ -138,7 +138,7 @@
           "changelog": "Release 0.2.0: 支持剪贴板图片采集与恢复（宿主 getHistory 可用时自动启用，可关闭）；新增保存图片开关。Image capture \u0026 restore when the host exposes getHistory, with a save-images toggle.",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "847ec718a7db0949112dad36931977e04ed0372cdc3c719435c4a6aa35431fd4",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.clipboard-history-0.2.0/pi.clipboard-history-0.2.0.piplug",
+          "url": "packages/pi.clipboard-history-0.2.0.piplug",
           "sizeBytes": 89974,
           "permissions": [
             "background.service",
@@ -181,7 +181,7 @@
           "changelog": "Release 0.5.2：修掉「切了文件夹但列表没跟着换」的问题。宿主报的项目目录是正斜杠（C:/Users/…），而插件把「当前在看哪个文件夹」写盘时用 Node 的 path.resolve 存成了反斜杠（C:\\Users\\…）；两边比较只做「原样」与「忽略大小写」两次比对，没有统一分隔符，于是记忆匹配不上任何一个 root，包含基点退回主文件夹——视图用自己那份原样字符串还能匹配（头部名字换了），主进程匹配不上（列表与编辑器停在主文件夹），关掉重开也记不住。现在路径比较与分隔符无关，而且已经写坏的旧记忆也一并救回，用户不需要重新切一次。用例补上这条链路：verify-jail.mjs 的桩宿主改成与真实宿主一致的正斜杠，新增断言「切到兄弟文件夹后列的是它自己的文件」（修复前必然失败）。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "c8416b755e5624ad30110176caa512cd433fdf699ef32c7a2ba2df7f2df2b0f5",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.file-manager-0.5.2/pi.file-manager-0.5.2.piplug",
+          "url": "packages/pi.file-manager-0.5.2.piplug",
           "sizeBytes": 1462096,
           "permissions": [
             "fs.read",
@@ -210,7 +210,7 @@
           "changelog": "Release 0.5.1：修掉换文件夹后「用默认应用打开」与「在文件夹中显示」可能打开错文件的问题。这两条通道由宿主执行、只接受工作区相对路径：基点切到项目组里的兄弟文件夹时，相对路径会被宿主按主文件夹解析，两个文件夹里有同名文件就会打开另一个。现在基点不是主文件夹时改送绝对路径（宿主对「本项目已注册文件夹根」下的绝对路径有对应的窄放行：只对绝对路径、只对本项目已注册的根，作用域与凭据黑名单照旧，见 ADR 0253）；基点仍是主文件夹时与 0.5.0 / 0.4 完全一致。另外把换文件夹时的编辑器清理补全：树、展开、选中、搜索与已打开的文件整体重来，编辑器缓冲区也随文件关闭而清空，不会再留着上一个文件夹的文档。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "b1bf74b8e56caa9f47ea9bedf85bd4bd0fe440bd9c5dd6f148c48344b223c89c",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.file-manager-0.5.1/pi.file-manager-0.5.1.piplug",
+          "url": "packages/pi.file-manager-0.5.1.piplug",
           "sizeBytes": 1460149,
           "permissions": [
             "fs.read",
@@ -239,7 +239,7 @@
           "changelog": "Release 0.5.0：项目组多文件夹。面板左上角的文件夹名成了切换器（组的文件夹多于一个时才有）：点开是这组 folder 的菜单，标出主文件夹、当前在看的那个打勾，键盘可达、带 aria-haspopup / aria-expanded，Escape 与点到外面都能关；只有一个文件夹（或老宿主不送组信息）时头部与 0.4.0 完全一样。看的是哪个 folder 按项目记住（键 p:\u003cprojectId\u003e，宿主没给 projectId 时用 r:\u003c主根路径\u003e；最多 20 条、按最近写入淘汰；记忆必须命中当前 roots 才被信任，否则退回主根），新项目从主文件夹开始。包含基点始终只有一个 root、绝不放大成整个组的并集：树 / 读 / 写 / 新建 / 重命名 / 移动 / 搜索 / SQLite 一律相对当前选中的那个 root 解析，..、符号链接与 junction 逃逸、凭据黑名单一条都没放松。宿主打开请求落在同项目另一个 root 下时会先把基点切过去、再按「相对该 root」解析。切换会重建视图状态（树、展开、选中、搜索、已打开的文件），并照旧先过「未保存改动」确认——取消就什么都不换。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "e130e5d523d1e85be3624a6df152c87ddd69d328328aaf31455e4d3b456ac21b",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.file-manager-0.5.0/pi.file-manager-0.5.0.piplug",
+          "url": "packages/pi.file-manager-0.5.0.piplug",
           "sizeBytes": 1460284,
           "permissions": [
             "fs.read",
@@ -268,7 +268,7 @@
           "changelog": "宿主驱动的打开请求 + 左侧文件列表可收起。\n\n- 宿主可以要求视图打开某个文件：入口 URL 的 ?piViewOpen= 载荷（挂载时同步读一次）与 view:open 推送（页面加载完成后用于实时更新）两条路径全部接住，同一条请求重复投递只处理一次。\n- 项目内路径照旧展开并加载祖先目录，效果与点击搜索结果一致；打开前照旧走「未保存改动」确认，绝不静默丢弃编辑。\n- 宿主自己选定的项目外绝对路径（会话临时目录 / 附件）也能打开与保存：视图带 external 标记，插件不做根内包含校验（它本来就在根外），但凭据类黑名单照旧全量生效，且在原始字符串、规范化后与 realpath 之后各查一遍；保存仍走原子写并记审计。\n- 左侧文件列表可整块收起，宽度照旧由 splitRatio 保留、展开即恢复；工具栏新增键盘可达的切换按钮，宿主请求打开文件时自动收起并持久化。\n\nmain.js 的根内通道行为（错误码、符号链接与 junction 校验）未改动。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "a8cbfd5a0c31c8685fb7d9ed2e0c57bcbd5871dcbbb701382bf7aecfbc5ae83b",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.file-manager-0.4.0/pi.file-manager-0.4.0.piplug",
+          "url": "packages/pi.file-manager-0.4.0.piplug",
           "sizeBytes": 1433256,
           "permissions": [
             "fs.read",
@@ -297,7 +297,7 @@
           "changelog": "Release 0.3.1：文件右键新增「用默认应用打开」与「在文件夹中显示」，由宿主代为执行 fs.openDefault / fs.reveal，为此 manifest 首次声明 fs.read（root workspace、scope **，权限与范围同内置 Files 视图）；两个动作只对文件有效，目录会返回 INVALID_ARGUMENT。插件自身的读写仍走自己进程内的 Node fs，宿主权限网关不介入。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "dffe21e8c51e4abfd33767c193681856c2f24a1f5ee883e6ca727c0f5ca62488",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.file-manager-0.3.1/pi.file-manager-0.3.1.piplug",
+          "url": "packages/pi.file-manager-0.3.1.piplug",
           "sizeBytes": 1424006,
           "permissions": [
             "fs.read",
@@ -355,7 +355,7 @@
           "changelog": "Release 0.2.7: follow the app color mode only — never snap to the OS palette, which flashed when the two disagreed. Release 0.2.6: follows the app light/dark mode live in the work-panel view. Release 0.2.5: drop agent tools and the Git workflow skill — Git Lens is a human work-panel UI only. Release 0.2.5：去掉 AI 工具和 Git workflow skill，Git Lens 只给人用。 Release 0.2.4: command palette, toasts and the work-panel UI follow the app language (en / zh-CN) from the first paint. Release 0.2.3: compact work-panel UI — overview is a single count row; file/commit diffs open as a full-page sheet with Back. Release 0.2.0: docks only in the right work panel.",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "40babc1d5f59f221ca17f0299647053636d403fbf11c7dc97daab197a10dadf3",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.gitlens-0.2.7/pi.gitlens-0.2.7.piplug",
+          "url": "packages/pi.gitlens-0.2.7.piplug",
           "sizeBytes": 104789,
           "permissions": [
             "ui.view"
@@ -388,7 +388,7 @@
           "changelog": "Release 0.3.4：v3 头部对齐——右侧草稿列表头部让出右上角宿主窗口控制胶囊 104px 区域，新增 capsule-retint.js 按面板实际调色板实时重着色胶囊（面板内手动亮/暗切换即时生效）。Release 0.3.3：源码仓库对齐市场 0.3.2 基线（v3 穿透式顶部 chrome + panel-polish.css + i18n manifest 双语块）。Release 0.3.2：迁移到 v3 穿透式顶部 chrome，顶部控件保持可点击，空白区域继续可拖拽。Release 0.3.1：适配 PI-Desktop 跨平台 46px 主机拖拽带和简约三按钮窗口控制胶囊。Release 0.3.0：外观跟随 app 主体——默认跟随宿主主题（app 切换 light/dark 实时更新，无闪屏），面板内保留手动亮/暗切换（覆盖后不再跟随，可手动恢复）；可见 chrome 文案（标题、按钮、toast、占位提示等）支持 en/zh 跟随宿主语言。Release 0.2.0：重构为多草稿稿纸（干净利落的直角风格）——左侧当前草稿：输入行实时计算 + 本稿历史 + 每行可编辑备注 + 清空/复制为图片；右侧草稿列表：时间命名新建、点击切换、管理模式逐条删除。旧版历史自动迁移。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "21c759a0caf1f776a77342ae5aa8b20dfed4418ed18b484dbe184e2ef04effb6",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.scratch-calc-0.3.4/pi.scratch-calc-0.3.4.piplug",
+          "url": "packages/pi.scratch-calc-0.3.4.piplug",
           "sizeBytes": 444471,
           "permissions": [
             "ui.panel"
@@ -428,7 +428,7 @@
           "changelog": "v0.4.4：v3 头部对齐——内容区首行 view-head 让出右上角宿主窗口控制胶囊 104px 区域，新增 capsule-retint.js 按面板实际调色板实时重着色胶囊（面板内手动亮/暗切换即时生效）。v0.4.3：源码仓库对齐市场 0.4.2 基线——迁移 v3 穿透式顶部 chrome、panel-polish.css/style-boot.js 与 i18n manifest 双语块。v0.4.2：迁移到 v3 穿透式顶部 chrome，顶部控件保持可点击，空白区域继续可拖拽。v0.4.1：适配 PI-Desktop 跨平台 46px 主机拖拽带和简约三按钮窗口控制胶囊。v0.4.0：外观跟随 app 主体——预绘按「外观缓存 → 自带 sdm.settings.theme → 系统」恢复主题并同步 data-lang/lang，运行时订阅宿主 theme/locale 实时更新（无闪屏）；面板内手动切换主题仍可用。v0.3.1：声明 manifest.net.domains 网络白名单（云厂商 API、crt.sh、通知 Webhook、ACME CA），修复新版宿主 egress 策略下所有网络请求被拒（plugin declares no manifest.net.domains; api.cloudflare.com is unreachable）的问题。v0.2.0：重构为干净利落的直角风格（黑白灰 + 橙色强调、无圆角无投影、1px 细线分隔）；默认跟随系统深浅模式，侧边栏可一键切换；进入解析记录自动拉取数据；子页面导航保持父菜单选中态。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "2bc7d8e96909b185f1d62a577256d022f7bbee9899baf8ae5d5392cc8f60a08d",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.super-domain-man-0.4.4/pi.super-domain-man-0.4.4.piplug",
+          "url": "packages/pi.super-domain-man-0.4.4.piplug",
           "sizeBytes": 549194,
           "permissions": [
             "agent.tool.register",
@@ -478,7 +478,7 @@
           "changelog": "Release 0.6.5：到期提醒迁移到宿主托管后台服务（due-reminder service + background.service 权限），面板关闭时插件进程常驻调度，到期任务经原生系统通知提醒。\n\n- 新增 capsule-retint.js，面板内主题切换时实时重着色宿主窗口控制胶囊\n- 主进程与渲染端共用 reminded 字段去重，不重复通知",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "70b61d3078f3d4b662e1a184597a8dcffba0bc41cf2560c1c0827c9ab92e37fa",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.todo-0.6.5/pi.todo-0.6.5.piplug",
+          "url": "packages/pi.todo-0.6.5.piplug",
           "sizeBytes": 92951,
           "permissions": [
             "agent.tool.register",
@@ -495,40 +495,6 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-12T06:02:55Z"
           }
-        }
-      ]
-    },
-    {
-      "id": "pi.token-insights",
-      "name": "1",
-      "description": "1",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "1",
-          "description": "1"
-        }
-      },
-      "categories": [],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "pi",
-      "downloads": 0,
-      "versions": [
-        {
-          "version": "0.4.7",
-          "publishedAt": "2026-09-15T08:45:22Z",
-          "changelog": "1",
-          "minPiDesktop": "\u003e=0.2.9",
-          "shasum": "95c23d65596cf45ab1cd3ef2af36f20cceb7f0b3f22c68744c483cbf67a4b2fc",
-          "url": "https://github.com/AIUO-Net/pi-desktop-plugins/releases/download/pi-plugin-pi.token-insights-0.4.7/pi.token-insights-0.4.7.piplug",
-          "sizeBytes": 164164,
-          "permissions": [
-            "agent.tool.register",
-            "ui.panel"
-          ],
-          "fs": {},
-          "yanked": false
         }
       ]
     }
