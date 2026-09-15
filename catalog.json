@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-14T17:38:24Z",
-  "generatedAt": "2026-09-14T17:38:24Z",
+  "updatedAt": "2026-09-15T16:59:30Z",
+  "generatedAt": "2026-09-15T16:59:30Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -447,6 +447,49 @@
             "sourceCommit": "80bfc46640c260b9313c000a07ccac3634f561e0",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-13T15:57:08Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.theme.studio",
+      "name": "Theme Studio",
+      "description": "PI-Desktop theme studio: 5 built-in palettes, visual editing of all 56 --ds-* tokens and 7 background regions (window, sidebar, chat, dock, titlebar, thread, composer) with fills, gradients, local PNG images, blur and radius. The preview is a faithful replica of the real window, contrast is checked live (WCAG 2.1), and image backgrounds are referenced by absolute path so saving never reloads the plugin. Also ships four Agent tools, so a theme can be created from a sentence.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "主题工坊",
+          "description": "PI-Desktop 主题工坊：内置 5 套配色，可视化调出属于自己的主题并一键应用。覆盖全部 56 个 --ds-* token；点预览里的区域即可编辑那一块（整窗 / 左栏 / 中栏 / 右栏 / 标题栏 / 会话区 / 输入栏），各自可设底色、渐变、图片、模糊与圆角，带实时预览与 WCAG 对比度检查。图片拖进来即用，存在插件自己的数据目录里，主题 CSS 直接引用它的绝对路径，所以保存不会重载插件。另带 4 个 Agent 工具，可以用一句话让 Agent 直接建/改主题。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-09-15T16:59:30Z",
+          "changelog": "v1.0.0 第一个正式版。渲染层完全重写为 React 19 + Tailwind 4 + shadcn/ui 风格组件（Vite 打包，renderer/ 从此是构建产物），预览按真窗口的结构与几何重建，类名与宿主的完全一致。新增 4 个 Agent 工具：theme_studio_list / theme_studio_import_image / theme_studio_write / theme_studio_delete —— 可以用一句话让 Agent 建主题（给图片路径、指定哪一块背景、要不要透明），改内置预设会自动先复制一份。修复四个真问题：半透明 token 的对比度恒为 0（color-mix 的 oklab 计算值读不出来）、「一键透出」写错对象层级、预览中栏缺少布局容器导致输入栏悬在中间、区域「标题栏」选择器不匹配聊天页。",
+          "minPiDesktop": "\u003e=0.14.8",
+          "shasum": "6d8fe53f1c1882465e3eb756ba32b4e3af502d270dedec54f28a9f1548c6d9c7",
+          "url": "packages/pi.theme.studio-1.0.0.piplug",
+          "sizeBytes": 956191,
+          "permissions": [
+            "agent.tool.register",
+            "ui.panel",
+            "ui.theme",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-theme-studio",
+            "sourceRef": "v1.0.0",
+            "sourceCommit": "cebfcc8dc5276ba96cffc9fd6f62997857252a3a",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-15T16:59:30Z"
           }
         }
       ]
