@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-15T16:59:30Z",
-  "generatedAt": "2026-09-15T16:59:30Z",
+  "updatedAt": "2026-09-15T18:11:57Z",
+  "generatedAt": "2026-09-15T18:11:57Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -469,8 +469,33 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "1.1.0",
+          "publishedAt": "2026-09-15T18:11:57Z",
+          "changelog": "内置预设新增 QQ 2008（蓝白玻璃质感：半透明标题栏 + 会话区 8×8 平铺贴图，贴图随包分发、加载时落进插件数据目录），内置预设共 6 套；新版本里新增的预设会自动并进已有主题库 —— 库里已有同名同设计的主题会被认领成预设（不重复添加、不动设计），删掉过的不会被复活。新增导入/导出 —— 把当前主题打包成一个自包含的 ZIP（theme.json 设计 + theme.css + preview.png 预览图 + images/ 原图字节 + README.txt + manifest.json 清单），位置由你在原生对话框里选；导入同一个包即还原（图片落进本机数据目录并改写引用，id 冲突派生成 xxx-2 不覆盖）。另可单独导出预览图 PNG。ZIP 用 Node 自带 zlib 自己拼，不引依赖。面板里的动作结果也都有了提示：导出（带路径与「复制路径」按钮）、导入、应用、切换宿主主题、上传图片、复制 CSS 各一条，失败一律把原因弹出来 —— 底部那行 10.5px 的状态字实在没人盯得住。新增权限 fs.read（中危）：导出/导入要弹宿主的原生目录对话框（pi.fs.requestDirectory 需要它）；zip 的读写本身走原生 node:fs，只发生在用户刚选中的那个目录里。",
+          "minPiDesktop": "\u003e=0.14.8",
+          "shasum": "89ccfe07382e2a472a600f88503444a9935dda87aaef2e1495a0d77d5ce6aa93",
+          "url": "packages/pi.theme.studio-1.1.0.piplug",
+          "sizeBytes": 1040183,
+          "permissions": [
+            "agent.tool.register",
+            "fs.read",
+            "ui.panel",
+            "ui.theme",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-theme-studio",
+            "sourceRef": "v1.1.0",
+            "sourceCommit": "7511f831028b617a5a6154d00044ab0ff990e17b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-15T18:11:57Z"
+          }
+        },
+        {
           "version": "1.0.0",
-          "publishedAt": "2026-09-15T16:59:30Z",
+          "publishedAt": "2026-09-15T16:59:46Z",
           "changelog": "v1.0.0 第一个正式版。渲染层完全重写为 React 19 + Tailwind 4 + shadcn/ui 风格组件（Vite 打包，renderer/ 从此是构建产物），预览按真窗口的结构与几何重建，类名与宿主的完全一致。新增 4 个 Agent 工具：theme_studio_list / theme_studio_import_image / theme_studio_write / theme_studio_delete —— 可以用一句话让 Agent 建主题（给图片路径、指定哪一块背景、要不要透明），改内置预设会自动先复制一份。修复四个真问题：半透明 token 的对比度恒为 0（color-mix 的 oklab 计算值读不出来）、「一键透出」写错对象层级、预览中栏缺少布局容器导致输入栏悬在中间、区域「标题栏」选择器不匹配聊天页。",
           "minPiDesktop": "\u003e=0.14.8",
           "shasum": "6d8fe53f1c1882465e3eb756ba32b4e3af502d270dedec54f28a9f1548c6d9c7",
