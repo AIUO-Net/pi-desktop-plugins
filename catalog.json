@@ -4,11 +4,57 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-16T02:49:15Z",
-  "generatedAt": "2026-09-16T02:49:15Z",
+  "updatedAt": "2026-09-16T17:56:46Z",
+  "generatedAt": "2026-09-16T17:56:46Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
+    {
+      "id": "cc.mcii.session-notify",
+      "name": "Session Notify",
+      "description": "Watch all sessions and push title + status to Feishu, DingTalk, WeCom, KOOK, ServerChan, Telegram, a generic webhook, or a custom API. No message text.",
+      "author": "LectWolf",
+      "i18n": {
+        "zh-CN": {
+          "name": "会话通知",
+          "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cc",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/cc.mcii.session-notify",
+      "readmeMarkdown": "# 会话通知\r\n\r\nPI-Desktop 插件。监听**全部会话**的状态变化，把**标题 + 状态**推到你添加的通道。不读消息正文，不接 QQ 官方 API。\r\n\r\n- 插件 id：`cc.mcii.session-notify`\r\n- 许可证：[GPL-3.0-only](./LICENSE)\r\n- 源码：https://github.com/LectWolf/pi-session-notify\r\n- 主页：https://plugins.aiuo.net/plugins/cc.mcii.session-notify\r\n\r\n## 会推什么\r\n\r\n| 状态 | 意思 | 默认 |\r\n| --- | --- | --- |\r\n| 等待输入 | 助手停下来等你说话 | 开 |\r\n| 等待批准 | 助手要跑工具，等你点允许 | 开 |\r\n| 结束 | 这一轮正常完成 | 开 |\r\n| 出错 | 这一轮失败 | 开 |\r\n| 正在回复 | 助手开始干活（生成/调工具）。每次开动都会推，容易刷屏 | 关 |\r\n| 被停止 | 你点了停止，或回合被取消 | 关 |\r\n\r\n只在状态**变化**时发送一次。没有全局「启用推送」：每条通道自己开/关。启用中的通道，名称右侧有状态点。右上角设置里 **前台也发送** 默认开；关掉后，PI-Desktop 在前台时不推。\r\n\r\n**最近推送**只保留 **5 条**，只在内存里，插件或进程重启后清空。\r\n\r\n## 推送方式\r\n\r\n面板里 **添加推送**。同类型可加多次（例如两个飞书），每条自己起名。专用类型旁有 **申请地址→**，点击复制官方文档链接。\r\n\r\n| 类型 | 你要填的 | 发出去的内容 |\r\n| --- | --- | --- |\r\n| 飞书 | 群机器人 Webhook；签名密钥仅在开了「签名校验」时填 | 飞书文本：`会话名 · 等待输入` |\r\n| 钉钉 | 群机器人 Webhook；加签密钥仅在开了「加签」时填 | 钉钉文本消息 |\r\n| 企业微信 | 群机器人 Webhook 地址 | 企微文本消息 |\r\n| KOOK | 频道 Webhook 地址 | KOOK 文本：`{ type: 1, content }` |\r\n| Server酱 | 只填 SendKey（一般 SCT 开头），不用填 URL | `title` + `desp` |\r\n| Telegram | Bot Token + Chat ID。公开频道可填 `@channelname`；私聊/群必须是数字 ID，不能填个人 `@用户名` | `sendMessage` 文本 |\r\n| 通用 Webhook | 任意 http(s) 地址 | 固定 JSON，见下 |\r\n| 自定义 API | 方法、请求头、正文模板（NapCat / Qmsg 走这条） | 你自己的模板 |\r\n\r\n**签名密钥**：飞书/钉钉群机器人的安全设置。没开签名/加签就留空；开了才把后台给的 secret 填进去，用来给请求做 HMAC，不是 Webhook 地址。\r\n\r\n每条通道可单独打开 **使用代理**（默认关）。Telegram 在国内通常需要开。代理在面板右上角齿轮里设：默认自动获取系统/环境变量，也可手动填 `http://127.0.0.1:7890`。\r\n\r\n### 通用 Webhook 是什么\r\n\r\n不是飞书/钉钉那种机器人协议。它只做一件事：往你填的地址 **POST** 一段固定 JSON：\r\n\r\n```json\r\n{\r\n  \"title\": \"会话名\",\r\n  \"status\": \"waiting_input\",\r\n  \"statusLabel\": \"等待输入\",\r\n  \"sessionId\": \"abcd1234\",\r\n  \"at\": \"2026-04-08T12:00:00.000Z\",\r\n  \"text\": \"会话名 · 等待输入\"\r\n}\r\n```\r\n\r\n适合自己写的接收端、n8n、Make、Cloudflare Worker。飞书/钉钉/企微/KOOK/Server酱/Telegram 请用上面的专用类型。要改 HTTP 方法、请求头或正文模板，用 **自定义 API**。\r\n\r\n自定义 API 才用占位符：`{{title}}` `{{status}}` `{{statusLabel}}` `{{sessionId}}` `{{at}}`。",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-09-16T17:56:46Z",
+          "changelog": "修复了申请地址无法打开外部浏览器的问题，改为点击复制官方文档链接\n修复了保存/测试后在两张卡片中间弹出「已保存 / OK」的干扰提示\n新增了飞书 / 钉钉 / 企业微信 / KOOK / Server酱 / Telegram / 通用 Webhook / 自定义 API 通道\n新增了每条通道独立启用、命名、通知事件和「使用代理」\n新增了右上角代理设置，以及「前台也发送」开关（默认开）\n新增了最近推送记录（仅内存保留 5 条，重启后清空）",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "6bf62806aabc04d4117fd59e1c9b246172a735f6f03e6fee2c1420700560535c",
+          "url": "packages/cc.mcii.session-notify-1.0.0.piplug",
+          "sizeBytes": 120969,
+          "permissions": [
+            "background.service",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/LectWolf/pi-session-notify",
+            "sourceRef": "v1.0.0",
+            "sourceCommit": "e8e7c920661a7f05ec9fff96aff8f107e3a325a7",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-16T17:56:46Z"
+          }
+        }
+      ]
+    },
     {
       "id": "cc.mcii.session-usage",
       "name": "会话用量",
