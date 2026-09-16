@@ -11,8 +11,8 @@
   "plugins": [
     {
       "id": "cc.mcii.session-usage",
-      "name": "Session Usage",
-      "description": "Slash command /usage for the current session: uncached input, cache hit/create, output and hit rate.",
+      "name": "会话用量",
+      "description": "在输入框输入 /usage，查看当前会话的输入、输出、缓存命中、缓存创建和命中率。",
       "author": "LectWolf",
       "categories": [
         "developer-tools",
