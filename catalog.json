@@ -4,22 +4,16 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-16T17:56:46Z",
-  "generatedAt": "2026-09-16T17:56:46Z",
+  "updatedAt": "2026-09-16T17:57:21Z",
+  "generatedAt": "2026-09-16T17:57:21Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
     {
       "id": "cc.mcii.session-notify",
-      "name": "Session Notify",
-      "description": "Watch all sessions and push title + status to Feishu, DingTalk, WeCom, KOOK, ServerChan, Telegram, a generic webhook, or a custom API. No message text.",
+      "name": "会话通知",
+      "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。",
       "author": "LectWolf",
-      "i18n": {
-        "zh-CN": {
-          "name": "会话通知",
-          "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。"
-        }
-      },
       "categories": [
         "developer-tools",
         "productivity"
@@ -33,7 +27,7 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishedAt": "2026-09-16T17:56:46Z",
+          "publishedAt": "2026-09-16T17:57:21Z",
           "changelog": "修复了申请地址无法打开外部浏览器的问题，改为点击复制官方文档链接\n修复了保存/测试后在两张卡片中间弹出「已保存 / OK」的干扰提示\n新增了飞书 / 钉钉 / 企业微信 / KOOK / Server酱 / Telegram / 通用 Webhook / 自定义 API 通道\n新增了每条通道独立启用、命名、通知事件和「使用代理」\n新增了右上角代理设置，以及「前台也发送」开关（默认开）\n新增了最近推送记录（仅内存保留 5 条，重启后清空）",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "6bf62806aabc04d4117fd59e1c9b246172a735f6f03e6fee2c1420700560535c",
