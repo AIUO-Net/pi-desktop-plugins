@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-16T02:48:59Z",
-  "generatedAt": "2026-09-16T02:48:59Z",
+  "updatedAt": "2026-09-16T02:49:15Z",
+  "generatedAt": "2026-09-16T02:49:15Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -14,12 +14,6 @@
       "name": "Session Usage",
       "description": "Slash command /usage for the current session: uncached input, cache hit/create, output and hit rate.",
       "author": "LectWolf",
-      "i18n": {
-        "zh-CN": {
-          "name": "会话用量",
-          "description": "在输入框输入 /usage，查看当前会话的输入、输出、缓存命中、缓存创建和命中率。"
-        }
-      },
       "categories": [
         "developer-tools",
         "productivity"
@@ -30,11 +24,10 @@
       "downloads": 0,
       "homepage": "https://github.com/LectWolf/pi-session-usage",
       "readmeMarkdown": "# 会话用量\r\n\r\nPI-Desktop 插件。输入框输入 **`/usage`**，或命令面板搜「用量」，查看**当前会话**的 token 用量。\r\n\r\n- 插件 id：`cc.mcii.session-usage`\r\n- 许可证：[GPL-3.0-only](./LICENSE)\r\n- 源码 / 主页：https://github.com/LectWolf/pi-session-usage\r\n\r\n## 会显示什么\r\n\r\n- 输入（未命中缓存）\r\n- 缓存命中 / **缓存创建**（Claude 的 `cache_creation_input_tokens`，含 5m / 1h）\r\n- 输出、思考\r\n- **命中率** = 缓存命中 /（未命中输入 + 缓存命中 + 缓存创建）\r\n- 最近一轮卡片、按模型拆分（回复次数写成 `128次`）\r\n\r\n插件命令拿不到「正在看的会话」API。`/usage` 会优先选**没有正在跑的回合**的最近会话，避免被旁边还在生成的聊天抢走。面板顶部可以手动切换会话；选中后刷新会钉在那个会话上。",
-      "safetyNotes": "只读取本机 PI-Desktop 的用量元数据（会话 jsonl 的 usage 字段和 pi.sqlite 已完成回合的 token）。不读消息正文、不注册 Agent 工具、不联网。",
       "versions": [
         {
           "version": "1.0.0",
-          "publishedAt": "2026-09-16T02:48:59Z",
+          "publishedAt": "2026-09-16T02:49:15Z",
           "changelog": "1.0.0 首次公开发布\n- 新增 /usage：当前会话的输入、缓存命中/创建、输出、思考和命中率\n- 新增会话选择器，按标题即时搜索\n- 新增 Claude 缓存创建（5m / 1h）和最近一轮卡片\n- 窗口重新获得焦点时刷新，搜索和滚动位置会保留",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "7ff7fb1b4bb6bd5d7d93cce9a356b5ee31859701da32de48c562d02f7c7607cb",
