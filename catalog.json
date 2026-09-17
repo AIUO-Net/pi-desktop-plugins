@@ -216,7 +216,7 @@
     {
       "id": "cn.star.user-profile",
       "name": "User Profile",
-      "description": "Local memory for “who the user is” and “how this machine is used.” Character-limited. Injected into the system prompt each turn; the Agent writes via the memory tool.\r\nNo remote memory service. No skill writing.\r\nFinally, add compatibility with modelcontextprotocol/server-memory.",
+      "description": "本地记「用户是谁」和「这台机器怎么用」。有字符上限。每轮注入系统提示，Agent 用 `memory` 工具写。\n不接远程记忆服务，不写 skill。兼容 modelcontextprotocol/server-memory。",
       "author": "TheFalreStar",
       "categories": [
         "community",
