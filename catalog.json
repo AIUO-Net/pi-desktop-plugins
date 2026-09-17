@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T05:35:18Z",
-  "generatedAt": "2026-09-17T05:35:18Z",
+  "updatedAt": "2026-09-17T08:09:50Z",
+  "generatedAt": "2026-09-17T08:09:50Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -132,6 +132,50 @@
       ]
     },
     {
+      "id": "cn.star.skill-learning",
+      "name": "Skill Learning",
+      "description": "Once you complete a task, it captures the repeatable steps as a SKILL for future similar tasks.\r\nFor long conversations, it reflects in the background without interrupting the chat.",
+      "author": "TheFalreStar",
+      "categories": [
+        "community",
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cn",
+      "downloads": 0,
+      "readmeMarkdown": "# Skill Learning\n\nPI-Desktop 插件。\n\n## 安装\n\n导入后彻底退出 PI 再开。\n\n## 技能写在哪\n\n默认写到用户技能根的直接子目录，设置 → 技能列表能扫到：\n\n```\n~/.agents/skills/\u003cname\u003e/SKILL.md\n```\n\nWindows 上就是 `%USERPROFILE%\\.agents\\skills\\\u003cname\u003e\\SKILL.md`。\n\n设置里把范围改成项目后，写到当前项目：\n\n```\n\u003c项目\u003e/.agents/skills/\u003cname\u003e/SKILL.md\n```\n\n账本、队列、归档在同级的 `.skill-learning/`，技能界面不展示这一层。\n\n旧版曾经写到 `skills/learned/\u003cname\u003e/`。那是废路径，技能列表扫不到。0.1.4 起不再往那里写；启动时会尽量把已经误写进去的技能抬到根目录。\n\n## 对话里怎么用\n\n插件在 Agent 进程里挂了三件事：工具 `skill_manage`、斜杠命令 `/learn`、一轮结束后的静默复盘。\n\n### 自动记\n\n做完一件有步骤、有坑、以后还能复用的事，模型应自己调 `skill_manage`。一次性问答、没做完的失败、以及「某某工具坏了」不会写成技能。\n\n### `/learn`\n\n在输入框发 `/learn`，后面可以跟目录、URL，或写「把刚才那套做成技能」。插件会塞一条蒸馏指令，模型先读材料，再 `create` 或 `patch`。\n\n### `skill_manage`\n\n| action | 作用 |\n| --- | --- |\n| `create` | 新建 `~/.agents/skills/\u003cname\u003e/SKILL.md` |\n| `patch` | 改本插件创建过的技能。本轮必须先 Read 过这份 `SKILL.md` |\n| `write_file` | 往该技能下写 `references/`、`templates/`、`scripts/` |\n| `delete` | 归档到 `.skill-learning/archive/`，不是直接删盘 |\n\n名字必须是小写加连字符，最多 64 字符，例如 `deploy-staging`。不要用 `fix-issue-12` 这种一次性名字。\n\nWrite / Edit / Bash 直接改 `~/.agents/skills` 会被拦住。只走 `skill_manage`。\n\n本插件没创建过的技能（你手写的、市场装的）不会被改。\n\n## 一篇合格的 SKILL.md\n\n`create` 过不了关的常见原因：正文不到 800 字，或缺「何时使用 / 工作流程」。报错是 `skill too thin (create rejected)`。\n\n最少要有：\n\n1. YAML：`name`、`description`（一句话、何时用）\n2. `## When to Use` 或 `## 何时使用`：触发条件，以及什么情况不要用\n3. `## Procedure` 或 `## 工作流程`：编号步骤，命令、路径、报错原文从本轮抄，不要编 flag\n4. `## Pitfalls` 或 `## 陷阱`：看起来成功其实没成功的情况\n5. `## Verification` 或 `## 验证`：一条能核对的结果\n\n长配方放到 `references/\u003c主题\u003e.md`，`SKILL.md` 只当目录。工具名按 PI 写：`read`、`write`、`edit`、`bash`、`grep`、`glob`。\n\n创建成功后会加上 `tags: [\"自习\"]`。技能列表上的「全局 / 项目 / 已导入」是 PI 写死的，插件加不了「自习」徽章。\n\n同时最多 80 个由本插件管理的技能。单文件上限 128 KiB。\n\n## 静默复盘（0.1.8）\n\n一轮结束时，如果本轮没用过 `skill_manage`，且工具调用次数达到阈值（默认 10），sidecar 把压缩过的对话丢进 `.skill-learning/queue/`。插件进程每 3 秒扫队列，用你已登录的模型跑一次**无工具**补全，只收 JSON：\n\n```json\n{ \"decision\": \"skip\" 或 \"update\", \"reason\": \"...\", \"ops\": [] }\n```\n\n`update` 时 `ops` 会进和对话里同一套 `create` / `patch` / `write_file`，薄稿同样会被拒。`skip` 不说话。写出新技能时，设置默认会 toast 一声「Learned skill: …」；选 Silent 则连 toast 也没有。\n\n复盘不往当前聊天里插消息。两次复盘至少隔 120 秒，队列最多积 2 个任务。\n\n命令面板里的「Skill Learning: Drain review queue」会立刻把队列跑完。\n\n## 设置\n\n扩展设置页：\n\n| 项 | 默认 | 含义 |\n| --- | --- | --- |\n| Enable learning loop | 开 | 关掉后 `skill_manage` 直接失败，也不再入队 |\n| Background review after long turns | 开 | 关则只保留对话里的手动写入 |\n| Min tool calls before review | 10 | 少于此数不复盘 |\n| Skill scope | Global | Global = `~/.agents/skills`；Project = 当前项目 `.agents/skills` |\n| Write approval | Toast on write | Silent 则写出时也不 toast |\n| Review model | 空 | `providerId/modelId`；空则用已登录列表里的第一个，优先名字带 grok 的 |\n\n改完会写到 `~/.agents/skills/.skill-learning/config.json`。\n\n## 不会做什么\n\n- 不改模型权重，只写磁盘上的 `SKILL.md`\n- 不替代你手写的技能，也不改市场装来的技能\n- 复盘不是 Hermes 那种能自己连打多轮工具的子 agent；它只能出 JSON，由插件落地\n- 开发目录热加载不可靠。改源码后要重新打包、卸掉旧插件、再导入 `.piplug`\n\n## 换版本\n\n1. 扩展页卸掉同 id 的旧项\n2. 导入新的 `.piplug`\n3. 彻底退出 PI（含托盘）再开\n4. 新开会话，看 `skill_manage` 返回的 `pluginVersion`\n",
+      "versions": [
+        {
+          "version": "0.1.8",
+          "publishedAt": "2026-09-16T16:30:10Z",
+          "changelog": "- 修复一些已知问题。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "c19a352f62e80a22173a61d2b83dbf2426ab1d0a6abce8dc49957da97b17e9c3",
+          "url": "packages/cn.star.skill-learning-0.1.8.piplug",
+          "sizeBytes": 60192,
+          "permissions": [
+            "agent.complete",
+            "agent.extension",
+            "agent.prompt.inject",
+            "background.service",
+            "models.list",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-17T08:12:17Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "cn.star.user-profile",
       "name": "User Profile",
       "description": "Local memory for “who the user is” and “how this machine is used.” Character-limited. Injected into the system prompt each turn; the Agent writes via the memory tool.\r\nNo remote memory service. No skill writing.\r\nFinally, add compatibility with modelcontextprotocol/server-memory.",
@@ -148,7 +192,7 @@
       "versions": [
         {
           "version": "0.1.7",
-          "publishedAt": "2026-09-17T05:34:53Z",
+          "publishedAt": "2026-09-17T08:09:50Z",
           "changelog": "- 本地记「用户是谁」和「这台机器怎么用」。有字符上限。每轮注入系统提示，Agent 用 `memory` 工具写。\n- 不接远程记忆服务，不写 skill，兼容 modelcontextprotocol/server-memory。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "df1646d8841148036a1bcb80f347d7bc0296d47bc85e556723b9ef06f165fa1c",
