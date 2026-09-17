@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T14:22:08Z",
-  "generatedAt": "2026-09-17T14:22:08Z",
+  "updatedAt": "2026-09-17T17:07:30Z",
+  "generatedAt": "2026-09-17T17:07:30Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -128,6 +128,45 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-16T02:48:59Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "cn.star.computer-use",
+      "name": "Computer Use（电脑操作）",
+      "description": "复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。",
+      "author": "TheFalreStar",
+      "i18n": {
+        "zh-CN": {
+          "name": "电脑操作",
+          "description": ""
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cn",
+      "downloads": 0,
+      "readmeMarkdown": "# Computer Use\r\n\r\n复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。\r\n\r\n已过测：**Grok 4.6**、**ChatGPT 5.6**、**Kimi K3**。\r\n\r\n## 安装\r\n\r\n导入 `dist/cn.star.computer-use-0.3.0.piplug`。导入后彻底退出 PI（含托盘）再开。权限会自动给。\r\n\r\n第一次打开 **Computer Use: Open Panel**，状态应是 `running`。没有 cua-driver 时，面板里确认一下就会装。\r\n\r\n## 对话里\r\n\r\n先看窗口，再动手。点完、打完字，别把「已经发出去」当成「已经做完」。\r\n\r\n| 工具 | 做什么 |\r\n| --- | --- |\r\n| `list_apps` / `list_windows` / `launch_app` | 找窗口、开应用 |\r\n| `get_app_state` | 截图、读控件树、等界面出现某段字、读精确值 |\r\n| `click` / `scroll` / `drag` | 鼠标 |\r\n| `type_text` / `press_key` / `paste_text` / `set_value` | 键盘和粘贴 |\r\n| `stop_computer_use` | 立刻停 |\r\n\r\n要停也可以按键盘 Esc，或点面板上的停止。停了要从面板再开。\r\n\r\n## 不会去动\r\n\r\n密码管理器、终端、锁屏、Windows 安全中心、PI-Desktop、ChatGPT、Codex。还可以再加允许列表，把目标缩得更窄。",
+      "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-09-17T17:07:30Z",
+          "changelog": "- 复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "e6a1cfb41b2cd2d9bef77d5119c63475949134550c16498e20238407b3a265ca",
+          "url": "packages/cn.star.computer-use-0.3.0.piplug",
+          "sizeBytes": 424606,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
