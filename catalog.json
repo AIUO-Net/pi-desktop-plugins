@@ -132,6 +132,44 @@
       ]
     },
     {
+      "id": "cn.star.grok-enhance",
+      "name": "Grok Enhance",
+      "description": "Give Grok execution discipline, and activate Grep / Glob (plus any installed memory / skill_manage) right away on the first request of every turn.",
+      "author": "TheFalreStar",
+      "categories": [
+        "community",
+        "developer-tools"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cn",
+      "downloads": 0,
+      "readmeMarkdown": "# Grok Enhance\n\nPI-Desktop 插件。给 Grok 加上执行纪律：该调用工具时必须当场调用，不要先空口计划。每轮第一请求就带上 Grep、Glob，以及已经装好的 `memory` / `skill_manage`，不必先 ToolSearch。\n\n同一条命令失败、或只读工具反复返回同一结果，到次数后会拦住，避免原地打转。\n\n## 安装\n\n导入后彻底退出 PI 再开。\n\n## 它做什么\n\n- 默认只对 Grok 注入纪律。设置里可以改成对所有模型生效，或关掉纪律只留工具预激活。\n- 默认预激活：`Grep,Glob,memory,skill_manage`。名单可在设置里改。没装对应插件的名字会被跳过。\n- 相同 Bash/Grep/Read 失败 3 次，或只读结果完全一样 3 次，下一轮会被挡住。`memory` 不计入。次数可改。\n\n## 设置\n\n| 项 | 默认 |\n| --- | --- |\n| Enable Grok Enhance | 开 |\n| Inject execution discipline | 开 |\n| Inject discipline for every model | 关 |\n| Pre-activate Grep/Glob and peer tools | 开 |\n| Tools to pre-activate | `Grep,Glob,memory,skill_manage` |\n| Block identical failing / no-progress tool loops | 开 |\n| Block after N identical failures | 3 |\n| Block after N identical read-only results | 3 |\n\n关掉总开关后，本轮不再注入、不再预激活、也不再拦循环。\n",
+      "versions": [
+        {
+          "version": "0.1.2",
+          "publishedAt": "2026-09-17T04:49:27Z",
+          "changelog": "- 修复已知问题。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "47016ca230e74792258c80ed69a233a1c7eec0c0130f0020460a605065fa8202",
+          "url": "packages/cn.star.grok-enhance-0.1.2.piplug",
+          "sizeBytes": 24771,
+          "permissions": [
+            "agent.extension",
+            "notify"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-17T08:12:31Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "cn.star.skill-learning",
       "name": "Skill Learning",
       "description": "Once you complete a task, it captures the repeatable steps as a SKILL for future similar tasks.\r\nFor long conversations, it reflects in the background without interrupting the chat.",
