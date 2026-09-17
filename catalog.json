@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T11:50:40Z",
-  "generatedAt": "2026-09-17T11:50:40Z",
+  "updatedAt": "2026-09-17T14:17:26Z",
+  "generatedAt": "2026-09-17T14:17:26Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -472,6 +472,35 @@
       "publisherId": "pi",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.6.0",
+          "publishedAt": "2026-09-17T14:17:26Z",
+          "changelog": "Release 0.6.0：新增删除——右键菜单里的「删除」现在真的删得掉：目录整体递归删除，删之前先弹确认框；路径限制与写操作完全一致——限定在当前选中的 folder root 内、拒绝根目录本身、拒绝凭据类路径与 node_modules，同样记写入审计。这次同时调整了视图：侧边栏开关按钮移到最左、工具栏移除新建文件 / 新建文件夹 / 重命名 / 移动到这四个按钮（这些动作都收在右键菜单里）、文件地址改为绝对地址且点击即复制、图片预览支持滚轮缩放与拖拽。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "6644b010f4f7dc8adaa61f9bb875a6e9cb5086af1b4dbd2c6c91f230823a457a",
+          "url": "packages/pi.file-manager-0.6.0.piplug",
+          "sizeBytes": 1469219,
+          "permissions": [
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-file-manager",
+            "sourceRef": "v0.6.0",
+            "sourceCommit": "15d40cee7ac1cf444f08eee5273b653f22168726",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-17T14:17:26Z"
+          }
+        },
         {
           "version": "0.5.2",
           "publishedAt": "2026-09-14T17:38:24Z",
