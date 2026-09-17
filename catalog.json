@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T02:25:47Z",
-  "generatedAt": "2026-09-17T02:25:47Z",
+  "updatedAt": "2026-09-17T05:35:18Z",
+  "generatedAt": "2026-09-17T05:35:18Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -89,7 +89,7 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishedAt": "2026-09-17T02:25:47Z",
+          "publishedAt": "2026-09-17T05:35:18Z",
           "changelog": "修复了界面已是中文时，用量面板和 /usage 仍显示英文的问题",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "c3d3a2892a49d9fd9ae3d3f0b972aa3e077c3a87aa7c51f1a4b0195f313fe054",
