@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T08:09:50Z",
-  "generatedAt": "2026-09-17T08:09:50Z",
+  "updatedAt": "2026-09-17T11:50:29Z",
+  "generatedAt": "2026-09-17T11:50:29Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -148,7 +148,7 @@
       "versions": [
         {
           "version": "0.1.2",
-          "publishedAt": "2026-09-17T04:49:27Z",
+          "publishedAt": "2026-09-17T08:14:51Z",
           "changelog": "- 修复已知问题。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "47016ca230e74792258c80ed69a233a1c7eec0c0130f0020460a605065fa8202",
@@ -187,7 +187,7 @@
       "versions": [
         {
           "version": "0.1.8",
-          "publishedAt": "2026-09-16T16:30:10Z",
+          "publishedAt": "2026-09-17T08:14:51Z",
           "changelog": "- 修复一些已知问题。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "c19a352f62e80a22173a61d2b83dbf2426ab1d0a6abce8dc49957da97b17e9c3",
@@ -247,6 +247,61 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-17T08:09:42Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.catdford.color-picker",
+      "name": "Color Picker",
+      "description": "Browse Tailwind and Material palettes, pick colors out of any image with a pixel loupe, build schemes with harmony rules or AI, check WCAG contrast and color blindness, and export CSS variables, Tailwind or JSON — or install the palette as a PI-Desktop theme.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "色卡选择器",
+          "description": "浏览 Tailwind / Material 全量色板,用放大镜从图片里取色,按和谐规则或让 AI 生成配色,检查 WCAG 对比度与色盲模拟,导出 CSS 变量 / Tailwind / JSON;也能把这套配色装成 PI-Desktop 主题。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.4.1",
+          "publishedAt": "2026-09-17T11:50:29Z",
+          "changelog": "首个版本。\n\n- 色板:浏览 Tailwind CSS v4(26 个色系,50–950)、Material Design(19 个色系)、15 套预设配色与 12 条渐变;点色块按当前记法复制,点数值行复制该记法(HEX / RGB / HSL / OKLCH)\n- 取色:从文件夹里的图片或剪贴板历史里的最新图片取色;放大镜显示真实像素(像素网格 + 十字准星 + 实时色值),方向键 1 像素微调(按住 Shift 一次 10 像素),点击取色\n- 配色:互补 / 类似 / 三角 / 分裂互补四种和谐规则、由当前色生成 50–950 色阶,或给一句风格描述让 AI 生成整套带名字的配色(使用你自己配置的模型)\n- 检查:对白、对黑的 WCAG 对比度与 AA / AAA 判定,外加红色盲 / 绿色盲 / 蓝色盲三种模拟\n- 导出:CSS 变量、Tailwind v4 @theme 块、Tailwind v3 配置、JSON,复制即用\n- 主题:把当前配色一键装成 PI-Desktop 主题,侧栏 / 编辑器 / 设置页一起换色,可随时切换或卸载(需要较新版本的 PI-Desktop)\n- Agent 集成:提供 suggest_palette 工具与配色 skill,在对话里说一句\"用 #3b82f6 配一套深色科技感的方案\"即可\n\n取色器里的「屏幕取色」与系统级快捷键会随后续版本加入。",
+          "minPiDesktop": "\u003e=0.13.11",
+          "shasum": "e49c793df40e6d68c299c4c81304133455b16733ad22dbb24532b81cbe0ab476",
+          "url": "packages/io.github.catdford.color-picker-0.4.1.piplug",
+          "sizeBytes": 734765,
+          "permissions": [
+            "agent.complete",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "clipboard.read",
+            "clipboard.write",
+            "fs.read",
+            "models.list",
+            "ui.panel",
+            "ui.theme",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "userSelected"
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/catDforD/pi-desktop-color-picker",
+            "sourceRef": "v0.4.1",
+            "sourceCommit": "5285acc52d8e5420e0e9799fb1aa82115153f43b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-17T11:50:29Z"
           }
         }
       ]
