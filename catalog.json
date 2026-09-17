@@ -172,7 +172,7 @@
     {
       "id": "cn.star.skill-learning",
       "name": "Skill Learning",
-      "description": "Once you complete a task, it captures the repeatable steps as a SKILL for future similar tasks.\r\nFor long conversations, it reflects in the background without interrupting the chat.",
+      "description": "你把一件事做完，它把以后还能照着做的步骤做成 SKILL，下次同类活可以直接用。\n会话比较长时会在后台自己复盘，聊天里不会冒出来。",
       "author": "TheFalreStar",
       "categories": [
         "community",
