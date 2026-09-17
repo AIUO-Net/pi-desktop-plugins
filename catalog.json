@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T02:25:23Z",
-  "generatedAt": "2026-09-17T02:25:23Z",
+  "updatedAt": "2026-09-17T02:25:47Z",
+  "generatedAt": "2026-09-17T02:25:47Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -27,7 +27,7 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishedAt": "2026-09-17T02:25:23Z",
+          "publishedAt": "2026-09-17T02:25:33Z",
           "changelog": "修复了开机后语言卡在英文的问题，面板和推送跟 PI-Desktop 界面语言走\n申请地址改为点击复制，不再尝试打开外部浏览器",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "1f98abdf44ba219cb1337ea15c1e511cc5308f992134c2d93a8bb16ecfa7ad76",
@@ -87,6 +87,27 @@
       "homepage": "https://github.com/LectWolf/pi-session-usage",
       "readmeMarkdown": "# 会话用量\r\n\r\nPI-Desktop 插件。输入框输入 **`/usage`**，或命令面板搜「用量」，查看**当前会话**的 token 用量。\r\n\r\n- 插件 id：`cc.mcii.session-usage`\r\n- 许可证：[GPL-3.0-only](./LICENSE)\r\n- 源码 / 主页：https://github.com/LectWolf/pi-session-usage\r\n\r\n## 会显示什么\r\n\r\n- 输入（未命中缓存）\r\n- 缓存命中 / **缓存创建**（Claude 的 `cache_creation_input_tokens`，含 5m / 1h）\r\n- 输出、思考\r\n- **命中率** = 缓存命中 /（未命中输入 + 缓存命中 + 缓存创建）\r\n- 最近一轮卡片、按模型拆分（回复次数写成 `128次`）\r\n\r\n插件命令拿不到「正在看的会话」API。`/usage` 会优先选**没有正在跑的回合**的最近会话，避免被旁边还在生成的聊天抢走。面板顶部可以手动切换会话；选中后刷新会钉在那个会话上。",
       "versions": [
+        {
+          "version": "1.0.1",
+          "publishedAt": "2026-09-17T02:25:47Z",
+          "changelog": "修复了界面已是中文时，用量面板和 /usage 仍显示英文的问题",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "c3d3a2892a49d9fd9ae3d3f0b972aa3e077c3a87aa7c51f1a4b0195f313fe054",
+          "url": "packages/cc.mcii.session-usage-1.0.1.piplug",
+          "sizeBytes": 90009,
+          "permissions": [
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/LectWolf/pi-session-usage",
+            "sourceRef": "v1.0.1",
+            "sourceCommit": "033519e9cbc5bb739b8d201afb2a06209cacf77c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-17T02:25:47Z"
+          }
+        },
         {
           "version": "1.0.0",
           "publishedAt": "2026-09-16T02:49:15Z",
