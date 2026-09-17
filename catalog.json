@@ -132,6 +132,44 @@
       ]
     },
     {
+      "id": "cn.star.user-profile",
+      "name": "User Profile",
+      "description": "Local memory for “who the user is” and “how this machine is used.” Character-limited. Injected into the system prompt each turn; the Agent writes via the memory tool.\r\nNo remote memory service. No skill writing.\r\nFinally, add compatibility with modelcontextprotocol/server-memory.",
+      "author": "TheFalreStar",
+      "categories": [
+        "community",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cn",
+      "downloads": 0,
+      "readmeMarkdown": "# User Profile\r\n\r\nPI-Desktop 插件。本地 `USER.md` / `MEMORY.md`，有字符上限，每轮注入系统提示。Agent 用 `memory` 工具增删改。\r\n\r\n## 安装\r\n\r\n导入后彻底退出 PI 再开。\r\n\r\n## 记什么\r\n\r\n| 文件 | 用途 |\r\n| --- | --- |\r\n| `USER.md` | 身份、沟通习惯、稳定偏好 |\r\n| `MEMORY.md` | 环境、项目约定、工具坑 |\r\n\r\n只写陈述句，例如「用户希望回复短」。不要写「永远要简洁」这种命令口吻。一次性任务、密钥、可复用流程（那是 skill）不要往这里塞。\r\n\r\n默认上限：USER.md 1375 字，MEMORY.md 2200 字。超了会拒写，不截断。设置里可改。\r\n\r\n档案在 `%USERPROFILE%\\.pi\\agent\\user-profile\\`。卸载插件不会删这些文件。\r\n\r\n## 对话里\r\n\r\n- 工具名是 `memory`（`add` / `replace` / `remove`，`target` 为 `user` 或 `memory`）\r\n- 没有 read：当前快照已经在系统提示里\r\n- 默认每 10 次非 memory 工具调用，下一轮会提示是否该记一条（可关）\r\n- Plan 模式不提供这个工具\r\n\r\n## 设置\r\n\r\n| 项 | 默认 |\r\n| --- | --- |\r\n| Enable user profile | 开 |\r\n| Inject and write USER.md | 开 |\r\n| Inject and write MEMORY.md | 开 |\r\n| USER.md character limit | 1375 |\r\n| MEMORY.md character limit | 2200 |\r\n| Nudge after N tool calls | 10（0 为关） |\r\n\r\n关掉总开关后，本轮不注入，`memory` 也拒写。\r\n\r\n## 不会做什么\r\n\r\n- 不写 `~/.agents/skills`\r\n- 不把 MCP knowledge-graph / `create_entities` 当后端\r\n- 不调用远程记忆 API\r\n",
+      "versions": [
+        {
+          "version": "0.1.7",
+          "publishedAt": "2026-09-17T05:34:53Z",
+          "changelog": "- 本地记「用户是谁」和「这台机器怎么用」。有字符上限。每轮注入系统提示，Agent 用 `memory` 工具写。\n- 不接远程记忆服务，不写 skill，兼容 modelcontextprotocol/server-memory。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "df1646d8841148036a1bcb80f347d7bc0296d47bc85e556723b9ef06f165fa1c",
+          "url": "packages/cn.star.user-profile-0.1.7.piplug",
+          "sizeBytes": 31386,
+          "permissions": [
+            "agent.extension",
+            "notify"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-17T08:09:42Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "io.github.liushunqiu.pi-idea-git",
       "name": "IDEA-GIT",
       "description": "方便推送代码到git仓库",
