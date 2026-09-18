@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-17T17:07:30Z",
-  "generatedAt": "2026-09-17T17:07:30Z",
+  "updatedAt": "2026-09-17T17:07:43Z",
+  "generatedAt": "2026-09-17T17:07:43Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -154,7 +154,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-09-17T17:07:30Z",
+          "publishedAt": "2026-09-17T17:07:43Z",
           "changelog": "- 复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "e6a1cfb41b2cd2d9bef77d5119c63475949134550c16498e20238407b3a265ca",
@@ -210,7 +210,7 @@
     },
     {
       "id": "cn.star.skill-learning",
-      "name": "Skill Learning",
+      "name": "Skill Learning（自学技能）",
       "description": "你把一件事做完，它把以后还能照着做的步骤做成 SKILL，下次同类活可以直接用。\n会话比较长时会在后台自己复盘，聊天里不会冒出来。",
       "author": "TheFalreStar",
       "categories": [
@@ -835,7 +835,7 @@
       "versions": [
         {
           "version": "1.4.0",
-          "publishedAt": "2026-09-17T14:22:08Z",
+          "publishedAt": "2026-09-17T17:07:43Z",
           "changelog": "Release 1.4.0：内置预设重排为 5 套 —— 保留 QQ 2008，新增 Contrast（高对比暗色）/ Mint Dark（薄荷暗色）/ Business Blue（商务蓝浅色）/ China Red（中国红浅色），去掉 Aurora / Ember / Nocturne / Paper / Sand / 奶龙 / QQ 2009，随包贴图也只剩 QQ 2008 那张 8×8 平铺。只是不再预置：你库里已经有的那些主题和图片一个都不动，不写迁移、不删用户数据。内置预设从此只读 —— 它是挑配色时的参照物，改它等于改参照物。选中预设时预览照常点选区域、面板照常打开，但「区域 / 颜色 / 图片」三块正文盖一层蒙版，写明「内置主题不可修改 · 改动需在左侧复制主题后再进行」，并给一颗「复制这个主题」按钮一键复制；顶栏主题名不可编辑；store 里的 mutate / rename 也拦住了内置主题，快捷键和残留控件同样绕不过去；选中时状态栏改成「正在预览… · 只读」。对比度检查面板不加蒙版 —— 它不改任何东西，留着能对照看预设的检查结果。主题库左栏不再用 hover 才出现的复制 / 删除图标按钮（容易误点，还抢焦点），改为右键菜单：应用 / 复制 / 重命名 / 删除；内置预设的重命名与删除置灰，徽标从 L/D 改成「预设」。菜单用一颗 0×0 的隐形锚点定位到点击坐标（Radix DropdownMenu，不动布局）。四套新预设的文字四档都按 WCAG 校过（alpha 先按底色合成再算），正文对底色最差：Contrast 8.0:1、Mint Dark 9.29:1、Business Blue 5.24:1、China Red 5.08:1。",
           "minPiDesktop": "\u003e=0.14.8",
           "shasum": "c0b9b17e3b608249f1f82ff446e6a302ca774998f6e9d492f4a1d64da913cdcf",
