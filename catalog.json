@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-18T14:21:18Z",
-  "generatedAt": "2026-09-18T14:21:18Z",
+  "updatedAt": "2026-09-18T15:00:16Z",
+  "generatedAt": "2026-09-18T15:00:16Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -816,8 +816,32 @@
       "safetyNotes": "This high-risk tool can create sessions, read session collaboration summaries and results, send messages that run the target Agent, and cancel collaboration work through desktop.control. Messages can address any existing Session ID and may consume configured model quota. The host binds the sender, preserves existing target configuration and permissions, labels session messages separately from user input, and bounds autonomous creation and callbacks. Plugin history never grants access. The plugin has no network permission and never deletes sessions or reads credentials.",
       "versions": [
         {
+          "version": "0.5.1",
+          "publishedAt": "2026-09-18T15:00:16Z",
+          "changelog": "Release 0.5.1: marketplace package is a store-compressed zip PI-Desktop can install; ui, contributes and activationEvents are restored.",
+          "minPiDesktop": "\u003e=0.14.7",
+          "shasum": "03b3ec2391dd7d4b5f260edd6265d5625883187c8f0f223888f637a04b1b115b",
+          "url": "packages/pi.session-orchestrator-0.5.1.piplug",
+          "sizeBytes": 83173,
+          "permissions": [
+            "agent.tool.register",
+            "desktop.control",
+            "models.list",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-plugin-session-orchestrator",
+            "sourceRef": "v0.5.1",
+            "sourceCommit": "554f2b36b4d238729375c6eb076c4ab357c0007f",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-18T15:00:16Z"
+          }
+        },
+        {
           "version": "0.5.0",
-          "publishedAt": "2026-09-18T14:21:18Z",
+          "publishedAt": "2026-09-18T14:21:31Z",
           "changelog": "Release 0.5.0: discovers existing independent Agent sessions through the host-backed list action while retaining legacy worker references and bidirectional messaging.",
           "minPiDesktop": "\u003e=0.14.7",
           "shasum": "6c8e94ce0084403e03ea1be757e485aa9f4e2708552d813ab94151939def013d",
