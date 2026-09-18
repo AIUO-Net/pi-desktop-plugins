@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-18T15:00:16Z",
-  "generatedAt": "2026-09-18T15:00:16Z",
+  "updatedAt": "2026-09-18T16:00:25Z",
+  "generatedAt": "2026-09-18T16:00:25Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -816,8 +816,31 @@
       "safetyNotes": "This high-risk tool can create sessions, read session collaboration summaries and results, send messages that run the target Agent, and cancel collaboration work through desktop.control. Messages can address any existing Session ID and may consume configured model quota. The host binds the sender, preserves existing target configuration and permissions, labels session messages separately from user input, and bounds autonomous creation and callbacks. Plugin history never grants access. The plugin has no network permission and never deletes sessions or reads credentials.",
       "versions": [
         {
+          "version": "0.6.0",
+          "publishedAt": "2026-09-18T16:00:25Z",
+          "changelog": "## 0.6.0\n\nSession Orchestrator no longer opens a standalone Agents window.\n\n- Removed the panel, , and the Open Agents command\n-  is the only interface for spawn, send, list, status, result, wait, supervise, accept, and cancel\n- Startup still registers the high-risk collaboration tool",
+          "minPiDesktop": "\u003e=0.14.7",
+          "shasum": "2a93f9145542f48fa7b70b36eeb693ff4c4dbc6e214db75984caac8b2abe6fe6",
+          "url": "packages/pi.session-orchestrator-0.6.0.piplug",
+          "sizeBytes": 51271,
+          "permissions": [
+            "agent.tool.register",
+            "desktop.control",
+            "models.list"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-plugin-session-orchestrator",
+            "sourceRef": "v0.6.0",
+            "sourceCommit": "78165909a5066ca57d1b85431021d632e5cc3f8b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-18T16:00:25Z"
+          }
+        },
+        {
           "version": "0.5.1",
-          "publishedAt": "2026-09-18T15:00:16Z",
+          "publishedAt": "2026-09-18T15:00:30Z",
           "changelog": "Release 0.5.1: marketplace package is a store-compressed zip PI-Desktop can install; ui, contributes and activationEvents are restored.",
           "minPiDesktop": "\u003e=0.14.7",
           "shasum": "03b3ec2391dd7d4b5f260edd6265d5625883187c8f0f223888f637a04b1b115b",
