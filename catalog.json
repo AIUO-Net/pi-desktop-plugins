@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-18T16:07:26Z",
-  "generatedAt": "2026-09-18T16:07:26Z",
+  "updatedAt": "2026-09-18T17:42:43Z",
+  "generatedAt": "2026-09-18T17:42:43Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1076,35 +1076,54 @@
     },
     {
       "id": "pi.token-insights",
-      "name": "1",
-      "description": "1",
-      "author": "",
+      "name": "Token Insights",
+      "description": "A private local dashboard for the tokens you spend across PI-Desktop, Claude Code, Codex and OpenCode: follows the app's theme and language, filters by tool, model, provider, date range or keyword, and keeps a streak and milestone worth looking at.",
+      "author": "PI-Desktop",
       "i18n": {
+        "en": {
+          "name": "Token Insights",
+          "description": "A private local dashboard for token usage across PI-Desktop, Claude Code, Codex and OpenCode, with filters for tool, model, provider, date range and keyword plus streaks and milestones.",
+          "safetyNotes": "Reads local metadata only and is always read-only. It never reads message text, tool arguments, project paths or credentials, never stores a full session ID and makes no network requests."
+        },
         "zh-CN": {
-          "name": "1",
-          "description": "1"
+          "name": "Token 用量分析",
+          "description": "本地隐私优先的 Token 用量仪表盘，汇总 PI-Desktop、Claude Code、Codex 和 OpenCode，支持按工具、模型、提供商、日期或关键词筛选，并展示连续使用天数和里程碑。",
+          "safetyNotes": "只读取本地元数据且始终为只读，不读取消息正文、工具参数、项目路径或凭据，不保存完整 session ID，也不会发起网络请求。"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools",
+        "official",
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
       "downloads": 0,
+      "homepage": "https://github.com/vastsa/pi-plugin-token-insights",
+      "safetyNotes": "Reads only local metadata, always read-only, always on this device. Usage comes from the tool metadata files PI-Desktop, Claude Code, Codex and OpenCode already write; appearance (theme, language, active plugin theme CSS) and provider display names come from PI-Desktop's own local records. It never reads message text, tool arguments, project paths or credentials, never keeps a full session id (only an 8-character prefix), never writes anywhere except its own plugin settings, and makes no network request.",
       "versions": [
         {
-          "version": "0.4.7",
-          "publishedAt": "2026-09-15T08:45:22Z",
-          "changelog": "1",
+          "version": "0.4.8",
+          "publishedAt": "2026-09-18T17:42:43Z",
+          "changelog": "{\"schemaVersion\": 1, \"description\": \"First release from the plugin's own repository https://github.com/vastsa/pi-plugin-token-insights. 首个独立仓库发布。\\n\\nRelease 0.4.8: Fold PI-Desktop completed-turn totals from the host database into the dashboard, so subagent spend that never lands on parent message.usage still appears without double-counting transcript rows. Settings no longer has a Usage page; this panel is the heatmap. Release 0.4.8：把宿主已完成回合的 token 合计折入仪表盘，转录本 message.usage 未计入的子智能体用量会补上且不与 JSONL 重复。设置页不再有用量入口，热力图以本面板为准。\"}",
           "minPiDesktop": "\u003e=0.2.9",
-          "shasum": "95c23d65596cf45ab1cd3ef2af36f20cceb7f0b3f22c68744c483cbf67a4b2fc",
-          "url": "packages/pi.token-insights-0.4.7.piplug",
-          "sizeBytes": 164164,
+          "shasum": "319a1fd69aec06b032b2cd3aedcb8d99444599d2834e4c39761ad9209ca0acc2",
+          "url": "packages/pi.token-insights-0.4.8.piplug",
+          "sizeBytes": 171899,
           "permissions": [
             "agent.tool.register",
             "ui.panel"
           ],
           "fs": {},
-          "yanked": false
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-plugin-token-insights",
+            "sourceRef": "v0.4.8",
+            "sourceCommit": "7d01df699ec527aeceb18a5f38dac3d33b3e5010",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-18T17:42:43Z"
+          }
         }
       ]
     }
