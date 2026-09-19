@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-18T17:42:43Z",
-  "generatedAt": "2026-09-18T17:42:43Z",
+  "updatedAt": "2026-09-19T08:30:06Z",
+  "generatedAt": "2026-09-19T08:30:06Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -152,6 +152,22 @@
       "downloads": 0,
       "readmeMarkdown": "# Computer Use\r\n\r\n复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。\r\n\r\n已过测：**Grok 4.6**、**ChatGPT 5.6**、**Kimi K3**。\r\n\r\n## 安装\r\n\r\n导入 `dist/cn.star.computer-use-0.3.0.piplug`。导入后彻底退出 PI（含托盘）再开。权限会自动给。\r\n\r\n第一次打开 **Computer Use: Open Panel**，状态应是 `running`。没有 cua-driver 时，面板里确认一下就会装。\r\n\r\n## 对话里\r\n\r\n先看窗口，再动手。点完、打完字，别把「已经发出去」当成「已经做完」。\r\n\r\n| 工具 | 做什么 |\r\n| --- | --- |\r\n| `list_apps` / `list_windows` / `launch_app` | 找窗口、开应用 |\r\n| `get_app_state` | 截图、读控件树、等界面出现某段字、读精确值 |\r\n| `click` / `scroll` / `drag` | 鼠标 |\r\n| `type_text` / `press_key` / `paste_text` / `set_value` | 键盘和粘贴 |\r\n| `stop_computer_use` | 立刻停 |\r\n\r\n要停也可以按键盘 Esc，或点面板上的停止。停了要从面板再开。\r\n\r\n## 不会去动\r\n\r\n密码管理器、终端、锁屏、Windows 安全中心、PI-Desktop、ChatGPT、Codex。还可以再加允许列表，把目标缩得更窄。",
       "versions": [
+        {
+          "version": "0.4.0",
+          "publishedAt": "2026-09-19T08:30:06Z",
+          "changelog": "- 新增 Office 知识与桌面操作技能，理论支持 WPS。\n- Win环境中若存在 PowerShell 7，则优先使用。\n- 支持前台/后台操作切换、局部截图，完善焦点与截图状态提示。\n- 优化动态控件、菜单、保存对话框及中文文件名读取。\n- 改进快捷键、粘贴和窗口关闭验证，修复误打开文件、删除键抢焦点等问题。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "db0a94c28a846d87f2f4f86118e6e7692fcc9ee22afa6aee1c465dbca188354f",
+          "url": "packages/cn.star.computer-use-0.4.0.piplug",
+          "sizeBytes": 644151,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "0.3.1",
           "publishedAt": "2026-09-18T11:23:26Z",
@@ -1105,7 +1121,7 @@
       "versions": [
         {
           "version": "0.4.8",
-          "publishedAt": "2026-09-18T17:42:43Z",
+          "publishedAt": "2026-09-18T17:42:56Z",
           "changelog": "{\"schemaVersion\": 1, \"description\": \"First release from the plugin's own repository https://github.com/vastsa/pi-plugin-token-insights. 首个独立仓库发布。\\n\\nRelease 0.4.8: Fold PI-Desktop completed-turn totals from the host database into the dashboard, so subagent spend that never lands on parent message.usage still appears without double-counting transcript rows. Settings no longer has a Usage page; this panel is the heatmap. Release 0.4.8：把宿主已完成回合的 token 合计折入仪表盘，转录本 message.usage 未计入的子智能体用量会补上且不与 JSONL 重复。设置页不再有用量入口，热力图以本面板为准。\"}",
           "minPiDesktop": "\u003e=0.2.9",
           "shasum": "319a1fd69aec06b032b2cd3aedcb8d99444599d2834e4c39761ad9209ca0acc2",
