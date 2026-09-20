@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T07:46:49Z",
-  "generatedAt": "2026-09-20T07:46:49Z",
+  "updatedAt": "2026-09-20T16:14:12Z",
+  "generatedAt": "2026-09-20T16:14:12Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -502,6 +502,84 @@
             }
           },
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "io.github.muzimu217.deps-audit",
+      "name": "Deps Audit",
+      "description": "依赖漏洞扫描：唤起 osv-scanner 扫描工作区，列出 OSV 数据库中的依赖漏洞，让 Agent 给出升级或修复 patch。",
+      "author": "muzimu217",
+      "i18n": {
+        "en": {
+          "name": "Deps Audit",
+          "description": "Dependency vulnerability audit: invoke osv-scanner over the workspace, list known OSV matches, and let the Agent propose a fix or upgrade.",
+          "safetyNotes": "Reads only the workspace-root dependency manifests listed in the declared fs.read scope (package.json, lockfiles, requirements.txt, Cargo.toml/lock, go.mod/sum, pom.xml, composer.json/lock, Gemfile/lock, pyproject.toml) through the host fs gateway, stages sanitized copies in a throwaway temp directory, and spawns the local osv-scanner binary against that directory — the spawned binary never reads the workspace directly and contacts the OSV database over the network (declared High-risk capability). Staging copies are deleted after each scan. Nothing in the workspace is ever written."
+        },
+        "zh-CN": {
+          "name": "依赖审计",
+          "description": "依赖漏洞扫描：唤起 osv-scanner 扫描工作区，列出 OSV 数据库中的依赖漏洞，让 Agent 给出升级或修复 patch。",
+          "safetyNotes": "Reads only the workspace-root dependency manifests listed in the declared fs.read scope (package.json, lockfiles, requirements.txt, Cargo.toml/lock, go.mod/sum, pom.xml, composer.json/lock, Gemfile/lock, pyproject.toml) through the host fs gateway, stages sanitized copies in a throwaway temp directory, and spawns the local osv-scanner binary against that directory — the spawned binary never reads the workspace directly and contacts the OSV database over the network (declared High-risk capability). Staging copies are deleted after each scan. Nothing in the workspace is ever written."
+        }
+      },
+      "categories": [
+        "audit",
+        "developer-tools",
+        "security"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "readmeMarkdown": "# Deps Audit — io.github.muzimu217.deps-audit\n\n依赖漏洞扫描：把工作区交给 [osv-scanner](https://github.com/google/osv-scanner)，\n把结果以 OSV 数据库的分类与严重度展示在工作面板里；选中一条，Agent 给出**最小升级或修复方案**\n（不会自动改任何文件，必须你确认）。\n\n## 安全模型（威胁模型）\n\nDeps Audit 触及两类高权能力：**原生进程执行**（osv-scanner）与**网络**（osv-scanner\n自行访问 OSV 数据库）。按仓库 SECURITY.md 这是 High 风险档，插件的约束设计：\n\n1. **工作区读取只走宿主网关**：清单文件通过 `pi.fs.readText` 读取，作用域在\n   manifest 的 `fs.read` 声明里逐文件列出（package.json、各语言锁文件等），\n   工作区其余内容对插件不可见。\n2. **原生二进制永不直接接触工作区**：读取到的清单内容以净化副本形式写入一次性\n   临时目录，osv-scanner 只被允许扫描该目录；扫描结束后副本即被删除。\n3. **网络边界**：插件进程自身零网络请求；对 OSV 数据库的访问由 osv-scanner\n   二进制自行完成（这是它作为扫描器的核心功能）。\n4. **只读承诺**：工作区永不被写入；选中漏洞后「请 Agent 修复」永远需要用户\n   显式发起，插件只生成请求文本。\n5. **失败可见**：二进制缺失/损坏、扫描超时、非零退出、输出不可解析都有明确的\n   结构化错误与测试覆盖，不会静默吞掉。\n\n## 为什么需要这个插件\n\nPI-Desktop 的 `pi.advisor` 已经在做\"second opinion reviewer\"，但**没有插件做\"把工作区\n交给一个真实的依赖扫描器，再用 Agent 解读结果\"这一段**。OSV.dev 是 Google 维护的开放漏洞\n数据库，覆盖 npm / PyPI / crates.io / Go / Maven / Composer / RubyGems，且 osv-scanner 是\nApache-2.0 的纯本地 CLI——非常适合作为\"安全侧\"输入。\n\n## 安装\n\nDeps Audit **不强依赖** osv-scanner 二进制存在；如果没装，它会给出明确指引（详见\n故障排查）。最稳的安装方式：\n\n```bash\n# 方式 1: Homebrew (macOS / Linux)\nbrew install osv-scanner\n\n# 方式 2: Go\ngo install github.com/google/osv-scanner/v2/cmd/osv-scanner@latest\n\n# 方式 3: GitHub release（注意 macOS 需 ad-hoc 签名或下载未压缩的 brew bottle）\n# https://github.com/google/osv-scanner/releases\n```\n\n## 使用\n\n打开 PI-Desktop，在工作面板里点 **Deps Audit**（盾牌图标），或：\n\n- **命令面板**（`Cmd+K` / `Ctrl+K`）：\n  - `Deps Audit: Open Work-Panel View` — 打开面板\n  - `Deps Audit: Scan Workspace Now` — 立即扫描\n- **Agent 工具**：`deps_audit_run` — Agent 在需要时可以主动调起扫描\n\n## 工作流程\n\n1. 打开视图，点击「扫描」\n2. 插件 spawn 你本地的 `osv-scanner` 扫描工作区根下的 manifest（`package.json`、\n   `requirements.txt`、`Cargo.toml` 等）\n3. osv-scanner 拉取 OSV 数据库（**它**做的网络请求，**插件本身不联网**），返回结构化 JSON\n4. 插件解析后按严重度（Critical → High → Medium → Low）展示在工作面板\n5. 选中一条 → 点击「复制给 Agent 询问修复建议」→ 文本里包含漏洞摘要、固定版本、advisory 链接\n6. 粘到 PI-Desktop 对话框 → Agent 先解释风险，给出最小升级方案，**等你确认**才改文件\n\n## 权限说明\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` / `ui.view` | 工作面板视图 |\n| `fs.read` | 经宿主网关读取工作区根目录的依赖清单（逐文件列在 manifest 的 `fs.read` 作用域里），用于生成净化副本 |\n| `clipboard.write` | 「复制给 Agent」经宿主剪贴板桥写入 |\n| `agent.tool.register` | 注册 `deps_audit_run` 工具（risk: high —— 原生执行 + 联网） |\n\n**不**声明、也**不**使用的：\n- `agent.complete` / `models.list` —— 修复建议由你在对话里向 Agent 发起，插件不调用模型。\n- `fs.write` / `fs.delete` —— 工作区永不被写入或删除。\n- `net.fetch` —— 插件进程自身零网络请求；OSV 数据库由 osv-scanner 二进制自行拉取\n  （该联网行为属于 SECURITY.md High 档的原生执行能力，已在安全模型小节声明）。\n\n## 支持的 manifest\n\n`package.json` / `package-lock.json` / `yarn.lock` / `pnpm-lock.yaml` /\n`requirements.txt` / `pyproject.toml` / `Pipfile` /\n`Cargo.toml` / `Cargo.lock` / `go.mod` / `go.sum` /\n`pom.xml` / `composer.json` / `composer.lock` / `Gemfile` / `Gemfile.lock`\n\nAgent 工具 `deps_audit_run` 可通过 `manifests` 参数收窄范围。\n\n## 设置\n\n- `scannerPath` — `osv-scanner` 二进制路径或 PATH 中的名字（默认 `osv-scanner`）\n- `severityMin` — 严重度过滤（`low` / `medium` / `high` / `critical`，默认 `low`）\n\n## 故障排查\n\n**症状**：扫描后状态条显示\"出错\"且面板顶部红色 banner\n\n最常见原因：\n\n1. **未安装 osv-scanner** → 按上面\"安装\"小节装一个，或在设置里改 `scannerPath` 指向\n   你自己装的二进制。\n2. **超时**（\u003e120 秒）→ 仓库很大、依赖很多、或 OSV 数据库下载慢。可手动先跑\n   `osv-scanner scan source --format json .` 看耗时。\n3. **JSON 解析失败** → 极少见，说明 osv-scanner 输出了不兼容的版本。请把 stderr 贴到\n   issue 里。\n\n## 设计选择\n\n- **为什么清单要先复制到临时目录再扫**？osv-scanner 是原生二进制，按 SECURITY.md 属于\n  High 风险能力。让它只读取插件经宿主网关读到的清单副本（一次性临时目录、扫描后即删），\n  被拉起的二进制就永远不会直接触碰工作区——边界先在插件侧守住，宿主网关是第二道锁。\n- **为什么过滤列表只按证据逐个加**？真实用户会粘贴以 `#` 开头的 markdown（比如\n  `# Role: 资深工程师`），一刀切会误伤真实内容。合成前缀只从真实归档里逐个取证，\n  新注入出现时按同样方式扩展。\n- **为什么是\"复制给 Agent\"而不是一键 fix**？升级依赖是高风险操作（破坏性变更、lock 重生、\n  影响下游）。让 Agent 先解释、再给方案、最后由你点头，是最不容易出事的人机协作。\n- **为什么 `deps_audit_run` 是 high-risk**？它会拉起本机 osv-scanner 二进制（原生执行），\n  且 osv-scanner 会联网访问 OSV 数据库。宁可让用户在授权时多看一眼。\n\n## 开发\n\n```bash\n# 在 PI-Desktop 仓库内校验\ncd ~/dev/pi-desktop\nenv -u NODE_OPTIONS -u PYTHONPATH ./node_modules/.bin/pi-plugin check \\\n  ~/dev/pi-desktop-plugin-lab/deps-audit\n\n# 跑测试\nnode --test test/*.test.mjs\n```\n\n## License\n\nMIT\n",
+      "safetyNotes": "只经宿主 fs 网关读取声明作用域内的工作区根目录依赖清单（package.json、各语言锁文件等），把净化副本放入一次性临时目录，再对临时目录运行本机 osv-scanner 二进制——被拉起的二进制绝不直接读取工作区，且会联网访问 OSV 数据库（已声明 High 风险能力）。临时副本在每次扫描后删除；工作区永不被写入。",
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-09-20T16:14:12Z",
+          "changelog": "0.2.0：按维护者评审重做（#20）。修复插件生命周期（onLoad 改用宿主注入的 globalThis.pi，原实现因缺参而从不注册）；扫描面板改经宿主 API 解析当前工作区与设置（不再误扫插件进程目录）；清单文件改经 fs.read 权限网关读取，净化副本暂存一次性临时目录后再交给 osv-scanner（原生二进制与网络能力按 SECURITY.md 声明为 High 风险，附负面路径测试）；osv-scanner 命令改为 v2 正确用法（scan source --format json --recursive）；剪贴板复制改走宿主 clipboard.write 桥；PATH 查找兼容 Windows（where.exe）；面板符合 v3 chrome 契约。0.1.0：首个公开版本。",
+          "minPiDesktop": "\u003e=0.14.3",
+          "shasum": "f3c93105e61fd45c67aca3229552e532a168af8a83deb427c10d72e9836b5ec9",
+          "url": "packages/io.github.muzimu217.deps-audit-0.2.0.piplug",
+          "sizeBytes": 58020,
+          "permissions": [
+            "agent.tool.register",
+            "clipboard.write",
+            "fs.read",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "package.json",
+                "package-lock.json",
+                "yarn.lock",
+                "pnpm-lock.yaml",
+                "requirements.txt",
+                "pyproject.toml",
+                "Pipfile",
+                "Cargo.toml",
+                "Cargo.lock",
+                "go.mod",
+                "go.sum",
+                "pom.xml",
+                "composer.json",
+                "composer.lock",
+                "Gemfile",
+                "Gemfile.lock"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/muzimu217/pi-desktop-plugins",
+            "sourceRef": "a4013d1c2a1c500fe5c083e83f848eeed170a15c",
+            "sourceCommit": "a4013d1c2a1c500fe5c083e83f848eeed170a15c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-20T16:14:12Z"
+          }
         }
       ]
     },
