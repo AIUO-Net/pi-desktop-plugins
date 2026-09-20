@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T07:46:35Z",
-  "generatedAt": "2026-09-20T07:46:35Z",
+  "updatedAt": "2026-09-20T07:46:49Z",
+  "generatedAt": "2026-09-20T07:46:49Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -352,7 +352,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-20T07:46:35Z",
+          "publishedAt": "2026-09-20T07:46:49Z",
           "changelog": "# Changelog\n\n## 0.1.0\n\n- First release: docked Side Chat with local history, host-owned completions, optional session context, and send-to-session.",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "13aec802f622e5fe810314480270d9c558a5b38665ac12afea9245b07ecd734a",
