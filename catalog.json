@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T16:18:57Z",
-  "generatedAt": "2026-09-20T16:18:57Z",
+  "updatedAt": "2026-09-20T18:45:07Z",
+  "generatedAt": "2026-09-20T18:45:07Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -375,6 +375,40 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-20T07:46:35Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "in.memcode.memory",
+      "name": "Memcode Memory",
+      "description": "Give PI-Desktop agents explicit tools to save, search, and retrieve the signed-in user's Memcode memories.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Memcode 记忆",
+          "description": "为 PI-Desktop Agent 提供明确的工具，用于保存、搜索和检索当前用户的 Memcode 记忆。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "in",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-20T18:45:07Z",
+          "changelog": "Initial release with credential verification, durable memory ingest, semantic search, and grounded retrieval tools.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "c77e6aebaed1f09d9fb82568028b40910c97853fa289b114e819454279b54672",
+          "url": "packages/in.memcode.memory-0.1.0.piplug",
+          "sizeBytes": 14955,
+          "permissions": [
+            "agent.tool.register",
+            "net.fetch"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
