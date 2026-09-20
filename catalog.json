@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T16:14:29Z",
-  "generatedAt": "2026-09-20T16:14:29Z",
+  "updatedAt": "2026-09-20T16:18:57Z",
+  "generatedAt": "2026-09-20T16:18:57Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -579,6 +579,92 @@
             "sourceCommit": "a4013d1c2a1c500fe5c083e83f848eeed170a15c",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-20T16:14:12Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.muzimu217.session-import",
+      "name": "Universal Session Import",
+      "description": "一体化会话导入与熔炉：扫描本机的 ZCode、WorkBuddy、Claude Code、Codex、OpenCode、Pi 并导入会话；可用声明式 JSON 自定义来源扩展；再读回这些会话，用宿主额度蒸馏成项目约定与可复用做法。",
+      "author": "muzimu217",
+      "i18n": {
+        "en": {
+          "name": "Universal Session Import",
+          "description": "Import sessions from ZCode, WorkBuddy, Claude Code, Codex, OpenCode and Pi into PI-Desktop; extend it with declarative JSON custom sources; then distill those sessions back into project conventions and reusable practices.",
+          "safetyNotes": "Reads each tool's local session database in read-only mode (Node node:sqlite, readOnly). Writes sessions through the host's session import API. The forge calls the host model using the host's own credentials and quota — this plugin never sees or stores API keys. fs.write is used only to save distilled output, scoped to AGENTS.md, *.md, docs/** and .agents/skills/** in the workspace. No network requests, no telemetry. Custom source specs (docs/session-import-sources.json in the workspace) are declarative data only — no code from a config file is ever executed."
+        },
+        "zh-CN": {
+          "name": "一体化会话导入",
+          "description": "一体化会话导入与熔炉：扫描本机的 ZCode、WorkBuddy、Claude Code、Codex、OpenCode、Pi 并导入会话；可用声明式 JSON 自定义来源扩展；再读回这些会话，用宿主额度蒸馏成项目约定与可复用做法。",
+          "safetyNotes": "以只读方式打开各工具的本地会话数据库（Node node:sqlite 的 readOnly 模式）；会话写入走宿主 session 导入接口。熔炉调用宿主模型，使用宿主自身的凭据与额度，本插件不接触也不保存任何 API Key。fs.write 仅用于保存蒸馏结果，范围限定在工作区内的 AGENTS.md、*.md、docs/**、.agents/skills/**。不发起任何网络请求，无遥测上报。 自定义来源配置（工作区 docs/session-import-sources.json）只接受纯数据，插件永不执行其中的代码。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "import",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "readmeMarkdown": "# Universal Session Import（一体化会话导入）\n\nPI-Desktop 插件：**扫描本机安装的编程工具，把它们（ZCode、WorkBuddy、Claude Code、Codex、OpenCode、Pi）的本地会话统一导入 PI-Desktop。**\n\n![scan sources](docs/screenshots/01-scan-sources.png)\n\n## 使用流程\n\n### 1. 扫描本机工具\n\n打开面板点击「扫描本机工具」，插件并行探测六个来源，实时显示各自检测到的会话数（未安装的工具显示「未检测到」）。\n\n### 2. 选择来源，浏览会话\n\n点击检测到的工具卡片，按项目分组载入该来源的会话列表（支持搜索、整组全选）：\n\n![session list](docs/screenshots/02-session-list.png)\n\n### 3. 预览对话\n\n点任意会话即可按原始顺序还原完整对话——用户消息、助手回复、工具调用（参数 + 结果折叠展示，错误标红）：\n\n![preview](docs/screenshots/03-preview.png)\n\n### 4. 导入为会话\n\n勾选会话（支持整组全选）→「导入为会话」，通过宿主 `session.import` 通道写入 PI-Desktop 会话库：\n\n![import status](docs/screenshots/04-import-status.png)\n\n导入的会话按**原始工作目录**归属项目：该项目已在 PI-Desktop 打开时**立刻展开可见**；未打开的项目也会自动加入左侧项目列表并展开：\n\n![sidebar auto expand](docs/screenshots/05-sidebar-auto-expand.png)\n\n![sidebar codex](docs/screenshots/06-sidebar-codex.png)\n\n重复导入自动跳过（幂等 id：`import-\u003c来源\u003e-\u003c外部会话 id\u003e`）。\n\n## 来源与特殊处理\n\n| 来源 | 数据位置 | 特殊处理 |\n| --- | --- | --- |\n| ZCode | `~/.zcode/cli/db/db.sqlite` | `node:sqlite` 只读；过滤 `subagent_child` 内部会话与 `synthetic` 注入文本；工具调用按存储顺序还原 |\n| WorkBuddy | `~/.workbuddy/projects/**/*.jsonl` | 剥离 `\u003csystem-reminder\u003e`/`\u003ccb_summary\u003e` 注入块；`function_call` 按 `callId` 配对；外置大结果安全回读；`ai-title` 优先 |\n| Claude Code | `~/.claude/projects/**/*.jsonl` | 过滤 sidechain 与合成用户行；`tool_use`/`tool_result` 配对 |\n| Codex | `~/.codex/sessions/**/*.jsonl` | 兼容新旧两种格式；过滤 `# AGENTS.md` 等合成行 |\n| OpenCode | `%LOCALAPPDATA%\\opencode\\data\\opencode.db`（Windows）/ `~/.local/share/opencode/opencode.db`（macOS/Linux，尊重 `XDG_DATA_HOME`） | `node:sqlite` 只读；session→message→part 三层还原（OpenCode v1.x SQLite）；多候选路径按序探测 |\n| Pi | `~/.pi/agent/sessions/**/*.jsonl` | `toolCall`/`toolResult` 配对；`session_info.name` 优先 |\n\n## 自定义来源（无需改代码）\n\n内置 6 个来源之外，你可以在**当前工作区**放一份纯 JSON，描述自己的工具：\n\n```\ndocs/session-import-sources.json\n```\n\n内置驱动覆盖三类磁盘格式，绝大多数工具都能落在其中一个上：\n\n| driver | 适用 | 内置使用者 |\n| --- | --- | --- |\n| `jsonl-transcript` | 一行一条记录的 JSONL 对话文件 | Claude Code、Codex、WorkBuddy、Pi |\n| `sqlite-session` | SQLite：`session → message → part` 三层（或 session+message 两层） | ZCode、OpenCode |\n| `json-tree` | 一个 JSON 文件即一个会话 | 旧版 OpenCode / Claude 布局 |\n\n面板「自定义来源 → 重新加载」即可热加载，新来源带 `自定义` 标签出现。完整字段见\n[`docs/CUSTOM-SOURCES.md`](docs/CUSTOM-SOURCES.md)，里面有可直接复制的三个 driver 示例。\n\n\u003e **安全边界**：配置**只允许纯数据**。任何 `eval` / `code` / `require` / `transform` / `script`\n\u003e 之类的键（任意层级）都会被拒绝——插件对用户主目录有读权限，允许配置携带代码等同于任意代码执行。\n\u003e 数据根目录也不接受 `/` 或整个 home。\n\n## 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` / `ui.view` | 导入面板与「会话熔炉」工作面板视图 |\n| `session.read` / `session.read.own` | 读回本插件导入过的会话，供熔炉蒸馏 |\n| `session.import` | 把选中的会话写入 PI-Desktop 会话库 |\n| `project.create` | 按会话的 `projectPath` 幂等解析 / 绑定 projectId（无此能力的宿主退回未绑定导入） |\n| `agent.complete` / `models.list` | 调用宿主模型做蒸馏（使用宿主凭据与额度，插件不接触 API Key） |\n| `fs.read` | 只读各工具的本地会话数据（`.jsonl` / SQLite 的 `readOnly` 模式）；并读取工作区 `docs/session-import-sources.json` 里的自定义来源配置 |\n| `fs.write` | **仅**用于保存蒸馏结果，范围限定在工作区内的 `AGENTS.md`、`*.md`、`docs/**`、`.agents/skills/**` |\n\n读取各工具本地数据由插件进程**只读**完成（`node:sqlite` 的 `readOnly` 模式，或直接读取\n`.jsonl`）。**导入**经由宿主 `session.import` 通道完成（该通道为插件宿主新增的底层 API\n提案，见 [PI-Desktop#134](https://github.com/vastsa/PI-Desktop/issues/134)）。\n\n插件不发起任何网络请求、无遥测上报；熔炉调用走宿主 `pi.agent.complete`，凭据保留在\nElectron 主进程。\n\n## 开发\n\n```bash\n# 在 PI-Desktop 仓库内校验与打包\npnpm --filter @pi-desktop/plugin-devkit... build\nnode packages/plugin-devkit/dist/cli.js check /absolute/path/to/pi-desktop-session-import\nnode packages/plugin-devkit/dist/cli.js pack  /absolute/path/to/pi-desktop-session-import\n```\n\n在 PI-Desktop 中：插件页 → Load development plugin → 选择本目录。\n\n## License\n\nMIT\n",
+      "safetyNotes": "以只读方式打开各工具的本地会话数据库；会话写入走宿主 session 导入接口。熔炉使用宿主自身额度调用模型，插件不接触 API Key。fs.write 仅用于保存蒸馏结果，范围限定在工作区内的 AGENTS.md、*.md、docs/**、.agents/skills/**。不发起网络请求，无遥测。 自定义来源配置（工作区 docs/session-import-sources.json）只接受纯数据，插件永不执行其中的代码。",
+      "versions": [
+        {
+          "version": "0.4.9",
+          "publishedAt": "2026-09-20T16:18:57Z",
+          "changelog": "Release 0.4.9（OpenCode v1.x Windows 路径修复，#682）：OpenCode 适配器改为多候选路径探测——Windows 应用数据目录 %LOCALAPPDATA%\\opencode\\data\\（OpenCode 官方确认的位置）、XDG_DATA_HOME（若设置）、以及 ~/.local/share/opencode 默认位置，按序探测第一个存在的库。此前只探测 ~/.local/share/opencode/opencode.db，Windows 用户的 OpenCode v1.x 数据永远找不到，导入面板显示「未检测到」。macOS/Linux 行为不变。新增适配器专属测试（真实临时 SQLite 库覆盖三平台路径与三层还原）。",
+          "minPiDesktop": "\u003e=0.14.3",
+          "shasum": "1c0631d072ad425c215b5d65c7ae3d30f0b8bedbcbcc75091c5a8859c330d219",
+          "url": "packages/io.github.muzimu217.session-import-0.4.9.piplug",
+          "sizeBytes": 272957,
+          "permissions": [
+            "agent.complete",
+            "fs.read",
+            "fs.write",
+            "models.list",
+            "project.create",
+            "session.import",
+            "session.read",
+            "session.read.own",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "AGENTS.md",
+                "*.md",
+                "docs/**",
+                ".agents/skills/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                "AGENTS.md",
+                "*.md",
+                "docs/**",
+                ".agents/skills/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/muzimu217/pi-desktop-plugins",
+            "sourceRef": "82f98db8fd4b84a39fbce705c7e1c7a0a8230688",
+            "sourceCommit": "82f98db8fd4b84a39fbce705c7e1c7a0a8230688",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-20T16:18:57Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-20T16:58:14Z"
           }
         }
       ]
