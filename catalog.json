@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T16:14:12Z",
-  "generatedAt": "2026-09-20T16:14:12Z",
+  "updatedAt": "2026-09-20T16:14:29Z",
+  "generatedAt": "2026-09-20T16:14:29Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -536,7 +536,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-09-20T16:14:12Z",
+          "publishedAt": "2026-09-20T16:14:29Z",
           "changelog": "0.2.0：按维护者评审重做（#20）。修复插件生命周期（onLoad 改用宿主注入的 globalThis.pi，原实现因缺参而从不注册）；扫描面板改经宿主 API 解析当前工作区与设置（不再误扫插件进程目录）；清单文件改经 fs.read 权限网关读取，净化副本暂存一次性临时目录后再交给 osv-scanner（原生二进制与网络能力按 SECURITY.md 声明为 High 风险，附负面路径测试）；osv-scanner 命令改为 v2 正确用法（scan source --format json --recursive）；剪贴板复制改走宿主 clipboard.write 桥；PATH 查找兼容 Windows（where.exe）；面板符合 v3 chrome 契约。0.1.0：首个公开版本。",
           "minPiDesktop": "\u003e=0.14.3",
           "shasum": "f3c93105e61fd45c67aca3229552e532a168af8a83deb427c10d72e9836b5ec9",
@@ -579,6 +579,58 @@
             "sourceCommit": "a4013d1c2a1c500fe5c083e83f848eeed170a15c",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-20T16:14:12Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.muzimu217.usage-dashboard",
+      "name": "Usage Dashboard",
+      "description": "A native PI-Desktop usage dashboard built on the official read-only usage contract (pi.usage.listTurns): 365-day activity heatmap, model-share donut, daily trend lines, top sessions and streaks, in a light and dark panel.",
+      "author": "muzimu217",
+      "i18n": {
+        "en": {
+          "name": "Usage Dashboard",
+          "description": "A native PI-Desktop usage dashboard built on the official read-only usage contract (pi.usage.listTurns): 365-day activity heatmap, model-share donut, daily trend lines, top sessions and streaks, in a light and dark panel.",
+          "safetyNotes": "Read-only aggregation over the host's official usage interface (pi.usage.listTurns). Counts tokens per turn only — never reads message text, tool arguments, project paths or credentials; keeps at most an 8-character session id prefix; writes nothing outside its own plugin settings; makes no network requests. Covers PI-Desktop's native usage only and reads no other tool's files."
+        },
+        "zh-CN": {
+          "name": "原生用量看板",
+          "description": "基于 PI-Desktop 官方只读用量接口（pi.usage.listTurns）构建的原生用量看板：365 天活动热力图、模型占比环形图、每日趋势折线、Top 会话与连续使用天数，深浅两套主题。",
+          "safetyNotes": "只读聚合宿主官方用量接口（pi.usage.listTurns）返回的计数：不读取消息正文、工具参数、项目路径或凭据，最多保留 8 位 session id 前缀，除自身插件设置外不写任何位置，不发起网络请求。仅覆盖 PI-Desktop 原生用量，不读取其他工具的任何文件。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "readmeMarkdown": "# Usage Dashboard（原生用量看板）\n\nA native PI-Desktop usage dashboard. It is the first consumer of the host's\nofficial read-only usage contract `pi.usage.listTurns` (PI-Desktop host\nPR #503) and renders that fact stream as a local board: metric cards, a\n365-day activity heatmap, a model-share donut, per-model daily trend lines,\ntop sessions and activity streaks — in a light and a dark palette.\n\n原生用量看板：PI-Desktop 官方只读用量接口 `pi.usage.listTurns`（宿主 PR #503）\n的首个消费者。把官方事实面渲染成本地看板：指标卡、365 天活动热力图、模型占比\n环形图、分模型每日趋势线、Top 会话与连续使用天数，深浅两套主题。\n\n## Scope and differentiation / 定位与差异化\n\n- **Official contract only.** All data comes from `pi.usage.listTurns`. The\n  plugin never reads transcript files, the host database, or any other AI\n  tool's local data. It covers PI-Desktop's native usage only.\n  只用正式契约：数据全部来自 `pi.usage.listTurns`，不直读转录本、宿主数据库或\n  其他工具的本地文件；仅覆盖 PI-Desktop 原生用量。\n- Differs from `pi.token-insights`, which aggregates multiple tools and reads\n  host records directly: this plugin is a thin, permission-minimal renderer of\n  the official fact interface.\n  与 pi.token-insights（多工具聚合、直读宿主库）差异化：本插件是正式事实接口\n  之上的薄渲染层，权限最小化。\n\n## Data channel / 数据通道\n\nThe panel bridge is read-only, so the plugin process does all host access\n(the pattern `pi.token-insights` established):\n\n1. `onLoad` (and the `usageDashboard.open` command) walks the full history:\n   windows of 365 days walked backwards from now (`toMs = previous fromMs − 1`),\n   each window paged by cursor until `nextCursor = null`; the first fully empty\n   window ends the walk; a `turnId` set dedupes across window seams.\n2. The deduped turns go through the pure aggregator `lib/aggregate.js`\n   (`aggregateCube(turns, nowMs)`, clock injected for testability).\n3. The cube is published via `pi.plugin.setSettings({ usageCube, scanState })`;\n   the panel polls plugin settings and renders. Range switching (7/30/90/365\n   days) is a renderer-side filter over the cube's daily rows — no second walk.\n\n## Accounting / 聚合口径（v3.1）\n\n- **Headline tokens = `inputTokens + outputTokens`.** Cache read, cache write\n  and reasoning tokens appear only in a diagnostics line and never enter the\n  headline. headline 仅计输入 + 输出；缓存读/写与推理 token 只进诊断行。\n- Cards: total tokens, turn count, session count (deduped `sessionId`),\n  peak day (max daily headline + its date), current/longest streak.\n- Daily keys are **local-calendar days** built from `endedAt`, so the heatmap\n  is not shifted by timezone conversion.\n- Streaks (v1, simple): a day is active when its headline \u003e 0; the current\n  streak anchors on today and falls back to yesterday; any one-day gap breaks\n  a run. 口径最简实现，见 `lib/aggregate.js` 注释。\n- The panel recomputes everything that *can* be derived from daily rows for\n  the selected range (totals, turns, peak, model shares, trend). Session count,\n  the diagnostics line and the Top-sessions list are all-history figures and\n  labelled as such — a session spans days, so it cannot be counted from daily\n  rows without lying.\n\n## Privacy / 隐私\n\nRead-only aggregation over the official interface. Counts only — never message\ntext, tool arguments, project paths or credentials. At most an 8-character\nsession id prefix is kept. Nothing is written outside this plugin's own\nsettings, and no network request is made. Every number stays on this device.\n\n只读聚合、仅计数：不读取消息正文/工具参数/项目路径/凭据，最多保留 8 位\nsession id 前缀；除自身插件设置外不写任何位置，不发起网络请求。\n\n## Permissions / 权限\n\n- `ui.panel` — the dashboard panel\n- `usage.read` — read aggregate token usage through the host's official interface\n\n## Panel\n\n- 7/30/90/365-day range switch (renderer-side filtering), language follows the\n  system with an EN/中文 override, theme follows `prefers-color-scheme` with a\n  light/dark override (both persisted locally).\n- Charts are hand-rolled SVG: week-column heatmap with month axis and legend,\n  donut with center total and a two-column legend, daily trend with per-model\n  toggleable lines.\n- Accessibility: `sr-only` data tables twin the heatmap and the trend chart,\n  the donut carries an aria-label summarizing the shares, and all controls are\n  focusable buttons.\n\n## Host requirement / 宿主要求\n\n`pi.usage.listTurns` is provided by PI-Desktop (host PR #503). On builds\nwithout it the panel shows an explicit \"host interface not available\" state\ninstead of an empty board. 面板对未提供该接口的旧版本宿主显示明确提示，\n而不是伪装成“没有用量”。\n\n## Development\n\n```bash\nnode --check plugins/io.github.muzimu217.usage-dashboard/main.js\nnode --check plugins/io.github.muzimu217.usage-dashboard/lib/aggregate.js\nnode --test tests/usage-dashboard.test.mjs\n```\n",
+      "safetyNotes": "Read-only aggregation over the host's official usage interface (pi.usage.listTurns). Counts tokens per turn only — never reads message text, tool arguments, project paths or credentials; keeps at most an 8-character session id prefix; writes nothing outside its own plugin settings; makes no network requests. Covers PI-Desktop's native usage only and reads no other tool's files.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-20T16:14:15Z",
+          "changelog": "Release 0.1.0: first release. Aggregates the full PI-Desktop usage history through the official pi.usage.listTurns contract (365-day windows walked backwards, cursor pagination, turnId dedupe) into a local dashboard: metric cards, 365-day heatmap, model donut, per-model trend lines, top sessions and streaks. Headline tokens are input + output; cache and reasoning tokens stay in a diagnostics line. 0.1.0：首个版本。通过官方 pi.usage.listTurns 接口（按 365 天窗口回走 + 游标翻页 + turnId 去重）聚合全部原生用量历史，呈现指标卡、热力图、模型环形图、分模型趋势线、Top 会话与连续天数；headline 仅计输入+输出，缓存与推理 token 单列诊断行。",
+          "minPiDesktop": "\u003e=0.14.3",
+          "shasum": "aad5625ba6225ed05ae1fdc8f279682b67d45287f81089b2952e7f69b16c99b4",
+          "url": "packages/io.github.muzimu217.usage-dashboard-0.1.0.piplug",
+          "sizeBytes": 89309,
+          "permissions": [
+            "ui.panel",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/muzimu217/pi-desktop-plugins",
+            "sourceRef": "5f1370a7880cce5a84f9221d08bad1b9763484a6",
+            "sourceCommit": "5f1370a7880cce5a84f9221d08bad1b9763484a6",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-20T16:14:15Z"
           }
         }
       ]
