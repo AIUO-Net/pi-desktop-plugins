@@ -434,6 +434,57 @@
       ]
     },
     {
+      "id": "io.github.ldzhouquan.fast-browser",
+      "name": "Jev Browser Use",
+      "description": "Jev-powered browser agent for PI-Desktop: observes the work-panel browser as a numbered list of real controls, asks Jev for one constrained decision per step (one TypeSafe request), and executes through the host-approved CDP surface until the goal is done, blocked, or out of steps. Tools: jev_observe, jev_act, jev_run, jev_wait, jev_cancel.",
+      "author": "ldzhouquan",
+      "categories": [
+        "community",
+        "developer-tools"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/ldzhouquan/pi-fast-browser",
+      "safetyNotes": "通过宿主许可的 CDP 接口驱动内置工作面板浏览器，并将页面快照发送至 api.typesafe.ai（Jev 路由，net.fetch 域名白名单仅此一个）。填写文本时可能调用宿主已配置模型（agent.complete）。不访问文件系统；同一时间只运行一个任务，浏览器全程可见。",
+      "versions": [
+        {
+          "version": "0.2.1",
+          "publishedAt": "2026-09-20T09:45:00Z",
+          "changelog": "0.2.1：插件更名为 Jev Browser Use；技能文档迁移到 skills/jev-browser-use；测试加载器不再使用动态代码求值（通过中心 SEC003 审计）；移除未使用的 bus.subscribe 权限。0.2.0：完整 Jev 循环（jev_observe / jev_act / jev_run / jev_wait / jev_cancel）、页面新鲜度校验、宿主模型填字、进度事件。",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "83981249fbe5238567dbed886c2e81dd4fd4a5d0e878aff58d59c60a831daddd",
+          "url": "packages/io.github.ldzhouquan.fast-browser-0.2.1.piplug",
+          "sizeBytes": 114730,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "browser.cdp",
+            "bus.publish",
+            "models.list",
+            "net.fetch"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/ldzhouquan/pi-fast-browser",
+            "sourceRef": "v0.2.1",
+            "sourceCommit": "135ce3d76a68ab8923e7df1dd001819b9e5f85cd",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-20T09:45:00Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-20T17:20:15Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "io.github.liushunqiu.pi-idea-git",
       "name": "IDEA-GIT",
       "description": "方便推送代码到git仓库",
