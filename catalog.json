@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-19T08:30:06Z",
-  "generatedAt": "2026-09-19T08:30:06Z",
+  "updatedAt": "2026-09-20T07:46:35Z",
+  "generatedAt": "2026-09-20T07:46:35Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -154,7 +154,7 @@
       "versions": [
         {
           "version": "0.4.0",
-          "publishedAt": "2026-09-19T08:30:06Z",
+          "publishedAt": "2026-09-19T08:30:21Z",
           "changelog": "- 新增 Office 知识与桌面操作技能，理论支持 WPS。\n- Win环境中若存在 PowerShell 7，则优先使用。\n- 支持前台/后台操作切换、局部截图，完善焦点与截图状态提示。\n- 优化动态控件、菜单、保存对话框及中文文件名读取。\n- 改进快捷键、粘贴和窗口关闭验证，修复误打开文件、删除键抢焦点等问题。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "db0a94c28a846d87f2f4f86118e6e7692fcc9ee22afa6aee1c465dbca188354f",
@@ -318,6 +318,62 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-17T08:09:42Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "com.vastsa.side-chat",
+      "name": "Side Chat",
+      "description": "A docked sidebar chat that talks with your signed-in models, can attach the current session as context, and can send a reply back into that session.",
+      "author": "VastSa",
+      "i18n": {
+        "en": {
+          "name": "Side Chat",
+          "description": "A docked sidebar chat that talks with your signed-in models, can attach the current session as context, and can send a reply back into that session.",
+          "safetyNotes": "Uses your already signed-in models through the host (agent.complete); the plugin never sees API keys. desktop.control lets it list sessions, read a transcript, and send a prompt into a session. Conversations are stored only in this plugin's local data directory. No network of its own."
+        },
+        "zh-CN": {
+          "name": "侧边聊天",
+          "description": "停靠在右侧工作面板的独立聊天：走你已登录的模型，可把当前会话当上下文，也能把回复发回该会话。",
+          "safetyNotes": "通过宿主调用你已登录的模型（agent.complete），插件拿不到 API 密钥。desktop.control 用于列出会话、读取 transcript、向会话发送一条 prompt。对话只存在本插件本地数据目录，插件自身不联网。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "vastsa",
+      "downloads": 0,
+      "homepage": "https://github.com/vastsa/pi-desktop-side-chat",
+      "readmeMarkdown": "# Side Chat\n\nPI-Desktop plugin: a chat docked in the right work panel.\n\n- Independent multi-turn history (stored in the plugin data directory)\n- Completions go through the host (`agent.complete`) using models you already signed in\n- Optional: attach the current session transcript as context\n- Optional: send the last reply back into that session (`agent/prompt`)\n\nRequires PI-Desktop ≥ 0.14.0.\n\n## Install\n\n1. Open PI-Desktop → Plugins → **Load development plugin**\n2. Choose this directory\n3. Open the right work panel and pick **Side Chat**\n\nCommand palette: `Side Chat: Open` (detached window).\n\n## Permissions\n\n| Permission | Why |\n|---|---|\n| `ui.view` / `ui.panel` | Docked view and optional window |\n| `models.list` | List signed-in models |\n| `agent.complete` | Side completion (host holds the keys) |\n| `desktop.control` | List/read sessions, send a prompt back |\n| `clipboard.write` | Copy a reply |\n\nNo plugin-owned network. Completions are capped by the host: 8 calls / 60s, 90s timeout.\n\n## Repo\n\nhttps://github.com/vastsa/pi-desktop-side-chat\n",
+      "safetyNotes": "Uses your already signed-in models through the host (agent.complete); the plugin never sees API keys. desktop.control lets it list sessions, read a transcript, and send a prompt into a session. Conversations are stored only in this plugin's local data directory. No network of its own.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-20T07:46:35Z",
+          "changelog": "# Changelog\n\n## 0.1.0\n\n- First release: docked Side Chat with local history, host-owned completions, optional session context, and send-to-session.",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "13aec802f622e5fe810314480270d9c558a5b38665ac12afea9245b07ecd734a",
+          "url": "packages/com.vastsa.side-chat-0.1.0.piplug",
+          "sizeBytes": 60285,
+          "permissions": [
+            "agent.complete",
+            "clipboard.write",
+            "desktop.control",
+            "models.list",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-desktop-side-chat",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "a815de103f3f28f6bbdbe4824753ad761d393284",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-20T07:46:35Z"
           }
         }
       ]
