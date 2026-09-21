@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T18:45:22Z",
-  "generatedAt": "2026-09-20T18:45:22Z",
+  "updatedAt": "2026-09-21T05:41:18Z",
+  "generatedAt": "2026-09-21T05:41:18Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -831,6 +831,62 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.agents-anywhere",
+      "name": "Agents Anywhere 远程助手",
+      "description": "基于 Agents Anywhere 平台实现手机端对 Pi Desktop 的远程查看、发问与控制。",
+      "author": "Anywhere-Labs \u0026 PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "Agents Anywhere Remote",
+          "description": "Remote control and sync for Pi Desktop from mobile via Agents Anywhere.",
+          "safetyNotes": "Connector credentials stay on this local machine. Network communication connects strictly to the official/configured Agents Anywhere relay servers over encrypted WSS/HTTPS. Remote actions reuse local session permissions and never bypass host boundaries."
+        },
+        "zh-CN": {
+          "name": "Agents Anywhere 远程助手",
+          "description": "基于 Agents Anywhere 平台实现手机端对 Pi Desktop 的远程查看、发问与控制。",
+          "safetyNotes": "连接凭据仅保存在本机；网络通信严格限制在官方或用户配置的 Agents Anywhere 中继服务器（通过加密 WSS/HTTPS 传输）；远程执行的指令完全复用本地会话权限体系，绝不绕过安全沙箱。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "safetyNotes": "连接凭据仅保存在本机；网络通信严格限制在官方或用户配置的 Agents Anywhere 中继服务器；远程执行指令完全遵循本地权限审批策略。",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "publishedAt": "2026-09-21T05:41:18Z",
+          "changelog": "Enriched comprehensive documentation including ASCII architecture topology, pairing tutorials, and mobile remote control guides.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "8074b7f4a106b327fe7eac04c2163268c5b3dc0d17438f0bb4f709e55964b1ba",
+          "url": "packages/pi.agents-anywhere-1.0.1.piplug",
+          "sizeBytes": 28198,
+          "permissions": [
+            "desktop.control",
+            "net.fetch",
+            "net.websocket",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mazongYY/pi-desktop-plugins",
+            "sourceRef": "v1.0.1",
+            "sourceCommit": "c0f1ee7a47999cb4d5878a9708ac37df67cc532d",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-21T05:41:18Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-21T07:52:15Z"
+          }
         }
       ]
     },
