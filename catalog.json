@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-20T18:45:07Z",
-  "generatedAt": "2026-09-20T18:45:07Z",
+  "updatedAt": "2026-09-20T18:45:22Z",
+  "generatedAt": "2026-09-20T18:45:22Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -397,7 +397,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-20T18:45:07Z",
+          "publishedAt": "2026-09-20T18:45:22Z",
           "changelog": "Initial release with credential verification, durable memory ingest, semantic search, and grounded retrieval tools.",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "c77e6aebaed1f09d9fb82568028b40910c97853fa289b114e819454279b54672",
@@ -416,13 +416,7 @@
       "id": "io.github.catdford.color-picker",
       "name": "Color Picker",
       "description": "Browse Tailwind and Material palettes, pick colors out of any image with a pixel loupe, build schemes with harmony rules or AI, check WCAG contrast and color blindness, and export CSS variables, Tailwind or JSON — or install the palette as a PI-Desktop theme.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "色卡选择器",
-          "description": "浏览 Tailwind / Material 全量色板,用放大镜从图片里取色,按和谐规则或让 AI 生成配色,检查 WCAG 对比度与色盲模拟,导出 CSS 变量 / Tailwind / JSON;也能把这套配色装成 PI-Desktop 主题。"
-        }
-      },
+      "author": "Gargantua",
       "categories": [
         "productivity"
       ],
@@ -485,7 +479,7 @@
       "versions": [
         {
           "version": "0.2.1",
-          "publishedAt": "2026-09-20T09:45:00Z",
+          "publishedAt": "2026-09-20T18:45:22Z",
           "changelog": "0.2.1：插件更名为 Jev Browser Use；技能文档迁移到 skills/jev-browser-use；测试加载器不再使用动态代码求值（通过中心 SEC003 审计）；移除未使用的 bus.subscribe 权限。0.2.0：完整 Jev 循环（jev_observe / jev_act / jev_run / jev_wait / jev_cancel）、页面新鲜度校验、宿主模型填字、进度事件。",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "83981249fbe5238567dbed886c2e81dd4fd4a5d0e878aff58d59c60a831daddd",
@@ -699,7 +693,7 @@
       "versions": [
         {
           "version": "0.4.9",
-          "publishedAt": "2026-09-20T16:18:57Z",
+          "publishedAt": "2026-09-20T18:45:22Z",
           "changelog": "Release 0.4.9（OpenCode v1.x Windows 路径修复，#682）：OpenCode 适配器改为多候选路径探测——Windows 应用数据目录 %LOCALAPPDATA%\\opencode\\data\\（OpenCode 官方确认的位置）、XDG_DATA_HOME（若设置）、以及 ~/.local/share/opencode 默认位置，按序探测第一个存在的库。此前只探测 ~/.local/share/opencode/opencode.db，Windows 用户的 OpenCode v1.x 数据永远找不到，导入面板显示「未检测到」。macOS/Linux 行为不变。新增适配器专属测试（真实临时 SQLite 库覆盖三平台路径与三层还原）。",
           "minPiDesktop": "\u003e=0.14.3",
           "shasum": "1c0631d072ad425c215b5d65c7ae3d30f0b8bedbcbcc75091c5a8859c330d219",
@@ -784,7 +778,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-20T16:14:15Z",
+          "publishedAt": "2026-09-20T18:45:22Z",
           "changelog": "Release 0.1.0: first release. Aggregates the full PI-Desktop usage history through the official pi.usage.listTurns contract (365-day windows walked backwards, cursor pagination, turnId dedupe) into a local dashboard: metric cards, 365-day heatmap, model donut, per-model trend lines, top sessions and streaks. Headline tokens are input + output; cache and reasoning tokens stay in a diagnostics line. 0.1.0：首个版本。通过官方 pi.usage.listTurns 接口（按 365 天窗口回走 + 游标翻页 + turnId 去重）聚合全部原生用量历史，呈现指标卡、热力图、模型环形图、分模型趋势线、Top 会话与连续天数；headline 仅计输入+输出，缓存与推理 token 单列诊断行。",
           "minPiDesktop": "\u003e=0.14.3",
           "shasum": "aad5625ba6225ed05ae1fdc8f279682b67d45287f81089b2952e7f69b16c99b4",
