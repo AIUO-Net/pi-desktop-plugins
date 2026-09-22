@@ -1483,19 +1483,14 @@
     {
       "id": "pi.thought-fold",
       "name": "pi.thought-fold",
-      "description": "Thought Process Fold",
+      "description": "思考过程折叠插件",
       "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "思考过程折叠插件",
-          "description": "自动折叠：模型回答输出完成后，其前面的思考过程（Reasoning）、工具调用（Bash/Read/Grep 等）以及文件编辑自动折叠为一条优雅的步骤摘要栏（如 已思考 4s · 执行 3 个步骤）。\n支持展开与收起：点击折叠条或右侧小箭头，即可一键顺畅展开查看所有细节（包括思考 Markdown、工具参数、执行输出与代码 Diff），再次点击即可收起。\n可配置项：\nautoFold: 模型输出完成后自动折叠（默认开启）\nfoldTools: 折叠是否包含工具调用与代码编辑（默认开启）\ndefaultExpandedWhileRunning: 模型生成过程中保持展开，生成完毕后收起（默认开启）"
-        }
-      },
       "categories": [],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
       "downloads": 0,
+      "readmeMarkdown": "1. **自动折叠**：模型回答输出完成后，其前面的思考过程（Reasoning）、工具调用（Bash/Read/Grep 等）以及文件编辑自动折叠为一条优雅的步骤摘要栏（如 `已思考 4s · 执行 3 个步骤`）。\n2. **支持展开与收起**：点击折叠条或右侧小箭头，即可一键顺畅展开查看所有细节（包括思考 Markdown、工具参数、执行输出与代码 Diff），再次点击即可收起。\n3. **可配置项**：\n   - `autoFold`: 模型输出完成后自动折叠（默认开启）\n   - `foldTools`: 折叠是否包含工具调用与代码编辑（默认开启）\n   - `defaultExpandedWhileRunning`: 模型生成过程中保持展开，生成完毕后收起（默认开启）",
       "versions": [
         {
           "version": "1.0.0",
