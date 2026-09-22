@@ -1485,7 +1485,9 @@
       "name": "思考过程折叠插件",
       "description": "支持模型在会话中输出完成后的思考过程、工具调用与编辑内容自动折叠",
       "author": "",
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
