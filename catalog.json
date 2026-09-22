@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T09:16:02Z",
-  "generatedAt": "2026-09-22T09:16:02Z",
+  "updatedAt": "2026-09-22T14:16:17Z",
+  "generatedAt": "2026-09-22T14:16:17Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -495,6 +495,67 @@
             "sourceCommit": "5285acc52d8e5420e0e9799fb1aa82115153f43b",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-17T11:50:29Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.gzxingr.genui",
+      "name": "GenUI",
+      "description": "PI-Desktop port of omdsh-dev/dsh-genui: the model describes an interface as a dsh-ui JSON spec and the plugin renders it as real interactive components — stat/table/chart/plot, cards, steps, timelines, forms, quizzes with local grading, and an action loop back to the model.",
+      "author": "{\"name\":\"归星 (GzxingR)\",\"url\":\"https://github.com/GzxingR\"}",
+      "i18n": {
+        "en": {
+          "name": "GenUI",
+          "description": "Give the model's answers a face: it describes an interface as a dsh-ui JSON spec and the plugin renders it as real interactive components in its own panel — stat cards, sortable/filterable tables, SVG charts and function plots, cards, steps, timelines, forms, quizzes graded locally, and an action loop back to the model. PI-Desktop exposes no plugin-extensible chat renderer, so a dsh-ui fence in a reply is captured and replaced by a one-line pointer instead of rendering inline.",
+          "safetyNotes": "Requests four permissions: ui.panel, agent.tool.register, agent.prompt.inject and agent.extension. PI-Desktop exposes no plugin-extensible chat renderer, so a dsh-ui spec is rendered in this plugin's own panel window instead of inside the reply; the reply itself keeps only a one-line pointer. No fs, net, clipboard, shell, session or background-service permission is requested. Both halves (plugin process and agent sidecar) use Node.js fs to read and write ONLY this plugin's own data directory under the PI-Desktop user folder, one folder per plugin id, and only four fixed filenames there: config, state, action and panel-request. No workspace access, no network access, no caller-supplied path. Panel actions are delivered back to the model as a normal user message so the model can respond. Full capability and data-flow review: docs/capability-data-flow.md."
+        },
+        "zh-CN": {
+          "name": "GenUI 生成式界面",
+          "description": "给回答装上界面：模型用 dsh-ui JSON 规格描述界面，插件在自己的面板里渲染成真实可交互组件——指标卡、可排序可过滤的表格、SVG 图表与函数曲线、卡片、步骤、时间线、表单、本地判卷测验，以及回传模型的动作回路。PI-Desktop 没有对插件开放的聊天渲染接口，因此回复里的 dsh-ui 围栏会被接管并替换为一行指引，而不是就地渲染。",
+          "safetyNotes": "申请四项权限：ui.panel、agent.tool.register、agent.prompt.inject、agent.extension。PI-Desktop 没有对插件开放的聊天渲染接口，因此 dsh-ui 规格渲染在本插件自己的面板窗口里，而不是回复正文中；回复里只保留一行指引。不申请 fs、net、clipboard、shell、session、background.service。插件的两半（插件进程与 Agent 侧）都用 Node.js fs 读写，且仅读写本插件自己的数据目录，即 PI-Desktop 用户目录下按插件 id 分的一个文件夹，且只有四个固定文件名：config、state、action、panel-request。不访问工作区、不联网、不接受调用方传入的路径。面板上的动作会作为一条普通用户消息回传给模型。完整的能力与数据流审查见 docs/capability-data-flow.md。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/GzxingR/pi-desktop-genui",
+      "readmeMarkdown": "# GenUI for PI-Desktop\n\n[English](#english) · [简体中文](#chinese)\n\n---\n\n\u003ca id=\"english\"\u003e\u003c/a\u003e\n\n## English\n\n**Give the model's answers a face.** The model describes an interface as a `dsh-ui` JSON spec, and\nthis plugin renders it as **real interactive components** in its own panel — stat cards, sortable and\nfilterable tables, hand-drawn SVG charts and function plots, cards, steps, timelines, forms, quizzes\ngraded locally, and an action loop back to the model.\n\nThis is a **PI-Desktop port** of [`omdsh-dev/dsh-genui`](https://github.com/omdsh-dev/dsh-genui) (MIT).\nThe `dsh-ui` component vocabulary, field semantics and design rules come from upstream; this\nrepository is the host adaptation layer.\n\n### The one real difference from upstream\n\nUpstream renders a ```` ```dsh-ui ```` fence *in place, inside the reply*, through the DeepSeek\nHarness `fence-registry` extension point. PI-Desktop exposes **no plugin-extensible chat renderer** —\nits extension events are `before_agent_start` / `context` / `input` / `message_end` / `tool_call` /\n`tool_result` / `user_bash`, and its declarative contributions are commands, agent tools, skills,\nviews, themes, MCP servers, services and bus topics.\n\nSo the interface renders in **the plugin's own panel window**, and a fence in a reply is captured at\n`message_end` and replaced by a one-line pointer. Everything else is kept: the same JSON language,\nthe same component vocabulary, the same local-first interactions, the same action loop.\n\n| Path | Trigger | Behaviour |\n|---|---|---|\n| **`render_ui` tool** (primary) | the model calls the tool | spec validated → stored → panel opened |\n| **```` ```dsh-ui ```` fence** | the model writes a fence | captured at `message_end`, fence replaced by `▸ GenUI #n …` |\n| **panel interactions** | the user triggers a component carrying `action` | delivered to the model as a `[genui-action]` message |\n\n### Install\n\nMarketplace → **GenUI** (once published), or install the `.piplug` from\n[Releases](../../releases), or load the repository directory as a development plugin.\n\n### Use\n\nAsk for what you want (\"show this month's orders as a sortable dashboard\", \"draw the error rate\ntrend\"), or say *\"output it with dsh-ui\"*. Commands: open panel · status · clear · render the\nself-check sample.\n\nInteractions that the UI can settle alone — sorting, filtering, grading, locking, expanding — happen\n**locally and instantly, with zero model round-trips**. Only components carrying `action` come back\nto the model. A button without an `action` renders **disabled**, so nothing pretends to be clickable.\n\n### Permissions\n\n| Permission | Why |\n|---|---|\n| `ui.panel` | the interface renders in this plugin's own panel |\n| `agent.tool.register` | exposes `render_ui`, `validate_dsh_ui`, `genui_status` |\n| `agent.prompt.inject` | indexes the bundled `genui` skill so the model knows the component language |\n| `agent.extension` | captures the fence at `message_end` and delivers panel actions to the model |\n\n**Not requested:** any `fs.*`, `net.*`, `clipboard.*`, `shell.*`, `session.read`, `background.service`.\nThere is no `fs` or `net` block in the manifest.\n\nFull capability and data-flow review, including residual risks stated plainly:\n[`docs/capability-data-flow.md`](./docs/capability-data-flow.md).\n\n### Not implemented in this port\n\n`mermaid`, `echart`, `scene3d` and `diagram` render as a labelled placeholder that **preserves the\noriginal JSON** rather than executing anything. Upstream ships those as separately downloaded engines\n(≈1 MB+); this port bundles **no third-party render engine at all** — charts and function plots are\nhand-written SVG, the panel is plain HTML/CSS/JS with no build step, and nothing is fetched at runtime.\n\n### Tests\n\n```sh\nnode scripts/host-sim.js      # main.js against a fake host `pi`  (56 assertions)\nnode scripts/agent-sim.js     # src/extension.js against a fake sidecar (44)\nnode scripts/selftest.js      # guard -\u003e store -\u003e fence rewrite end to end (52)\nnode src/guard.selftest.js    # guard unit tests (190)\n```\n\n342 assertions, all green. Both simulations run the **real plugin code** — that is how two genuine\ndefects were caught before the host ever granted permissions (`getDataPath()` used as if it were\nsynchronous; `message_end` reading a stale config closure).\n\n### Build\n\n```sh\nnode scripts/make-icon.mjs                                  # icon, deterministic and reproducible\nnode scripts/build-market.mjs --repo \u003cthis repository url\u003e  # market tree under build/\n```\n\n### Licence\n\nMIT. The `dsh-ui` language and component vocabulary originate in\n[`omdsh-dev/dsh-genui`](https://github.com/omdsh-dev/dsh-genui); see [`LICENSE`](./LICENSE), which\nreproduces the upstream notice as the licence requires.\n\n---\n\n\u003ca id=\"chinese\"\u003e\u003c/a\u003e\n\n## 简体中文\n\n**给回答装上界面。** 模型用一份 `dsh-ui` JSON 规格描述界面，本插件把它渲染成**真实可交互组件**——\n指标卡、可排序可过滤的表格、手绘 SVG 图表与函数曲线、卡片、步骤、时间线、表单、本地判卷测验，\n以及回传模型的动作回路。渲染在插件自己的面板窗口里。\n\n这是 [`omdsh-dev/dsh-genui`](https://github.com/omdsh-dev/dsh-genui)（MIT）的 **PI-Desktop 移植版**。\n`dsh-ui` 组件词汇、字段语义与设计规范来自上游；本仓库是宿主适配层。\n\n### 与上游唯一实质差异\n\n上游通过 DeepSeek Harness 的 `fence-registry` 扩展点，把 ```` ```dsh-ui ```` 围栏**就地**渲染在回复正文中。\nPI-Desktop 没有对插件开放的聊天渲染接口（扩展事件只有 `before_agent_start` / `context` / `input` /\n`message_end` / `tool_call` / `tool_result` / `user_bash`），因此界面渲染在**插件自己的面板窗口**里，\n回复中的围栏会在 `message_end` 被接管并替换为一行指引。其余全部保留：同一套 JSON 语言、同一套组件词汇、\n同样的本地优先交互、同样的动作回路。\n\n### 安装\n\n插件市场搜索 **GenUI**（发布后），或从 [Releases](../../releases) 安装 `.piplug`，\n或把仓库目录作为开发插件加载。\n\n### 使用\n\n直接提需求（「把本月订单画成可排序的看板」），或说「用 dsh-ui 输出」。\n命令：打开面板 · 状态 · 清空 · 渲染自检示例。\n\n排序、过滤、判卷、锁定、展开这些 UI 自己能定的事，**全部本地即时完成，零模型往返**；\n只有带 `action` 的组件会回到模型。不带 `action` 的按钮渲染为**禁用态**，不会假装可点。\n\n### 权限\n\n| 权限 | 用途 |\n|---|---|\n| `ui.panel` | 界面渲染在本插件自己的面板 |\n| `agent.tool.register` | 注册 `render_ui` / `validate_dsh_ui` / `genui_status` |\n| `agent.prompt.inject` | 索引内置 `genui` 技能，让模型知道组件语言 |\n| `agent.extension` | 在 `message_end` 接管围栏，并把面板动作送达模型 |\n\n**不申请**：任何 `fs.*`、`net.*`、`clipboard.*`、`shell.*`、`session.read`、`background.service`。\nmanifest 里没有 `fs` / `net` 段。\n\n完整的能力与数据流审查（含如实写出的残余风险）：[`docs/capability-data-flow.md`](./docs/capability-data-flow.md)。\n\n### 本移植版未实现\n\n`mermaid` / `echart` / `scene3d` / `diagram` 渲染为带说明的占位卡并**保留原始 JSON**，不执行任何东西。\n上游把它们做成按需下载的独立引擎（约 1 MB+），本移植版**不引入任何第三方渲染引擎**——\n图表与函数图是手写 SVG，面板是纯 HTML/CSS/JS 无构建，运行时不联网。\n\n### 测试\n\n```sh\nnode scripts/host-sim.js      # 假宿主 pi 跑 main.js（56 项）\nnode scripts/agent-sim.js     # 假 sidecar 跑 src/extension.js（44 项）\nnode scripts/selftest.js      # guard → 存储 → 围栏改写 端到端（52 项）\nnode src/guard.selftest.js    # guard 单元（190 项）\n```\n\n共 **342 项断言全绿**。两个仿真都在跑**真实插件代码**——两个真缺陷正是在宿主授权之前这样被抓出来的\n（`getDataPath()` 被当成同步调用；`message_end` 读了闭包里的旧配置）。\n\n### 许可\n\nMIT。`dsh-ui` 语言与组件词汇源自 [`omdsh-dev/dsh-genui`](https://github.com/omdsh-dev/dsh-genui)；\n见 [`LICENSE`](./LICENSE)，其中按许可要求保留了上游版权声明。",
+      "safetyNotes": "Requests four permissions: ui.panel, agent.tool.register, agent.prompt.inject and agent.extension. PI-Desktop exposes no plugin-extensible chat renderer, so a dsh-ui spec is rendered in this plugin's own panel window instead of inside the reply; the reply itself keeps only a one-line pointer. No fs, net, clipboard, shell, session or background-service permission is requested. Both halves (plugin process and agent sidecar) use Node.js fs to read and write ONLY this plugin's own data directory under the PI-Desktop user folder, one folder per plugin id, and only four fixed filenames there: config, state, action and panel-request. No workspace access, no network access, no caller-supplied path. Panel actions are delivered back to the model as a normal user message so the model can respond. Full capability and data-flow review: docs/capability-data-flow.md.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-22T14:16:17Z",
+          "changelog": "**GenUI for PI-Desktop** — give the model's answers a face.\n\nThe model describes an interface as a `dsh-ui` JSON spec and the plugin renders it as **real\ninteractive components**: stat cards, sortable and filterable tables, hand-written SVG charts and\nfunction plots, cards, steps, timelines, forms, quizzes graded locally, and an action loop back to\nthe model.\n\n### Why the interface is in a panel, not inline\n\nUpstream [omdsh-dev/dsh-genui](https://github.com/omdsh-dev/dsh-genui) renders a `dsh-ui` fence\n*in place, inside the reply*, through the DeepSeek Harness `fence-registry` extension point.\nPI-Desktop exposes **no plugin-extensible chat renderer**, so this port renders the same spec in\n**the plugin's own panel window**, and a fence in a reply is captured at `message_end` and\nreplaced by a one-line pointer. Everything else is kept: the same JSON language, the same component\nvocabulary, the same local-first interactions, the same action loop.\n\n### Highlights\n\n- **44 component types** — layout, display, charts, forms, media, plus `svg` previews.\n- **Zero third-party render engines** — charts and function plots are hand-written SVG; the panel is\n  plain HTML/CSS/JS with no build step and nothing fetched at runtime.\n- **Local-first** — sorting, filtering, grading, locking and expanding happen instantly with **zero\n  model round-trips**. Only components carrying an `action` come back to the model, and a button\n  without one renders **disabled** rather than pretending to be clickable.\n- **Bilingual panel** — 159 copy keys in `en` and `zh-CN`, following the app language.\n- **`render_ui` / `validate_dsh_ui` / `genui_status`** tools the agent can call.\n\n### Permissions and privacy\n\nRequests four: `ui.panel`, `agent.tool.register`, `agent.prompt.inject`, `agent.extension`.\n**No `fs.*`, `net.*`, `clipboard.*`, `shell.*`, `session.*` or `background.service`.** There is no\nnetwork code in the package at all. The only persisted state is four fixed filenames inside the\nplugin's own data directory. The full capability, data-flow and privacy review is in\n`docs/capability-data-flow.md`, including the residual risks stated plainly.\n\n### Not implemented in this port\n\n`mermaid`, `echart`, `scene3d` and `diagram` render as a labelled placeholder that **preserves\nthe original JSON** instead of executing anything, because upstream ships those as separately\ndownloaded engines (≈1 MB+) and this port bundles no third-party render engine.\n\n### Verified\n\n344 assertions across four self-test scripts (`scripts/host-sim.js`,\n`scripts/agent-sim.js`, `scripts/selftest.js`, `src/guard.selftest.js`), green in both the\ndevelopment and market trees. Tested against PI-Desktop 0.15.3 on Windows 11.\n\nMIT. The `dsh-ui` language and component vocabulary originate in\n[omdsh-dev/dsh-genui](https://github.com/omdsh-dev/dsh-genui); the bundled `LICENSE` reproduces the\nupstream notice as the licence requires.",
+          "minPiDesktop": "\u003e=0.15.3",
+          "shasum": "1b709c0effb222ca7f89bc0eb2ddef6239a019c5d74b7b41c959ec3a66406404",
+          "url": "packages/io.github.gzxingr.genui-0.1.0.piplug",
+          "sizeBytes": 487793,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/GzxingR/pi-desktop-genui",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "91ebd8b0301a5b8e073af6672710eda586062620",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-22T14:16:17Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-22T18:54:38Z"
           }
         }
       ]
