@@ -1611,7 +1611,7 @@
     {
       "id": "pi.turn-metrics",
       "name": "回答用时与Token统计插件",
-      "description": "解决在会话消息末尾无法直观看到每次回复的耗时与 Token 消耗及缓存命中率明细的问题。",
+      "description": "支持在会话消息末尾展示该次回复总耗时与 Token 累计消耗，通过悬浮窗口展示缓存命中率等消耗明细",
       "author": "",
       "categories": [],
       "verified": false,
