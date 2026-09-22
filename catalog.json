@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T06:59:28Z",
-  "generatedAt": "2026-09-22T06:59:28Z",
+  "updatedAt": "2026-09-22T09:15:47Z",
+  "generatedAt": "2026-09-22T09:15:47Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -237,6 +237,44 @@
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-17T08:12:31Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "cn.star.jianying-assistant",
+      "name": "Jianying Assistant",
+      "description": "用自然语言描述需求，即可完成视频截取、拼接、变速、配乐和字幕添加，生成可在剪映中继续编辑的草稿。",
+      "author": "TheFalreStar",
+      "i18n": {
+        "zh-CN": {
+          "name": "剪映助手",
+          "description": "用自然语言描述需求，即可完成视频截取、拼接、变速、配乐和字幕添加，生成可在剪映中继续编辑的草稿。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cn",
+      "downloads": 0,
+      "readmeMarkdown": "让 PI-Desktop 把你的剪辑要求转成可编辑的剪映工程。提供本地素材路径，说明片段顺序、截取时间、播放速度、配乐和文字内容，AI 就能调用插件检查素材、校验时间轴并生成草稿。\r\n\r\n**主要功能**\r\n- **视频剪辑**：按时间截取、顺序拼接、调整速度和音量。\r\n- **配乐与字幕**：添加背景音频和文字字幕，设置出现时间、字号及颜色。\r\n- **环境检测**：检测 Python 和剪映，确认后安装工作区隔离依赖。\r\n- **安全导入**：导入前备份，只新增工程，不覆盖已有草稿。\r\n- **本地处理**：素材不上传，生成的工程可在剪映中继续调整。\r\n\r\n已在剪映专业版 **11.5** 实测完成草稿生成、导入和播放，并配合 Computer Use 导出 **1080P / 30fps MP4**。\r\n\r\n插件本身不内置一键 MP4 导出，也不提供语音自动转字幕、转场或滤镜编辑。导出需在剪映中完成，或由 Computer Use 操作。",
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-09-22T09:15:47Z",
+          "changelog": "- 首发",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "87c66d14bddf1f6c17b0478dae0830d2465e1c1b6347c0d430adca11c7cd653e",
+          "url": "packages/cn.star.jianying-assistant-0.1.1.piplug",
+          "sizeBytes": 206614,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
