@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-21T05:41:18Z",
-  "generatedAt": "2026-09-21T05:41:18Z",
+  "updatedAt": "2026-09-22T01:06:11Z",
+  "generatedAt": "2026-09-22T01:06:11Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -860,7 +860,7 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishedAt": "2026-09-21T05:41:18Z",
+          "publishedAt": "2026-09-21T07:52:26Z",
           "changelog": "Enriched comprehensive documentation including ASCII architecture topology, pairing tutorials, and mobile remote control guides.",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "8074b7f4a106b327fe7eac04c2163268c5b3dc0d17438f0bb4f709e55964b1ba",
@@ -1447,6 +1447,39 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-15T16:59:30Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "pi.thought-fold",
+      "name": "pi.thought-fold",
+      "description": "Thought Process Fold",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "思考过程折叠插件",
+          "description": "自动折叠：模型回答输出完成后，其前面的思考过程（Reasoning）、工具调用（Bash/Read/Grep 等）以及文件编辑自动折叠为一条优雅的步骤摘要栏（如 已思考 4s · 执行 3 个步骤）。\n支持展开与收起：点击折叠条或右侧小箭头，即可一键顺畅展开查看所有细节（包括思考 Markdown、工具参数、执行输出与代码 Diff），再次点击即可收起。\n可配置项：\nautoFold: 模型输出完成后自动折叠（默认开启）\nfoldTools: 折叠是否包含工具调用与代码编辑（默认开启）\ndefaultExpandedWhileRunning: 模型生成过程中保持展开，生成完毕后收起（默认开启）"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-09-22T01:06:11Z",
+          "changelog": "Initialize",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "703c6137abda55b3c24a9df7ea78399e091f15dc0ffd73dde561b80edacc24d2",
+          "url": "packages/pi.thought-fold-1.0.0.piplug",
+          "sizeBytes": 14751,
+          "permissions": [
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
