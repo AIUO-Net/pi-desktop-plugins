@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T06:55:51Z",
-  "generatedAt": "2026-09-22T06:55:51Z",
+  "updatedAt": "2026-09-22T06:59:28Z",
+  "generatedAt": "2026-09-22T06:59:28Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1496,7 +1496,7 @@
       "versions": [
         {
           "version": "1.2.0",
-          "publishedAt": "2026-09-22T06:55:51Z",
+          "publishedAt": "2026-09-22T06:59:28Z",
           "changelog": "优化稳定性",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "28349a4269bd1c31e49f17ffc88c1788c8b191601507c0d3189bcb7f4a349bae",
@@ -1643,7 +1643,9 @@
       "name": "回答用时与Token统计插件",
       "description": "支持在会话消息末尾展示该次回复总耗时与 Token 累计消耗，通过悬浮窗口展示缓存命中率等消耗明细",
       "author": "",
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
