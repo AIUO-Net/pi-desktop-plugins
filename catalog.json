@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T02:38:08Z",
-  "generatedAt": "2026-09-22T02:38:08Z",
+  "updatedAt": "2026-09-22T06:39:39Z",
+  "generatedAt": "2026-09-22T06:39:39Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1620,6 +1620,21 @@
       "downloads": 0,
       "readmeMarkdown": "1. **总用时显示**：在助手消息末尾的模型名称（例如 `custom/dsv4`）右侧，紧随显示本次回答的总耗时（如 `⏱️ 3.5s`、`⏱️ 1m 12s`）。\n 2. **总 Token 消耗显示**：在耗时右侧显示本次回答消耗的总 Token 数量（如 `🪙 2.8k`、`🪙 1.5m`），用量超过 1k 压缩为 k 展示，超过 1m 压缩为 m 展示。\n   - 📥 **输入 Tokens** (Input)\n   - 📤 **输出 Tokens** (Output)\n   - ⚡ **缓存命中** (Cache Read)\n   - 🎯 **缓存命中率** (Cache Hit Rate %)\n   - 💾 **缓存写入** (Cache Write，如有)\n   - 🧠 **推理 Tokens** (Reasoning，如有)\n3. **灵活开关配置**：\n   - `showDuration`: 是否展示回答总用时（默认开启）\n   - `showTokens`: 是否展示总 Token 消耗（默认开启）\n   - `showDetailsOnHover`: 是否悬浮展示明细卡片（默认开启）\n 4. **全局浮层 (React Portal) 与自适应展开**：采用跨层级 Portal 挂载至顶层 DOM，彻底解决消息容器 CSS（`content-visibility: auto`、`overflow-clip-margin` 等）导致的浮层截断；并自动根据视口上下空间自适应向下或向上平滑展开。",
       "versions": [
+        {
+          "version": "1.2.0",
+          "publishedAt": "2026-09-22T06:39:39Z",
+          "changelog": "增加对展示效果\"炫彩+图标/朴素仅文字\"的选择",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "b030dd443a85d3ecd1c5660263e015e263ff63e0f1269adfa5871211dda5d5f9",
+          "url": "packages/pi.turn-metrics-1.2.0.piplug",
+          "sizeBytes": 23379,
+          "permissions": [
+            "ui.panel",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "1.1.0",
           "publishedAt": "2026-09-22T02:38:08Z",
