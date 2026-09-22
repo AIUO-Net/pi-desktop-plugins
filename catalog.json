@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T14:16:17Z",
-  "generatedAt": "2026-09-22T14:16:17Z",
+  "updatedAt": "2026-09-22T18:54:50Z",
+  "generatedAt": "2026-09-22T18:54:50Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -530,7 +530,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-22T14:16:17Z",
+          "publishedAt": "2026-09-22T18:54:50Z",
           "changelog": "**GenUI for PI-Desktop** — give the model's answers a face.\n\nThe model describes an interface as a `dsh-ui` JSON spec and the plugin renders it as **real\ninteractive components**: stat cards, sortable and filterable tables, hand-written SVG charts and\nfunction plots, cards, steps, timelines, forms, quizzes graded locally, and an action loop back to\nthe model.\n\n### Why the interface is in a panel, not inline\n\nUpstream [omdsh-dev/dsh-genui](https://github.com/omdsh-dev/dsh-genui) renders a `dsh-ui` fence\n*in place, inside the reply*, through the DeepSeek Harness `fence-registry` extension point.\nPI-Desktop exposes **no plugin-extensible chat renderer**, so this port renders the same spec in\n**the plugin's own panel window**, and a fence in a reply is captured at `message_end` and\nreplaced by a one-line pointer. Everything else is kept: the same JSON language, the same component\nvocabulary, the same local-first interactions, the same action loop.\n\n### Highlights\n\n- **44 component types** — layout, display, charts, forms, media, plus `svg` previews.\n- **Zero third-party render engines** — charts and function plots are hand-written SVG; the panel is\n  plain HTML/CSS/JS with no build step and nothing fetched at runtime.\n- **Local-first** — sorting, filtering, grading, locking and expanding happen instantly with **zero\n  model round-trips**. Only components carrying an `action` come back to the model, and a button\n  without one renders **disabled** rather than pretending to be clickable.\n- **Bilingual panel** — 159 copy keys in `en` and `zh-CN`, following the app language.\n- **`render_ui` / `validate_dsh_ui` / `genui_status`** tools the agent can call.\n\n### Permissions and privacy\n\nRequests four: `ui.panel`, `agent.tool.register`, `agent.prompt.inject`, `agent.extension`.\n**No `fs.*`, `net.*`, `clipboard.*`, `shell.*`, `session.*` or `background.service`.** There is no\nnetwork code in the package at all. The only persisted state is four fixed filenames inside the\nplugin's own data directory. The full capability, data-flow and privacy review is in\n`docs/capability-data-flow.md`, including the residual risks stated plainly.\n\n### Not implemented in this port\n\n`mermaid`, `echart`, `scene3d` and `diagram` render as a labelled placeholder that **preserves\nthe original JSON** instead of executing anything, because upstream ships those as separately\ndownloaded engines (≈1 MB+) and this port bundles no third-party render engine.\n\n### Verified\n\n344 assertions across four self-test scripts (`scripts/host-sim.js`,\n`scripts/agent-sim.js`, `scripts/selftest.js`, `src/guard.selftest.js`), green in both the\ndevelopment and market trees. Tested against PI-Desktop 0.15.3 on Windows 11.\n\nMIT. The `dsh-ui` language and component vocabulary originate in\n[omdsh-dev/dsh-genui](https://github.com/omdsh-dev/dsh-genui); the bundled `LICENSE` reproduces the\nupstream notice as the licence requires.",
           "minPiDesktop": "\u003e=0.15.3",
           "shasum": "1b709c0effb222ca7f89bc0eb2ddef6239a019c5d74b7b41c959ec3a66406404",
@@ -1575,6 +1575,73 @@
             "sourceCommit": "cebfcc8dc5276ba96cffc9fd6f62997857252a3a",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-15T16:59:30Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.thinkrail",
+      "name": "ThinkRail",
+      "description": "ThinkRail for PI-Desktop: a spec-graph the agent can read, query and maintain (7 spec_* tools), 10 workflow skills (including the authoring checklist for the family), and a panel with a specs browser.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "ThinkRail工作流",
+          "description": "移植thinkrail 工作流到pidesktop"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.4.0",
+          "publishedAt": "2026-09-22T08:10:59Z",
+          "changelog": "工作流族同步到上游最新（此前冻结在 #485 的父提交）\n\n- 入口判定改为按需：只有当工作仍需要产品/设计决策、或要走项目初始化、或要走 PR 生命周期时才载入工作流；已完全指定的小修、机械重构、文档、纯配置和纯提问直接开干，且不再播报路由\n- choosing-a-workflow：判定标准改为「这件事是否还需要产品/设计决策」，移除按规模划线的红旗\n- brainstorming：一次评审即可，不再要求第二轮确认；promote 步骤读 writing-specs；补上 Ending\n- spec-graph：「永远先看 specs」改为按比例查阅\n- shipping-a-pr：新增等待/快照两种完成模式、Body 阶段、目标仓库的 PR 模板，以及明确列出的合并状态集合（CLEAN / HAS_HOOKS / UNSTABLE / BLOCKED，空 rollup 视为不确定）\n- asking-user-questions：取消每轮问题数上限；说明卡片打开时输入的消息是排队而非直接作答；按本宿主真实行为改写（选项为纯文本标签，答案以 question：answer 的工具结果返回）\n- 常驻规则保留上游三句；本地原有的两处差异中，问题豁免退休，spec-graph 前置检查保留",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "3f5b2ad0e732a2d4154bf090820417f326cc0a288ba0d4de8f7e283230fea601",
+          "url": "packages/pi.thinkrail-1.4.0.piplug",
+          "sizeBytes": 554751,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": true
+            },
+            "read": {
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "scope": [
+                "**/*.md",
+                ".thinkrail/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/andrewliu83/pideskthinkrails",
+            "sourceRef": "v1.4.0",
+            "sourceCommit": "d7bfb36179d62dfe9ffe5109d5de1d24744d120b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-22T08:10:59Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-22T18:54:54Z"
           }
         }
       ]
