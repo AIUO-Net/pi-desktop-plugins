@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T01:54:36Z",
-  "generatedAt": "2026-09-22T01:54:36Z",
+  "updatedAt": "2026-09-22T02:38:08Z",
+  "generatedAt": "2026-09-22T02:38:08Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1616,7 +1616,7 @@
     {
       "id": "pi.turn-metrics",
       "name": "回答用时与Token统计插件",
-      "description": "针对 PI-Desktop 的优化插件： 解决在会话消息末尾无法直观看到每次回复的耗时与 Token 消耗及命中率明细的痛点。",
+      "description": "解决在会话消息末尾无法直观看到每次回复的耗时与 Token 消耗及缓存命中率明细的问题。",
       "author": "",
       "categories": [],
       "verified": false,
@@ -1627,7 +1627,7 @@
       "versions": [
         {
           "version": "1.1.0",
-          "publishedAt": "2026-09-22T01:54:36Z",
+          "publishedAt": "2026-09-22T02:38:08Z",
           "changelog": "修复token使用详情超过消息行被截断的问题",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "0e5dd586668d6dfdf9926e7f43b1344b3c85302fc7f80f44abc315bf5ca674bb",
