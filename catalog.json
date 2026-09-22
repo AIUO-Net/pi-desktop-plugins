@@ -859,6 +859,36 @@
       "safetyNotes": "连接凭据仅保存在本机；网络通信严格限制在官方或用户配置的 Agents Anywhere 中继服务器；远程执行指令完全遵循本地权限审批策略。",
       "versions": [
         {
+          "version": "1.0.3",
+          "publishedAt": "2026-09-21T10:27:15Z",
+          "changelog": "Added smart CLI command parser matching mobile 'Connect via command line' flow: users can paste the full generated command directly to connect instantly.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "1a11b8ce7afd16a9c774d43afa21cb82390c39d49b54205b27ddf85cf98b115f",
+          "url": "packages/pi.agents-anywhere-1.0.3.piplug",
+          "sizeBytes": 33573,
+          "permissions": [
+            "desktop.control",
+            "net.fetch",
+            "net.websocket",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mazongYY/pi-desktop-plugins",
+            "sourceRef": "v1.0.3",
+            "sourceCommit": "62bb22489f43153360604d1a035008a7fce1290a",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-21T10:27:15Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-22T01:52:32Z"
+          }
+        },
+        {
           "version": "1.0.1",
           "publishedAt": "2026-09-21T07:52:26Z",
           "changelog": "Enriched comprehensive documentation including ASCII architecture topology, pairing tutorials, and mobile remote control guides.",
