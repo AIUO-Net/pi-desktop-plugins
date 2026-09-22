@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T09:15:47Z",
-  "generatedAt": "2026-09-22T09:15:47Z",
+  "updatedAt": "2026-09-22T09:16:02Z",
+  "generatedAt": "2026-09-22T09:16:02Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -262,7 +262,7 @@
       "versions": [
         {
           "version": "0.1.1",
-          "publishedAt": "2026-09-22T09:15:47Z",
+          "publishedAt": "2026-09-22T09:16:02Z",
           "changelog": "- 首发",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "87c66d14bddf1f6c17b0478dae0830d2465e1c1b6347c0d430adca11c7cd653e",
