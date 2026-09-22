@@ -900,6 +900,47 @@
       ]
     },
     {
+      "id": "local.miku-theme",
+      "name": "Miku-pi-desktop",
+      "description": "一款为 PI-Desktop 打造的皮肤主题插件，以初音未来（Hatsune Miku）为设计灵感，提供 亮色 与 暗色 两套完整主题。\r\n打开 PI-Desktop 的 设置 → 外观 → 主题。\r\n在主题列表中选择：\r\nSnow Miku（初音 · 亮） —— 启用亮色主题；\r\nCyber Diva（初音 · 暗） —— 启用暗色主题。",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Miku主题",
+          "description": ""
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-09-22T03:45:36Z",
+          "changelog": "Snow Miku（初音 · 亮） —— 启用亮色主题；\nCyber Diva（初音 · 暗） —— 启用暗色主题。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "fd54e602dbc548d3e7357378ca09d2f40a5433c535253c636eb9a236eddefce2",
+          "url": "packages/local.miku-theme-1.0.0.piplug",
+          "sizeBytes": 410807,
+          "permissions": [
+            "ui.panel",
+            "ui.theme",
+            "ui.window.appearance"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-22T18:55:01Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "local.pi-markdown",
       "name": "Pi Markdown 笔记",
       "description": "本地 Markdown 笔记：真·所见即所得编辑（输入 # / - [ ] / \u003e / ``` / $…$ 即出样式，Typora 风格，Milkdown Crepe）、米白/黑夜双主题切换、5 级目录与 H1-H5 大纲、297 种语言代码高亮、Mermaid 图表实时渲染、Todo 任务列表、KaTeX 公式、全局搜索（标题/内容）、导出 Markdown/HTML/图像；文件夹与笔记拖拽排序、右键操作菜单；Agent 工具 preview_file——按绝对路径以只读预览打开单个 Markdown/文本文件（无需选定目录），用户点「编辑」后可直接修改并自动写回（单文件模式，不显示文档列表）；界面语言与面板标题跟随宿主（中文/English）；数据保存在插件数据目录。",
