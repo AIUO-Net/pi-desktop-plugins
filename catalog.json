@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T01:07:43Z",
-  "generatedAt": "2026-09-22T01:07:43Z",
+  "updatedAt": "2026-09-22T01:54:36Z",
+  "generatedAt": "2026-09-22T01:54:36Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -860,7 +860,7 @@
       "versions": [
         {
           "version": "1.0.3",
-          "publishedAt": "2026-09-21T10:27:15Z",
+          "publishedAt": "2026-09-22T01:52:44Z",
           "changelog": "Added smart CLI command parser matching mobile 'Connect via command line' flow: users can paste the full generated command directly to connect instantly.",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "1a11b8ce7afd16a9c774d43afa21cb82390c39d49b54205b27ddf85cf98b115f",
@@ -1625,8 +1625,23 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "1.1.0",
+          "publishedAt": "2026-09-22T01:54:36Z",
+          "changelog": "修复token使用详情超过消息行被截断的问题",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "0e5dd586668d6dfdf9926e7f43b1344b3c85302fc7f80f44abc315bf5ca674bb",
+          "url": "packages/pi.turn-metrics-1.1.0.piplug",
+          "sizeBytes": 18823,
+          "permissions": [
+            "ui.panel",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false
+        },
+        {
           "version": "1.0.0",
-          "publishedAt": "2026-09-22T01:07:43Z",
+          "publishedAt": "2026-09-22T01:52:44Z",
           "changelog": "Initialize",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "aeb24f5d033b41ff467cdf7e98310aebf7bdff8d4c90b8677db52f694f9f3c00",
