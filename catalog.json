@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T01:06:11Z",
-  "generatedAt": "2026-09-22T01:06:11Z",
+  "updatedAt": "2026-09-22T01:07:43Z",
+  "generatedAt": "2026-09-22T01:07:43Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1469,7 +1469,7 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishedAt": "2026-09-22T01:06:11Z",
+          "publishedAt": "2026-09-22T01:06:28Z",
           "changelog": "Initialize",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "703c6137abda55b3c24a9df7ea78399e091f15dc0ffd73dde561b80edacc24d2",
@@ -1580,6 +1580,40 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-18T17:42:43Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "pi.turn-metrics",
+      "name": "Response Time \u0026 Token Metrics",
+      "description": "Response Time \u0026 Token Metrics",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "回答用时与Token统计插件",
+          "description": "总用时显示：在助手消息末尾的模型名称（例如 custom/dsv4）右侧，紧随显示本次回答的总耗时（如 ⏱️ 3.5s、⏱️ 1m 12s）。\n总 Token 消耗显示：在耗时右侧显示本次回答消耗的总 Token 数量（如 🪙 2.8k、🪙 1.5m），用量超过 1k 压缩为 k 展示，超过 1m 压缩为 m 展示。\n📥 输入 Tokens (Input)\n📤 输出 Tokens (Output)\n⚡ 缓存命中 (Cache Read)\n🎯 缓存命中率 (Cache Hit Rate %)\n💾 缓存写入 (Cache Write，如有)\n🧠 推理 Tokens (Reasoning，如有)\n灵活开关配置：\nshowDuration: 是否展示回答总用时（默认开启）\nshowTokens: 是否展示总 Token 消耗（默认开启）\nshowDetailsOnHover: 是否悬浮展示明细卡片（默认开启）"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-09-22T01:07:43Z",
+          "changelog": "Initialize",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "aeb24f5d033b41ff467cdf7e98310aebf7bdff8d4c90b8677db52f694f9f3c00",
+          "url": "packages/pi.turn-metrics-1.0.0.piplug",
+          "sizeBytes": 18328,
+          "permissions": [
+            "ui.panel",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     }
