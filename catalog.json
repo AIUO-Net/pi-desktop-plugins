@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T06:52:34Z",
-  "generatedAt": "2026-09-22T06:52:34Z",
+  "updatedAt": "2026-09-22T06:55:51Z",
+  "generatedAt": "2026-09-22T06:55:51Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1493,8 +1493,22 @@
       "readmeMarkdown": "1. **自动折叠**：模型回答输出完成后，其前面的思考过程（Reasoning）、工具调用（Bash/Read/Grep 等）以及文件编辑自动折叠为一条优雅的步骤摘要栏（如 `已思考 4s · 执行 3 个步骤`）。\n2. **支持展开与收起**：点击折叠条或右侧小箭头，即可一键顺畅展开查看所有细节（包括思考 Markdown、工具参数、执行输出与代码 Diff），再次点击即可收起。\n3. **可配置项**：\n   - `autoFold`: 模型输出完成后自动折叠（默认开启）\n   - `foldTools`: 折叠是否包含工具调用与代码编辑（默认开启）\n   - `defaultExpandedWhileRunning`: 模型生成过程中保持展开，生成完毕后收起（默认开启）",
       "versions": [
         {
+          "version": "1.2.0",
+          "publishedAt": "2026-09-22T06:55:51Z",
+          "changelog": "优化稳定性",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "28349a4269bd1c31e49f17ffc88c1788c8b191601507c0d3189bcb7f4a349bae",
+          "url": "packages/pi.thought-fold-1.2.0.piplug",
+          "sizeBytes": 15352,
+          "permissions": [
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        },
+        {
           "version": "1.1.0",
-          "publishedAt": "2026-09-22T06:41:26Z",
+          "publishedAt": "2026-09-22T06:52:48Z",
           "changelog": "优化客户端冷启动时的会话折叠稳定性",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "a1013f6695afb201834016cf360122317c61e4087f78293f78ae4bbdfb86f25a",
@@ -1636,7 +1650,7 @@
       "versions": [
         {
           "version": "1.3.0",
-          "publishedAt": "2026-09-22T06:52:34Z",
+          "publishedAt": "2026-09-22T06:52:48Z",
           "changelog": "修复数据统计错误的问题",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "75fbb2b81137435a88fde1b7aa7d2478cc516752e9ef778c4c44e46576aa9e07",
