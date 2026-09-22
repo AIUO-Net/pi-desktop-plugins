@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-22T01:06:28Z",
-  "generatedAt": "2026-09-22T01:06:28Z",
+  "updatedAt": "2026-09-22T01:07:43Z",
+  "generatedAt": "2026-09-22T01:07:43Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1580,6 +1580,34 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-18T17:42:43Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "pi.turn-metrics",
+      "name": "Response Time \u0026 Token Metrics",
+      "description": "Response Time \u0026 Token Metrics",
+      "author": "",
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-09-22T01:07:43Z",
+          "changelog": "Initialize",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "aeb24f5d033b41ff467cdf7e98310aebf7bdff8d4c90b8677db52f694f9f3c00",
+          "url": "packages/pi.turn-metrics-1.0.0.piplug",
+          "sizeBytes": 18328,
+          "permissions": [
+            "ui.panel",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     }
