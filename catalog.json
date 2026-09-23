@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T03:25:19Z",
-  "generatedAt": "2026-09-23T03:25:19Z",
+  "updatedAt": "2026-09-23T03:25:32Z",
+  "generatedAt": "2026-09-23T03:25:32Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -923,18 +923,14 @@
       "id": "local.miku-theme",
       "name": "Miku-pi-desktop",
       "description": "一款为 PI-Desktop 打造的皮肤主题插件，以初音未来（Hatsune Miku）为设计灵感，提供 亮色 与 暗色 两套完整主题。\r\n打开 PI-Desktop 的 设置 → 外观 → 主题。\r\n在主题列表中选择：\r\nSnow Miku（初音 · 亮） —— 启用亮色主题；\r\nCyber Diva（初音 · 暗） —— 启用暗色主题。",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "Miku主题",
-          "description": ""
-        }
-      },
+      "author": "cainiao0502",
       "categories": [],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
       "downloads": 0,
+      "homepage": "https://github.com/cainiao0502/pi-desktop-skin",
+      "readmeMarkdown": "一款为 PI-Desktop 打造的皮肤主题插件，以初音未来（Hatsune Miku）为设计灵感，提供 亮色 与 暗色 两套完整主题。\n\n主题基于宿主的 --ds-* 设计令牌全面覆盖，包括三栏背景、侧栏渐变光效、四级文字灰度、强调色与焦点环、hover / 选中态、开关、代码块、遮罩、状态色、阴影、滚动条、文字选区、输入胶囊辉光，以及原生窗口底色，视觉风格统一、低调克制。\n安装启用后打开 PI-Desktop 的 设置 → 外观 → 主题。\n\n在主题列表中选择：\n\nSnow Miku（初音 · 亮） —— 启用亮色主题；\nCyber Diva（初音 · 暗） —— 启用暗色主题。",
       "versions": [
         {
           "version": "1.0.0",
@@ -1416,7 +1412,7 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishedAt": "2026-09-23T03:25:19Z",
+          "publishedAt": "2026-09-23T03:25:32Z",
           "changelog": "初始发布 v1.0.1：专为 PI-Desktop 打造的本地 .md 提示词快速切换器。支持本地文件夹扫描、可视化启用/禁用面板、会话首轮「/」极速选择并挂载系统提示词，历史对话自动守卫避免上下文污染",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "38d014f93e40baaf51d516b2fe32c47be97595d20a6952bea91af9cd1cc82b7e",
