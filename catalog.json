@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T03:25:32Z",
-  "generatedAt": "2026-09-23T03:25:32Z",
+  "updatedAt": "2026-09-23T09:50:09Z",
+  "generatedAt": "2026-09-23T09:50:09Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1625,6 +1625,46 @@
             "sourceCommit": "80bfc46640c260b9313c000a07ccac3634f561e0",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-13T15:57:08Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.theme.opencode",
+      "name": "OpenCode Theme",
+      "description": "Pixel-perfect port of the official OpenCode palette (anomalyco/opencode): #9d7cd8 violet headings, #7fd88f mint code, #f5a742 amber highlights, and monospace typography.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "OpenCode 极客高清主题",
+          "description": "1:1 严格对齐 OpenCode 官方源码（anomalyco/opencode）配色定义：#9d7cd8 优雅紫罗兰标题、#7fd88f 清新薄荷绿行内代码、#f5a742 暖金重点，带来极致清晰的排版体验。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishedAt": "2026-09-23T09:50:09Z",
+          "changelog": "- 1:1 严格对齐 OpenCode 官方仓库源码（anomalyco/opencode）调色板定义\n- 标志性暗罗兰紫（#9d7cd8）分级标题与清新薄荷绿（#7fd88f）行内代码\n- 暖金琥珀（#f5a742）重点加粗与青蓝色（#56b6c2）有序列表序号\n- 优化等宽现代编程字体排版，告别单调黑白字体",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "ba84d52e781887175d4f91f05ba02997e001d54905881edf14f6fe6d4d1de6b4",
+          "url": "packages/pi.theme.opencode-1.1.0.piplug",
+          "sizeBytes": 17459,
+          "permissions": [
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/hzz12138/pi-desktop-plugins",
+            "sourceRef": "v1.1.0",
+            "sourceCommit": "4dc7d23b178e5a037d324cce131ec772ebf33e58",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-23T09:50:09Z"
           }
         }
       ]
