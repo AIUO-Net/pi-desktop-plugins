@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T09:56:42Z",
-  "generatedAt": "2026-09-23T09:56:42Z",
+  "updatedAt": "2026-09-23T13:17:56Z",
+  "generatedAt": "2026-09-23T13:17:56Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -515,6 +515,51 @@
             "sourceCommit": "5285acc52d8e5420e0e9799fb1aa82115153f43b",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-17T11:50:29Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.eonova.theme-dracula",
+      "name": "Dracula Theme",
+      "description": "A pure PI-Desktop theme plugin: applies the classic Dracula palette to the whole app. No panel, no commands.",
+      "author": "Eonova",
+      "i18n": {
+        "zh-CN": {
+          "name": "Dracula 主题",
+          "description": "PI-Desktop 纯主题插件：将经典 Dracula 配色应用于整个应用。无面板、无命令。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/eonova/pi-theme-dracula",
+      "readmeMarkdown": "Dracula 主题 — PI-Desktop 主题\r\n\r\n一个基于经典 **Dracula** 配色方案的 PI-Desktop 主题/插件\r\n（`#282a36` / `#44475a` / `#f8f8f2` / 紫色 `#bd93f9` / 粉色 `#ff79c6` /\r\n青色 `#8be9fd` / 绿色 `#50fa7b` / 橙色 `#ffb86c` / 红色 `#ff5555`）。\r\n\r\n使用方法\r\n\r\n安装插件后，打开 设置 → 主题 并选择 Dracula。\r\n该面板可通过命令面板访问（`pi-theme-dracula: Open Panel`）。",
+      "safetyNotes": "访问网络、文件、剪贴板或 Agent。仅贡献一个主题；纯 CSS，由宿主净化。",
+      "versions": [
+        {
+          "version": "0.4.0",
+          "publishedAt": "2026-09-23T13:17:56Z",
+          "changelog": "- 移除面板与命令，成为纯主题插件\n- 安装后在 设置 → 主题 选择「Dracula」即可应用",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "1d8f67eff1eb856af38fc4501d5dac907fc38e77725ce154c60a30f05c82cccd",
+          "url": "packages/io.github.eonova.theme-dracula-0.4.0.piplug",
+          "sizeBytes": 59404,
+          "permissions": [
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eonova/pi-theme-dracula",
+            "sourceRef": "v0.4.0",
+            "sourceCommit": "2859c3b501c25df07b459457eab066ef4398cef3",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-23T13:17:56Z"
           }
         }
       ]
