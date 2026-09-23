@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T09:56:30Z",
-  "generatedAt": "2026-09-23T09:56:30Z",
+  "updatedAt": "2026-09-23T09:56:42Z",
+  "generatedAt": "2026-09-23T09:56:42Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -991,44 +991,6 @@
       ]
     },
     {
-      "id": "local.pi-theme-dracula",
-      "name": "Dracula Theme",
-      "description": "A PI-Desktop theme based on the classic Dracula palette: #282a36 surfaces, #44475a selection, purple #bd93f9 accent. Ships a panel preview and a Theme Studio theme.",
-      "author": "eonova",
-      "i18n": {
-        "zh-CN": {
-          "name": "德古拉主题",
-          "description": "基于经典德古拉（Dracula）配色的 PI-Desktop 主题：深紫背景 #282a36、选中行 #44475a、紫色强调 #bd93f9。附带德古拉配色面板预览与主题工坊主题。"
-        }
-      },
-      "categories": [
-        "productivity"
-      ],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "local",
-      "downloads": 0,
-      "homepage": "https://github.com/eonova/pi-theme-dracula",
-      "readmeMarkdown": "# pi-theme-dracula — PI-Desktop 德古拉主题\r\n\r\nA PI-Desktop theme/plugin based on the classic **Dracula** palette\r\n(`#282a36` / `#44475a` / `#f8f8f2` / purple `#bd93f9` / pink `#ff79c6` /\r\ncyan `#8be9fd` / green `#50fa7b` / orange `#ffb86c` / red `#ff5555`).\r\n\r\n## Contributions\r\n\r\n- Command `pi-theme-dracula.open` opening a panel from `renderer/index.html`\r\n- A PI-Desktop Theme Studio theme (`dracula`) built from the official Dracula\r\n  palette, mapped onto the host's semantic `--ds-*` tokens per the\r\n  [UI design-system spec](https://pi-docs.aiuo.net/spec/04-ux/07-ui-design-system):\r\n  - Surfaces: `bg-primary #282a36`, `bg-secondary / composer #343746`,\r\n    `bg-tertiary / raised #44475a`, inset \u0026 sidebar `#21222c`\r\n  - Text: `#f8f8f2` primary, `#6272a4` muted (Dracula comment blue)\r\n  - Accent: purple `#bd93f9` (hover `#d6acff`, soft `#ff79c6`)\r\n  - Status: success `#50fa7b`, warning `#ffb86c`, error `#ff5555`, info `#8be9fd`\r\n\r\n## Develop\r\n\r\n1. Open the Plugins page and use **Load development plugin**, pointing at this\r\n   directory. PI-Desktop reloads the plugin whenever you save a file here.\r\n2. Verify the contributions from the command palette.\r\n3. Validate and package:\r\n\r\n```bash\r\npnpm pi-plugin check .\r\npnpm pi-plugin pack .\r\n# writes dist/local.pi-theme-dracula-0.1.0.piplug\r\n```\r\n\r\nInstall the resulting `.piplug` from the Plugins page to test it the way a\r\nuser would.\r\n\r\n### Panel top drag band\r\n\r\nPI-Desktop reserves exactly a transparent 46px frameless drag band above panel\r\ncontent and renders a minimal fixed three-button window-control capsule in its\r\ntop-right corner. Normal-flow content is offset automatically. The panel title,\r\ntoolbar, and every other visible surface belong to the plugin. Development\r\npanels show a reminder that the top 46px is not clickable outside the capsule.\r\nFor `position: fixed` or `position: sticky` content, use\r\n`top: var(--pi-plugin-titlebar-height, 46px)` and account for the same value\r\nin viewport-height calculations. Add `-webkit-app-region: drag` to a\r\nplugin-owned toolbar when it should move the window, and\r\n`-webkit-app-region: no-drag` to controls inside it.",
-      "safetyNotes": "Panel UI only. No network access, no file system access, no external code. All colors are static CSS tokens.（仅 ui.panel 权限、无网络无文件系统，帮助用户放心安装）",
-      "versions": [
-        {
-          "version": "0.1.0",
-          "publishedAt": "2026-09-23T02:40:05Z",
-          "changelog": "Initial release: Dracula palette theme + panel preview.",
-          "minPiDesktop": "\u003e=0.1.0",
-          "shasum": "34e04b49515da0d55639cf1e3d3400f62912937a60dd863bc1312749bee8f414",
-          "url": "packages/local.pi-theme-dracula-0.1.0.piplug",
-          "sizeBytes": 165319,
-          "permissions": [
-            "ui.panel"
-          ],
-          "fs": {},
-          "yanked": false
-        }
-      ]
-    },
-    {
       "id": "pi.agents-anywhere",
       "name": "Agents Anywhere 远程助手",
       "description": "基于 Agents Anywhere 平台实现手机端对 Pi Desktop 的远程查看、发问与控制。",
@@ -1648,7 +1610,7 @@
       "versions": [
         {
           "version": "1.2.0",
-          "publishedAt": "2026-09-23T09:56:30Z",
+          "publishedAt": "2026-09-23T09:56:42Z",
           "changelog": "Release 1.2.0: 像素级全面对齐 OpenCode 官方源码规范\n- 全屏对话正文与代码统一为 JetBrains Mono / Cascadia Code 现代等宽排版\n- 去除行内代码多余胶囊背景与实线边框，还原纯净薄荷绿（#7fd88f）语法穿透感\n- 去除标题多余下划线，呈现纯粹紫罗兰（#9d7cd8）\n- 背景全面下潜至极客纯黑（#0a0a0a）",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "dc712fe566a2d236c578488f7abbeb153a33aeeb8c349cfe5fa72ce274b23395",
