@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T09:50:09Z",
-  "generatedAt": "2026-09-23T09:50:09Z",
+  "updatedAt": "2026-09-23T09:56:30Z",
+  "generatedAt": "2026-09-23T09:56:30Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1647,8 +1647,29 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "1.2.0",
+          "publishedAt": "2026-09-23T09:56:30Z",
+          "changelog": "Release 1.2.0: 像素级全面对齐 OpenCode 官方源码规范\n- 全屏对话正文与代码统一为 JetBrains Mono / Cascadia Code 现代等宽排版\n- 去除行内代码多余胶囊背景与实线边框，还原纯净薄荷绿（#7fd88f）语法穿透感\n- 去除标题多余下划线，呈现纯粹紫罗兰（#9d7cd8）\n- 背景全面下潜至极客纯黑（#0a0a0a）",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "dc712fe566a2d236c578488f7abbeb153a33aeeb8c349cfe5fa72ce274b23395",
+          "url": "packages/pi.theme.opencode-1.2.0.piplug",
+          "sizeBytes": 19850,
+          "permissions": [
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/hzz12138/pi-desktop-plugins",
+            "sourceRef": "v1.2.0",
+            "sourceCommit": "894a2f9134bf4f6003310be75bdc0573665a9933",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-23T09:56:30Z"
+          }
+        },
+        {
           "version": "1.1.0",
-          "publishedAt": "2026-09-23T09:50:09Z",
+          "publishedAt": "2026-09-23T09:50:24Z",
           "changelog": "- 1:1 严格对齐 OpenCode 官方仓库源码（anomalyco/opencode）调色板定义\n- 标志性暗罗兰紫（#9d7cd8）分级标题与清新薄荷绿（#7fd88f）行内代码\n- 暖金琥珀（#f5a742）重点加粗与青蓝色（#56b6c2）有序列表序号\n- 优化等宽现代编程字体排版，告别单调黑白字体",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "ba84d52e781887175d4f91f05ba02997e001d54905881edf14f6fe6d4d1de6b4",
