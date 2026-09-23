@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T02:39:51Z",
-  "generatedAt": "2026-09-23T02:39:51Z",
+  "updatedAt": "2026-09-23T03:25:19Z",
+  "generatedAt": "2026-09-23T03:25:19Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1018,7 +1018,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-23T02:39:51Z",
+          "publishedAt": "2026-09-23T02:40:05Z",
           "changelog": "Initial release: Dracula palette theme + panel preview.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "34e04b49515da0d55639cf1e3d3400f62912937a60dd863bc1312749bee8f414",
@@ -1394,6 +1394,54 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.prompt-switcher",
+      "name": "Prompt Switcher",
+      "description": "Manage local directory `.md` prompts: input or quickly select and apply them in the initial turn of a conversation (similar to `agents.md`), automatically ignoring existing chat history.",
+      "author": "yapool",
+      "i18n": {
+        "zh-CN": {
+          "name": "提示词切换器",
+          "description": "管理本地目录 .md 提示词，在对话首轮输入 / 快速选择并应用（类似 agents.md），历史对话自动无视。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.1",
+          "publishedAt": "2026-09-23T03:25:19Z",
+          "changelog": "初始发布 v1.0.1：专为 PI-Desktop 打造的本地 .md 提示词快速切换器。支持本地文件夹扫描、可视化启用/禁用面板、会话首轮「/」极速选择并挂载系统提示词，历史对话自动守卫避免上下文污染",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "38d014f93e40baaf51d516b2fe32c47be97595d20a6952bea91af9cd1cc82b7e",
+          "url": "packages/pi.prompt-switcher-1.0.1.piplug",
+          "sizeBytes": 56707,
+          "permissions": [
+            "fs.read",
+            "ui.panel"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mikulo/pi-prompt-switcher",
+            "sourceRef": "v1.0.1",
+            "sourceCommit": "5781556c9142a8a6fb68f654893cfb7d5bbf9ea1",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-23T03:25:19Z"
+          }
         }
       ]
     },
