@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-24T10:46:31Z",
-  "generatedAt": "2026-09-24T10:46:31Z",
+  "updatedAt": "2026-09-24T13:43:45Z",
+  "generatedAt": "2026-09-24T13:43:45Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -465,7 +465,7 @@
       "versions": [
         {
           "version": "0.1.2",
-          "publishedAt": "2026-09-24T10:46:31Z",
+          "publishedAt": "2026-09-24T10:46:47Z",
           "changelog": "重写 README：安装步骤提前，补上权限与隐私表格，去掉开发向细节（挪到仓库 `docs/DEVELOPMENT.md`）。游戏代码与权限没有任何改动。（0.1.1 因上传不完整被本版取代。）",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "4bdc82daa118633036307404cb48f60cd93830d042e37d2ae7b5b2dfcbc4121a",
@@ -706,6 +706,47 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-22T18:54:38Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.jeasonloop.theme-craftdesk",
+      "name": "pi-theme-craftdesk",
+      "description": "一款mc风格的pi-desktop主题",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "MC主题扩展-方野",
+          "description": "一款mc风格的pi-desktop主题"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.4.7",
+          "publishedAt": "2026-09-24T13:43:45Z",
+          "changelog": "- 修复部分样式问题\n - 整理仓库格式\n - 处理按钮适配",
+          "minPiDesktop": "\u003e=0.15.6",
+          "shasum": "9e00f1aa844dedcf12a2e40b301ebdc10f83267567fbf73e1e69cd5166ffb3a1",
+          "url": "packages/io.github.jeasonloop.theme-craftdesk-1.4.7.piplug",
+          "sizeBytes": 706399,
+          "permissions": [
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/JeasonLoop/pi-theme-craftdesk",
+            "sourceRef": "v1.4.7",
+            "sourceCommit": "0e7e8d8ce126ad525b2ede6a5c085ecc3bab6dbf",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-24T13:43:45Z"
           }
         }
       ]
