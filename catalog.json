@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-24T01:22:01Z",
-  "generatedAt": "2026-09-24T01:22:01Z",
+  "updatedAt": "2026-09-24T01:22:19Z",
+  "generatedAt": "2026-09-24T01:22:19Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -543,7 +543,7 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishedAt": "2026-09-24T01:22:01Z",
+          "publishedAt": "2026-09-24T01:22:19Z",
           "changelog": "修复样式问题",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "7961d21747ee15f9f95af126ac2c9f179d6e26e8bfc1ab9aa7e29fd4d8e234da",
@@ -991,6 +991,35 @@
       "homepage": "https://github.com/cainiao0502/pi-desktop-skin",
       "readmeMarkdown": "一款为 PI-Desktop 打造的皮肤主题插件，以初音未来（Hatsune Miku）为设计灵感，提供 亮色 与 暗色 两套完整主题。\n\n主题基于宿主的 --ds-* 设计令牌全面覆盖，包括三栏背景、侧栏渐变光效、四级文字灰度、强调色与焦点环、hover / 选中态、开关、代码块、遮罩、状态色、阴影、滚动条、文字选区、输入胶囊辉光，以及原生窗口底色，视觉风格统一、低调克制。\n安装启用后打开 PI-Desktop 的 设置 → 外观 → 主题。\n\n在主题列表中选择：\n\nSnow Miku（初音 · 亮） —— 启用亮色主题；\nCyber Diva（初音 · 暗） —— 启用暗色主题。",
       "versions": [
+        {
+          "version": "1.0.1",
+          "publishedAt": "2026-09-23T06:02:47Z",
+          "changelog": "宿主的安装校验（Rust host-core）只接受绝对路径资产，包内相对路径直接报 PLUGIN_INVALID\n已完成的修改：只需安装插件，在主题切换即可使对应壁纸生效\n壁纸内嵌：两份 CSS 里壁纸以 base64 data URI 定义在 --miku-wallpaper 变量中，侧栏和全屏画布两处复用（var(--miku-wallpaper)），每份 CSS 只存一份图片数据。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "ae93a06639ec43fa7a39eda4ff141137172d6fc5292551ac49d020fd8291529e",
+          "url": "packages/local.miku-theme-1.0.1.piplug",
+          "sizeBytes": 859490,
+          "permissions": [
+            "ui.panel",
+            "ui.theme",
+            "ui.window.appearance"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/cainiao0502/pi-desktop-skin",
+            "sourceRef": "v1.0.1",
+            "sourceCommit": "aec77f584b778155c7c96e5801c0f6755366baad",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-23T06:02:47Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-24T08:02:16Z"
+          }
+        },
         {
           "version": "1.0.0",
           "publishedAt": "2026-09-22T19:01:25Z",
