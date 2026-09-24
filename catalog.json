@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-24T01:22:19Z",
-  "generatedAt": "2026-09-24T01:22:19Z",
+  "updatedAt": "2026-09-24T08:09:22Z",
+  "generatedAt": "2026-09-24T08:09:22Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -993,7 +993,7 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishedAt": "2026-09-23T06:02:47Z",
+          "publishedAt": "2026-09-24T08:09:22Z",
           "changelog": "宿主的安装校验（Rust host-core）只接受绝对路径资产，包内相对路径直接报 PLUGIN_INVALID\n已完成的修改：只需安装插件，在主题切换即可使对应壁纸生效\n壁纸内嵌：两份 CSS 里壁纸以 base64 data URI 定义在 --miku-wallpaper 变量中，侧栏和全屏画布两处复用（var(--miku-wallpaper)），每份 CSS 只存一份图片数据。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "ae93a06639ec43fa7a39eda4ff141137172d6fc5292551ac49d020fd8291529e",
@@ -1040,6 +1040,48 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-22T18:55:01Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.pi-commandcode-desktop",
+      "name": "pi-commandcode-desktop",
+      "description": "帮你在pi-desktop上面使用commandcodego的订阅",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "pi-commandcode-desktop",
+          "description": ""
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-09-23T09:36:11Z",
+          "changelog": "修复了没有token吃的问题",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "d33155a2a1e1d27f759d75e3bd048c1dd5587c736fa70bc648cf27114b0b5c91",
+          "url": "packages/local.pi-commandcode-desktop-0.2.0.piplug",
+          "sizeBytes": 475763,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-24T08:11:03Z"
           }
         }
       ]
