@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-24T13:55:05Z",
-  "generatedAt": "2026-09-24T13:55:05Z",
+  "updatedAt": "2026-09-24T14:10:57Z",
+  "generatedAt": "2026-09-24T14:10:57Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -728,8 +728,30 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "1.4.9",
+          "publishedAt": "2026-09-24T14:10:57Z",
+          "changelog": "- 修复字体子集问题",
+          "minPiDesktop": "\u003e=0.15.6",
+          "shasum": "21152b75da1fea005b352da706f09a959c2b2a43e24019dc8fd1ab00590c354a",
+          "url": "packages/io.github.jeasonloop.theme-craftdesk-1.4.9.piplug",
+          "sizeBytes": 928201,
+          "permissions": [
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/JeasonLoop/pi-theme-craftdesk",
+            "sourceRef": "v1.4.9",
+            "sourceCommit": "10f57cdc164680a326de467949cc9526a77aa326",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-24T14:10:57Z"
+          }
+        },
+        {
           "version": "1.4.8",
-          "publishedAt": "2026-09-24T13:55:05Z",
+          "publishedAt": "2026-09-24T13:55:23Z",
           "changelog": "- 修复字体绝对路径问题",
           "minPiDesktop": "\u003e=0.15.6",
           "shasum": "13fa4d3eb88566ab96defb1e2074d6f6b7b33991e2291734d614cc622bbbe653",
