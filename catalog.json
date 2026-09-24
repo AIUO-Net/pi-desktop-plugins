@@ -1087,6 +1087,47 @@
       ]
     },
     {
+      "id": "local.pi-desktop-workbuddy",
+      "name": "pi-desktop-workbuddy",
+      "description": "帮你在pi-desktop中使用workbuddy的免费积分",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "pi-desktop-workbuddy",
+          "description": ""
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.0.7",
+          "publishedAt": "2026-09-23T09:18:07Z",
+          "changelog": "修复了作者",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "87f6e75a0c876b0d3b48a90ef4f9e670a14ecfbfad36cf8b3341d4d24e07e904",
+          "url": "packages/local.pi-desktop-workbuddy-1.0.7.piplug",
+          "sizeBytes": 345847,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-24T08:11:10Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "local.pi-markdown",
       "name": "Pi Markdown 笔记",
       "description": "本地 Markdown 笔记：真·所见即所得编辑（输入 # / - [ ] / \u003e / ``` / $…$ 即出样式，Typora 风格，Milkdown Crepe）、米白/黑夜双主题切换、5 级目录与 H1-H5 大纲、297 种语言代码高亮、Mermaid 图表实时渲染、Todo 任务列表、KaTeX 公式、全局搜索（标题/内容）、导出 Markdown/HTML/图像；文件夹与笔记拖拽排序、右键操作菜单；Agent 工具 preview_file——按绝对路径以只读预览打开单个 Markdown/文本文件（无需选定目录），用户点「编辑」后可直接修改并自动写回（单文件模式，不显示文档列表）；界面语言与面板标题跟随宿主（中文/English）；数据保存在插件数据目录。",
