@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-23T17:03:09Z",
-  "generatedAt": "2026-09-23T17:03:09Z",
+  "updatedAt": "2026-09-24T01:22:01Z",
+  "generatedAt": "2026-09-24T01:22:01Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -542,8 +542,22 @@
       "safetyNotes": "访问网络、文件、剪贴板或 Agent。仅贡献一个主题；纯 CSS，由宿主净化。",
       "versions": [
         {
+          "version": "0.5.0",
+          "publishedAt": "2026-09-24T01:22:01Z",
+          "changelog": "修复样式问题",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "7961d21747ee15f9f95af126ac2c9f179d6e26e8bfc1ab9aa7e29fd4d8e234da",
+          "url": "packages/io.github.eonova.theme-dracula-0.5.0.piplug",
+          "sizeBytes": 55357,
+          "permissions": [
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false
+        },
+        {
           "version": "0.4.0",
-          "publishedAt": "2026-09-23T13:17:56Z",
+          "publishedAt": "2026-09-23T17:03:29Z",
           "changelog": "- 移除面板与命令，成为纯主题插件\n- 安装后在 设置 → 主题 选择「Dracula」即可应用",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "1d8f67eff1eb856af38fc4501d5dac907fc38e77725ce154c60a30f05c82cccd",
@@ -1519,7 +1533,7 @@
       "versions": [
         {
           "version": "0.7.0",
-          "publishedAt": "2026-09-23T17:03:09Z",
+          "publishedAt": "2026-09-23T17:03:29Z",
           "changelog": "## Pull-first result handling\n\nNew `spawn`, `send`, and `supervise` deliveries default to pull mode, preventing a later host completion message from racing with explicit result reads. Set `notifyOnCompletion: true` to opt into push notifications; choose one mode per delivery. Result and wait reads are pinned to delivery IDs, and wait only reports settled results.",
           "minPiDesktop": "\u003e=0.14.7",
           "shasum": "8e8bb3e5ed5323142ced80ea6d2026059f462553f3748358e7e5264dc38f1c43",
