@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-24T08:09:22Z",
-  "generatedAt": "2026-09-24T08:09:22Z",
+  "updatedAt": "2026-09-24T08:15:03Z",
+  "generatedAt": "2026-09-24T08:15:03Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1063,7 +1063,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-09-23T09:36:11Z",
+          "publishedAt": "2026-09-24T08:15:03Z",
           "changelog": "修复了没有token吃的问题",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "d33155a2a1e1d27f759d75e3bd048c1dd5587c736fa70bc648cf27114b0b5c91",
@@ -1105,7 +1105,7 @@
       "versions": [
         {
           "version": "1.0.7",
-          "publishedAt": "2026-09-23T09:18:07Z",
+          "publishedAt": "2026-09-24T08:15:03Z",
           "changelog": "修复了作者",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "87f6e75a0c876b0d3b48a90ef4f9e670a14ecfbfad36cf8b3341d4d24e07e904",
@@ -1956,6 +1956,47 @@
       "publisherId": "pi",
       "downloads": 0,
       "versions": [
+        {
+          "version": "1.4.1",
+          "publishedAt": "2026-09-24T08:09:09Z",
+          "changelog": "修复与改进\n调整常驻规则的注入方式：改为写入宿主具名 prompt section，不再返回 systemPrompt 覆盖整条提示，避免丢失其他扩展提供的结构化提示内容。\n修正规格索引与路径判定：忽略目录按实际目录名精确匹配；统一索引顺序和路径解析行为；拒绝穿过普通文件的路径，并区分“项目根不可读”与路径错误。\n对齐工具审批风险等级：spec_create / spec_update 为中风险，spec_delete 为高风险，与 manifest 声明一致。\n校正文档与技能说明：补充问答卡实际支持的字段；恢复工作流技能“按需加载、不要强制加载自身”的说明；更新扩展安全说明。\n扩展路径安全测试：用宿主 bundle 中的真实 resolver 检查外部文件/目录 symlink 和 .. 路径会被拒绝，同时确认项目内读写正常。\n兼容性\n最低支持版本提高到 PI-Desktop 0.15.6，以保证具名 prompt section 可用。扩展不会对旧宿主退回到覆盖整条提示的方式。",
+          "minPiDesktop": "\u003e=0.15.6",
+          "shasum": "b111e58a4021c21c5c8424e97aa3b54d7e5836e9c3c5c7e8adf4c627f8e84d67",
+          "url": "packages/pi.thinkrail-1.4.1.piplug",
+          "sizeBytes": 564006,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": true
+            },
+            "read": {
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "scope": [
+                "**/*.md",
+                ".thinkrail/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-24T08:16:09Z"
+          }
+        },
         {
           "version": "1.4.0",
           "publishedAt": "2026-09-22T19:01:25Z",
