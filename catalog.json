@@ -2122,6 +2122,47 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "1.5.0",
+          "publishedAt": "2026-09-24T16:10:57Z",
+          "changelog": "1.5.0\n工作流与项目初始化\n调整首次请求的处理流程：在已关联的代码项目中，如果存在源码但没有持久化的 spec 图，则引导先运行项目设置或代码库导入，再继续处理原始请求。\n判断项目是否完成初始化时，忽略 .thinkrail/context/ 下的临时任务规格。\n如果已经存在持久化 spec 图，或当前没有关联项目，则跳过自动初始化；导入完成后，在同一会话中继续原始请求。\n恢复较宽的工作流入口：新请求先经过工作流路由；涉及项目变更的请求，无论规模大小或描述是否完整，都先进入 brainstorming 流程。\n在写入持久化 SPEC 文件或实现代码前，要求用户明确批准 brainstorming 形成的设计。\n范围说明\n本插件仓库不包含 pi-todos 的工具或技能，因此 TODO 规划不属于本插件的功能范围。\n兼容与保留\n保留 1.4.1 中的命名 prompt section 注入方式及宿主集成修复。\n自动初始化由工作流规则引导；它并非宿主层的强制运行时保证。",
+          "minPiDesktop": "\u003e=0.15.6",
+          "shasum": "703bc8a9fd7c470ab4a007edf458421e3bd5f7adc2c6ef1fb11267c2db863c20",
+          "url": "packages/pi.thinkrail-1.5.0.piplug",
+          "sizeBytes": 561271,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": true
+            },
+            "read": {
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "scope": [
+                "**/*.md",
+                ".thinkrail/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-25T18:57:02Z"
+          }
+        },
+        {
           "version": "1.4.1",
           "publishedAt": "2026-09-24T08:20:46Z",
           "changelog": "修复与改进\n调整常驻规则的注入方式：改为写入宿主具名 prompt section，不再返回 systemPrompt 覆盖整条提示，避免丢失其他扩展提供的结构化提示内容。\n修正规格索引与路径判定：忽略目录按实际目录名精确匹配；统一索引顺序和路径解析行为；拒绝穿过普通文件的路径，并区分“项目根不可读”与路径错误。\n对齐工具审批风险等级：spec_create / spec_update 为中风险，spec_delete 为高风险，与 manifest 声明一致。\n校正文档与技能说明：补充问答卡实际支持的字段；恢复工作流技能“按需加载、不要强制加载自身”的说明；更新扩展安全说明。\n扩展路径安全测试：用宿主 bundle 中的真实 resolver 检查外部文件/目录 symlink 和 .. 路径会被拒绝，同时确认项目内读写正常。\n兼容性\n最低支持版本提高到 PI-Desktop 0.15.6，以保证具名 prompt section 可用。扩展不会对旧宿主退回到覆盖整条提示的方式。",
