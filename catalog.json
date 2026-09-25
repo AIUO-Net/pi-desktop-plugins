@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-24T16:17:44Z",
-  "generatedAt": "2026-09-24T16:17:44Z",
+  "updatedAt": "2026-09-25T18:57:21Z",
+  "generatedAt": "2026-09-25T18:57:21Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -559,6 +559,43 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "io.github.akshayxkill.nexus-scenic-themes",
+      "name": "Nexus Scenic Themes",
+      "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four bundled, isolated scenic themes from PI Desktop Nexus into the host theme system, with a dedicated Settings → Extensions → Nexus Scenic Themes page.\n\nIncluded themes\nTwilight Mountains — blue-violet twilight mountain glass\nAlpine Light — pale icy-blue translucent glass\nObsidian Horizon — moonlit charcoal and navy glass\nEmerald Afterglow — sunlit deep-emerald forest glass\nEach theme uses its own local backdrop asset, preserves the host layout and native window controls, and keeps dense safety-critical surfaces readable and opaque where needed.\n\nSettings experience\nAccessible theme cards with immediate theme selection.\nPer-theme backdrop blur from 0px to 20px in integer steps.\nIndependent blur values restored when switching between themes.\nImmediate visual updates with debounced persistence through the host theme-variable API.\nNo custom renderer DOM access, CSS injection, remote downloads, or second settings canvas.\nPermissions and safety\nThis plugin requests only ui.theme, ui.settings, and ui.window.appearance. It does not request filesystem, network, shell, clipboard, agent-tool, or background-service access. All backdrop images are bundled with the package and referenced through package-local paths. The plugin does not modify host geometry, drag regions, native controls, work-panel hit testing, permissions, or other plugins.\n\nCompatibility\nCompatibility\n\nRequires a Pi Desktop release that includes the plugin appearance extensions API and package-local theme asset support. Pi Desktop 0.15.6 and earlier releases are not compatible. The plugin has been tested against the post-0.15.6 development build containing the merged host support.",
+      "author": "Akshayxkill",
+      "categories": [
+        "theme"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-24T16:02:32Z",
+          "changelog": "Initial release of Nexus Scenic Themes.\n\n- Added four bundled scenic themes:\n  - Twilight Mountains\n  - Alpine Light\n  - Obsidian Horizon\n  - Emerald Afterglow\n- Added dedicated Settings → Extensions → Nexus Scenic Themes page.\n- Added per-theme backdrop blur controls from 0px to 20px.\n- Added independent blur persistence for each theme.\n- Added immediate theme switching and visual updates.\n- Added bundled local backdrop assets with no remote downloads.\n- Added compatibility with the Pi Desktop appearance extensions API.\n- Restricted permissions to ui.theme, ui.settings, and ui.window.appearance.",
+          "minPiDesktop": "\u003e=0.14.8",
+          "shasum": "76dd9f61debff4afb36380503e5af6bf5f1ab3466f16ecfc083a9d050ecfe13f",
+          "url": "packages/io.github.akshayxkill.nexus-scenic-themes-0.1.0.piplug",
+          "sizeBytes": 18279289,
+          "permissions": [
+            "ui.settings",
+            "ui.theme",
+            "ui.window.appearance"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-25T18:57:24Z"
+          }
         }
       ]
     },
@@ -2123,7 +2160,7 @@
       "versions": [
         {
           "version": "1.5.0",
-          "publishedAt": "2026-09-24T16:10:57Z",
+          "publishedAt": "2026-09-25T18:57:21Z",
           "changelog": "1.5.0\n工作流与项目初始化\n调整首次请求的处理流程：在已关联的代码项目中，如果存在源码但没有持久化的 spec 图，则引导先运行项目设置或代码库导入，再继续处理原始请求。\n判断项目是否完成初始化时，忽略 .thinkrail/context/ 下的临时任务规格。\n如果已经存在持久化 spec 图，或当前没有关联项目，则跳过自动初始化；导入完成后，在同一会话中继续原始请求。\n恢复较宽的工作流入口：新请求先经过工作流路由；涉及项目变更的请求，无论规模大小或描述是否完整，都先进入 brainstorming 流程。\n在写入持久化 SPEC 文件或实现代码前，要求用户明确批准 brainstorming 形成的设计。\n范围说明\n本插件仓库不包含 pi-todos 的工具或技能，因此 TODO 规划不属于本插件的功能范围。\n兼容与保留\n保留 1.4.1 中的命名 prompt section 注入方式及宿主集成修复。\n自动初始化由工作流规则引导；它并非宿主层的强制运行时保证。",
           "minPiDesktop": "\u003e=0.15.6",
           "shasum": "703bc8a9fd7c470ab4a007edf458421e3bd5f7adc2c6ef1fb11267c2db863c20",
