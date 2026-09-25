@@ -1224,14 +1224,8 @@
     {
       "id": "local.pi-commandcode-desktop",
       "name": "pi-commandcode-desktop",
-      "description": "帮你在pi-desktop上面使用commandcodego的订阅",
+      "description": "帮你在pi-desktop上面使用commandcodego的订阅，喜欢的可以给我的github点个星星吗",
       "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "pi-commandcode-desktop",
-          "description": ""
-        }
-      },
       "categories": [],
       "verified": false,
       "trust": "community",
