@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-25T18:57:21Z",
-  "generatedAt": "2026-09-25T18:57:21Z",
+  "updatedAt": "2026-09-25T19:02:57Z",
+  "generatedAt": "2026-09-25T19:02:57Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -565,7 +565,7 @@
     {
       "id": "io.github.akshayxkill.nexus-scenic-themes",
       "name": "Nexus Scenic Themes",
-      "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four bundled, isolated scenic themes from PI Desktop Nexus into the host theme system, with a dedicated Settings → Extensions → Nexus Scenic Themes page.\n\nIncluded themes\nTwilight Mountains — blue-violet twilight mountain glass\nAlpine Light — pale icy-blue translucent glass\nObsidian Horizon — moonlit charcoal and navy glass\nEmerald Afterglow — sunlit deep-emerald forest glass\nEach theme uses its own local backdrop asset, preserves the host layout and native window controls, and keeps dense safety-critical surfaces readable and opaque where needed.\n\nSettings experience\nAccessible theme cards with immediate theme selection.\nPer-theme backdrop blur from 0px to 20px in integer steps.\nIndependent blur values restored when switching between themes.\nImmediate visual updates with debounced persistence through the host theme-variable API.\nNo custom renderer DOM access, CSS injection, remote downloads, or second settings canvas.\nPermissions and safety\nThis plugin requests only ui.theme, ui.settings, and ui.window.appearance. It does not request filesystem, network, shell, clipboard, agent-tool, or background-service access. All backdrop images are bundled with the package and referenced through package-local paths. The plugin does not modify host geometry, drag regions, native controls, work-panel hit testing, permissions, or other plugins.\n\nCompatibility\nCompatibility\n\nRequires a Pi Desktop release that includes the plugin appearance extensions API and package-local theme asset support. Pi Desktop 0.15.6 and earlier releases are not compatible. The plugin has been tested against the post-0.15.6 development build containing the merged host support.",
+      "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system through Settings → Extensions → Nexus Scenic Themes.\n\nThemes included\n\nTwilight Mountains — blue-violet twilight mountain glass\nAlpine Light — pale icy-blue translucent glass\nObsidian Horizon — moonlit charcoal and navy glass\nEmerald Afterglow — deep-emerald forest glass\n\nEach theme uses bundled local backdrop assets while preserving the host layout, native window controls, and UI readability.\n\nFeatures\n\nInstant theme switching\nIndependent 0–20px backdrop blur for each theme\nBlur settings preserved per theme\nImmediate visual updates with persistent settings\nNo CSS injection, renderer DOM access, remote downloads, or custom settings canvas",
       "author": "Akshayxkill",
       "categories": [
         "theme"
@@ -574,10 +574,12 @@
       "trust": "community",
       "publisherId": "github",
       "downloads": 0,
+      "readmeMarkdown": "Requires Pi Desktop 0.15.7 or later.\nPi Desktop 0.15.6 and earlier are not supported.",
+      "safetyNotes": "The plugin only requests ui.theme, ui.settings, and ui.window.appearance. It has no filesystem, network, shell, clipboard, agent-tool, or background-service access. All assets are bundled locally.",
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-24T16:02:32Z",
+          "publishedAt": "2026-09-25T19:02:57Z",
           "changelog": "Initial release of Nexus Scenic Themes.\n\n- Added four bundled scenic themes:\n  - Twilight Mountains\n  - Alpine Light\n  - Obsidian Horizon\n  - Emerald Afterglow\n- Added dedicated Settings → Extensions → Nexus Scenic Themes page.\n- Added per-theme backdrop blur controls from 0px to 20px.\n- Added independent blur persistence for each theme.\n- Added immediate theme switching and visual updates.\n- Added bundled local backdrop assets with no remote downloads.\n- Added compatibility with the Pi Desktop appearance extensions API.\n- Restricted permissions to ui.theme, ui.settings, and ui.window.appearance.",
           "minPiDesktop": "\u003e=0.14.8",
           "shasum": "76dd9f61debff4afb36380503e5af6bf5f1ab3466f16ecfc083a9d050ecfe13f",
