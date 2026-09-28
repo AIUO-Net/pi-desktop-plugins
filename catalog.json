@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-28T05:09:24Z",
-  "generatedAt": "2026-09-28T05:09:24Z",
+  "updatedAt": "2026-09-28T09:25:36Z",
+  "generatedAt": "2026-09-28T09:25:36Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1793,6 +1793,63 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.log-viewer",
+      "name": "Log Viewer",
+      "description": "大日志文件查看器：GB 级流式分页、虚拟滚动、实时跟随、搜索高亮、文本/等级过滤、钉住对比。Log viewer for huge files: paging, tail, search, filter, pin.",
+      "author": "Tioit-Wang",
+      "i18n": {
+        "en": {
+          "name": "Log Viewer",
+          "description": "Large log file viewer: GB-scale streaming paging, virtual scrolling, live tail-follow, search highlight, text/level filters and pinned lines.",
+          "safetyNotes": "Opens only the .log/.txt files you pick or drag in, reads them read-only inside the plugin process; writes nothing and performs no network calls."
+        },
+        "zh-CN": {
+          "name": "日志查看器",
+          "description": "大日志文件查看器：GB 级流式分页、虚拟滚动、实时跟随、搜索高亮、文本/等级过滤、钉住对比。",
+          "safetyNotes": "仅打开你选择或拖入的 .log / .txt 文件，在插件进程内只读访问；不写入文件，不发起网络请求。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "readmeMarkdown": "# 日志查看器 · Log Viewer（PI-Desktop 插件）\r\n\r\n插件 ID：`pi.log-viewer`  \r\n流式分页查看超大日志文件：GB 级秒开、实时跟随、搜索高亮、文本/等级过滤、钉住对比、多文件页签。\r\n\r\n## 功能\r\n\r\n- **GB 级秒开**：按字节分块读取（4 MB/块），粗粒度行索引（每 512 行记一个\r\n  字节偏移），虚拟滚动渲染，内存占用与文件大小无关。\r\n- **实时跟随**：轮询文件增长自动追尾；向上翻阅自动暂停，滚回底部恢复；\r\n  文件轮转（truncate / 重建）自动重载。静态文件在打开时不会被误报为「有新增」，\r\n  仅当文件字节真实增长时才提示跳转。\r\n- **搜索（高亮）**：AND 关键字、`\"短语\"`、`-排除`、`level:error,warn`、\r\n  `-level:debug`、独立正则开关与大小写开关；异步扫描带进度可取消，\r\n  F3 / Shift+F3 和按钮循环导航，命中高亮。正则有长度与嵌套量词防护（防 ReDoS）。\r\n  搜索**不隐藏**任何行，只负责定位与高亮。\r\n- **过滤（只看命中）**：独立过滤栏（`Ctrl+Shift+F`）。输入关键字或正则后，\r\n  视图只保留命中行；勾选「隐藏匹配」则反向，隐藏命中、显示其余行。\r\n  与等级徽章过滤为 AND 叠加。过滤视图按需流式加载 + 虚拟滚动，大数据量下不卡顿。\r\n- **级别统计**：ERROR / WARN / INFO / DEBUG 全文计数徽章，点击按\r\n  **中性 → 包含 → 排除 → 中性** 循环；多个包含等级为 OR，排除优先，文本条件与等级条件为 AND。\r\n- **多文件页签**：一次多选打开多个日志；每页签独立记忆浏览位置、编码、\r\n  跟随与过滤状态，重开面板续看上次位置（拖入文件除外，见下）。\r\n- **复制**：点击行号复制整行、右键菜单复制选中内容。\r\n- **编码**：UTF-8 / GBK / GB18030 按页签切换（行索引基于字节偏移，\r\n  切换编码无需重建索引）。\r\n- **主题与外观**：明 / 暗主题（默认跟随宿主 `app.getAppearance`），日志字号和等宽字体可调。\r\n\r\n## 使用\r\n\r\n1. 将本目录作为开发插件载入 PI-Desktop（Plugins → Load development\r\n   plugin）。\r\n2. 全局搜索执行命令「日志查看器：打开」，或直接打开插件面板。\r\n3. 点击「＋」或「打开日志」→ 系统文件选择器多选 `.log` / `.txt` 直接打开；\r\n    或直接把文件拖入窗口。宿主无法解析所选路径时回退为「选目录 → 列出日志」。\r\n4. 快捷键：`Ctrl+F` 聚焦搜索、`Ctrl+Shift+F` 聚焦过滤、`F3` / `Shift+F3` 循环导航、\r\n   `Ctrl+G` 跳转行号、`Esc` 退出输入。\r\n\r\n## 搜索 vs 过滤\r\n\r\n| | 搜索（上栏） | 过滤（下栏） |\r\n|---|---|---|\r\n| 行为 | 全文扫描，高亮命中，可上下跳转 | 只显示（或隐藏）命中行 |\r\n| 快捷键 | `Ctrl+F` / `F3` | `Ctrl+Shift+F` / Enter 应用 |\r\n| 与等级徽章 | 独立 | AND 叠加 |\r\n\r\n两者都支持：空格 AND、`\"短语\"`、`-排除`、正则与大小写开关。\r\n\r\n## 查询语法\r\n\r\n空格分隔的普通词是 AND；双引号包裹短语；反斜杠转义下一个字符（例如\r\n`\"connection \\\\\"refused\\\\\"\"`）；未闭合引号会被拒绝。以 `-` 开头的词是排除条件。\r\n`level:error,warn` 表示等级 OR，`-level:debug` 表示排除 DEBUG。勾选「正则」后，\r\n每个文本词独立编译为正则，普通查询不会隐式变成正则；正则模式会保留 `\\\\d`、`\\\\s` 等正则转义，\r\n仅把引号、空格和反斜杠的转义用于查询分词。\r\n\r\n## 权限\r\n\r\n| 权限 | 用途 |\r\n|---|---|\r\n| `ui.panel` | 面板窗口 |\r\n| `clipboard.write` | 复制整行 / 选中内容 |\r\n| `fs.read`（root: userSelected） | 仅用于目录回退流程：`fs.requestDirectory` 弹出系统目录选择器 |\r\n\r\n## 治理说明（重要）\r\n\r\n所有文件 IO 都在插件进程内用原生 `node:fs` 完成：`fs.promises.open` 只读句柄\r\n负责 `stat` / 范围读取 / 轮转重开，目录列表用 `readdir`。宿主只负责把用户\r\n手势解析成路径——文件选择器与拖入由面板 preload 的 `getDroppedFilePath`\r\n解析，目录回退走 `fs.requestDirectory`；读取阶段不再依赖任何宿主 fs grant。\r\n\r\n上一版基于 `pi.fs.stat` / `pi.fs.readRange` 的权限网关方案见\r\n[docs/host-api-proposals.md](docs/host-api-proposals.md)（历史设计记录）。\r\n\r\n## 架构\r\n\r\n```\r\nrenderer/index.html + app.js     沙箱面板：虚拟滚动、页签、搜索交互、轮询\r\nrenderer/level.js + query.js     等级识别与查询编译\r\n        │ pluginBridge.invoke(\"engine.*\")（宿主转发 → onPanelInvoke）\r\nmain.js                          生命周期 + 通道分发\r\nlib/log-engine.js                顺序索引游标 / 稀疏块偏移跳读 / tail / 搜索\r\n         │ node:fs（插件进程内原生 IO：open / stat / read / readdir）\r\n```\r\n\r\n- 行拆分基于原始字节（0x0A），UTF-8 / GBK / GB18030 均不会在多字节序列\r\n  中出现 0x0A，字节偏移与编码无关。\r\n- 顺序游标负责统计与 tail；任意跳读（分页、搜索）从最近块偏移起点本地\r\n  计数，不移动游标。\r\n- tail 增量通过小环形缓冲（4000 行）下发；客户端落后过多时收到\r\n  `catchup` 信号并重新分页。\r\n- 文件末行即使没有结尾换行也会被索引；轮转时旧句柄会在切换后关闭。\r\n\r\n## 已知限制\r\n\r\n- 拖入 / 选择器打开的文件仅限当前插件进程内访问，不跨会话持久化；文件本身支持跟随增长。\r\n- 过滤视图（等级或文本）为顺序流式浏览 + 虚拟滚动；`Ctrl+G` 会定位到不小于目标行号的第一条可见过滤结果。\r\n- 过滤视图中的搜索命中会按原始行号加载并居中；如果命中行被过滤条件排除，则保留命中计数并提示其不在当前视图。\r\n- 等级识别优先读取 `|INFO|`、`[INFO]`、`level:INFO` 以及常见 Log4j / Logback / Python logging 前缀，\r\n  最后才使用整行 token fallback；没有显式等级的多行堆栈行按 `other` 处理，不继承上一行等级。\r\n- 搜索定位前 5000 处（计数完整）。\r\n- 单文件行长度截断 4000 字符；面板对宿主无感知的极长行（\u003e16 MB 无换行）\r\n  会强制断行。\r\n- 正则搜索会拒绝过长或含嵌套量词的表达式（防灾难性回溯）。\r\n- 无导出功能；可用行号点击 / 右键复制。\r\n- 时间戳跳转、书签、columnizer、远程日志：规划中。\r\n\r\n## 开发\r\n\r\n```bash\r\n# 语法检查\r\nnode --check main.js \u0026\u0026 node --check lib/log-engine.js \u0026\u0026 node --check renderer/app.js\r\n\r\n# 单元测试（公共等级/查询解析、native engine 过滤与搜索）\r\nnode --test test/log-viewer.test.js\r\n\r\n# 清单校验（在 PI-Desktop 仓库根目录）\r\npnpm pi-plugin check F:\\pi-plugin-log-viewer\r\n```\r\n\r\n## 验收边界\r\n\r\n- 导出不属于当前版本范围；复制整行或选中内容是受支持的替代操作。\r\n- 打开文件需要用户手势（文件选择器 / 拖入 / 选目录）；所有读取在插件进程内用原生 `node:fs` 只读完成。\r\n- 目录回退流程使用宿主 `fs.requestDirectory` 弹出系统目录选择器；读取阶段无其他宿主文件通道。\r\n\r\n加载为开发插件后支持热重载（改动后约 300 ms 自动重载）。\r\n\r\n## 社区\r\n\r\n本插件在 [LINUX DO](https://linux.do/) 社区分享与讨论，欢迎佬友反馈：\r\n\r\n- 宿主项目讨论帖：[【PI-Desktop】两个月，300 亿 Token，终于把自己想要的 Agent 桌面端搓出来了](https://linux.do/t/topic/2869113)\r\n- 社区入口：[https://linux.do](https://linux.do/)\r\n",
+      "safetyNotes": "Opens only the .log/.txt files you pick or drag in, reads them read-only inside the plugin process; writes nothing and performs no network calls.",
+      "versions": [
+        {
+          "version": "0.2.1",
+          "publishedAt": "2026-09-28T09:25:36Z",
+          "changelog": "## 0.2.1\n\n### 修复\n- 「＋」/「打开日志」用系统文件选择器打开文件时报 PERMISSION_DENIED：文件打开不再依赖宿主拖放手势授权，选择器与拖入统一由面板解析路径后由引擎直接打开。\n- 过滤视图扫描游标：修复两次分页之间命中行被跳过的问题（长日志漏行）。\n- 实时跟随 + 过滤视图：扫到文件尾后，新写入的日志现在会继续出现。\n- 读取临时 IO 错误不再被误判为 EOF，过滤视图不再卡死。\n- 日志轮转后过滤视图自动从新文件重建。\n- 恢复会话时活动页签索引错位。\n\n### 变更\n- 全部文件操作改为插件进程内原生 `node:fs`（open / stat / read / readdir），不再调用宿主 `pi.fs.stat` / `readRange` 权限网关。\n- 跳读分块从 4 MB 降为 256 KB，随机翻页更快、过读更少。\n\n### Fixed (EN)\n- File-picker \"add log file\" no longer fails with PERMISSION_DENIED: all file IO is native node:fs inside the plugin process.\n- Filtered-view scan cursor no longer skips matches between pages; follow + filter keeps receiving newly written lines after EOF.\n- Transient read errors are no longer misreported as EOF; rotation rebuilds the filtered view; session-restore active-tab index fixed.\n- Jump reads use 256 KB chunks instead of 4 MB.",
+          "minPiDesktop": "\u003e=0.14.3",
+          "shasum": "38aeba9db46f570cf3933da13da804e9df1c897d23b5373fea33bc3ff1f89a76",
+          "url": "packages/pi.log-viewer-0.2.1.piplug",
+          "sizeBytes": 165457,
+          "permissions": [
+            "clipboard.write",
+            "fs.read",
+            "ui.panel"
+          ],
+          "fs": {
+            "read": {
+              "root": "userSelected"
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-plugin-log-viewer",
+            "sourceRef": "v0.2.1",
+            "sourceCommit": "549fb853c67decf645f769f3743e03656584547b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-28T09:25:36Z"
+          }
         }
       ]
     },
