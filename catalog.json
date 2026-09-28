@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-28T17:23:18Z",
-  "generatedAt": "2026-09-28T17:23:18Z",
+  "updatedAt": "2026-09-28T17:39:59Z",
+  "generatedAt": "2026-09-28T17:39:59Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1292,7 +1292,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-09-28T17:23:18Z",
+          "publishedAt": "2026-09-28T17:23:39Z",
           "changelog": "### 0.1.0 — 首个版本\n\n- `theme_forge` agent 工具：一句自然语言描述想要的样子，agent 生成主题 CSS 并实时应用到整个应用（pi.themes.upsert + pi.app.setTheme，无需重启）——即见即所得。\n- 五动作：apply 实时生成并应用 / list 工坊主题 / remove 移除 / reset 一键恢复系统主题 / export CSS 复制到剪贴板。\n- 纯外观改动、即时可逆；零出网、零文件访问；CSS 全部经宿主主题消毒器终审（256KB 上限、禁 url()/导入）；只能操作挂在自己插件 id 下的主题。\n- 中英双语；单元测试 10/10；宿主 validateManifest 通过；真机 E2E 全链路验证（生成→应用→实时换肤）。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "3a436c1dca2bed1a5eff45fa72cdbe3de4fd902d089550d1ca36bc059c9ac73e",
@@ -1395,6 +1395,39 @@
       "readmeMarkdown": "# Vision Kit\n\nGive your PI-Desktop agent eyes: `read_image` reads a local image file and returns it as a **multimodal image block** on the tool result, so vision-capable models can actually see and analyze it. The built-in Read tool is text-only — this plugin closes that gap (originally demonstrated by the community in [vastsa/PI-Desktop#1073](https://github.com/vastsa/PI-Desktop/issues/1073)).\n\n## The `read_image` agent tool\n\n- **Input**: `path` — absolute path or workspace-relative path.\n- **Formats**: png / jpg / jpeg / webp / gif, up to 10 MB.\n- **Model requirement**: the session model must accept image input (any vision-capable model). The image is attached to the tool result as a multimodal block; text-only models will only see the text summary.\n- **Safety model**:\n  - All file access goes through the host's scoped fs API. Images inside the open workspace read silently under the declared `fs.read` scope (`**/*.png`, `**/*.jpg`, `**/*.jpeg`, `**/*.webp`, `**/*.gif`); anything outside falls back to the host's per-path user grant. The host's secret-file denylist (`.env`, keys, `.git`, …) always applies.\n  - Read-only: no network egress is declared, no writes, no deletes, nothing is executed from image content.\n  - Image bytes are attached to the current conversation as model input only — never uploaded anywhere else.\n- **Plan mode**: declared via `planSafeActions`, so the agent can look at mockups and screenshots while planning.\n\n## Install\n\nInstall from the PI-Desktop plugin center (search \"Vision Kit\"), or load this folder as a development plugin.\n\n## License\n\nMIT\n",
       "safetyNotes": "纯只读插件：不声明任何出网域名、不写不删、不执行图片内容。文件访问全部经宿主 fs 策略 API：工作区内按声明的 glob 范围读取，范围外每条路径都需用户明确授权；宿主的密钥文件拒绝清单（.env、密钥、.git 等）始终生效。图片字节仅作为多模态输入附加到当前 agent 会话，不上传到任何其他位置。",
       "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-09-28T17:39:59Z",
+          "changelog": "### 0.2.0 — 视觉工具集扩展\n\n- 新增 `image_info`：免解码读取图片格式（魔数嗅探）、像素尺寸与文件大小（纯 JS 头部解析，支持 PNG/GIF/JPEG/WEBP）。\n- 新增 `list_images`：列出工作区图片清单（带大小，上限 200 条）——agent 可先发现图片再精读。\n- `read_image` 保持不变；三个只读工具组成完整的 agent 视觉工作流：发现 → 核查 → 精读。\n- 依旧零出网、零文件写入；全部经宿主 fs 策略与主题无关的新增代码均带单元测试（18/18）。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "a32848849a806efc27c359276997a12b3a2b240c677996474d121bd192319f97",
+          "url": "packages/io.github.muzimu217.vision-kit-0.2.0.piplug",
+          "sizeBytes": 27354,
+          "permissions": [
+            "agent.tool.register",
+            "fs.read"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*.png",
+                "**/*.jpg",
+                "**/*.jpeg",
+                "**/*.webp",
+                "**/*.gif"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/muzimu217/pi-desktop-plugins",
+            "sourceRef": "041f579ad98ddad9e2c256cd98d2c792fbf90863",
+            "sourceCommit": "041f579ad98ddad9e2c256cd98d2c792fbf90863",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-28T17:39:59Z"
+          }
+        },
         {
           "version": "0.1.0",
           "publishedAt": "2026-09-28T16:44:07Z",
