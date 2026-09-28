@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-28T09:50:54Z",
-  "generatedAt": "2026-09-28T09:50:54Z",
+  "updatedAt": "2026-09-28T11:25:18Z",
+  "generatedAt": "2026-09-28T11:25:18Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -399,7 +399,7 @@
       "versions": [
         {
           "version": "0.4.0",
-          "publishedAt": "2026-09-28T05:00:13Z",
+          "publishedAt": "2026-09-28T11:25:18Z",
           "changelog": "首次发布，支持以下功能：\n- 将OpenCode的免费模型作为provider提供\n- 支持不同接口格式的免费模型\n- 自动更新免费模型清单\n有问题欢迎issue～",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "108ad47810a16da311d3d949af6933184b11683fe66b146eec37c14860705291",
@@ -643,7 +643,7 @@
       "publisherId": "github",
       "downloads": 0,
       "homepage": "https://github.com/alphalaughs2024-netizen/nexus-scenic-themes",
-      "readmeMarkdown": "Requires Pi Desktop 0.15.7 or later.\nPi Desktop 0.15.6 and earlier are not supported.",
+      "readmeMarkdown": "Requires Pi Desktop 0.15.7 or later.\n\nPi Desktop 0.15.6 and earlier are not supported.",
       "safetyNotes": "The plugin only requests ui.theme, ui.settings, and ui.window.appearance. It has no filesystem, network, shell, clipboard, agent-tool, or background-service access. All assets are bundled locally.",
       "versions": [
         {
