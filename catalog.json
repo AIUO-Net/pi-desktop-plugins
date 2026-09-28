@@ -633,7 +633,7 @@
     {
       "id": "io.github.akshayxkill.nexus-scenic-themes",
       "name": "Nexus Scenic Themes",
-      "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later.",
+      "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later. Checkout nexus at \nhttps://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus",
       "author": "Akshayxkill",
       "categories": [
         "theme"
