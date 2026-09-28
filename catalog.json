@@ -574,7 +574,7 @@
       "trust": "community",
       "publisherId": "github",
       "downloads": 0,
-      "homepage": "https://github.com/alphalaughs2024-netizen/nexus-scenic-themes",
+      "homepage": "https://github.com/alphalaughs2024-netizen/nexus-scenic-themes https://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus",
       "readmeMarkdown": "Requires Pi Desktop 0.15.7 or later.\nPi Desktop 0.15.6 and earlier are not supported.",
       "safetyNotes": "The plugin only requests ui.theme, ui.settings, and ui.window.appearance. It has no filesystem, network, shell, clipboard, agent-tool, or background-service access. All assets are bundled locally.",
       "versions": [
