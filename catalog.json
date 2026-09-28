@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-28T16:30:51Z",
-  "generatedAt": "2026-09-28T16:30:51Z",
+  "updatedAt": "2026-09-28T16:43:47Z",
+  "generatedAt": "2026-09-28T16:43:47Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1309,6 +1309,69 @@
             "sourceCommit": "5f1370a7880cce5a84f9221d08bad1b9763484a6",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-20T16:14:15Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.muzimu217.vision-kit",
+      "name": "Vision Kit 读图工具",
+      "description": "给 agent 一个真正能「看见」本地图片的工具：read_image 读取本地图片（png/jpg/jpeg/webp/gif，≤10MB），经工具结果 images 字段把图片作为多模态输入回传，视觉模型可直接看图分析——补上内置 Read 仅限文本的能力缺口。工作区内图片零提示读取；工作区外路径由宿主逐次授权。",
+      "author": "muzimu217",
+      "i18n": {
+        "en": {
+          "name": "Vision Kit",
+          "description": "Give the agent a tool that actually sees local images: read_image reads a local image (png/jpg/jpeg/webp/gif, up to 10MB) and returns it through the tool result's images field as multimodal input, so vision-capable models can analyze it directly — closing the gap left by the text-only built-in Read. Images inside the open workspace read without prompts; paths outside fall back to per-path user grants.",
+          "safetyNotes": "Read-only. The plugin declares no network egress, performs no writes or deletes, and executes nothing from image content. File access goes exclusively through the host's scoped fs API: workspace images per the declared glob scope, anything else requires an explicit user grant per path; the host's secret-file denylist (.env, keys, .git, etc.) always applies. Image bytes are attached to the current agent conversation as multimodal input for the configured model and are not uploaded anywhere else."
+        },
+        "zh-CN": {
+          "name": "Vision Kit 读图工具",
+          "description": "给 agent 一个真正能「看见」本地图片的工具：read_image 读取本地图片（png/jpg/jpeg/webp/gif，≤10MB），经工具结果 images 字段把图片作为多模态输入回传，视觉模型可直接看图分析——补上内置 Read 仅限文本的能力缺口。工作区内图片零提示读取；工作区外路径由宿主逐次授权。",
+          "safetyNotes": "纯只读插件：不声明任何出网域名、不写不删、不执行图片内容。文件访问全部经宿主 fs 策略 API：工作区内按声明的 glob 范围读取，范围外每条路径都需用户明确授权；宿主的密钥文件拒绝清单（.env、密钥、.git 等）始终生效。图片字节仅作为多模态输入附加到当前 agent 会话，不上传到任何其他位置。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "readmeMarkdown": "# Vision Kit\n\nGive your PI-Desktop agent eyes: `read_image` reads a local image file and returns it as a **multimodal image block** on the tool result, so vision-capable models can actually see and analyze it. The built-in Read tool is text-only — this plugin closes that gap (originally demonstrated by the community in [vastsa/PI-Desktop#1073](https://github.com/vastsa/PI-Desktop/issues/1073)).\n\n## The `read_image` agent tool\n\n- **Input**: `path` — absolute path or workspace-relative path.\n- **Formats**: png / jpg / jpeg / webp / gif, up to 10 MB.\n- **Model requirement**: the session model must accept image input (any vision-capable model). The image is attached to the tool result as a multimodal block; text-only models will only see the text summary.\n- **Safety model**:\n  - All file access goes through the host's scoped fs API. Images inside the open workspace read silently under the declared `fs.read` scope (`**/*.png`, `**/*.jpg`, `**/*.jpeg`, `**/*.webp`, `**/*.gif`); anything outside falls back to the host's per-path user grant. The host's secret-file denylist (`.env`, keys, `.git`, …) always applies.\n  - Read-only: no network egress is declared, no writes, no deletes, nothing is executed from image content.\n  - Image bytes are attached to the current conversation as model input only — never uploaded anywhere else.\n- **Plan mode**: declared via `planSafeActions`, so the agent can look at mockups and screenshots while planning.\n\n## Install\n\nInstall from the PI-Desktop plugin center (search \"Vision Kit\"), or load this folder as a development plugin.\n\n## License\n\nMIT\n",
+      "safetyNotes": "纯只读插件：不声明任何出网域名、不写不删、不执行图片内容。文件访问全部经宿主 fs 策略 API：工作区内按声明的 glob 范围读取，范围外每条路径都需用户明确授权；宿主的密钥文件拒绝清单（.env、密钥、.git 等）始终生效。图片字节仅作为多模态输入附加到当前 agent 会话，不上传到任何其他位置。",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-28T16:43:47Z",
+          "changelog": "### 0.1.0 — 首个版本\n\n- `read_image` agent 工具：读取本地图片（png/jpg/jpeg/webp/gif，≤10MB），经工具结果的多模态图片块回传，视觉模型可直接看图分析——补上内置 Read 仅限文本的缺口。\n- 工作区内图片零提示读取；范围外路径由宿主逐次授权；宿主密钥文件拒绝清单始终生效。\n- 纯只读：零出网、无写删权限、Plan/Goal 模式可用（planSafeActions）。\n- 中英双语；单元测试 10/10；宿主 validateManifest 通过；真机 E2E 链路验证。\n- 模型要求：会话模型需支持图片输入（视觉模型）。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "a622e5a6407518c18741e9a878448b6906b3e16eb412aaa8fa906879aa0f8a08",
+          "url": "packages/io.github.muzimu217.vision-kit-0.1.0.piplug",
+          "sizeBytes": 15970,
+          "permissions": [
+            "agent.tool.register",
+            "fs.read"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*.png",
+                "**/*.jpg",
+                "**/*.jpeg",
+                "**/*.webp",
+                "**/*.gif"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/muzimu217/pi-desktop-plugins",
+            "sourceRef": "66df6f4d6586d2975f5cc57feee87444d757b5d0",
+            "sourceCommit": "66df6f4d6586d2975f5cc57feee87444d757b5d0",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-28T16:43:47Z"
           }
         }
       ]
