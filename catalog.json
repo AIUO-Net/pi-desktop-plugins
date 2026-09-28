@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-28T17:39:59Z",
-  "generatedAt": "2026-09-28T17:39:59Z",
+  "updatedAt": "2026-09-28T17:40:22Z",
+  "generatedAt": "2026-09-28T17:40:22Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -686,7 +686,8 @@
       "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later. Checkout nexus at \nhttps://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus",
       "author": "Akshayxkill",
       "categories": [
-        "theme"
+        "theme",
+        "themes"
       ],
       "verified": false,
       "trust": "community",
@@ -1397,7 +1398,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-09-28T17:39:59Z",
+          "publishedAt": "2026-09-28T17:40:22Z",
           "changelog": "### 0.2.0 — 视觉工具集扩展\n\n- 新增 `image_info`：免解码读取图片格式（魔数嗅探）、像素尺寸与文件大小（纯 JS 头部解析，支持 PNG/GIF/JPEG/WEBP）。\n- 新增 `list_images`：列出工作区图片清单（带大小，上限 200 条）——agent 可先发现图片再精读。\n- `read_image` 保持不变；三个只读工具组成完整的 agent 视觉工作流：发现 → 核查 → 精读。\n- 依旧零出网、零文件写入；全部经宿主 fs 策略与主题无关的新增代码均带单元测试（18/18）。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "a32848849a806efc27c359276997a12b3a2b240c677996474d121bd192319f97",
