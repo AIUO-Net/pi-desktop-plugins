@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-28T09:50:35Z",
-  "generatedAt": "2026-09-28T09:50:35Z",
+  "updatedAt": "2026-09-28T09:50:54Z",
+  "generatedAt": "2026-09-28T09:50:54Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -376,6 +376,53 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-17T08:09:42Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "com.opencode2pi",
+      "name": "OpenCode Free Models",
+      "description": "A very simple tool to apply free models from OpenCode to pi-desktop; availability is not guaranteed.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "OpenCode 免费模型",
+          "description": "一个很简单的将OpenCode中免费模型应用在pi-desktop的工具，不保证可用性。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "com",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.4.0",
+          "publishedAt": "2026-09-28T05:00:13Z",
+          "changelog": "首次发布，支持以下功能：\n- 将OpenCode的免费模型作为provider提供\n- 支持不同接口格式的免费模型\n- 自动更新免费模型清单\n有问题欢迎issue～",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "108ad47810a16da311d3d949af6933184b11683fe66b146eec37c14860705291",
+          "url": "packages/com.opencode2pi-0.4.0.piplug",
+          "sizeBytes": 70210,
+          "permissions": [
+            "background.service",
+            "provider.register"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/JasonYu0822/opencode2pi-desktop",
+            "sourceRef": "v0.4.0",
+            "sourceCommit": "c222ca564b4b0542ecdf5d77b106041bf4688448",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-28T05:00:13Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-28T11:24:58Z"
           }
         }
       ]
@@ -2221,7 +2268,7 @@
       "versions": [
         {
           "version": "1.5.0",
-          "publishedAt": "2026-09-28T09:50:35Z",
+          "publishedAt": "2026-09-28T09:50:54Z",
           "changelog": "## 1.5.0\n\n### 新增\n\n- **顶条成为可编辑区域**：区域从 7 个增加到 9 个，新增「左栏顶条」sidebar-top 与「右栏顶条」dock-top（底色 / 渐变 / 模糊 / 圆角，没有图片槽）。此前左右顶条不在任何可编辑区域内 —— 左栏贴图只在内容区生效、顶条裸奔；右栏内容透明时 55% 白的抬升条会把饱和底色漂成另一截。现在两处都能单独设。\n- **保存新增审计门槛**：主题落盘前先跑 auditDesign() —— 正文对比度 4.5:1 / 装饰 3:1、按钮配对（主按钮墨色、ghost 静置态、次级按钮与页面底可区分）、抬升条漂白（色度保留率低于 60%）；未通过会返回失败项，确认后可传 forceAudit 强行落盘。\n- **内置预设随插件升级刷新**：预设修订会刷进你已有的主题库。内置预设仍是只读，只有设计对不上的本地副本才会被修订；库里已有的其他主题不受影响。\n\n### 修复\n\n- 内置预设 qq-2008 顶条修正：bg-dock-raised 由 #ffffff8c 改为 #ffffff59（顶条洗色 56% 到通过），标题栏渐变改为上深下浅，底边不再比内容深一截。\n- npm run audit:presets 改为复用 auditDesign()，与保存门槛同一套标准，5 个内置预设全部通过。\n\n## 1.4.1\n\n- 修好内置预设的按钮可读性：qq-2008 的 accent 压深到 #1066ad（主按钮 5.3:1），文字四档提到可读 alpha，success / warning 压深，tile 家族改成宿主同款墨色混合（按钮底与页面底 1.16:1）；business-blue / china-red 的 tile-hover 换成 8% 墨色混合（次级按钮与页面底 1.1:1 以上）。\n- token 表 56 到 75：补上 send-disabled、settings-field、scrim、modal-veil、placeholder-ink、code/thinking/mermaid、focus、control-size、field-height 等宿主 token，host-tokens.css 预览快照同步补齐。\n- 新增 scripts/audit-presets.mjs（npm run audit:presets）：用主题模型自己的颜色数学把全部预设的配对审计跑一遍，body 4.5:1 / decorative 3:1 / 次级按钮与页面底 1.1:1，不达标退出码 1。\n\n**English** -- 1.5.0 turns the left and right top bars into editable regions (7 to 9 regions), adds a design audit gate before a theme is saved (contrast, button pairing, raised-bar wash-out) with an explicit force override, and refreshes the built-in presets into existing libraries on upgrade. 1.4.1 fixes built-in preset button readability and grows the host token table from 56 to 75.",
           "minPiDesktop": "\u003e=0.14.8",
           "shasum": "3d3bbd50ef59d52c0507b79d5a8b8e34bd11b0b4cca309d2a6e5ac17a0f7f1ce",
