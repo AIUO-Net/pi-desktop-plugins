@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-29T07:33:53Z",
-  "generatedAt": "2026-09-29T07:33:53Z",
+  "updatedAt": "2026-09-29T07:44:41Z",
+  "generatedAt": "2026-09-29T07:44:41Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -795,6 +795,59 @@
       ]
     },
     {
+      "id": "io.github.czp0312.subscription-quota",
+      "name": "订阅额度",
+      "description": "在工作面板中可视化订阅账号的剩余额度：Anthropic (Claude Pro/Max)、OpenAI (ChatGPT Plus/Pro)、GitHub Copilot、OpenRouter 等，按 5 小时 / 每周 / 每月 / 余额窗口显示剩余百分比、重置倒计时与进度条（绿=剩余、灰=已用）。只显示本机已登录的账号。",
+      "author": "czp0312",
+      "i18n": {
+        "en": {
+          "name": "Subscription Quotas",
+          "description": "Visualize the remaining quota of your subscription accounts in the work panel — Anthropic (Claude Pro/Max), OpenAI (ChatGPT Plus/Pro), GitHub Copilot, OpenRouter and more — as 5-hour / weekly / monthly / credit windows with remaining percentage, reset countdown and a progress bar (green = remaining, grey = used). Only accounts signed in on this machine are shown.",
+          "safetyNotes": "Only accounts the plugin can actually obtain a credential for are shown; everything else stays hidden. Two credential sources only: (1) a token you type into this plugin's own private settings, and (2) credential files an already-signed-in CLI/editor left on this machine, read with Node fs inside the plugin process — ~/.claude/.credentials.json (Claude Code), ~/.codex/auth.json (Codex CLI) and github-copilot hosts.json/apps.json. The plugin deliberately does NOT read PI-Desktop's own encrypted secret store, the AES-256-GCM secrets folder under the app data directory — its OAuth credentials are isolated from plugins on purpose, so an account signed in only through PI-Desktop's Settings shows nothing here until you also supply a token. Tokens are never logged, never cached and never returned to the view; only quota figures are. Network access is limited to the eight vendor hosts declared in net.domains."
+        },
+        "zh-CN": {
+          "name": "订阅额度",
+          "description": "在工作面板中可视化订阅账号的剩余额度：Anthropic (Claude Pro/Max)、OpenAI (ChatGPT Plus/Pro)、GitHub Copilot、OpenRouter 等，按 5 小时 / 每周 / 每月 / 余额窗口显示剩余百分比、重置倒计时与进度条（绿=剩余、灰=已用）。只显示本机已登录的账号。",
+          "safetyNotes": "只显示插件真正拿到凭据的账号，其余一律不显示。凭据只有两个来源：① 你在本插件私有设置里填写的令牌；② 本机已登录的 CLI / 编辑器留下的凭据文件，由插件进程内的 Node fs 读取——~/.claude/.credentials.json（Claude Code）、~/.codex/auth.json（Codex CLI）、github-copilot 的 hosts.json / apps.json。插件刻意不读取 PI-Desktop 自己的加密密钥库（应用数据目录下那个 AES-256-GCM 的 secrets 文件夹）：它的 OAuth 凭据是被有意隔离在插件之外的，所以只在 PI-Desktop 设置里登录过的账号，在没有另填令牌之前不会显示任何内容。令牌不写日志、不进缓存、不返回给界面；返回的只有额度数字。联网仅限 net.domains 里声明的八个服务商域名。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/czp0312/pi-desktop-quota-visualizer#readme",
+      "readmeMarkdown": "# 订阅额度 · Subscription Quotas\n\n\u003e 在 PI-Desktop 右侧工作面板里，一眼看清你的 AI 订阅还剩多少额度。\n\u003e 支持 Anthropic (Claude Pro/Max)、OpenAI (ChatGPT Plus/Pro)、GitHub Copilot、OpenRouter，\n\u003e 以及 Kimi Code / Meta / Radius / xAI 的自定义来源。**只显示本机已登录的账号。**\n\n![界面预览](https://raw.githubusercontent.com/czp0312/pi-desktop-quota-visualizer/main/assets/preview.png)\n\n*（上图是内置演示数据，用于展示界面；真实使用时按你的账号渲染。）*\n\n---\n\n## 功能\n\n- **按周期展示额度**：5 小时窗口、周额度、月额度、余额，各带独立进度条。\n- **剩余为核心**：进度条 **绿色填充 = 剩余额度**，灰色底槽 = 已用掉的额度；\n  右侧大号数字是剩余百分比，颜色随剩余风险变化（\u003e30% 绿、10–30% 橙、\u003c10% 红）。\n- **重置倒计时**：每秒刷新，30 分钟内变橙。\n- **只显示已登录的**：拿不到凭据的服务商不会出现在列表里，不占位、不报错。\n- **跟随应用外观**：深浅色、语言与 PI-Desktop 设计令牌一致。\n- **零配置可用**：已登录的 Claude Code / Codex / Copilot 会被自动发现。\n\n## 支持的服务商\n\n厂商 id 与 PI-Desktop「用订阅登录」列表一致。\n\n| 服务商 | 厂商 id | 凭据来源 | 额度接口 | 窗口 |\n|---|---|---|---|---|\n| Anthropic (Claude Pro/Max) | `anthropic` | Claude Code 凭据文件 / 手工令牌 | `api.anthropic.com/api/oauth/usage` | 5 小时 · 周（全部 / Sonnet / Opus） |\n| OpenAI (ChatGPT Plus/Pro) | `openai-codex` | Codex CLI 凭据文件 / 手工令牌 | `chatgpt.com/backend-api/wham/usage` | 5 小时 · 周 |\n| GitHub Copilot | `github-copilot` | Copilot 编辑器凭据 / 手工令牌 | `api.github.com/copilot_internal/user` | 月（高级请求 / 聊天 / 补全） |\n| OpenRouter | `openrouter` | 手工令牌 | `openrouter.ai/api/v1/key` | 余额 |\n| Kimi Code (subscription) | `kimi-coding` | 手工令牌 + 自定义来源 | 需自行配置 | 取决于接口 |\n| Meta (Muse subscription) | `meta` | 手工令牌 + 自定义来源 | 需自行配置 | 取决于接口 |\n| Radius | `radius` | 手工令牌 + 自定义来源 | 需自行配置 | 取决于接口 |\n| xAI (Grok/X subscription) | `xai` | 手工令牌 + 自定义来源 | 需自行配置 | 取决于接口 |\n\n后四种没有公开的额度接口，配一次「自定义来源」即可显示，无需改代码：\n\n```json\n[\n  {\n    \"vendor\": \"xai\",\n    \"label\": \"xAI (Grok/X)\",\n    \"url\": \"https://api.x.ai/v1/\u003c你的额度接口\u003e\",\n    \"token\": \"你的令牌\",\n    \"windows\": [\n      { \"path\": \"rate_limits\", \"period\": \"week\", \"usedField\": \"used_percent\",\n        \"resetField\": \"reset_at\", \"minutesField\": \"window_minutes\" }\n    ]\n  }\n]\n```\n\n省略 `windows` 时插件会**自动识别**这些常见字段名：\n`used_percent` / `usedPercent` / `utilization` / `percent_remaining`、\n`window_minutes` / `limit_window_seconds`、`reset_at` / `resets_in_seconds` / `reset_after_seconds`，\n并从键名猜测周期（`five_hour` → 5 小时，`seven_day` → 周，`month` → 月）。\n\n## 安装\n\n需要 PI-Desktop。二选一：\n\n**方式一 · 安装插件包**\n\n1. 打开 **插件**（扩展）页。\n2. 右上角溢出菜单 → **安装插件包**。\n3. 选择 `io.github.czp0312.subscription-quota-\u003c版本\u003e.piplug`。\n4. 审阅权限后安装（`net.fetch` 属高风险权限，需你显式授权）。\n\n插件包从本仓库的 [Releases](../../releases) 下载，或按下方「打包」一节自行构建。\n\n**方式二 · 加载开发插件**\n\n1. 插件页 → **加载开发插件**。\n2. 选择本仓库根目录（含 `manifest.json` 的那一层）。\n3. 之后改动会热重载；**新增/放宽权限需要重新加载目录**。\n\n装好后：右侧工作面板的视图菜单里会出现 **订阅额度**；\n命令面板（`Ctrl+K`）执行 **Subscription Quotas: Open Panel** 可打开独立面板窗口。\n\n## ⚠️ 关于「登录」的一个边界（重要）\n\nPI-Desktop 的「用订阅登录」把 OAuth 凭据**加密保存在宿主的密钥库里**\n（host-core SecretStore：`\u003cdataDir\u003e/secrets/\u003csha256(ref)\u003e.bin`，AES-256-GCM，\n机器密钥在 `\u003cdataDir\u003e/secrets/.machine-key`），插件 API 不暴露它，宿主也没有任何额度/用量接口。\n\n插件进程虽然有原生 Node 能力，但读取机器密钥再解密密钥库等于**绕过宿主刻意建立的凭据隔离**，\n本插件**不会**这样做。因此：\n\n\u003e **只在 PI-Desktop 设置里登录过的账号，本插件读不到它的额度。**\n\n本插件能用的凭据只有两类：\n\n1. 你在**本插件的设置**里填写的令牌（`credentials` / `sources`）；\n2. 本机**已经登录的 CLI / 编辑器**留下的凭据文件（见下表）。\n\n所以在本插件里，「已登录」＝「本机能拿到这个账号的可用凭据」。\n\n## 凭据发现路径\n\n| 服务商 | 查找的文件 |\n|---|---|\n| `anthropic` | `$CLAUDE_CONFIG_DIR/.credentials.json`、`~/.claude/.credentials.json` |\n| `openai-codex` | `~/.codex/auth.json`（`tokens.access_token` + `tokens.account_id`） |\n| `github-copilot` | `~/.config/github-copilot/hosts.json`、`…/apps.json`、`%APPDATA%\\github-copilot\\hosts.json`、`%LOCALAPPDATA%\\github-copilot\\hosts.json` |\n| 其余 | 无可发现路径，只认手工令牌 |\n\n只读取上表这些明确路径，不遍历目录、不读取其它文件。关掉设置里的「自动发现」即可完全不读它们。\n\n## 设置\n\n设置 → 扩展 → 订阅额度：\n\n| 键 | 类型 | 默认 | 说明 |\n|---|---|---|---|\n| `autoDetect` | boolean | `true` | 自动发现本机已登录的账号（上面的凭据文件） |\n| `demoMode` | boolean | `false` | 只渲染内置演示数据，不访问网络 |\n| `refreshSeconds` | number | `300` | 轮询间隔（30–3600 秒） |\n| `credentials` | json | `{}` | `厂商 id → 令牌`，填了即视为已登录 |\n| `sources` | json | `[]` | 自定义额度来源（见上） |\n| `accounts` | json | `[]` | 完全手填的窗口，不联网 |\n\n手工令牌示例：\n\n```json\n{\n  \"openrouter\": \"sk-or-v1-...\",\n  \"anthropic\": \"...\",\n  \"openai-codex\": \"...\",\n  \"github-copilot\": \"ghu_...\"\n}\n```\n\n完全手填的窗口示例（不联网）：\n\n```json\n[\n  {\n    \"id\": \"my-relay\",\n    \"label\": \"自建中转\",\n    \"plan\": \"team\",\n    \"windows\": [\n      { \"period\": \"session\", \"used\": 12, \"limit\": 60, \"unit\": \"次\", \"resetsAt\": \"2026-01-01T12:00:00Z\" },\n      { \"period\": \"week\", \"label\": \"本周额度\", \"usedPercent\": 42.5 },\n      { \"period\": \"month\", \"used\": 980, \"limit\": 5000, \"unit\": \"请求\" }\n    ]\n  }\n]\n```\n\n`period` 取 `session` / `day` / `week` / `month` / `credit`；\n额度可写 `usedPercent`，或 `used` + `limit`（自动换算百分比）；`resetsAt` 支持 ISO 字符串。\n\n## 权限与安全\n\n| 权限 | 用途 |\n|---|---|\n| `ui.view` | 工作面板停靠视图 |\n| `ui.panel` | 命令打开独立面板窗口 |\n| `net.fetch` | 请求额度接口（高风险，安装时需显式授权） |\n\n`net.domains` 只声明八个服务商域名：`api.anthropic.com`、`chatgpt.com`、`api.github.com`、\n`openrouter.ai`、`api.kimi.com`、`api.meta.ai`、`radius.pi.dev`、`api.x.ai`。\n自定义来源同样受这份白名单约束 —— 填非白名单地址会被宿主拒绝。\n\n- 令牌不写日志、不进缓存、不出现在返回给界面的任何字段里；缓存只保存额度数字。\n- 插件不读取 PI-Desktop 的密钥库，也不碰 `~/.ssh`、`.env*`、`*.pem` 等凭据路径。\n- 本插件不提供系统级通知、不注册常驻服务、不注入 Agent 提示词。\n\n## 从源码校验与打包\n\n需要 PI-Desktop 仓库检出（devkit 目前是仓库内私有包）：\n\n```bash\npnpm install\npnpm --filter @pi-desktop/plugin-devkit... build\npnpm pi-plugin check \u003c本仓库路径\u003e\npnpm pi-plugin pack  \u003c本仓库路径\u003e\n# → dist/io.github.czp0312.subscription-quota-0.2.0.piplug\n```\n\n生成的 `.piplug` 是 store-only ZIP，请勿用普通 `zip` 重打（安装器只接受未压缩归档）。\n`dist/` 已加入 `.gitignore`，发布时把 `.piplug` 挂到对应的 GitHub Release 上。\n\n## 目录结构\n\n```\n.\n├── manifest.json      # 插件身份、贡献点、权限、域名白名单\n├── main.js            # 插件进程：服务商注册表、凭据发现、额度归一化、通道路由\n├── views/quota.html   # 视图 / 面板共用的界面（无构建步骤）\n├── assets/preview.png # 本 README 的界面预览图\n├── README.md\n├── CHANGELOG.md\n└── LICENSE\n```\n\n`views/quota.html` 在 PI-Desktop 之外直接打开会进入「独立预览」模式：\n检测不到 `window.pluginBridge` 时渲染内置演示数据，方便调样式。\n\n## 已知限制\n\n- 上游额度接口都是服务商私有接口，非公开契约；结构变化时界面会显示失败原因，而不会静默给出错误数字。\n- Kimi Code / Meta / Radius / xAI 没有公开的额度接口，需要你在 `sources` 里配一次。\n- OpenRouter 只对**设了 limit 的密钥**给出剩余比例；没设上限时只提示、不显示数字。\n- 只在 PI-Desktop 里登录（未在对应 CLI 登录、也未填令牌）的账号不会显示 —— 见上面的边界说明。\n- OAuth 令牌过期不会自动刷新，请重新登录对应 CLI 或换填新令牌。\n- 依赖 `net.anyHost` 的自建中转站地址在当前稳定版宿主上不可用（该权限尚未进入发布版本）。\n\n## 更新日志\n\n见 [CHANGELOG.md](CHANGELOG.md)。\n\n## 许可\n\n[MIT](LICENSE)\n",
+      "safetyNotes": "只显示插件真正拿到凭据的账号。凭据来源两类：① 你在本插件私有设置里填写的令牌；② 本机已登录的 CLI / 编辑器留下的凭据文件（~/.claude/.credentials.json、~/.codex/auth.json、github-copilot 的 hosts.json / apps.json），由插件进程内的 Node fs 读取。插件刻意不读取 PI-Desktop 自己的加密密钥库。令牌不写日志、不进缓存、不返回给界面；返回的只有额度数字。联网仅限 net.domains 里声明的八个服务商域名。",
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-09-29T07:44:41Z",
+          "changelog": "## 订阅额度 v0.2.0\n\n在 PI-Desktop 右侧工作面板中可视化订阅账号的剩余额度，**只显示本机已登录的账号**。\n\n### 支持的订阅服务\n\n厂商 id 与 PI-Desktop「用订阅登录」列表对齐，共八家：\n\n| 服务商 | 内置额度接口 |\n|---|---|\n| Anthropic (Claude Pro/Max) | `api.anthropic.com/api/oauth/usage` |\n| OpenAI (ChatGPT Plus/Pro) | `chatgpt.com/backend-api/wham/usage` |\n| GitHub Copilot | `api.github.com/copilot_internal/user` |\n| OpenRouter | `openrouter.ai/api/v1/key` |\n| Kimi Code / Meta / Radius / xAI | 通过设置里的「自定义额度来源」配置 |\n\n### 功能\n\n- 按 **5 小时 / 每周 / 每月 / 余额** 窗口分别展示，各带独立进度条与重置倒计时。\n- 进度条 **绿色填充 = 剩余额度**，灰色底槽 = 已用额度；颜色随剩余风险变化。\n- 已登录的 Claude Code / Codex / Copilot 会被自动发现，无需配置。\n- 视图与独立面板共用同一份界面，跟随应用深浅色与语言。\n\n### 权限\n\n`ui.view`、`ui.panel`、`net.fetch`（联网仅限 `net.domains` 里声明的八个服务商域名）。\n\n### 重要说明\n\nPI-Desktop 自己的 OAuth 凭据保存在宿主的加密密钥库中，插件不读取它。因此\n**只在 PI-Desktop 设置里登录过的账号不会显示**，除非你另在本插件设置里填写令牌，\n或本机有对应的 CLI / 编辑器凭据文件。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "85ec5ca37cf561f457855f5e37d45d55a0ebdba0ebb0eb4b15cb1f563fcce399",
+          "url": "packages/io.github.czp0312.subscription-quota-0.2.0.piplug",
+          "sizeBytes": 195800,
+          "permissions": [
+            "net.fetch",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/czp0312/pi-desktop-quota-visualizer",
+            "sourceRef": "v0.2.0",
+            "sourceCommit": "8dc06c74d6ac4aac6665c128521bdc59e050c618",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-29T07:44:41Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "io.github.eonova.theme-dracula",
       "name": "Dracula Theme",
       "description": "A pure PI-Desktop theme plugin: applies the classic Dracula palette to the whole app. No panel, no commands.",
@@ -1504,7 +1557,7 @@
       "versions": [
         {
           "version": "0.2.5",
-          "publishedAt": "2026-09-29T07:33:53Z",
+          "publishedAt": "2026-09-29T07:34:14Z",
           "changelog": "面板顶栏新增「导入」按钮，把本机的 Markdown 批量搬进小米笔记：\n一次多选 .md 文件，或选整个文件夹递归导入\n可勾选「保留子文件夹结构」，按来源目录在云端建出同名文件夹\n（同名目录按 (父目录, 名称) 索引复用，重复导入不会堆出重名文件夹）\n也可以直接把文件或文件夹拖进面板\n标题按 front matter 的 title → 首个 H1 → 文件名 三级取值",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "d06eb1bb0a51c00d1c084c87e3f5571f06df61faba530af515ed58e57ac15a6a",
