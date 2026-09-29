@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-29T07:44:41Z",
-  "generatedAt": "2026-09-29T07:44:41Z",
+  "updatedAt": "2026-09-29T09:21:45Z",
+  "generatedAt": "2026-09-29T09:21:45Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -823,8 +823,32 @@
       "safetyNotes": "只显示插件真正拿到凭据的账号。凭据来源两类：① 你在本插件私有设置里填写的令牌；② 本机已登录的 CLI / 编辑器留下的凭据文件（~/.claude/.credentials.json、~/.codex/auth.json、github-copilot 的 hosts.json / apps.json），由插件进程内的 Node fs 读取。插件刻意不读取 PI-Desktop 自己的加密密钥库。令牌不写日志、不进缓存、不返回给界面；返回的只有额度数字。联网仅限 net.domains 里声明的八个服务商域名。",
       "versions": [
         {
+          "version": "0.3.0",
+          "publishedAt": "2026-09-29T09:21:45Z",
+          "changelog": "## 订阅额度 v0.3.0\n\n### 新增\n\n- 面板「管理账号」：**ChatGPT、Claude、GitHub Copilot 可在插件内单独授权**，无需安装 Codex / Claude Code / Copilot CLI。\n- ChatGPT / Claude 浏览器 OAuth（PKCE + 本机 127.0.0.1 回调），Copilot 设备码授权。\n- 授权失败时可粘贴最终跳转的完整回调 URL 兜底。\n- 令牌加密保存到插件自身数据目录，过期前自动刷新，支持退出。\n\n### 变更\n\n- 凭据优先级：手工令牌 → 插件内授权 → CLI 回退。\n- `autoDetect` 现在只控制 CLI 凭据文件读取，不再影响插件授权与手工令牌。\n- 新增权限 `shell.openExternal` 与授权域名，**升级后需重新加载插件并批准**。\n\n### 修复\n\n- 服务商查询改为并行，单请求限时 8s，减少面板通道超时。\n- 不再回传上游响应正文，避免意外泄露请求头。\n- 修复 `sources.windows` 在只有 `limit_window_seconds` 时的异常。\n\n### 说明\n\n- 仍未复用 PI-Desktop 自身登录，也不读取宿主密钥库；需要在本插件内授权一次。\n- OpenRouter 仍填写 API Key；Kimi / Meta / Radius / xAI 仍需自定义来源。\n- 自动化测试使用模拟响应，未包含真实账号端到端验证。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "bb01fa42b504bbf080f78ed33ff8d9fed873a49d02f7d2d1d06e279f7e321e3e",
+          "url": "packages/io.github.czp0312.subscription-quota-0.3.0.piplug",
+          "sizeBytes": 259844,
+          "permissions": [
+            "net.fetch",
+            "shell.openExternal",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/czp0312/pi-desktop-quota-visualizer",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "061c6bafe8ef3a7a1faec4e92091382a041ebe77",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-29T09:21:45Z"
+          }
+        },
+        {
           "version": "0.2.0",
-          "publishedAt": "2026-09-29T07:44:41Z",
+          "publishedAt": "2026-09-29T07:45:01Z",
           "changelog": "## 订阅额度 v0.2.0\n\n在 PI-Desktop 右侧工作面板中可视化订阅账号的剩余额度，**只显示本机已登录的账号**。\n\n### 支持的订阅服务\n\n厂商 id 与 PI-Desktop「用订阅登录」列表对齐，共八家：\n\n| 服务商 | 内置额度接口 |\n|---|---|\n| Anthropic (Claude Pro/Max) | `api.anthropic.com/api/oauth/usage` |\n| OpenAI (ChatGPT Plus/Pro) | `chatgpt.com/backend-api/wham/usage` |\n| GitHub Copilot | `api.github.com/copilot_internal/user` |\n| OpenRouter | `openrouter.ai/api/v1/key` |\n| Kimi Code / Meta / Radius / xAI | 通过设置里的「自定义额度来源」配置 |\n\n### 功能\n\n- 按 **5 小时 / 每周 / 每月 / 余额** 窗口分别展示，各带独立进度条与重置倒计时。\n- 进度条 **绿色填充 = 剩余额度**，灰色底槽 = 已用额度；颜色随剩余风险变化。\n- 已登录的 Claude Code / Codex / Copilot 会被自动发现，无需配置。\n- 视图与独立面板共用同一份界面，跟随应用深浅色与语言。\n\n### 权限\n\n`ui.view`、`ui.panel`、`net.fetch`（联网仅限 `net.domains` 里声明的八个服务商域名）。\n\n### 重要说明\n\nPI-Desktop 自己的 OAuth 凭据保存在宿主的加密密钥库中，插件不读取它。因此\n**只在 PI-Desktop 设置里登录过的账号不会显示**，除非你另在本插件设置里填写令牌，\n或本机有对应的 CLI / 编辑器凭据文件。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "85ec5ca37cf561f457855f5e37d45d55a0ebdba0ebb0eb4b15cb1f563fcce399",
