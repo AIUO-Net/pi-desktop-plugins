@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-29T15:29:52Z",
-  "generatedAt": "2026-09-29T15:29:52Z",
+  "updatedAt": "2026-09-29T15:30:18Z",
+  "generatedAt": "2026-09-29T15:30:18Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -824,7 +824,7 @@
       "versions": [
         {
           "version": "0.4.2",
-          "publishedAt": "2026-09-29T15:29:52Z",
+          "publishedAt": "2026-09-29T15:30:18Z",
           "changelog": "## 0.4.2\n\n### 破坏性变更\n- 移除账号备注：额度卡片不再提供「修改备注」，「管理账号」里也不再填写备注；账号名只显示检测到的身份。\n\n### 新增\n- 账号名自动识别：ChatGPT 用 profile claim 的 `name`（昵称）作标题、`email` 显示为卡片 chip；Claude 用 `/api/oauth/profile` 的 `account.email`；GitHub Copilot 用额度接口返回的登录名。都拿不到时只显示厂商名。\n- Claude 邮箱查询走同源 `GET /api/oauth/profile`（与额度接口同域，未新增域名），失败只丢账号名、不影响额度读取。\n\n### 变更\n- 登录与刷新时记录账号 email（ChatGPT 取 id_token、Claude 取令牌响应的 account.email_address）；取不到不写该字段，旧凭据形状不变。\n- 文档补充凭据落盘位置、文件格式与安全边界。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "840ccf87ae96b269cc8df02fb6b1d094285cb7bca1b27de50cd9e810eb3895f9",
@@ -1909,6 +1909,61 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "local.remote-tools",
+      "name": "Remote SSH Tools",
+      "description": "SSH 远程读取、写入、编辑与命令执行；适配 @oresk/pi-remote-tools。需要已配置的密钥和可信主机。",
+      "author": "jiege6-66",
+      "i18n": {
+        "en": {
+          "name": "Remote SSH Tools",
+          "description": "Read, write, edit files and run commands over SSH in PI-Desktop. An independent adapter of @oresk/pi-remote-tools; requires configured authentication and trusted hosts.",
+          "safetyNotes": "High-risk agent.extension: runs Node and system SSH in the Agent sidecar to read, write and edit remote files and execute requested commands. Uses existing SSH configuration and authentication; does not collect or bundle credentials, alter SSH configuration or automatically trust unknown host keys. Use only trusted, authorized hosts. Cancelling local SSH does not guarantee remote background processes stop."
+        },
+        "zh-CN": {
+          "name": "SSH 远程工具",
+          "description": "在 PI-Desktop 中通过 SSH 读取、写入、编辑远端文件并执行命令。基于 @oresk/pi-remote-tools 的独立适配，需要已配置的认证和可信主机。",
+          "safetyNotes": "高风险 agent.extension 扩展：在 Agent sidecar 中使用 Node 和系统 SSH，按请求读取、写入、编辑远端文件并执行命令。使用现有 SSH 配置与认证，不收集或捆绑凭证，不修改 SSH 配置，不自动接受陌生主机密钥。仅对可信且获授权的主机使用；取消本地 SSH 不保证远端后台进程停止。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/jiege6-66/pi-desktop-remote-tools",
+      "readmeMarkdown": "# Remote SSH Tools — PI-Desktop 插件\n\n为 PI-Desktop 0.15.9 及兼容版本适配 `@oresk/pi-remote-tools@0.2.0`。插件 ID：`local.remote-tools`，版本：`0.1.0`。这是独立开源适配版，不是原作者发布的 Desktop 插件。\n\n## 为什么全局 npm 安装后无法调用\n\n原包声明 `pi.extensions`，Desktop 不会自动导入 CLI 的包注册表。仅导入原包也存在兼容问题：其入口立即调用 `createBashToolDefinition`，Desktop Agent 扩展 shim 没有该 helper。此适配使用官方 `contributes.agentExtensions`，替换该依赖并删除终端 TUI 渲染，保留 SSH 文件操作。来源和改动见 `UPSTREAM.json`。\n\n## 安装\n\n1. 在 Desktop 的插件页面选择「安装本地插件包」，打开由 PluginPack 生成的 `local.remote-tools-0.1.0.piplug`。也可选择「加载开发插件」，选中本目录。\n2. 阅读并确认 `agent.extension` 权限，再启用插件并允许当前项目使用。此权限为高风险：代码运行在 Agent sidecar，可调用 Node 和系统 SSH，不受普通插件权限网关的完整约束。\n3. 返回 Agent 会话，在下一轮查找或调用 `ssh-read`、`ssh-write`、`ssh-edit`、`ssh-bash`。如果当前会话尚未刷新工具，另开会话重试。\n4. 若之前加载过脚手架示例，必须在插件页面重新加载本目录并重新审核新增权限；保存文件不会自动授予 `agent.extension`。不要重复安装同 ID 的开发版和打包版。\n\n模块入口已通过插件目录的 `package.json` 固定为 CommonJS，扩展及兼容模块使用 `.mjs`，不受父目录 `type: module` 干扰。\n\n## SSH 前提\n\n本机需有系统 `ssh`，对应 host alias/用户名配置、已核实的 known_hosts 记录及可无交互使用的密钥或 SSH agent。插件使用已有 SSH 配置，不包含私钥、密码或凭证，也不会修改配置。\n\n连接强制 `BatchMode=yes` 与 `StrictHostKeyChecking=yes`：不弹密码、不自动接受陌生主机指纹。若终端可连接但 Desktop 失败，请核对 Desktop 进程可见的 SSH agent 与密钥配置，不要以关闭主机验证代替排查。首次建立信任应由用户在可信渠道核验主机指纹后完成。\n\n## 四个工具\n\n| 工具 | 必需参数 | 可选参数 |\n|---|---|---|\n| `ssh-read` | `host`, `path` | `offset`（1 起始）, `limit` |\n| `ssh-write` | `host`, `path`, `content` | 无 |\n| `ssh-edit` | `host`, `path`, `edits` | 每项可设 `replaceAll` |\n| `ssh-bash` | `host`, `command` | `timeout`（1–100 秒，默认 90） |\n\n只读示例（`myserver` 是占位 host，未实际连接）：\n\n```json\n{\n  \"host\": \"myserver\",\n  \"path\": \"/etc/os-release\",\n  \"limit\": 10\n}\n```\n\n精准编辑参数：`edits: [{ oldText: \"原文本\", newText: \"新文本\" }]`。先用 ssh-read 读取；若远端变化，ssh-edit 会拒绝旧摘要对应的编辑。默认要求唯一匹配；显式 `replaceAll: true` 才替换所有匹配。替换文本中的 `$\u0026` 等保持字面值。\n\n## 行为与限制\n\n- 绝对路径保持远端含义；相对路径和 `~` 以远端 HOME 为基准，不映射到本地工作区。\n- 文件内容通过 base64/stdin 传输；写入通过同目录临时文件替换，保留已有文件权限。ssh-write 与 ssh-edit 的结果均不得超过 8 MiB，捕获输出上限 16 MiB。\n- 读取超过 1 MiB 的文件时使用行窗口；呈现输出上限约 2000 行/50 KiB。过大的 limit 或超长行若使远端输出超过 16 MiB，会明确报错，而不是无限缓冲。Bash 仅保留最后 50 KiB 输出。\n- 文件工具整体超时 90 秒；Bash 整体超时包含主机探测，最多 100 秒，留出 Desktop 调用及清理余量。排队等锁同样响应取消和 deadline，取消的排队写入不会随后补执行。\n- 无 bash 的主机回退到 POSIX sh。取消/超时会终止本地 SSH 进程，但不保证远端后台进程终止，或远端 shell 一定执行清理 trap。中断写入可能遗留同目录 .pi-ssh* 临时文件；不会按前缀自动批量删除，以免误删其他写操作的文件。\n- 同一路径的写操作在本进程内串行，读取摘要按扩展实例隔离；这不是可排除其他程序并发写入的远端事务。\n- 离线测试在 macOS/Node 22 下执行，包含非 POSIX 元数据分支的替身验证；未做真实 csh/tcsh、Windows、真实 SSH 或当前 Desktop 会话端到端验证。极端 close 事件不返回时的 1.2 秒兜底尚未单独模拟。\n\n## 开发与验证\n\n在项目根目录运行：\n\n```sh\nnpm ci --ignore-scripts --legacy-peer-deps --no-audit --no-fund\nnpm run check\n```\n\n测试要求 `PI_SCRATCH_DIR` 指向可写 scratch 目录，只执行 SSH 替身，不连接真实主机。构建脚本校验上游 SHA-256 后生成 `extension.mjs`，勿手改此文件。运行时的 TypeBox 由 Desktop 官方扩展加载器提供，安装本插件无需 npm 安装依赖。\n\n插件由 PluginScaffold 建立，随后执行 `PluginCheck({ directory: \"remote-tools\" })` 和 `PluginPack({ directory: \"remote-tools\" })`。不得用普通压缩 zip/tar 代替 PluginPack。macOS / Node 22 下的源码与解包产物离线测试各 32/32 通过；校验通过不等于宿主已经加载或远程连接成功，未验证的环境与边界见上文。\n\n## 开源与许可\n\n源码仓库：https://github.com/jiege6-66/pi-desktop-remote-tools 。原创 Desktop 适配部分采用 MIT，版权归 `jiege6-66`，完整许可见 `LICENSE`；上游代码保留其来源与许可声明，见 `THIRD_PARTY_NOTICES.md`。插件中心实际审核/上架状态以平台为准，不将本地打包视为已经上架。\n",
+      "safetyNotes": "高风险 agent.extension 扩展：在 Agent sidecar 中使用 Node 和系统 SSH，按请求读取、写入、编辑远端文件并执行命令。使用现有 SSH 配置与认证，不收集或捆绑凭证，不修改 SSH 配置，不自动接受陌生主机密钥。仅对可信且获授权的主机使用；取消本地 SSH 不保证远端后台进程停止。",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-09-28T15:23:08Z",
+          "changelog": "# Changelog\n\n## 0.1.0 — 2026-09-28\n\n首次公开的 PI-Desktop 独立适配版本，基于锁定的 `@oresk/pi-remote-tools@0.2.0`；不是上游作者的官方 Desktop 发布。\n\n- 提供 `ssh-read`、`ssh-write`、`ssh-edit`、`ssh-bash` 四个工具，通过 `contributes.agentExtensions` 加载。\n- 使用 Desktop 兼容的 Bash helper，去除 CLI/TUI 渲染依赖。\n- 有界 SSH 输出、整体超时、取消与写操作排队处理；强制无交互认证和严格主机密钥验证。\n- 读取摘要按扩展实例隔离，相对路径以远端 HOME 为基准，编辑替换保留字面值语义。\n- 统一大小文件行数、越界错误及续读提示；处理 Bash 输出截断和分块时的 UTF-8 字符边界。\n- 原创适配以 MIT 开源，保留上游来源声明；补齐英文、简体中文描述及高风险权限说明。\n\n### 验证与限制\n\nmacOS / Node 22 下 32 项离线测试使用受控 SSH 替身通过；不是生产主机或宿主端到端验证。真实 SSH、Windows 和真实 csh/tcsh 未验证。取消本地 SSH 不保证远端后台进程停止；中断写入可能留下临时文件；读取摘要检查不是远端事务或原子文件快照。\n\n### English summary\n\nFirst public, independent PI-Desktop adapter release. Provides four SSH tools with bounded, cancellable transport; consistent read windows and UTF-8-safe Bash tails; MIT licensing for original adapter contributions; and complete English / Simplified Chinese metadata. Uses existing SSH authentication and strict host-key verification. Offline tests are not a guarantee of host loading, live SSH interoperability, or remote process termination.",
+          "minPiDesktop": "\u003e=0.15.9",
+          "shasum": "819a056f8a54791e1a5cdda83d58af9db766a55aaf432e159c0feeab1c54ad02",
+          "url": "packages/local.remote-tools-0.1.0.piplug",
+          "sizeBytes": 55209,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/jiege6-66/pi-desktop-remote-tools",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "9a3e882b6a72148364a0db0ad59e58d0a03f5eba",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-28T15:23:08Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-09-29T20:33:27Z"
+          }
         }
       ]
     },
