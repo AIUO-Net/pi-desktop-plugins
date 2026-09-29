@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-29T11:44:59Z",
-  "generatedAt": "2026-09-29T11:44:59Z",
+  "updatedAt": "2026-09-29T15:29:52Z",
+  "generatedAt": "2026-09-29T15:29:52Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -823,6 +823,30 @@
       "safetyNotes": "只显示插件真正拿到凭据的账号。凭据来源两类：① 你在本插件私有设置里填写的令牌；② 本机已登录的 CLI / 编辑器留下的凭据文件（~/.claude/.credentials.json、~/.codex/auth.json、github-copilot 的 hosts.json / apps.json），由插件进程内的 Node fs 读取。插件刻意不读取 PI-Desktop 自己的加密密钥库。令牌不写日志、不进缓存、不返回给界面；返回的只有额度数字。联网仅限 net.domains 里声明的八个服务商域名。",
       "versions": [
         {
+          "version": "0.4.2",
+          "publishedAt": "2026-09-29T15:29:52Z",
+          "changelog": "## 0.4.2\n\n### 破坏性变更\n- 移除账号备注：额度卡片不再提供「修改备注」，「管理账号」里也不再填写备注；账号名只显示检测到的身份。\n\n### 新增\n- 账号名自动识别：ChatGPT 用 profile claim 的 `name`（昵称）作标题、`email` 显示为卡片 chip；Claude 用 `/api/oauth/profile` 的 `account.email`；GitHub Copilot 用额度接口返回的登录名。都拿不到时只显示厂商名。\n- Claude 邮箱查询走同源 `GET /api/oauth/profile`（与额度接口同域，未新增域名），失败只丢账号名、不影响额度读取。\n\n### 变更\n- 登录与刷新时记录账号 email（ChatGPT 取 id_token、Claude 取令牌响应的 account.email_address）；取不到不写该字段，旧凭据形状不变。\n- 文档补充凭据落盘位置、文件格式与安全边界。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "840ccf87ae96b269cc8df02fb6b1d094285cb7bca1b27de50cd9e810eb3895f9",
+          "url": "packages/io.github.czp0312.subscription-quota-0.4.2.piplug",
+          "sizeBytes": 154484,
+          "permissions": [
+            "net.fetch",
+            "shell.openExternal",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/czp0312/pi-desktop-quota-visualizer",
+            "sourceRef": "v0.4.2",
+            "sourceCommit": "009b084301ba09767f0289dfe243c8f360629589",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-29T15:29:52Z"
+          }
+        },
+        {
           "version": "0.4.1",
           "publishedAt": "2026-09-29T11:08:12Z",
           "changelog": "## 订阅额度 0.4.1\n\n### 修复\n- 修复「添加账号」在首次失败、取消或网络异常后无法再次点击的问题（渲染异常导致操作状态卡死）。\n- 取消额度页面标题栏吸顶，改为普通文档流，避免固定遮挡滚动内容。\n\n### 新增\n- 支持直接在额度卡片内编辑插件账号备注：保存即时反馈、失败可重试、刷新时保留草稿，保存不重新请求额度。\n\n### 说明\n- 同厂商最多 10 个插件账号，可备注、重新授权、删除及优先级排序。\n- 推荐仅基于上次读取的额度，仅供在 Pi-Desktop 手动切换账号，不自动切换或转发对话请求。\n- 不新增权限与域名，不读取宿主密钥库。",
@@ -1605,7 +1629,7 @@
       "versions": [
         {
           "version": "0.2.6",
-          "publishedAt": "2026-09-29T11:44:59Z",
+          "publishedAt": "2026-09-29T11:45:24Z",
           "changelog": "修复登录失效bug",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "95bf8eddc741f8d71822018a8c8522a1e6b6040a113fd7235efe12d86f96cca7",
