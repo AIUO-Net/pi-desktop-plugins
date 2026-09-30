@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-29T20:33:45Z",
-  "generatedAt": "2026-09-29T20:33:45Z",
+  "updatedAt": "2026-09-30T06:05:46Z",
+  "generatedAt": "2026-09-30T06:05:46Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1611,6 +1611,58 @@
             "sourceCommit": "66df6f4d6586d2975f5cc57feee87444d757b5d0",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-28T16:43:47Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.w1ndys.pi-open-in-vscode",
+      "name": "用 VSCode 打开",
+      "description": "用命令立刻用 Visual Studio Code 打开当前工作目录。",
+      "author": "w1ndys",
+      "i18n": {
+        "en": {
+          "name": "Open in VS Code",
+          "description": "Open the current workspace folder in Visual Studio Code with a single command.",
+          "safetyNotes": "Does exactly one thing: hands the current workspace folder to the local Visual Studio Code. It does not read file contents, write files, use the network, or collect data. The command runs only when the user triggers it, spawns the system command detached, and returns immediately without waiting for the editor to exit."
+        },
+        "zh-CN": {
+          "name": "用 VSCode 打开",
+          "description": "用一条命令立刻用 Visual Studio Code 打开当前工作目录。",
+          "safetyNotes": "只做一件事：把当前工作目录交给本机的 Visual Studio Code 打开。不读文件内容、不写文件、不访问网络、不收集任何数据。命令由用户主动触发，插件的进程里以 detached 方式拉起系统命令，拉起后立即返回，不等待编辑器退出。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/w1ndys/pi-open-in-vscode",
+      "readmeMarkdown": "# 用 VSCode 打开\n\nPI-Desktop 插件（`io.github.w1ndys.pi-open-in-vscode`）：立刻用 Visual Studio Code 打开当前工作目录。\n\n仓库：https://github.com/w1ndys/pi-open-in-vscode\n\n## 使用\n\n1. 安装或加载本插件。\n2. 打开一个项目。\n3. 任选一种立刻打开（不再经过侧边栏页面）：\n   - 命令面板搜「用 VSCode 打开当前工作目录」\n   - 输入框输入 `/vscode` 回车\n\n打开顺序：macOS `open -a \"Visual Studio Code\"` → `code`。\n\n## 做不到的\n\nPI-Desktop 的插件接口**不能**往输入框下面那一行（发送、模型、上下文长度、工作模式、编辑模式）插按钮。那一行是宿主自己的控件，没有 `contributes` 扩展点。本插件只能提供命令 / 斜杠命令。\n\n## 检查\n\n```bash\nnpm run check\n```\n\n## 权限\n\n只声明 `notify`（低风险），用于打开成功 / 失败的提示。不读文件、不写文件、不访问网络、不碰剪贴板。\n\n## 发布到插件中心\n\n客户端默认的目录源是 [plugins.aiuo.net](https://plugins.aiuo.net)。发布需要三样东西：\n\n1. 打好标签的源码仓库（`v0.3.0`），标签或 commit 就是审查读取的 `sourceRef`；\n2. 控制台里绑定源码仓库（GitHub App 授权，绑定后非管理员不能换）；\n3. 一个没发布过的版本号加发布说明。\n\n流程见官方 [CONTRIBUTING.md](https://github.com/vastsa/pi-desktop-plugins/blob/main/CONTRIBUTING.md) 与本仓 `docs/发布说明.md`。\n",
+      "safetyNotes": "只做一件事：把当前工作目录交给本机的 Visual Studio Code 打开。不读文件内容、不写文件、不访问网络、不收集任何数据。命令由用户主动触发，插件的进程里以 detached 方式拉起系统命令，拉起后立即返回，不等待编辑器退出。",
+      "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-09-30T06:05:46Z",
+          "changelog": "首个发布版本。\n\n- 一条命令（`/vscode`）立刻用 Visual Studio Code 打开当前工作目录。\n- macOS 走 `open -a \"Visual Studio Code\"`，失败再试 `code`。\n- 只声明 `notify` 权限；不读文件、不写文件、不访问网络、不收集数据。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "b2b0ae05d3c049727f586e4fe49fc44b3c4454b5f7f09699799beb3a32d03ac6",
+          "url": "packages/io.github.w1ndys.pi-open-in-vscode-0.3.0.piplug",
+          "sizeBytes": 12859,
+          "permissions": [
+            "notify"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/w1ndys/pi-open-in-vscode",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "e8f2d905ffedce2599cc4908dc52fffd2148840c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-30T06:05:46Z"
           }
         }
       ]
