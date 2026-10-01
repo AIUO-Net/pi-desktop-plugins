@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-30T06:06:10Z",
-  "generatedAt": "2026-09-30T06:06:10Z",
+  "updatedAt": "2026-10-01T14:07:17Z",
+  "generatedAt": "2026-10-01T14:07:17Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -28,7 +28,7 @@
       "versions": [
         {
           "version": "2.0.0",
-          "publishedAt": "2026-09-29T06:03:06Z",
+          "publishedAt": "2026-10-01T14:07:17Z",
           "changelog": "兼容了新老api",
           "minPiDesktop": "\u003e=0.15.9",
           "shasum": "ca8dbf0d6359f1315bdc667b5efe82acd0db2f8a9b3a97859cd5368c2f39c1e0",
@@ -2148,6 +2148,45 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-21T07:52:15Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.clinepass",
+      "name": "Cline Pass For Pi Desktop",
+      "description": "非常便宜的Cline Pass接入Pi-Desktop",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Cline Pass 接入",
+          "description": "非常便宜的Cline Pass接入Pi-Desktop"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishedAt": "2026-10-01T07:28:16Z",
+          "changelog": "初始化项目，并添加了可更改思考强度功能",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "284b2274e3b6ae9a48a385666ed34c167bfb1a212a6eb22f7a057d1672fb3d24",
+          "url": "packages/pi.clinepass-1.1.0.piplug",
+          "sizeBytes": 15119,
+          "permissions": [
+            "provider.register"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-10-01T14:35:54Z"
           }
         }
       ]
