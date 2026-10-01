@@ -10,6 +10,51 @@
   "artifactBaseUrl": null,
   "plugins": [
     {
+      "id": "adoin.panel.anywhere",
+      "name": "Anywhere Panel",
+      "description": "Connect Pi Desktop to Agents Anywhere and access workspace conversations from mobile or web. Discover existing sessions, create chats, send messages, sync text replies and task status, and interrupt running tasks. Includes password-encrypted connection storage and tabs for status, connection management and events. Workspace sharing requires explicit local consent.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Anywhere Panel 远程连接管理",
+          "description": "将 Pi Desktop 接入 Agents Anywhere，在手机或网页端访问工作区会话。支持发现已有会话、新建聊天、发送消息、同步文字回复与任务状态，以及中断运行中的任务。提供密码加密的连接信息保存，以及状态、连接管理、事件三标签面板。共享工作区前需在本地明确授权。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "adoin",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "2.0.0",
+          "publishedAt": "2026-09-29T06:03:06Z",
+          "changelog": "兼容了新老api",
+          "minPiDesktop": "\u003e=0.15.9",
+          "shasum": "ca8dbf0d6359f1315bdc667b5efe82acd0db2f8a9b3a97859cd5368c2f39c1e0",
+          "url": "packages/adoin.panel.anywhere-2.0.0.piplug",
+          "sizeBytes": 154982,
+          "permissions": [
+            "background.service",
+            "desktop.control",
+            "models.list",
+            "net.fetch",
+            "net.websocket",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-10-01T14:06:51Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "cc.mcii.session-notify",
       "name": "会话通知",
       "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。",
