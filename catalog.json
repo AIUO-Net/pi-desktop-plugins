@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-09-30T06:05:46Z",
-  "generatedAt": "2026-09-30T06:05:46Z",
+  "updatedAt": "2026-09-30T06:06:10Z",
+  "generatedAt": "2026-09-30T06:06:10Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1646,7 +1646,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-09-30T06:05:46Z",
+          "publishedAt": "2026-09-30T06:06:10Z",
           "changelog": "首个发布版本。\n\n- 一条命令（`/vscode`）立刻用 Visual Studio Code 打开当前工作目录。\n- macOS 走 `open -a \"Visual Studio Code\"`，失败再试 `code`。\n- 只声明 `notify` 权限；不读文件、不写文件、不访问网络、不收集数据。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "b2b0ae05d3c049727f586e4fe49fc44b3c4454b5f7f09699799beb3a32d03ac6",
