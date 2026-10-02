@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-01T14:07:17Z",
-  "generatedAt": "2026-10-01T14:07:17Z",
+  "updatedAt": "2026-10-02T11:18:58Z",
+  "generatedAt": "2026-10-02T11:18:58Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1727,6 +1727,34 @@
       "safetyNotes": "会泄露我的笔记吗？ 不会。插件只与 i.mi.com / account.xiaomi.com 通信；本地只写插件自己的数据目录， 不读也不写你的工作区文件。AI 问答只把检索命中的片段交给宿主已登录的模型。\n\n密码安全吗？ 插件全程不接触密码 —— 扫码登录由手机端确认，凭据以 0600 权限存在插件私有目录。",
       "versions": [
         {
+          "version": "0.2.7",
+          "publishedAt": "2026-10-02T11:18:58Z",
+          "changelog": "修复登录失效",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "4467a8ef848f8c57d39ae2078c963c99b6253e6c4050348684af57e9616655da",
+          "url": "packages/local.mi-note-0.2.7.piplug",
+          "sizeBytes": 2460331,
+          "permissions": [
+            "agent.complete",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "background.service",
+            "clipboard.write",
+            "models.list",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/sucjs/mi-note-for-pi",
+            "sourceRef": "v0.2.7",
+            "sourceCommit": "efec3333a5e5a61a89da3c954787517a294587a7",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-02T11:18:58Z"
+          }
+        },
+        {
           "version": "0.2.6",
           "publishedAt": "2026-09-29T11:45:24Z",
           "changelog": "修复登录失效bug",
@@ -2171,7 +2199,7 @@
       "versions": [
         {
           "version": "1.1.0",
-          "publishedAt": "2026-10-01T07:28:16Z",
+          "publishedAt": "2026-10-01T14:36:16Z",
           "changelog": "初始化项目，并添加了可更改思考强度功能",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "284b2274e3b6ae9a48a385666ed34c167bfb1a212a6eb22f7a057d1672fb3d24",
