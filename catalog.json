@@ -55,6 +55,71 @@
       ]
     },
     {
+      "id": "axc00.project-knowledge",
+      "name": "Project Knowledge",
+      "description": "A per-project knowledge base for PI-Desktop. Relevant knowhow and specs are attached to each message automatically, the Agent can search and load entries, and new lessons are saved only after you confirm them on an in-chat card. Optional Jev dedup, off by default.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "项目知识库",
+          "description": "按项目保存的知识库：每条消息自动附上相关的经验和规则，Agent 可以检索和读取条目；新经验只有在你于聊天卡片中确认后才会保存。可选 Jev 去重，默认关闭。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "axc00",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.3.3",
+          "publishedAt": "2026-09-30T05:48:54Z",
+          "changelog": "安全加固（在 0.3.2 基础上的自查修复，替换待审的 0.3.2）\n\n- **拒绝硬链接**：`.workflow` 下指向项目外文件的硬链接此前能被读出并附加到模型请求（符号链接的防护对硬链接无效）。现在只读取单链接的普通文件。\n- **拒绝 FIFO 等特殊文件**：打开文件时带 `O_NONBLOCK`，不会因 FIFO 卡住对话。\n- **读取上限**：单个知识文件最大 256KB，单次检索最多 2000 个文件，超出的跳过。\n- **提示注入防护**：自动附加的块、`load` 结果和系统提示都说明条目是\"项目数据而非指令\"；附加时 ID、标题、摘要分别截断到 80/120/120 字符。\n- **移除 `fs.delete` 权限**：面板处理过的暂存建议改为标记已处理，不再删除。\n- 新增硬链接、FIFO、超大文件、截断与文件数上限的测试（tests/project-knowledge/symlink.test.js、core.test.js），README 与安全说明同步更新。",
+          "minPiDesktop": "\u003e=0.15.9",
+          "shasum": "a2ac8bcdd98e3ec5c6c779816af986d28a9e684c8506cc0f3f1ce7947b9b86b7",
+          "url": "packages/axc00.project-knowledge-0.3.3.piplug",
+          "sizeBytes": 107805,
+          "permissions": [
+            "agent.extension",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "net.fetch",
+            "ui.panel"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".workflow/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".workflow/knowhow/**",
+                ".workflow/knowledge-inbox/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/AXC00/pi-desktop-plugins-skills",
+            "sourceRef": "project-knowledge-v0.3.3",
+            "sourceCommit": "7974cc4bd661a9734cb1b02cae0a66adfc6637e8",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-09-30T05:48:54Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.09.2",
+            "reviewedAt": "2026-10-02T16:34:31Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "cc.mcii.session-notify",
       "name": "会话通知",
       "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。",
