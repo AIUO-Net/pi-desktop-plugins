@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-02T11:19:24Z",
-  "generatedAt": "2026-10-02T11:19:24Z",
+  "updatedAt": "2026-10-03T17:39:17Z",
+  "generatedAt": "2026-10-03T17:39:17Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1721,6 +1721,55 @@
             "sourceCommit": "66df6f4d6586d2975f5cc57feee87444d757b5d0",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-28T16:43:47Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.tonkic.agent-governance",
+      "name": "Agent Governance",
+      "description": "Repository handoff, project boards, source-backed architecture and Git collaboration with isolated worktrees and commit-bound verification.",
+      "author": "",
+      "i18n": {
+        "en": {
+          "name": "Agent Governance",
+          "description": "Repository handoff, project boards, source-backed architecture and Git collaboration with isolated worktrees and commit-bound verification.",
+          "safetyNotes": "Uses Node fs and execFile(git) directly, outside host filesystem/exec gateways. Git actions create branches/worktrees and commits and merge only registered worker commits into their coordinator. Registry/worktrees live under the Git common directory, which may be outside the opened linked worktree. No push, fetch, reset, stash or automatic main merge. Git hooks, signing, fsmonitor and diff helpers are disabled for plugin commands; trusted Git configuration/attributes are still required (filters or merge drivers may execute). Other tools are not intercepted. Evidence and owner labels are caller-attested. No protection against malicious concurrent writers; inspect stale locks and interrupted operations before recovery."
+        },
+        "zh-CN": {
+          "name": "Agent 项目治理",
+          "description": "从仓库接手任务，管理工作项看板与有源码依据的架构；通过隔离工作区、绑定提交的验证和受控集成协作。",
+          "safetyNotes": "直接使用 Node fs 和 execFile(git)，不经过宿主文件系统或命令网关。Git 操作可创建分支、工作区与提交，仅将已登记执行任务的提交合并到其协调任务。登记和工作区位于 Git 公共目录，可能在当前打开的关联工作区之外。不执行推送、拉取、reset、stash 或自动合并主分支。插件命令禁用 Git hooks、签名、fsmonitor 和 diff 辅助程序；仍须信任 Git 配置和属性，过滤器或合并驱动可能执行程序。不拦截其他工具。证据和所有者标签由调用方声明。不防御恶意并发写入；恢复前须检查遗留锁和中断操作。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "readmeMarkdown": "# Agent Governance / Agent 项目治理\n\nCommunity plugin ID: `io.github.tonkic.agent-governance`. Repository handoff, a safe project board, source-backed architecture, and isolated Git collaboration. The panel supports English and Simplified Chinese. See [installation, migration, credentials and publishing](PUBLISHING.md) before replacing an older `pi.agent-governance` installation. Disable the old instance first; preserve STATE and `.governance/` data.\n\n社区版本的安装、旧 ID 迁移、密钥保存和发布用法见 [发布说明](PUBLISHING.md)。安装新 ID 前停用旧实例并保留项目数据。\n\n# Governance 工具用法\n\n为当前仓库保存可接手的任务状态，并在验证后关闭任务。PI 注册名为 `governance`，宿主可能添加命名空间前缀。文件访问使用原生 Node fs；Git 操作通过 execFile 执行。不是全局 Agent 拦截器。\n\n## 源码与构建\n\n插件源码和测试使用 TypeScript；`npm ci` 安装开发依赖后，`npm run build` 分别编译主进程（CommonJS）和浏览器脚本（独立配置，无 require/exports），再生成 `plugin/manifest.json`。产物为源码旁的 `.js`，PI-Desktop 入口保持 `main.js`。Node 20 不直接执行 `.ts`，修改后须重新构建。\n\n```powershell\nnpm run typecheck\nnpm run build\nnpm test\n```\n\nTypeScript 是开发依赖，不会进入插件运行时；PluginCheck 和 PluginPack 仍由 PI-Desktop 的插件工具负责生成 `.piplug` 安装包。\n\nGit 分支/worktree、范围检查、提交验证、集成及恢复，见 [Git 协作用法](GIT.md)。写入型委派前先 git_create 分配工作区；插件不自动启动子代理。\n\n## 可视化面板\n\n在 PI-Desktop 命令面板搜索「Agent Governance: 打开治理面板」（governance.open），作用于宿主当前工作区主根。需要 ui.panel 权限；Agent 工具另需 agent.tool.register 授权。\n\n面板展示目标、验收条件、范围、进度、阻塞，以及 Git 工作区、分支和验证有效性。未初始化时可创建缺失入口文件；待命时可创建任务；有活动任务时可更新进度。所有写入需确认，状态过期或项目切换时拒绝写入，保存进度使旧验证失效。测试、任务关闭和 Git 写入仍使用工具流程。\n\n工作项看板和源码支撑的项目架构见 [项目数据用法](PROJECT.md)。面板可创建/编辑工作项、拖动或用按钮排序及迁移；总体治理流程图只展示有效状态及允许路径，不自动执行验收。\n\n点击刷新同步外部修改；未保存表单需再次点击刷新才会丢弃。Git 不可用不妨碍任务状态操作。直接打开 renderer/index.html 为静态预览，不能操作项目。确认、owner 和测试证据仍是调用方声明，不是身份认证或安全沙箱。\n\n## 接手与执行\n\n依次调用，每段 JSON 是一个独立请求：\n\n```json\n{\"action\":\"init\"}\n```\n\ninit 仅补齐 AGENTS.md、README.md、STATE.json，已有文件不覆盖。之后先读取 README，并调用：\n\n```json\n{\"action\":\"status\"}\n```\n\n有活动任务就按 current/next 继续；无活动任务但有已批准的 followUp，调用 `{\"action\":\"start\"}`；两者都没有则等待人工，不新增目标。\n\n人工批准新任务后可调用：\n\n```json\n{\"action\":\"start\",\"id\":\"cache-fix\",\"goal\":\"修正缓存一致性\",\"criteria\":[\"等价性测试通过\"],\"scope\":[\"缓存模块\"],\"constraints\":[\"不改变公共接口\"]}\n```\n\nSTATE 是任务定义的唯一来源。不生成 task.md、findings.md 或 delta.md 空模板。必要的临时探索可自行写入当前 changes/active/\u003cid\u003e/。\n\n```json\n{\"action\":\"progress\",\"current\":\"实现完成，待测试\",\"next\":[\"运行等价性测试\"],\"blocked\":[]}\n```\n\n## 人工更新 State\n\n可编辑 goal、criteria、scope、constraints、current、next、blocked。不要修改 task/change 等身份字段或伪造 verification/gate。修改目标后先 status，再重新验证。\n\n`next` 是当前任务的执行步骤；`followUp` 是当前任务结束后的已批准任务，格式如下；没有任务就设为 null：\n\n```json\n{\"id\":\"approved-next\",\"goal\":\"人工批准的目标\",\"criteria\":[\"验收条件\"],\"scope\":[],\"constraints\":[]}\n```\n\n将此对象写入 STATE.json 的 followUp 字段，关闭时会保留。可以在 idle 状态设置 followUp，无需聊天历史。任务 ID 不可重复使用。人工编辑时暂停正在运行的工具操作，避免竞争。\n\n## 验证与关闭\n\n先实际测试、检查 diff、完成必要使用文档更新，再提交：\n\n```json\n{\"action\":\"verify\",\"passed\":true,\"accepted\":[true],\"evidence\":\"实际命令、结果及日志位置\",\"diffReview\":\"实际审查范围与结论\",\"files\":[\"README.md\"]}\n```\n\nfiles 替换成真实变更文件；accepted 与 criteria 一一对应。README、AGENTS 和 context 读过的文件会加入验证指纹。总共最多 100 个现存文本文件，不支持删除文件证据。验证后改动受检文件会阻止关闭；改动任务意图会使验证失效。\n\n```json\n{\"action\":\"close\",\"knowledge\":\"已更新 README 的用法；没有需要保留的额外经验。\"}\n```\n\nknowledge 必须说明已更新的使用文档，或说明为什么无需更新。无需固定五问，也不强制新增 Notes。关闭后保存 closure.json 到 changes/archive，State 保留 followUp；没有 followUp 则明确等待人工。\n\n## 可选操作\n\n- `context`：传 layer、files；非 docs 层附 reason。可跳过层级直接读取相关 source。Docs/Contract 使用 README、AGENTS 或 docs/；Notes 使用 notes/。每次最多 10 文件、40000 字符，单文件最多 1 MiB。\n- `route`：传 features（files、modules、research、architecture 等），仅建议模型档位，不切换模型。\n- `gate`：兼容旧流程，传 delta 和 behavior/contract/stableFact/pitfall/decision 五类 decisions，各含 changed、reason，changed=true 时含文档 path；之后可不带 knowledge 调用 close。\n\n受检文档预算：AGENTS 60 行、README 150 行、overview 100 行、architecture 200 行、其他 docs 文件 100 行。Docs 只保留用途、用法和必要限制；Notes 可选。\n\n工具不会验证证据真实性或知识语义，不会发现所有漏报文件。写前比较是尽力冲突检测，不是恶意并发写入的隔离保证。旧版验证记录需要重新 verify；旧文档和临时材料保留，不自动迁移或删除。中断后以相同请求重试 close；锁或状态冲突须检查后人工恢复。\n",
+      "safetyNotes": "Uses Node fs and execFile(git) directly, outside host filesystem/exec gateways. Git actions create branches/worktrees and commits and merge only registered worker commits into their coordinator. Registry/worktrees live under the Git common directory, which may be outside the opened linked worktree. No push, fetch, reset, stash or automatic main merge. Git hooks, signing, fsmonitor and diff helpers are disabled for plugin commands; trusted Git configuration/attributes are still required (filters or merge drivers may execute). Other tools are not intercepted. Evidence and owner labels are caller-attested. No protection against malicious concurrent writers; inspect stale locks and interrupted operations before recovery.",
+      "versions": [
+        {
+          "version": "0.6.0",
+          "publishedAt": "2026-10-03T17:39:17Z",
+          "changelog": "# 0.6.0 — Community distribution / 社区发布\n\n- New community identity: `io.github.tonkic.agent-governance`.\n- English and Simplified Chinese panel, manifest descriptions, safety notes, controls and confirmations. Project-authored goals, work items and architecture data remain unchanged.\n- Persistent work board, source-backed architecture and dependency-cycle layout, effective governance workflow, isolated Git collaboration and commit-bound verification.\n- No new runtime permissions; writes still require confirmation and reject stale or switched-workspace state.\n\n## Migration / 迁移\n\nThis is a first installation under a new ID, not an automatic upgrade from `pi.agent-governance`. Back up STATE and `.governance/`, disable the old instance, install the community plugin and grant its permissions. Keep old packages for rollback. Future updates use the host marketplace mechanism after approval and catalog publication.\n\n新 ID 需要首次安装和重新授权；先停用旧插件，避免工具与命令重复。保留项目 STATE、`.governance/` 与旧安装包，不删除用户数据。审核上架后的同 ID 升级使用宿主更新机制。\n\n## Validation / 验证范围\n\nClean dependency install, TypeScript checks, build, 49 regression tests, English/Chinese browser bridge interactions and responsive overflow checks passed locally. Installer validation and packaging passed. Browser checks use the real governance core with a simulated host bridge; this release does not claim completed installed-host UI acceptance or human visual review. Those checks remain outstanding in the overall project acceptance.\n\n干净构建、49 项回归、中英文浏览器交互、响应式溢出检查及安装器校验通过。浏览器检查使用真实内核与模拟宿主桥接，不能替代真实宿主加载与人工目视验收；总体任务的这两项仍未关闭。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "e56e9e38e8ebe21e5cd1401c386f496d8c78ed430427433e086951c99886ca85",
+          "url": "packages/io.github.tonkic.agent-governance-0.6.0.piplug",
+          "sizeBytes": 276784,
+          "permissions": [
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tonkic/pi-agent-governance",
+            "sourceRef": "9e5eda26ce30ff687e7a993c755cf2565c8b34e0",
+            "sourceCommit": "9e5eda26ce30ff687e7a993c755cf2565c8b34e0",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-03T17:39:17Z"
           }
         }
       ]
