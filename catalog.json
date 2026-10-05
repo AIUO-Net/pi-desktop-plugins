@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-05T01:50:36Z",
-  "generatedAt": "2026-10-05T01:50:36Z",
+  "updatedAt": "2026-10-05T08:35:37Z",
+  "generatedAt": "2026-10-05T08:35:37Z",
   "policyVersion": "2026.09.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -674,7 +674,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-10-05T01:50:36Z",
+          "publishedAt": "2026-10-05T01:51:02Z",
           "changelog": "## 0.1.0 — 2026-10-05\n\nFirst release.\n\n**Environment detection.** Resolves the MuMu install root from four sources in\norder: the manual override in settings, a running MuMu process, the uninstall\nregistry entry, and the well-known install paths. The panel always names which\nsource won, and a rejected manual path reports the reason without discarding the\npreviously working root.\n\n**Command surface.** All eighteen MuMuManager subcommands plus their nested ones\nare reachable: version, info, create, clone, upgrade, delete, rename, import,\nexport, control, setting, adb, simulation, sort, driver, log, sh, main. The\ncaptured help text and a parsed option index ship in data/mumu-commands.json and\ndocs/MuMuManager-command-reference.md.\n\n**VIP patch.** A two-part table keeps nx_main\\winhttp.dll aligned with the\ninstalled build. Nine in-file corrections turn a proxy built for the earlier\nbuild into one that matches this build; fifty-two runtime points are verified\nagainst the three target executables by parsing their PE section tables. Every\nwrite is preceded by a timestamped backup and an audit record, and a point whose\noriginal bytes are absent or not unique is skipped rather than forced.\n\nWhen nx_main holds no proxy at all, the plugin says so instead of failing inside\nthe table; point the setting at a proxy file and it is copied into place first,\nwith the guard marker checked and the previous file backed up, and the\ncorrections are applied on top.\n\n**Dead guest recovery.** Recovers an instance whose guest Android framework has\ndied, following the documented procedure: terminate the instance and its VM\nhelpers, wait until MuMuManager reports the instance stopped, launch again, and\nwait for the activity service to answer.\n\n**Safety.** The panel starts read-only; write actions stay disabled until the\noperator turns on live controls. No network access.",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "56735870e92449791a69774623d605ad36bc68fd3788e5150e6101ff0ee73fae",
@@ -1823,6 +1823,59 @@
             "sourceCommit": "9e5eda26ce30ff687e7a993c755cf2565c8b34e0",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-03T17:39:17Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.w1ndys.pi-open-git-web",
+      "name": "在浏览器打开仓库",
+      "description": "读取当前仓库的 origin，在默认浏览器打开对应网页。",
+      "author": "w1ndys",
+      "i18n": {
+        "en": {
+          "name": "Open repository in browser",
+          "description": "Read the current repository origin and open the corresponding page in the default browser.",
+          "safetyNotes": "Reads only the raw origin fetch URL, normalizes it to http(s), and opens it in the default browser. It does not read the .git directory, write files, use the network, or read or write the clipboard. Usernames and passwords are removed before opening."
+        },
+        "zh-CN": {
+          "name": "在浏览器打开仓库",
+          "description": "读取当前仓库的 origin，在默认浏览器打开对应网页。",
+          "safetyNotes": "只读 origin 原始地址，规范成 http(s) 后用默认浏览器打开；不读 .git 目录，不写文件，不访问网络，不读写剪贴板；用户名和口令会在打开前去掉。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/w1ndys/pi-open-git-web",
+      "readmeMarkdown": "# 在浏览器打开仓库\n\nPI-Desktop 插件（`io.github.w1ndys.pi-open-git-web`）：读取当前工作区 origin 的原始地址，在默认浏览器打开对应网页。\n\n仓库：https://github.com/w1ndys/pi-open-git-web\n\n## 使用\n\n1. 安装或加载本插件。\n2. 打开一个 git 项目，且该仓库有 `origin`。\n3. 在输入框输入 `/gitweb` 回车。后面不能带文字，否则宿主不会执行。\n\n命令面板搜「在浏览器打开仓库」也可以。斜杠和命令面板共用命令 id `gitweb`。\n\n## 行为\n\n- 只读 `remote.origin.url` 的原始 fetch 地址，命令是 `/usr/bin/git -C \u003c工作区\u003e config --get-all remote.origin.url`，取第一条非空行。\n- 不用 `git remote get-url`（会应用 insteadOf），也不用 `git config --get`（多值时返回最后一条）。\n- 忽略 `remote.origin.pushurl`。没有 origin 就失败，不改用其他 remote。\n- `user@host:path`、`ssh://`、`git+ssh://`、`git://` 会规范成 https。已是 http(s) 的保留协议、主机和端口，并去掉用户信息、查询串和片段。\n- 不读 `.git` 目录，不写文件，不访问网络，不读写剪贴板。\n\n没有工作目录、不是 git 仓库、没有 origin、地址不能变成网页，或浏览器没有打开时，都会用 toast 说明原因，不会静默失败。\n\n## 检查\n\n```bash\nnpm run check\n```\n\n## 权限\n\n只声明 `shell.openExternal` 和 `notify`。提示用 `pi.ui.showToast`。不声明 `clipboard.write`。\n",
+      "safetyNotes": "只读 origin 原始地址，规范成 http(s) 后用默认浏览器打开；不读 .git 目录，不写文件，不访问网络，不读写剪贴板；用户名和口令会在打开前去掉。",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-10-05T08:35:37Z",
+          "changelog": "首个版本：一条无参数命令 `/gitweb`，读取当前仓库 origin 的原始 fetch 地址，规范成 http(s) 后用系统默认浏览器打开。\n\n- 只读 `remote.origin.url`，取第一条非空行，忽略 `pushurl`。\n- scp、`ssh://`、`git+ssh://`、`git://` 规范成 https，去掉用户名、口令与协议端口。\n- 没有工作目录、不是 git 仓库、没有 origin、地址不能变成网页、浏览器没打开，都会明确提示。\n- 权限只声明 `shell.openExternal` 与 `notify`；不读 `.git` 目录，不写文件，不访问网络，不碰剪贴板。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "33ec9a6a1124a95321482bdbd58f604458d22c379a313e91095b4c9236a80d14",
+          "url": "packages/io.github.w1ndys.pi-open-git-web-0.1.0.piplug",
+          "sizeBytes": 32362,
+          "permissions": [
+            "notify",
+            "shell.openExternal"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/w1ndys/pi-open-git-web",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "c282959a6f2532078a35c6717eadc9490302df77",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-05T08:35:37Z"
           }
         }
       ]
