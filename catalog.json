@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-08T10:50:06Z",
-  "generatedAt": "2026-10-08T10:50:06Z",
+  "updatedAt": "2026-10-08T11:10:43Z",
+  "generatedAt": "2026-10-08T11:10:43Z",
   "policyVersion": "2026.10.1",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2864,6 +2864,62 @@
             "sourceCommit": "549fb853c67decf645f769f3743e03656584547b",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-28T09:25:36Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.prompt-enhancement",
+      "name": "Prompt Enhancement",
+      "description": "Rewrite the current Composer draft as a clearer prompt when you choose to run it.",
+      "author": "",
+      "i18n": {
+        "en": {
+          "name": "Prompt Enhancement",
+          "description": "Rewrite the current Composer draft as a clearer prompt when you choose to run it.",
+          "safetyNotes": "Sends the draft text to the selected model provider after you click the action. Does not read conversation history or file attachments."
+        },
+        "zh-CN": {
+          "name": "提示词增强",
+          "description": "按需将当前输入框草稿改写成更清晰的提示词。",
+          "safetyNotes": "点击操作后会把草稿文本发送给所选模型提供商；不会读取会话历史或文件附件。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/vastsa/pi-prompt-enhancement",
+      "readmeMarkdown": "# Prompt Enhancement for PI-Desktop\n\nAn optional PI-Desktop plugin that adds an **Enhance prompt** action to the\nComposer. It is not bundled with PI-Desktop and is never enabled by the app by\ndefault. Install it only if you want this feature.\n\nWhen clicked, the plugin sends the current draft text to the selected model\nprovider through the host's `agent.complete` service. It does not read the\nconversation history or file attachments. The host keeps file-reference chips\nout of the request and preserves them when applying the returned text. One\nundo action restores the previous draft.\n\n## Permissions\n\n- `composer.transform` lets the host show a plugin-owned Composer action and\n  apply its result only while the draft has not changed.\n- `agent.complete` lets the plugin request a one-shot completion using a model\n  already configured in PI-Desktop. API keys remain in the host.\n\nThe draft text is sent to the configured provider after you click **Enhance\nprompt**. The plugin does not send anything automatically.\n\n## Install from this repository\n\n1. Clone this repository.\n2. In PI-Desktop, open **Plugins** and choose **Load local plugin** from the\n   top-right actions menu.\n3. Select the cloned repository folder and review the requested permissions.\n   Grant `composer.transform` and `agent.complete` to use prompt enhancement.\n\n## Settings\n\n- **Enhancement model**: blank follows the model selected in the Composer; set\n  `providerId/modelId` to pin another model.\n- **Reasoning effort**: defaults to Off.\n- **Custom user template**: blank uses the included template. A custom template\n  must contain `{{draft}}` and be at most 8,000 characters. The plugin's\n  settings sheet provides a multiline editor.\n\nThe system prompt remains fixed so the task, language, and output rules stay\nconsistent. Plugin settings are stored in PI-Desktop's private plugin settings.\n\n## Development\n\nThis repository contains the plugin source independently of PI-Desktop and its\nmarketplace distribution repository. Marketplace installation can be offered\nas an opt-in only after publishing a tagged release through the PI-Desktop\nplugin center.\n\nThe manifest requires PI-Desktop 0.1.0 or later and has no build step.\n\n## License\n\nGNU Lesser General Public License v3.0. See `LICENSE`.\n",
+      "safetyNotes": "Sends the draft text to the selected model provider after you click the action. Does not read conversation history or file attachments.",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-08T11:10:43Z",
+          "changelog": "Initial release of the optional Composer prompt enhancement. It sends only the current draft to the selected model provider after the user invokes the action.",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "70c95519961dca70297c235861bfd765ccbeb345c681a029d06559ad9bde11db",
+          "url": "packages/pi.prompt-enhancement-1.0.0.piplug",
+          "sizeBytes": 19417,
+          "permissions": [
+            "agent.complete",
+            "composer.transform"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-prompt-enhancement",
+            "sourceRef": "v1.0.0",
+            "sourceCommit": "19c05d87c7ebe1abb3e6398c9946c0b3297ee972",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-08T11:10:43Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.1",
+            "reviewedAt": "2026-10-08T11:16:14Z"
           }
         }
       ]
