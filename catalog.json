@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-08T11:10:43Z",
-  "generatedAt": "2026-10-08T11:10:43Z",
+  "updatedAt": "2026-10-08T11:21:22Z",
+  "generatedAt": "2026-10-08T11:21:22Z",
   "policyVersion": "2026.10.1",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2379,6 +2379,66 @@
       ]
     },
     {
+      "id": "net.aiuo.session-title",
+      "name": "Session Titles",
+      "description": "Generate concise titles for new sessions with a configurable prompt, model, and thinking level.",
+      "author": "Lan",
+      "i18n": {
+        "en": {
+          "name": "Session Titles",
+          "description": "Generate concise titles for new sessions with a configurable prompt, model, and thinking level.",
+          "safetyNotes": "After the first completed turn, the plugin sends bounded excerpts of the first user prompt and assistant reply to the selected model through PI-Desktop's plugin completion API. It requires the high-risk session.autoTitle and agent.complete permissions. It does not read full transcripts or provider credentials, and manual renames are preserved."
+        },
+        "zh-CN": {
+          "name": "会话标题",
+          "description": "使用可配置的提示词、模型和思考级别，为新会话生成简洁标题。",
+          "safetyNotes": "首轮对话完成后，插件会通过 PI-Desktop 插件补全 API 将首条用户提示词和助手回复的有限摘录发送给所选模型。它需要高风险的 session.autoTitle 和 agent.complete 权限，不读取完整 transcript 或服务商凭据，并会保留手动重命名。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "aiuo",
+      "downloads": 0,
+      "homepage": "https://github.com/vastsa/pi-session-title-plugin",
+      "readmeMarkdown": "# PI-Desktop Session Titles\n\nAn independent PI-Desktop plugin that generates a concise title after a session's first completed turn. The prompt template, model, and thinking level are configurable from the plugin panel.\n\n## What it does\n\n- Uses the first user prompt and first assistant reply, each bounded by the host to a small excerpt.\n- Sends one one-shot completion through PI-Desktop's plugin model API. The plugin never receives provider credentials.\n- Stores the generated title only while the host still considers the session title eligible. A manual rename wins races with generation.\n- Leaves the localized default title in place until the plugin completes; there is no core prompt-derived title write.\n\nThe prompt template supports `{{userPrompt}}` and `{{assistantReply}}`; it must include `{{userPrompt}}`. Leave the model blank to follow the session model, then fall back to the default ready model. Unsupported thinking levels fall back to `off`.\n\n## Permissions\n\nThe manifest requests `session.autoTitle` for the narrow first-turn context and compare-and-set title update, `agent.complete` to run a one-shot completion, `models.list` for the model selector, and `ui.panel` for its settings window. The plugin does not request full transcript access, filesystem access, network access, or credentials.\n\nEach eligible completed turn may consume one completion from the selected model. Only one attempt runs per session at a time; the plugin skips aborted and failed turns. Existing sessions with custom or previously generated titles remain unchanged. Its private settings are stored with the plugin by PI-Desktop.\n\n## Install\n\nRequires PI-Desktop 0.18.0 or newer, which provides the narrow automatic-title plugin API. In PI-Desktop, open **Plugins → Load development plugin** and select this directory. Grant the requested permissions, then run **Session Titles: Configure** from the command palette.\n\nThis plugin is licensed under LGPL-3.0-or-later; see [LICENSE](LICENSE).\n\n## Test\n\n```sh\nnpm test\n```\n\nThis repository has no runtime dependencies.\n",
+      "safetyNotes": "After the first completed turn, the plugin sends bounded excerpts of the first user prompt and assistant reply to the selected model through PI-Desktop's plugin completion API. It requires the high-risk session.autoTitle and agent.complete permissions. It does not read full transcripts or provider credentials, and manual renames are preserved.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-10-08T11:06:16Z",
+          "changelog": "## 0.1.0\n\n- Generate a concise session title after the first completed turn.\n- Configure the prompt template, model, and thinking level.\n- Preserve manually renamed titles.",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "47a106ceaab3ce4d7dd6cd103cf0cf2c04428f238d522353059fa3b086e712ee",
+          "url": "packages/net.aiuo.session-title-0.1.0.piplug",
+          "sizeBytes": 23626,
+          "permissions": [
+            "agent.complete",
+            "models.list",
+            "session.autoTitle",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-session-title-plugin",
+            "sourceRef": "refs/tags/v0.1.0",
+            "sourceCommit": "b4275d4a00e304cb6bc5a8bb1596549fa9546062",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-08T11:06:16Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.1",
+            "reviewedAt": "2026-10-08T11:22:12Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "pi.agents-anywhere",
       "name": "Agents Anywhere 远程助手",
       "description": "基于 Agents Anywhere 平台实现手机端对 Pi Desktop 的远程查看、发问与控制。",
@@ -2896,7 +2956,7 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishedAt": "2026-10-08T11:10:43Z",
+          "publishedAt": "2026-10-08T11:21:22Z",
           "changelog": "Initial release of the optional Composer prompt enhancement. It sends only the current draft to the selected model provider after the user invokes the action.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "70c95519961dca70297c235861bfd765ccbeb345c681a029d06559ad9bde11db",
