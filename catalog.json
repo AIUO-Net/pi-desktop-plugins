@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-08T11:21:22Z",
-  "generatedAt": "2026-10-08T11:21:22Z",
+  "updatedAt": "2026-10-08T12:22:02Z",
+  "generatedAt": "2026-10-08T12:22:02Z",
   "policyVersion": "2026.10.1",
   "artifactBaseUrl": null,
   "plugins": [
@@ -681,6 +681,55 @@
             "sourceCommit": "a815de103f3f28f6bbdbe4824753ad761d393284",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-20T07:46:35Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "community.workbuddy-connect",
+      "name": "WorkBuddy Connect",
+      "description": "Connect your own WorkBuddy or WorkBuddy AI account to PI through a local OpenAI Chat Completions bridge that starts with the PI plugin. Includes a configuration, key, authentication and model dashboard. Based on corrinehu/dsh-workbuddy-connect (MIT). Requires one-time PI model setup; not an official integration.",
+      "author": "JHua07",
+      "i18n": {
+        "zh-CN": {
+          "name": "WorkBuddy 接入管理",
+          "description": "随 PI 插件启动的 WorkBuddy 本机桥接，支持国内/国际账号分离、自动认证与模型目录、Base URL 和本地 Key 管理、状态查询及网页后台。参考并复用 corrinehu/dsh-workbuddy-connect 的 MIT 代码；仍需首次手动配置 PI 的 OpenAI Chat Completions 连接。非官方集成，仅使用本人账号。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "community",
+      "downloads": 0,
+      "homepage": "https://github.com/JHua07/Pi_desktop_plugins_workbuddy_connnect",
+      "readmeMarkdown": "# PI WorkBuddy Connect 0.4.1\r\n\r\n随 PI 插件启动的本机 WorkBuddy 模型桥接，包含插件内管理面板与网页后台。\r\n\r\n\u003e 代码参考并复用：https://github.com/corrinehu/dsh-workbuddy-connect.git。上游作者 Corrine Hu，MIT；固定版本 0.7.1，提交 fa570627016f56adfd2f91ccd706356b9157f2a7。原版权与许可证保留在 vendor/dsh-workbuddy-connect/LICENSE。本项目新增 PI 生命周期适配、管理 API 和图形界面，不是从零独立实现认证/协议，也不是上游的官方移植版。\r\n\r\n## 使用\r\n\r\n1. 安装并登录自己的 WorkBuddy（国内）或 WorkBuddy AI（国际），使用 PI-Desktop 0.17.0+。\r\n2. 安装插件并批准后台服务权限，打开「WorkBuddy Connect: 接入管理」。无需额外安装 Node、开终端或 Windows 登录自启动。\r\n3. 首次在 PI 设置 → 模型添加 OpenAI 兼容 Chat Completions / openai-completions（不是 Responses），复制界面中的 Base URL、本地 Key 和准确模型 ID。\r\n\r\n国内默认 Base URL：http://127.0.0.1:18765/workbuddy/v1\r\n\r\n国际默认 Base URL：http://127.0.0.1:18765/workbuddy-ai/v1\r\n\r\nKey 不等于 WorkBuddy 原始 token。重新生成 Key 会立即使旧 Key 失效，需更新 PI 模型设置；不要将 Key 发到聊天、Issue 或截图中。\r\n\r\n## 功能与边界\r\n\r\n- 国内/国际账号与目录分离，自动处理认证和目录刷新。\r\n- 查看登录、token 有效期、模型来源，搜索/复制模型 ID，显示/复制/确认后重新生成 Key。\r\n- 插件禁用、卸载或 PI 退出后停止插件拥有的实例；外部实例不误停。\r\n- 支持暂停/恢复；网页后台可通过插件入口的一次性票据授权。\r\n- 仍需首次手动添加 PI 模型连接，不自动改写模型列表，不自动发送聊天或消耗对话额度。\r\n- 私有客户端接口可能随 WorkBuddy 更新而失效，使用者应遵守服务条款。\r\n\r\n## 安全\r\n\r\n只读本人客户端凭据，必要时执行对应 WorkBuddy Electron 解密助手；原生 Node 文件/网络代码不是 PI 权限网关或 OS 沙箱。专用目录 ~/.pi-workbuddy-connect 保存本地 Key、缓存及可能包含 token 的刷新凭据副本，未额外加密，请保护该目录。只监听回环地址，要求 Key/管理会话鉴权，Key 默认隐藏，不放入 URL。请仅安装可信来源插件。\r\n\r\n## 验证与许可\r\n\r\n43 项自动测试和 PI 原版宿主隔离 IPC/Edge 面板测试通过；国内真实目录曾获取 19 个模型。真实付费聊天/工具续轮、完整退出再启动 PI及国际版真实账号尚未实测。\r\n\r\nMIT License；Copyright (c) 2026 JHua07 and PI WorkBuddy Connect contributors；上游部分 Copyright (c) 2026 Corrine Hu。另包含 DeepSeek 的 MIT 原子写入依赖。软件许可不代替服务或账号授权。\r\n\r\n完整源码、README、LICENSE、LICENSES.md、第三方说明与排查记录：https://github.com/JHua07/Pi_desktop_plugins_workbuddy_connnect\r\n",
+      "safetyNotes": "非官方集成，仅复用本人 WorkBuddy/WorkBuddy AI 的客户端登录。原始凭据文件只读；必要时调用已安装的对应 WorkBuddy Electron 解密助手，访问 WorkBuddy 私有认证、目录及聊天接口。刷新后的凭据副本、本地 Key 和缓存写入 ~/.pi-workbuddy-connect；凭据副本可能包含 token，采用原上游存储格式，未额外加密，请保护该目录，勿导出或上传。原生 Node 文件/网络操作不受 PI fs/net 权限网关或 OS capability sandbox 保护，同用户进程可能访问数据。只监听 127.0.0.1；聊天需本地 Key，管理页需同源会话，Key 默认隐藏，不放入网址，不自动发起付费聊天。权限为 background.service、ui.panel、clipboard.write、shell.openExternal。43 项测试及国内目录读取已验证；真实付费聊天、完整退出/重启 PI、国际版真实账号尚未实测。代码参考并复用 https://github.com/corrinehu/dsh-workbuddy-connect.git（MIT），保留 Corrine Hu 版权。",
+      "versions": [
+        {
+          "version": "0.4.1",
+          "publishedAt": "2026-10-08T12:22:02Z",
+          "changelog": "首次提交 0.4.1：桥接随 PI 独立插件进程启停，提供本地 API Base URL/Key、认证状态、模型搜索与网页后台。修复缓存刷新失败误报、跨窗口复制旧 Key、退出登录残留模型和重新登录状态同步问题。43 项自动测试通过。参考并复用 corrinehu/dsh-workbuddy-connect 0.7.1 的 MIT 认证、目录及协议代码，保留 Corrine Hu 版权；PI 生命周期和图形管理流程为本项目新增适配。真实付费聊天及完整 PI 重启仍未实测。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "dd22733e0c80495af0453c8fed01a4d9a97be6b68957dc22e6b976659e196326",
+          "url": "packages/community.workbuddy-connect-0.4.1.piplug",
+          "sizeBytes": 558295,
+          "permissions": [
+            "background.service",
+            "clipboard.write",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/JHua07/Pi_desktop_plugins_workbuddy_connnect",
+            "sourceRef": "v0.4.1",
+            "sourceCommit": "cb6998c14a0d7eb3b3a4ee44901f07e6908b2c40",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-08T12:22:02Z"
           }
         }
       ]
@@ -2408,7 +2457,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-10-08T11:06:16Z",
+          "publishedAt": "2026-10-08T11:29:32Z",
           "changelog": "## 0.1.0\n\n- Generate a concise session title after the first completed turn.\n- Configure the prompt template, model, and thinking level.\n- Preserve manually renamed titles.",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "47a106ceaab3ce4d7dd6cd103cf0cf2c04428f238d522353059fa3b086e712ee",
