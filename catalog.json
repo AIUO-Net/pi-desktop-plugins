@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-08T03:42:57Z",
-  "generatedAt": "2026-10-08T03:42:57Z",
+  "updatedAt": "2026-10-08T09:39:14Z",
+  "generatedAt": "2026-10-08T09:39:14Z",
   "policyVersion": "2026.10.1",
   "artifactBaseUrl": null,
   "plugins": [
@@ -50,6 +50,48 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-10-01T14:06:51Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "adoin.sax-design-theme",
+      "name": "Sax-design Animation theme",
+      "description": "",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Sax-design 强动效风格主题",
+          "description": "参考我个人项目Sax-design-vue而做的主题插件，内部用植入方式做了粒子消散等动画"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "adoin",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.5.3",
+          "publishedAt": "2026-10-08T09:39:14Z",
+          "changelog": "首次发布",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "afc6cc415d7494cbe7d648933932fe394712260ec5bf78a495fb9f901ad2e054",
+          "url": "packages/adoin.sax-design-theme-0.5.3.piplug",
+          "sizeBytes": 181690,
+          "permissions": [
+            "renderer.extension",
+            "ui.panel",
+            "ui.theme",
+            "ui.window.appearance"
+          ],
+          "fs": {},
+          "yanked": false,
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.1",
+            "reviewedAt": "2026-10-08T10:49:37Z"
           }
         }
       ]
@@ -674,7 +716,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-10-08T03:42:57Z",
+          "publishedAt": "2026-10-08T03:43:51Z",
           "changelog": "## 0.3.0 — 2026-10-07\r\n\r\n**Static patch, no proxy required.** The toolkit no longer depends on a\r\nuser-supplied `winhttp.dll` to change client behaviour. `lib/static.js` applies the\r\nsame fifty-two runtime points straight to the on-disk `MuMuNxMain.exe`,\r\n`MuMuNxService.exe` and `MuMuRemoteService.exe`, locating each point by the RVA in\r\n`patch/points.json` mapped through the parsed PE section table. Three new agent\r\ntools: `mumu_static_patch_status` (read-only, low risk), `mumu_static_patch_apply`\r\nand `mumu_static_patch_restore` (high risk). Every touched file is backed up with a\r\ntimestamped copy plus an audit JSON, and a point whose original bytes are absent is\r\nskipped rather than forced.\r\n\r\nStub points — where `patch` is shorter than `orig` — have the remainder of the\r\noriginal function body filled with NOPs, so the file size and every later offset are\r\npreserved. A running executable cannot be replaced, so stop MuMu before applying;\r\n`MuMuRemoteService` is a Windows service and has to be stopped as well.\r\n\r\n**Verifier fix.** `verifyRuntime()` compared a whole `orig`-length window against\r\n`patch` (three bytes on the two stub points in `MuMuNxMain.exe`), so those two could\r\nnever be classified as applied and always showed as `mismatch`, even on a correctly\r\npatched file. It now compares only the leading `patch` bytes.",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "5c42e3d503585e32b18121941ff3ab341d459fcb5654ca7a96aa57bb1b7e62ac",
