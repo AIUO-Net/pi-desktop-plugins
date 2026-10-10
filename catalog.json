@@ -610,11 +610,13 @@
       "i18n": {
         "en": {
           "name": "Session Recorder",
-          "description": "Local session recorder: archiving every conversation and tool call into per-session JSONL files, marking gaps and truncation, and exporting JSONL or Markdown. Data stays on this device."
+          "description": "Local session recorder: archiving every conversation and tool call into per-session JSONL files, marking gaps and truncation, and exporting JSONL or Markdown. Data stays on this device.",
+          "safetyNotes": "Reads session records through the host-reviewed desktop control APIs (session/list, session/get) and writes only to its own plugin data directory. No network access or reporting; it does not modify the host database or session files. Records may contain source code or personal information, so fields that look like secrets are redacted by default, and archives can be deleted at any time."
         },
         "zh-CN": {
           "name": "会话记录器",
-          "description": "本地会话记录器：把每次对话与工具调用增量归档为按会话分文件的 JSONL，标注缺失与截断，并导出 JSONL 或 Markdown。"
+          "description": "本地会话记录器：把每次对话与工具调用增量归档为按会话分文件的 JSONL，标注缺失与截断，并导出 JSONL 或 Markdown。",
+          "safetyNotes": "通过宿主审核的桌面操作接口（session/list、session/get）读取会话记录，只写入本插件自己的数据目录。不联网、不上报，也不直接修改宿主数据库或会话文件。记录可能包含源码或个人信息，因此默认脱敏疑似密钥字段，且可随时删除归档。"
         }
       },
       "categories": [
@@ -771,11 +773,13 @@
       "i18n": {
         "en": {
           "name": "WorkBuddy Connect",
-          "description": "Connect your own WorkBuddy or WorkBuddy AI account to PI through a local OpenAI Chat Completions bridge that starts with the PI plugin. Includes a configuration, key, authentication and model dashboard. Based on corrinehu/dsh-workbuddy-connect (MIT). Requires one-time PI model setup; not an official integration."
+          "description": "Connect your own WorkBuddy or WorkBuddy AI account to PI through a local OpenAI Chat Completions bridge that starts with the PI plugin. Includes a configuration, key, authentication and model dashboard. Based on corrinehu/dsh-workbuddy-connect (MIT). Requires one-time PI model setup; not an official integration.",
+          "safetyNotes": "Unofficial integration; it reuses only your own WorkBuddy/WorkBuddy AI client login. It reads original credential files and, when needed, invokes the installed WorkBuddy Electron decryption helper to access WorkBuddy private authentication, catalog, and chat APIs. Refreshed credential copies, local keys, and caches are stored under ~/.pi-workbuddy-connect; credential copies may contain tokens and retain the upstream storage format without additional encryption—protect this directory and do not export or upload it. Native Node file and network operations are not protected by the PI fs/net permission gateway or OS capability sandbox; processes running as the same user may access the data. It listens only on 127.0.0.1; chat requires a local key, the admin page requires a same-origin session, keys are hidden by default and never placed in URLs, and no paid chat starts automatically. Permissions: background.service, ui.panel, clipboard.write, shell.openExternal. 43 tests and mainland-China catalog reads are verified; real paid chat, full PI shutdown/restart, and a real international account have not been tested. Code reuses https://github.com/corrinehu/dsh-workbuddy-connect.git (MIT) and retains Corrine Hu’s copyright."
         },
         "zh-CN": {
           "name": "WorkBuddy 接入管理",
-          "description": "随 PI 插件启动的 WorkBuddy 本机桥接，支持国内/国际账号分离、自动认证与模型目录、Base URL 和本地 Key 管理、状态查询及网页后台。参考并复用 corrinehu/dsh-workbuddy-connect 的 MIT 代码；仍需首次手动配置 PI 的 OpenAI Chat Completions 连接。非官方集成，仅使用本人账号。"
+          "description": "随 PI 插件启动的 WorkBuddy 本机桥接，支持国内/国际账号分离、自动认证与模型目录、Base URL 和本地 Key 管理、状态查询及网页后台。参考并复用 corrinehu/dsh-workbuddy-connect 的 MIT 代码；仍需首次手动配置 PI 的 OpenAI Chat Completions 连接。非官方集成，仅使用本人账号。",
+          "safetyNotes": "非官方集成，仅复用你自己的 WorkBuddy / WorkBuddy AI 客户端登录。原始凭据文件只读；必要时调用已安装的 WorkBuddy Electron 解密助手，访问 WorkBuddy 私有认证、目录和聊天接口。刷新后的凭据副本、本地 Key 与缓存写入 ~/.pi-workbuddy-connect；凭据副本可能含 token，沿用上游存储格式且未额外加密，请保护该目录，不要导出或上传。原生 Node 文件/网络操作不受 PI fs/net 权限网关或 OS capability sandbox 保护，同用户进程可能访问数据。仅监听 127.0.0.1；聊天需本地 Key，管理页需同源会话；Key 默认隐藏、不放入 URL，也不会自动发起付费聊天。权限：background.service、ui.panel、clipboard.write、shell.openExternal。已验证 43 项测试与国内目录读取；真实付费聊天、完整退出/重启 PI、国际版真实账号尚未实测。代码参考并复用 https://github.com/corrinehu/dsh-workbuddy-connect.git（MIT），保留 Corrine Hu 版权。"
         }
       },
       "categories": [
@@ -1093,11 +1097,13 @@
       "i18n": {
         "en": {
           "name": "Nexus Scenic Themes",
-          "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later. Checkout nexus at https://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus"
+          "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later. Checkout nexus at https://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus",
+          "safetyNotes": "The plugin only requests ui.theme, ui.settings, and ui.window.appearance. It has no filesystem, network, shell, clipboard, agent-tool, or background-service access. All assets are bundled locally."
         },
         "zh-CN": {
           "name": "Nexus 风景主题",
-          "description": "Pi Desktop 外观主题包，将 PI Desktop Nexus 的四款风景主题接入原生主题系统：暮色山峦、阿尔卑斯晨光、黑曜石天际与翡翠余晖。每款主题均支持背景模糊，并附带本地资源；要求 Pi Desktop 0.15.8 或更高版本。"
+          "description": "Pi Desktop 外观主题包，将 PI Desktop Nexus 的四款风景主题接入原生主题系统：暮色山峦、阿尔卑斯晨光、黑曜石天际与翡翠余晖。每款主题均支持背景模糊，并附带本地资源；要求 Pi Desktop 0.15.8 或更高版本。",
+          "safetyNotes": "插件仅申请 ui.theme、ui.settings 和 ui.window.appearance 权限。不访问文件系统、网络、shell 或剪贴板，不注册 Agent 工具或后台服务；所有资源均随插件本地打包。"
         }
       },
       "categories": [
@@ -1202,11 +1208,13 @@
       "i18n": {
         "en": {
           "name": "XDPool Account Bridge",
-          "description": "Connect local WorkBuddy, Trae, and Qoder desktop logins to PI-Desktop. WorkBuddy can switch accounts automatically when rate-limited; each provider has its own toggle."
+          "description": "Connect local WorkBuddy, Trae, and Qoder desktop logins to PI-Desktop. WorkBuddy can switch accounts automatically when rate-limited; each provider has its own toggle.",
+          "safetyNotes": "Read-only access to locally saved WorkBuddy, Trae, and Qoder logins. If the default location does not reveal the installation directory, it reads uninstall entries to locate it. Decryption keys for encrypted fields remain in memory. Tokens are sent only to each provider’s own endpoints: copilot.tencent.com / codebuddy.cn / codebuddy.ai / workbuddy.ai; api.trae.cn / solo.trae.cn / trae-api-cn.mchost.guru / coresg-normal.trae.ai / growsg-normal.trae.ai; gateway.qoder.com.cn / openapi.qoder.com.cn / api3.qoder.sh / openapi.qoder.sh. Conversations are forwarded through a local endpoint on 127.0.0.1."
         },
         "zh-CN": {
           "name": "XDPool 账号接入",
-          "description": "把本机 WorkBuddy、Trae、Qoder 的桌面登录接进 PI-Desktop。WorkBuddy 被限流时自动换号，三家各有开关。"
+          "description": "把本机 WorkBuddy、Trae、Qoder 的桌面登录接进 PI-Desktop。WorkBuddy 被限流时自动换号，三家各有开关。",
+          "safetyNotes": "只读本机 WorkBuddy、Trae、Qoder 已保存的登录信息。默认位置无法定位安装目录时，只读卸载项进行查找。加密字段的密钥仅保存在内存中。令牌只发送至各服务商自己的接口：copilot.tencent.com / codebuddy.cn / codebuddy.ai / workbuddy.ai；api.trae.cn / solo.trae.cn / trae-api-cn.mchost.guru / coresg-normal.trae.ai / growsg-normal.trae.ai；gateway.qoder.com.cn / openapi.qoder.com.cn / api3.qoder.sh / openapi.qoder.sh。对话通过本机 127.0.0.1 上的端点转发。"
         }
       },
       "categories": [
@@ -1386,11 +1394,13 @@
       "i18n": {
         "en": {
           "name": "Dracula Theme",
-          "description": "A pure PI-Desktop theme plugin: applies the classic Dracula palette to the whole app. No panel, no commands."
+          "description": "A pure PI-Desktop theme plugin: applies the classic Dracula palette to the whole app. No panel, no commands.",
+          "safetyNotes": "No access to the network, filesystem, clipboard, or Agent. Contributes one theme; its CSS is sanitized by the host."
         },
         "zh-CN": {
           "name": "Dracula 主题",
-          "description": "PI-Desktop 纯主题插件：将经典 Dracula 配色应用于整个应用。无面板、无命令。"
+          "description": "PI-Desktop 纯主题插件：将经典 Dracula 配色应用于整个应用。无面板、无命令。",
+          "safetyNotes": "不访问网络、文件、剪贴板或 Agent；仅贡献一个主题，CSS 由宿主净化。"
         }
       },
       "categories": [
@@ -1600,11 +1610,13 @@
       "i18n": {
         "en": {
           "name": "Jev Browser Use",
-          "description": "Jev-powered browser agent for PI-Desktop: observes the work-panel browser as a numbered list of real controls, asks Jev for one constrained decision per step (one TypeSafe request), and executes through the host-approved CDP surface until the goal is done, blocked, or out of steps. Tools: jev_observe, jev_act, jev_run, jev_wait, jev_cancel."
+          "description": "Jev-powered browser agent for PI-Desktop: observes the work-panel browser as a numbered list of real controls, asks Jev for one constrained decision per step (one TypeSafe request), and executes through the host-approved CDP surface until the goal is done, blocked, or out of steps. Tools: jev_observe, jev_act, jev_run, jev_wait, jev_cancel.",
+          "safetyNotes": "Drives the built-in work-panel browser through the host-approved CDP interface and sends page snapshots to api.typesafe.ai (Jev routing; this is the only domain in the net.fetch allowlist). Text entry may call the host-configured model through agent.complete. No filesystem access; only one task runs at a time, and the browser remains visible."
         },
         "zh-CN": {
           "name": "Jev 浏览器代理",
-          "description": "基于 Jev 的 PI-Desktop 浏览器 Agent：将工作面板浏览器中的真实控件整理为编号列表，每一步让 Jev 给出受限操作决策，再通过宿主授权的 CDP 执行，直到完成、受阻或达到步数上限。提供观察、操作、运行、等待和取消工具。"
+          "description": "基于 Jev 的 PI-Desktop 浏览器 Agent：将工作面板浏览器中的真实控件整理为编号列表，每一步让 Jev 给出受限操作决策，再通过宿主授权的 CDP 执行，直到完成、受阻或达到步数上限。提供观察、操作、运行、等待和取消工具。",
+          "safetyNotes": "通过宿主许可的 CDP 接口驱动内置工作面板浏览器，并将页面快照发送至 api.typesafe.ai（Jev 路由；net.fetch 白名单仅包含该域名）。输入文本时可能调用宿主已配置模型（agent.complete）。不访问文件系统；同一时间只运行一个任务，浏览器全程可见。"
         }
       },
       "categories": [
@@ -2281,11 +2293,13 @@
       "i18n": {
         "en": {
           "name": "Xiaomi Cloud Notes",
-          "description": "A visual work-panel client for Xiaomi Cloud Notes that lets the AI work with your notes. Includes QR-code sign-in, a two-column interface, note management and outlines, export, Markdown preview, writing assistance, autosave with undoable deletion, AI Q\u0026A, automatic sync, a sidebar, and 10 built-in tools to read, search, create, edit, and delete notes."
+          "description": "A visual work-panel client for Xiaomi Cloud Notes that lets the AI work with your notes. Includes QR-code sign-in, a two-column interface, note management and outlines, export, Markdown preview, writing assistance, autosave with undoable deletion, AI Q\u0026A, automatic sync, a sidebar, and 10 built-in tools to read, search, create, edit, and delete notes.",
+          "safetyNotes": "Could my notes leak? No. The plugin communicates only with i.mi.com and account.xiaomi.com; locally it writes only to its own plugin data directory and does not read or write workspace files. AI Q\u0026A sends only retrieved matching snippets to the host’s signed-in model. Passwords are never handled by the plugin: QR sign-in is confirmed on your phone, and credentials are stored with 0600 permissions in the plugin-private directory."
         },
         "zh-CN": {
           "name": "小米云笔记",
-          "description": "把小米云笔记做成 PI-Desktop 里的图形化工作面板，并让 AI 直接读写你的笔记。 功能 扫一扫登录 两栏界面 笔记管理 大纲 导出 Markdown 预览 写作辅助 自动保存 删除可撤销 AI 问答 自动同步 侧边栏 AI 可以直接操作你的笔记 插件内置 10 个工具，AI 能读取、搜索、创建、修改、删除笔记，无需任何额外配置。"
+          "description": "把小米云笔记做成 PI-Desktop 里的图形化工作面板，并让 AI 直接读写你的笔记。 功能 扫一扫登录 两栏界面 笔记管理 大纲 导出 Markdown 预览 写作辅助 自动保存 删除可撤销 AI 问答 自动同步 侧边栏 AI 可以直接操作你的笔记 插件内置 10 个工具，AI 能读取、搜索、创建、修改、删除笔记，无需任何额外配置。",
+          "safetyNotes": "笔记会泄露吗？不会。插件仅与 i.mi.com / account.xiaomi.com 通信；本地只写入自己的插件数据目录，不读写工作区文件。AI 问答仅将检索命中的片段交给宿主已登录的模型。插件全程不接触密码：扫码登录由手机端确认，凭据以 0600 权限保存在插件私有目录。"
         }
       },
       "categories": [
@@ -2622,11 +2636,13 @@
       "i18n": {
         "en": {
           "name": "Pi Markdown Notes",
-          "description": "Local Markdown notes with WYSIWYG editing, light and dark themes, a five-level folder tree and outline, syntax highlighting, Mermaid diagrams, task lists, KaTeX, global search, and Markdown/HTML/image export. Includes an agent tool to preview a single Markdown or text file and edit it on request. The interface follows the host language; data stays in the plugin data directory."
+          "description": "Local Markdown notes with WYSIWYG editing, light and dark themes, a five-level folder tree and outline, syntax highlighting, Mermaid diagrams, task lists, KaTeX, global search, and Markdown/HTML/image export. Includes an agent tool to preview a single Markdown or text file and edit it on request. The interface follows the host language; data stays in the plugin data directory.",
+          "safetyNotes": "Note data is stored only in the local plugin data directory (settings.json; images are embedded in note content as data URLs). It does not read or write workspace files; syntax-highlighting, math, and editor libraries (Milkdown/Prism/KaTeX) are bundled and work offline. No network requests. Important: the preview_file agent tool reads the requested file directly from disk with Node.js fs to render a preview; edits also write back through fs. It bypasses the host permission gateway, so it can open absolute paths without directory authorization and has no boundary validation, credential-path denylist, or audit log. The tool itself validates absolute paths, regular files, the .md/.markdown/.txt extension allowlist, a 5 MB limit, rejects binary content (NUL bytes), and preserves the original BOM."
         },
         "zh-CN": {
           "name": "Pi Markdown 笔记",
-          "description": "本地 Markdown 笔记：真·所见即所得编辑（输入 # / - [ ] / \u003e / ``` / $…$ 即出样式，Typora 风格，Milkdown Crepe）、米白/黑夜双主题切换、5 级目录与 H1-H5 大纲、297 种语言代码高亮、Mermaid 图表实时渲染、Todo 任务列表、KaTeX 公式、全局搜索（标题/内容）、导出 Markdown/HTML/图像；文件夹与笔记拖拽排序、右键操作菜单；Agent 工具 preview_file——按绝对路径以只读预览打开单个 Markdown/文本文件（无需选定目录），用户点「编辑」后可直接修改并自动写回（单文件模式，不显示文档列表）；界面语言与面板标题跟随宿主（中文/English）；数据保存在插件数据目录。"
+          "description": "本地 Markdown 笔记：真·所见即所得编辑（输入 # / - [ ] / \u003e / ``` / $…$ 即出样式，Typora 风格，Milkdown Crepe）、米白/黑夜双主题切换、5 级目录与 H1-H5 大纲、297 种语言代码高亮、Mermaid 图表实时渲染、Todo 任务列表、KaTeX 公式、全局搜索（标题/内容）、导出 Markdown/HTML/图像；文件夹与笔记拖拽排序、右键操作菜单；Agent 工具 preview_file——按绝对路径以只读预览打开单个 Markdown/文本文件（无需选定目录），用户点「编辑」后可直接修改并自动写回（单文件模式，不显示文档列表）；界面语言与面板标题跟随宿主（中文/English）；数据保存在插件数据目录。",
+          "safetyNotes": "笔记数据仅保存在本机插件数据目录（settings.json；图片以 data URL 内嵌在笔记正文），不读写工作区文件；代码高亮、公式和编辑器库（Milkdown/Prism/KaTeX）随插件打包，可离线运行；不发起网络请求。注意：Agent 工具 preview_file 使用 Node.js fs 直接读取指定文件来生成预览；用户编辑后也通过 fs 写回。它绕过宿主权限网关，无需目录授权即可读取绝对路径，且没有越界校验、凭据路径拒绝清单或审计日志。工具自身会校验绝对路径、普通文件、.md/.markdown/.txt 扩展名白名单和 5 MB 上限，拒绝含 NUL 字节的二进制文件，并保留原文件 BOM。"
         }
       },
       "categories": [
@@ -3995,11 +4011,13 @@
       "i18n": {
         "en": {
           "name": "Todo List",
-          "description": "The official PI-Desktop todo list with list and four-quadrant layouts, due dates, native reminders and a todo_manage agent tool for querying, adding, splitting, completing and rescheduling tasks."
+          "description": "The official PI-Desktop todo list with list and four-quadrant layouts, due dates, native reminders and a todo_manage agent tool for querying, adding, splitting, completing and rescheduling tasks.",
+          "safetyNotes": "Todo data is stored only in the plugin’s local data directory (settings.json, with a localStorage cache). Due reminders use the host’s native system notifications (notify permission). The todo_manage agent tool reads and writes only this plugin’s data. No network requests, access to other files, or automatic code execution."
         },
         "zh-CN": {
           "name": "小清新待办",
-          "description": "PI-Desktop 官方待办：支持四象限与简单列表双布局、到期时间和原生系统提醒，并提供 todo_manage 工具让 AI 查询、添加、拆分、完成和延期任务。"
+          "description": "PI-Desktop 官方待办：支持四象限与简单列表双布局、到期时间和原生系统提醒，并提供 todo_manage 工具让 AI 查询、添加、拆分、完成和延期任务。",
+          "safetyNotes": "待办数据仅保存在本机插件数据目录（settings.json，并同步 localStorage 缓存）；到期提醒通过宿主原生系统通知（notify 权限）发出；todo_manage Agent 工具只读写本插件数据。不发起网络请求，不访问其他文件，也不会自动执行代码。"
         }
       },
       "categories": [
