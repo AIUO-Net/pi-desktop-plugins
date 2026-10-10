@@ -1384,13 +1384,17 @@
       "description": "A pure PI-Desktop theme plugin: applies the classic Dracula palette to the whole app. No panel, no commands.",
       "author": "Eonova",
       "i18n": {
+        "en": {
+          "name": "Dracula Theme",
+          "description": "A pure PI-Desktop theme plugin: applies the classic Dracula palette to the whole app. No panel, no commands."
+        },
         "zh-CN": {
           "name": "Dracula 主题",
           "description": "PI-Desktop 纯主题插件：将经典 Dracula 配色应用于整个应用。无面板、无命令。"
         }
       },
       "categories": [
-        "productivity"
+        "themes"
       ],
       "verified": false,
       "trust": "community",
@@ -1455,8 +1459,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -1504,12 +1507,18 @@
       "description": "一款mc风格的pi-desktop主题",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "CraftDesk Theme",
+          "description": "A Minecraft-inspired theme for PI-Desktop."
+        },
         "zh-CN": {
           "name": "MC主题扩展-方野",
           "description": "一款mc风格的pi-desktop主题"
         }
       },
-      "categories": [],
+      "categories": [
+        "themes"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -1588,8 +1597,17 @@
       "name": "Jev Browser Use",
       "description": "Jev-powered browser agent for PI-Desktop: observes the work-panel browser as a numbered list of real controls, asks Jev for one constrained decision per step (one TypeSafe request), and executes through the host-approved CDP surface until the goal is done, blocked, or out of steps. Tools: jev_observe, jev_act, jev_run, jev_wait, jev_cancel.",
       "author": "ldzhouquan",
+      "i18n": {
+        "en": {
+          "name": "Jev Browser Use",
+          "description": "Jev-powered browser agent for PI-Desktop: observes the work-panel browser as a numbered list of real controls, asks Jev for one constrained decision per step (one TypeSafe request), and executes through the host-approved CDP surface until the goal is done, blocked, or out of steps. Tools: jev_observe, jev_act, jev_run, jev_wait, jev_cancel."
+        },
+        "zh-CN": {
+          "name": "Jev 浏览器代理",
+          "description": "基于 Jev 的 PI-Desktop 浏览器 Agent：将工作面板浏览器中的真实控件整理为编号列表，每一步让 Jev 给出受限操作决策，再通过宿主授权的 CDP 执行，直到完成、受阻或达到步数上限。提供观察、操作、运行、等待和取消工具。"
+        }
+      },
       "categories": [
-        "community",
         "developer-tools"
       ],
       "verified": false,
@@ -1639,7 +1657,19 @@
       "name": "IDEA-GIT",
       "description": "方便推送代码到git仓库",
       "author": "",
-      "categories": [],
+      "i18n": {
+        "en": {
+          "name": "IDEA-GIT",
+          "description": "A simple helper for pushing code to Git repositories."
+        },
+        "zh-CN": {
+          "name": "IDEA-GIT",
+          "description": "方便推送代码到git仓库"
+        }
+      },
+      "categories": [
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -1724,7 +1754,6 @@
         }
       },
       "categories": [
-        "audit",
         "developer-tools",
         "security"
       ],
@@ -1802,9 +1831,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "import",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -1888,8 +1915,6 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity",
         "themes"
       ],
       "verified": false,
@@ -1942,7 +1967,6 @@
         }
       },
       "categories": [
-        "developer-tools",
         "productivity"
       ],
       "verified": false,
