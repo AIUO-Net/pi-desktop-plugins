@@ -3422,12 +3422,18 @@
       "description": "A paper-like multi-line calculator: evaluate as you type, keep a draft history, add notes to each line, copy results or export the sheet as an image, with local draft management and dark mode.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Scratch Calculator",
+          "description": "A paper-like multi-line calculator: evaluate as you type, keep a draft history, add notes to each line, copy results or export the sheet as an image, with local draft management and dark mode."
+        },
         "zh-CN": {
           "name": "草稿计算器",
           "description": "草稿纸式多行演算：输入行实时计算、回车确认入历史、每行可加备注、结果一键复制，也支持草稿管理、图片复制和深色模式。"
         }
       },
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3475,7 +3481,7 @@
       },
       "categories": [
         "developer-tools",
-        "official"
+        "productivity"
       ],
       "verified": false,
       "trust": "community",
@@ -3587,12 +3593,19 @@
       "description": "A local-first DNS and SSL workspace for Alibaba Cloud, Tencent Cloud, Cloudflare, AWS Route53, Volcano Engine and Huawei Cloud. Credentials stay on this device.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Super Domain Man",
+          "description": "A local-first DNS and SSL workspace for Alibaba Cloud, Tencent Cloud, Cloudflare, AWS Route53, Volcano Engine and Huawei Cloud. Credentials stay on this device."
+        },
         "zh-CN": {
           "name": "超级域名侠",
           "description": "本地优先的多平台 DNS 解析记录与 SSL 证书管理工具，支持阿里云、腾讯云、Cloudflare、AWS Route53、火山引擎和华为云；凭据仅保存在本机。"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools",
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3633,12 +3646,18 @@
       "description": "Pixel-perfect port of the official OpenCode palette (anomalyco/opencode): #9d7cd8 violet headings, #7fd88f mint code, #f5a742 amber highlights, and monospace typography.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "OpenCode Theme",
+          "description": "Pixel-perfect port of the official OpenCode palette (anomalyco/opencode): #9d7cd8 violet headings, #7fd88f mint code, #f5a742 amber highlights, and monospace typography."
+        },
         "zh-CN": {
           "name": "OpenCode 极客高清主题",
           "description": "1:1 严格对齐 OpenCode 官方源码（anomalyco/opencode）配色定义：#9d7cd8 优雅紫罗兰标题、#7fd88f 清新薄荷绿行内代码、#f5a742 暖金重点，带来极致清晰的排版体验。"
         }
       },
-      "categories": [],
+      "categories": [
+        "themes"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3694,12 +3713,18 @@
       "description": "PI-Desktop theme studio: 5 built-in palettes, visual editing of all 56 --ds-* tokens and 7 background regions (window, sidebar, chat, dock, titlebar, thread, composer) with fills, gradients, local PNG images, blur and radius. The preview is a faithful replica of the real window, contrast is checked live (WCAG 2.1), and image backgrounds are referenced by absolute path so saving never reloads the plugin. Also ships four Agent tools, so a theme can be created from a sentence.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Theme Studio",
+          "description": "PI-Desktop theme studio: 5 built-in palettes, visual editing of all 56 --ds-* tokens and 7 background regions (window, sidebar, chat, dock, titlebar, thread, composer) with fills, gradients, local PNG images, blur and radius. The preview is a faithful replica of the real window, contrast is checked live (WCAG 2.1), and image backgrounds are referenced by absolute path so saving never reloads the plugin. Also ships four Agent tools, so a theme can be created from a sentence."
+        },
         "zh-CN": {
           "name": "主题工坊",
           "description": "PI-Desktop 主题工坊：内置 5 套配色，可视化调出属于自己的主题并一键应用。覆盖全部 56 个 --ds-* token；点预览里的区域即可编辑那一块（整窗 / 左栏 / 中栏 / 右栏 / 标题栏 / 会话区 / 输入栏），各自可设底色、渐变、图片、模糊与圆角，带实时预览与 WCAG 对比度检查。图片拖进来即用，存在插件自己的数据目录里，主题 CSS 直接引用它的绝对路径，所以保存不会重载插件。另带 4 个 Agent 工具，可以用一句话让 Agent 直接建/改主题。"
         }
       },
-      "categories": [],
+      "categories": [
+        "themes"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3812,12 +3837,19 @@
       "description": "ThinkRail for PI-Desktop: a spec-graph the agent can read, query and maintain (7 spec_* tools), 10 workflow skills (including the authoring checklist for the family), and a panel with a specs browser.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "ThinkRail",
+          "description": "ThinkRail for PI-Desktop: a spec-graph the agent can read, query and maintain (7 spec_* tools), 10 workflow skills (including the authoring checklist for the family), and a panel with a specs browser."
+        },
         "zh-CN": {
           "name": "ThinkRail工作流",
           "description": "移植thinkrail 工作流到pidesktop"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools",
+        "knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3961,13 +3993,16 @@
       "description": "The official PI-Desktop todo list with list and four-quadrant layouts, due dates, native reminders and a todo_manage agent tool for querying, adding, splitting, completing and rescheduling tasks.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Todo List",
+          "description": "The official PI-Desktop todo list with list and four-quadrant layouts, due dates, native reminders and a todo_manage agent tool for querying, adding, splitting, completing and rescheduling tasks."
+        },
         "zh-CN": {
           "name": "小清新待办",
           "description": "PI-Desktop 官方待办：支持四象限与简单列表双布局、到期时间和原生系统提醒，并提供 todo_manage 工具让 AI 查询、添加、拆分、完成和延期任务。"
         }
       },
       "categories": [
-        "official",
         "productivity"
       ],
       "verified": false,
@@ -4020,8 +4055,6 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "official",
         "productivity"
       ],
       "verified": false,
