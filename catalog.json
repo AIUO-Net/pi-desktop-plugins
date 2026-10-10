@@ -2018,8 +2018,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -2113,7 +2112,9 @@
           "safetyNotes": "直接使用 Node fs 和 execFile(git)，不经过宿主文件系统或命令网关。Git 操作可创建分支、工作区与提交，仅将已登记执行任务的提交合并到其协调任务。登记和工作区位于 Git 公共目录，可能在当前打开的关联工作区之外。不执行推送、拉取、reset、stash 或自动合并主分支。插件命令禁用 Git hooks、签名、fsmonitor 和 diff 辅助程序；仍须信任 Git 配置和属性，过滤器或合并驱动可能执行程序。不拦截其他工具。证据和所有者标签由调用方声明。不防御恶意并发写入；恢复前须检查遗留锁和中断操作。"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -2187,8 +2188,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -2240,8 +2240,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -2279,7 +2278,19 @@
       "name": "mi-note小米笔记",
       "description": "把小米云笔记做成 PI-Desktop 里的图形化工作面板，并让 AI 直接读写你的笔记。\n功能\n扫一扫登录 \n两栏界面 \n笔记管理 \n大纲 \n导出 \nMarkdown 预览 \n写作辅助 \n自动保存 \n\n删除可撤销 \nAI 问答\n自动同步 \n侧边栏\nAI 可以直接操作你的笔记\n插件内置 10 个工具，AI 能读取、搜索、创建、修改、删除笔记，无需任何额外配置。",
       "author": "QL",
-      "categories": [],
+      "i18n": {
+        "en": {
+          "name": "Xiaomi Cloud Notes",
+          "description": "A visual work-panel client for Xiaomi Cloud Notes that lets the AI work with your notes. Includes QR-code sign-in, a two-column interface, note management and outlines, export, Markdown preview, writing assistance, autosave with undoable deletion, AI Q\u0026A, automatic sync, a sidebar, and 10 built-in tools to read, search, create, edit, and delete notes."
+        },
+        "zh-CN": {
+          "name": "小米云笔记",
+          "description": "把小米云笔记做成 PI-Desktop 里的图形化工作面板，并让 AI 直接读写你的笔记。 功能 扫一扫登录 两栏界面 笔记管理 大纲 导出 Markdown 预览 写作辅助 自动保存 删除可撤销 AI 问答 自动同步 侧边栏 AI 可以直接操作你的笔记 插件内置 10 个工具，AI 能读取、搜索、创建、修改、删除笔记，无需任何额外配置。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -2435,7 +2446,19 @@
       "name": "Miku-pi-desktop",
       "description": "一款为 PI-Desktop 打造的皮肤主题插件，以初音未来（Hatsune Miku）为设计灵感，提供 亮色 与 暗色 两套完整主题。\r\n打开 PI-Desktop 的 设置 → 外观 → 主题。\r\n在主题列表中选择：\r\nSnow Miku（初音 · 亮） —— 启用亮色主题；\r\nCyber Diva（初音 · 暗） —— 启用暗色主题。",
       "author": "cainiao0502",
-      "categories": [],
+      "i18n": {
+        "en": {
+          "name": "Hatsune Miku Themes",
+          "description": "A PI-Desktop skin inspired by Hatsune Miku, with complete light and dark themes. Choose Snow Miku (light) or Cyber Diva (dark) under Settings → Appearance → Themes."
+        },
+        "zh-CN": {
+          "name": "初音未来主题",
+          "description": "一款为 PI-Desktop 打造的皮肤主题插件，以初音未来（Hatsune Miku）为设计灵感，提供 亮色 与 暗色 两套完整主题。 打开 PI-Desktop 的 设置 → 外观 → 主题。 在主题列表中选择： Snow Miku（初音 · 亮） —— 启用亮色主题； Cyber Diva（初音 · 暗） —— 启用暗色主题。"
+        }
+      },
+      "categories": [
+        "themes"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -2501,7 +2524,19 @@
       "name": "pi-commandcode-desktop",
       "description": "帮你在pi-desktop上面使用commandcodego的订阅，喜欢的可以给我的github点个星星吗",
       "author": "",
-      "categories": [],
+      "i18n": {
+        "en": {
+          "name": "CommandCode Subscription Bridge",
+          "description": "Use a CommandCode Go subscription in PI-Desktop. If you find it useful, please star the author’s GitHub repository."
+        },
+        "zh-CN": {
+          "name": "CommandCode 订阅接入",
+          "description": "帮你在pi-desktop上面使用commandcodego的订阅，喜欢的可以给我的github点个星星吗"
+        }
+      },
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -2537,7 +2572,19 @@
       "name": "pi-desktop-workbuddy",
       "description": "帮你在pi-desktop中使用workbuddy的免费积分，喜欢的可以给我的github点个星星吗",
       "author": "",
-      "categories": [],
+      "i18n": {
+        "en": {
+          "name": "WorkBuddy Credits Bridge",
+          "description": "Use WorkBuddy’s free credits in PI-Desktop. If you find it useful, please star the author’s GitHub repository."
+        },
+        "zh-CN": {
+          "name": "WorkBuddy 积分接入",
+          "description": "帮你在pi-desktop中使用workbuddy的免费积分，喜欢的可以给我的github点个星星吗"
+        }
+      },
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -2572,8 +2619,18 @@
       "name": "Pi Markdown 笔记",
       "description": "本地 Markdown 笔记：真·所见即所得编辑（输入 # / - [ ] / \u003e / ``` / $…$ 即出样式，Typora 风格，Milkdown Crepe）、米白/黑夜双主题切换、5 级目录与 H1-H5 大纲、297 种语言代码高亮、Mermaid 图表实时渲染、Todo 任务列表、KaTeX 公式、全局搜索（标题/内容）、导出 Markdown/HTML/图像；文件夹与笔记拖拽排序、右键操作菜单；Agent 工具 preview_file——按绝对路径以只读预览打开单个 Markdown/文本文件（无需选定目录），用户点「编辑」后可直接修改并自动写回（单文件模式，不显示文档列表）；界面语言与面板标题跟随宿主（中文/English）；数据保存在插件数据目录。",
       "author": "Tioit-Wang",
+      "i18n": {
+        "en": {
+          "name": "Pi Markdown Notes",
+          "description": "Local Markdown notes with WYSIWYG editing, light and dark themes, a five-level folder tree and outline, syntax highlighting, Mermaid diagrams, task lists, KaTeX, global search, and Markdown/HTML/image export. Includes an agent tool to preview a single Markdown or text file and edit it on request. The interface follows the host language; data stays in the plugin data directory."
+        },
+        "zh-CN": {
+          "name": "Pi Markdown 笔记",
+          "description": "本地 Markdown 笔记：真·所见即所得编辑（输入 # / - [ ] / \u003e / ``` / $…$ 即出样式，Typora 风格，Milkdown Crepe）、米白/黑夜双主题切换、5 级目录与 H1-H5 大纲、297 种语言代码高亮、Mermaid 图表实时渲染、Todo 任务列表、KaTeX 公式、全局搜索（标题/内容）、导出 Markdown/HTML/图像；文件夹与笔记拖拽排序、右键操作菜单；Agent 工具 preview_file——按绝对路径以只读预览打开单个 Markdown/文本文件（无需选定目录），用户点「编辑」后可直接修改并自动写回（单文件模式，不显示文档列表）；界面语言与面板标题跟随宿主（中文/English）；数据保存在插件数据目录。"
+        }
+      },
       "categories": [
-        "community",
+        "knowledge",
         "productivity"
       ],
       "verified": false,
