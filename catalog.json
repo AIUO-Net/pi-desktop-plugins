@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-09T09:41:39Z",
-  "generatedAt": "2026-10-09T09:41:39Z",
+  "updatedAt": "2026-10-10T06:34:20Z",
+  "generatedAt": "2026-10-10T06:34:20Z",
   "policyVersion": "2026.10.1",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1090,6 +1090,55 @@
             "sourceCommit": "5285acc52d8e5420e0e9799fb1aa82115153f43b",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-17T11:50:29Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.chengzhi-c.pi-desktop-xdpool",
+      "name": "pi-desktop-xdpool",
+      "description": "Bring this machine's WorkBuddy, Trae and Qoder desktop sign-ins into PI-Desktop. A rate-limited WorkBuddy account fails over to the next one. Each source has its own switch.",
+      "author": "chengzhi-c",
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/chengzhi-c/pi-desktop-xdpool",
+      "readmeMarkdown": "# pi-desktop-xdpool\n\n把本机 WorkBuddy、Trae、Qoder 的桌面登录接进 PI-Desktop。WorkBuddy 被限流时自动换号。三家各有开关，国内与国际各自成组。\n\n移植自 [XDTrees/dsh-workbuddy-xdpool](https://github.com/XDTrees/dsh-workbuddy-xdpool)（MIT）。Trae、Qoder 的协议参考见下方致谢。\n\n## 预览\n\n设置面板界面如下：\n\n![账号池](docs/preview-pool.png)\n\n面板跟随 PI-Desktop 的外观设置，暗色与亮色各一套配色：\n\n![亮色主题](docs/preview-light.png)\n\n模型页可以改显示名、上下文窗口、输出上限、思考等级和贴图：\n\n![模型设置](docs/preview-models.png)\n\n在线预览：\u003chttps://chengzhi-c.github.io/pi-desktop-xdpool/\u003e（GitHub Pages）。\n\n`docs/index.html` 是一个可交互的预览页：在浏览器中直接加载发布版的 `renderer/panel.js` 与 `panel.css`，\n并接一个演示用的宿主桩。可切换来源与视图、调整模型参数、切换暗亮主题，上文截图即由该页面生成。\n演示数据为虚构，不含真实账号或令牌。\n\n![预览页](docs/preview-page.png)\n\n本地运行：`node docs/serve.cjs`，然后打开它输出的地址。\n（`docs/index.html` 需经本地服务器打开：`file://` 页面无法读取同目录的面板文件。）\n\n## 安装\n\nPI-Desktop → 插件 → 安装本地插件，选择发布包。\n\n开发：`npm install \u0026\u0026 npm run typecheck \u0026\u0026 npm run build`。改 `src/` 后要重新构建，`lib/` 与 `src/` 一起提交。打包：`pwsh -File tools/pack.ps1`（包必须是不压缩的 store 格式）。\n\n## 使用\n\n在各家桌面 App 里登录，再点面板「重新检测账号」。WorkBuddy 要多个账号，就在 App 里逐个登录；5.6 起的 `$wbEncrypted` 登录由插件向本机已安装的 WorkBuddy 要密钥再读。Trae 国内版有 Trae CN 与 TRAE SOLO CN 两个登录位，Qoder 每个安装只保存一个登录，在 App 里重新登录会覆盖前一个。\n\n模型分组没出现时，按面板顶部的提示重启 PI-Desktop。\n\n面板顶层选来源，下面是账号池、模型和连接检查。\n\n- 账号卡显示积分（点开一池一行）、签到、停用和移除。每个区域可以指定优先消耗哪个账号的额度。\n- WorkBuddy 的使用方式有优先用一个、轮流使用、优先使用临期积分、同一对话固定。Trae 与 Qoder 有轮流使用和优先使用临期积分。\n- 模型页勾选后保存，选择器跟着变。一个模型组最多发布 64 个，多出来的勾选标「未发布」，网关仍会服务它们。\n- 签到可以单账号，也可以在标题栏一次领完该来源。自动签到默认每天 09:00（北京时间），错过的时间点下次启动补领，并顺带跑一趟猫猫旅行。Trae 的每日签到是一台设备一次。Qoder 的新一轮在每天 10:00（北京时间）开出。\n\n## 设置\n\n插件页里可改的项：\n\n| 键 | 默认 | 说明 |\n| --- | --- | --- |\n| `enabled` | `true` | 关闭后网关不启动 |\n| `sourceWorkbuddy` / `sourceTrae` / `sourceQoder` | `true` | 关闭后该来源不扫描、不发布、不请求 |\n| `distribution` | `priority` | `priority` 先用一个账号，`round-robin` 均摊，`expiry` 优先消耗临期积分，`sticky` 同一对话固定 |\n| `cooldownSeconds` | `60` | 限流冷却时长。上游报出重置时间时以它为准，按北京时间 |\n| `catalogRefreshMinutes` | `30` | 模型目录刷新间隔 |\n| `authFile` | `\"\"` | WorkBuddy 登录文件路径；扫描其所在目录的全部 `.info` 登录，留空自动发现 |\n| `showComposerPoints` | `false` | 在输入框工具栏显示当前账号积分 |\n\n模型勾选和首选账号由面板保存。命令面板里也可以打开面板、重新检测、清除冷却、全部签到、连接检查。\n\n## 端口\n\n```\nWorkBuddy  41831 / 41841\nTrae       41851 / 41861\nQoder      41871 / 41881\n```\n\n宿主在插件进程启动前读取这些地址，所以端口固定。国内版请求只用国内版账号。\n\n## 数据\n\n只读三家 App 保存在本机的登录。令牌只在插件进程里使用，并只发往各家自己的接口。端点只听 `127.0.0.1`。同一台机器上的其他进程可以调用这些端点，从而消耗已登录账号的额度。\n\n## 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` | 打开设置面板 |\n| `background.service` | 常驻运行网关与扫描 |\n| `provider.register` | 把三个来源作为模型提供方写进本插件清单 |\n| `renderer.extension` | 在输入框工具栏显示积分 |\n| `clipboard.write` | 连接检查页复制报告 |\n\n申请外发用不到 `net.fetch`：请求由插件进程按各家桌面 App 自己的登录直接发出，不经过宿主网络通道。\n\n令牌只会发往以下主机，与 `manifest.json` 的 `safetyNotes` 一致：\n\n- WorkBuddy：`copilot.tencent.com`、`www.codebuddy.cn`、`www.codebuddy.ai`、`www.workbuddy.ai`\n- Trae：`api.trae.cn`、`solo.trae.cn`、`trae-api-cn.mchost.guru`、`coresg-normal.trae.ai`、`growsg-normal.trae.ai`\n- Qoder：`gateway.qoder.com.cn`、`openapi.qoder.com.cn`、`api3.qoder.sh`、`openapi.qoder.sh`\n\n## 致谢\n\n本插件的若干模块移植或参考自下列 MIT 项目，特此鸣谢：\n\n| 项目 | 版权 | 用于 |\n| --- | --- | --- |\n| [XDTrees/dsh-workbuddy-xdpool](https://github.com/XDTrees/dsh-workbuddy-xdpool) | (c) 2026 XDTrees | WorkBuddy 账号池与整体移植来源 |\n| [corrinehu/dsh-workbuddy-connect](https://github.com/corrinehu/dsh-workbuddy-connect) | (c) 2026 Corrine Hu | 回环端点的安全模型 |\n| [dingminhua/dsh-connect-workbuddy](https://github.com/dingminhua/dsh-connect-workbuddy) | (c) 2026 LaoDing | 上游接口与错误分类 |\n| [dingminhua/dsh-connect-trae](https://github.com/dingminhua/dsh-connect-trae) | (c) 2026 dingminhua | Trae 协议参考 |\n| [eghrhegpe/dsh-connect-qoder](https://github.com/eghrhegpe/dsh-connect-qoder) | (c) 2026 eghrhegpe | Qoder 协议参考 |\n| [eric8bit/pi-desktop-workbuddy](https://github.com/eric8bit/pi-desktop-workbuddy) | (c) 2026 eric8bit | 同一上游的 PI-Desktop 移植版，本插件的前身 |\n\n## 许可\n\nMIT，见 [LICENSE](./LICENSE)。\n",
+      "safetyNotes": "只读本机 WorkBuddy、Trae、Qoder 已保存的登录。默认位置找不到安装目录时，只读卸载项来定位。加密字段的密钥只留在内存。令牌只发往各家自己的接口：copilot.tencent.com / codebuddy.cn / codebuddy.ai / workbuddy.ai、api.trae.cn / solo.trae.cn / trae-api-cn.mchost.guru / coresg-normal.trae.ai / growsg-normal.trae.ai、gateway.qoder.com.cn / openapi.qoder.com.cn / api3.qoder.sh / openapi.qoder.sh。\n对话由本机 127.0.0.1 上的端点转发。",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-10T06:19:48Z",
+          "changelog": "## [1.0.0]\n\n首个版本。把本机 WorkBuddy、Trae、Qoder 三家的桌面登录接进 PI-Desktop：每家成为一个 OpenAI 兼容的本地端点，模型选择器里直接可用。\n\n- 三家各有开关，国内与国际各自成组。端点只听 `127.0.0.1`，端口固定：WorkBuddy 41831 / 41841，Trae 41851 / 41861，Qoder 41871 / 41881。\n- 账号池支持优先用一个、轮流使用、优先消耗临期积分、同一对话固定；可停用、移除某个账号，也可指定某个账号优先消耗。\n- WorkBuddy 被限流时自动换号，冷却按模型粒度执行：一个模型受限，同一账号的其他模型照常可用。5.6 起的 `$wbEncrypted` 登录向本机已安装的 WorkBuddy 要密钥再读，密钥只留在内存。\n- Trae 与 Qoder 读各自桌面 App 的登录，按区域与目录路由模型。Trae 国内版有 Trae CN 与 TRAE SOLO CN 两个登录位；Qoder 每个安装只保存一个登录，在 App 里重新登录会覆盖前一个。\n- 面板按来源分页，包含账号与积分、模型与发布、连接检查。模型可改显示名、上下文窗口、输出上限、贴图和思考等级，一个模型组最多发布 64 个。\n- 每日签到默认 09:00（北京时间）自动领取，错过的时间点下次启动补领，并顺带跑一趟猫猫旅行。Qoder 的新一轮在每天 10:00（北京时间）开出。\n- 输入框工具栏可显示当前账号积分（默认关），点开即可换号。\n- 令牌只在插件进程内使用，并只发往各家自己的接口。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "197dc783af9e95498ad6c9048724a41a2d33e5bfc4a3cc8bd16fbd24bc3bb9f5",
+          "url": "packages/io.github.chengzhi-c.pi-desktop-xdpool-1.0.0.piplug",
+          "sizeBytes": 1026522,
+          "permissions": [
+            "background.service",
+            "clipboard.write",
+            "provider.register",
+            "renderer.extension",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/chengzhi-c/pi-desktop-xdpool",
+            "sourceRef": "v1.0.0",
+            "sourceCommit": "fa3136ca122ed376e46b8b60d45e9d48dad9066c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-10T06:19:48Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.1",
+            "reviewedAt": "2026-10-10T06:36:48Z"
           }
         }
       ]
@@ -2638,7 +2687,7 @@
       "versions": [
         {
           "version": "1.2.0",
-          "publishedAt": "2026-10-09T07:26:35Z",
+          "publishedAt": "2026-10-10T06:34:20Z",
           "changelog": "## v1.2.0 —— 模型参数改以 Cline 官方目录为准\n\n对不起xdm之前改错了,现在只需要填 API Key即可使用对应模型 给大伙磕头了\n\n### 模型清单\n- 仍是 14 个模型，未增删。\n\n### 参数修正\n- 上下文窗口：GLM-5.3、GLM-5.3-Flash 由 1,310,720 修正为 1,048,576；\n  MiMo-V2.6-Flash、MiMo-V2.6-Pro 由 1,048,576 修正为 1,050,000。\n- 输出上限：GLM-5.3 由 131,072 修正为 943,718；GLM-5.3-Flash 修正为 943,717；\n  DeepSeek V4.1 Flash 由 131,072 修正为 943,718。\n- 新增图片能力标记：GLM-5.3-Flash、Kimi K3、DeepSeek V4.1 Flash、MiMo-V2.5、\n  MiMo-V2.6-Flash、MiMo-V2.6-Pro、MiniMax-M3、Muse Spark 1.3 Contributor、\n  Qwen3.7 Plus，共 9 个模型现在标记为支持图片输入。\n\n### 思考强度\n- 档位经官方目录复核后维持不变：GLM-5.3 / GLM-5.3-Flash / Kimi K3 /\n  DeepSeek V4.1 Flash 为 low、high、max；DeepSeek V4 Pro 为 high、xhigh；\n  Muse Spark 1.3 Contributor 为 minimal 至 max。\n- MiMo-V2.5、MiMo-V2.5-Pro、MiMo-V2.6-Flash、MiMo-V2.6-Pro、MiniMax-M3、\n  Qwen3.7 Max、Qwen3.7 Plus、Qwen3.8 Max 不提供档位：Cline 对这些模型只提供开关，\n  或本身没有档位，与其编造一列不存在的档位，不如不声明。\n\n### 数据来源\n- 清单与全部数值取自 Cline 官方仓库：\n  `sdk/packages/llms/src/catalog/catalog.generated.ts` 的 `cline-pass` 块\n  （上下文窗口、输入与输出上限、能力、档位），以及\n  `sdk/packages/llms/src/catalog/cline-recommended.generated.ts` 的 `clinePass`\n  列表（当前 14 个 slug）。两边一致。\n\n### 其它\n- 认证方式与端点未变：仍是设置 → Providers → ClinePass 里填 Cline API Key，\n  端点 `https://api.cline.bot/api/v1`。\n- `main.js` 未改动，插件仍是纯声明式。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "ef9729d1b27cb860a363800d1979674e6eab4627e35ff2e9b7f46c69fdc5f934",
