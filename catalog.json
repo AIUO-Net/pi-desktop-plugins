@@ -2675,7 +2675,10 @@
           "safetyNotes": "高风险 agent.extension 扩展：在 Agent sidecar 中使用 Node 和系统 SSH，按请求读取、写入、编辑远端文件并执行命令。使用现有 SSH 配置与认证，不收集或捆绑凭证，不修改 SSH 配置，不自动接受陌生主机密钥。仅对可信且获授权的主机使用；取消本地 SSH 不保证远端后台进程停止。"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools",
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -2790,7 +2793,9 @@
           "safetyNotes": "连接凭据仅保存在本机；网络通信严格限制在官方或用户配置的 Agents Anywhere 中继服务器（通过加密 WSS/HTTPS 传输）；远程执行的指令完全复用本地会话权限体系，绝不绕过安全沙箱。"
         }
       },
-      "categories": [],
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -2865,12 +2870,18 @@
       "description": "非常便宜的Cline Pass接入Pi-Desktop",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Cline Pass For Pi Desktop",
+          "description": "Connect PI-Desktop to Cline Pass through a low-cost subscription."
+        },
         "zh-CN": {
           "name": "Cline Pass 接入",
           "description": "非常便宜的Cline Pass接入Pi-Desktop"
         }
       },
-      "categories": [],
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -2924,12 +2935,18 @@
       "description": "Capture clipboard text while PI-Desktop runs, keep 30 days of history, restore any entry with one click.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Clipboard History",
+          "description": "Capture clipboard text while PI-Desktop runs, keep 30 days of history, restore any entry with one click."
+        },
         "zh-CN": {
           "name": "剪贴板历史",
           "description": "在 PI-Desktop 运行期间持续采集剪贴板文本，按天归档保留 30 天，一键恢复任意条目。"
         }
       },
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -2967,12 +2984,18 @@
       "description": "Browse, view and edit the open project in the right work panel: a full directory tree with per-file-type icons, syntax-highlighted editing, a Markdown preview, image and media viewing, CSV/JSON structured views, read-only SQLite browsing with a SQL query box, a context menu for creating and renaming, and filename search.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "File Manager",
+          "description": "Browse, view and edit the open project in the right work panel: a full directory tree with per-file-type icons, syntax-highlighted editing, a Markdown preview, image and media viewing, CSV/JSON structured views, read-only SQLite browsing with a SQL query box, a context menu for creating and renaming, and filename search."
+        },
         "zh-CN": {
           "name": "文件管理器",
           "description": "在右侧工作面板中浏览、查看并编辑当前项目的文件：完整目录树（图标随文件类型变化）、左右分栏、代码高亮编辑与保存、Markdown 预览、图片与音视频查看、CSV/JSON 结构化查看、SQLite 只读浏览与 SQL 查询，以及右键新建、重命名/移动、按文件名搜索。"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3201,8 +3224,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "official"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -3244,8 +3266,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -3300,7 +3321,9 @@
           "safetyNotes": "点击操作后会把草稿文本发送给所选模型提供商；不会读取会话历史或文件附件。"
         }
       },
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
@@ -3345,12 +3368,18 @@
       "description": "Manage local directory `.md` prompts: input or quickly select and apply them in the initial turn of a conversation (similar to `agents.md`), automatically ignoring existing chat history.",
       "author": "yapool",
       "i18n": {
+        "en": {
+          "name": "Prompt Switcher",
+          "description": "Manage local directory `.md` prompts: input or quickly select and apply them in the initial turn of a conversation (similar to `agents.md`), automatically ignoring existing chat history."
+        },
         "zh-CN": {
           "name": "提示词切换器",
           "description": "管理本地目录 .md 提示词，在对话首轮输入 / 快速选择并应用（类似 agents.md），历史对话自动无视。"
         }
       },
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "pi",
