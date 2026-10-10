@@ -15,12 +15,18 @@
       "description": "Connect Pi Desktop to Agents Anywhere and access workspace conversations from mobile or web. Discover existing sessions, create chats, send messages, sync text replies and task status, and interrupt running tasks. Includes password-encrypted connection storage and tabs for status, connection management and events. Workspace sharing requires explicit local consent.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Anywhere Panel",
+          "description": "Connect Pi Desktop to Agents Anywhere and access workspace conversations from mobile or web. Discover existing sessions, create chats, send messages, sync text replies and task status, and interrupt running tasks. Includes password-encrypted connection storage and tabs for status, connection management and events. Workspace sharing requires explicit local consent."
+        },
         "zh-CN": {
           "name": "Anywhere Panel 远程连接管理",
           "description": "将 Pi Desktop 接入 Agents Anywhere，在手机或网页端访问工作区会话。支持发现已有会话、新建聊天、发送消息、同步文字回复与任务状态，以及中断运行中的任务。提供密码加密的连接信息保存，以及状态、连接管理、事件三标签面板。共享工作区前需在本地明确授权。"
         }
       },
-      "categories": [],
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "adoin",
