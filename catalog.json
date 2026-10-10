@@ -608,14 +608,16 @@
       "description": "Local session recorder: archiving every conversation and tool call into per-session JSONL files, marking gaps and truncation, and exporting JSONL or Markdown. Data stays on this device.",
       "author": "yy568821795-max",
       "i18n": {
+        "en": {
+          "name": "Session Recorder",
+          "description": "Local session recorder: archiving every conversation and tool call into per-session JSONL files, marking gaps and truncation, and exporting JSONL or Markdown. Data stays on this device."
+        },
         "zh-CN": {
           "name": "会话记录器",
           "description": "本地会话记录器：把每次对话与工具调用增量归档为按会话分文件的 JSONL，标注缺失与截断，并导出 JSONL 或 Markdown。"
         }
       },
       "categories": [
-        "community",
-        "developer-tools",
         "productivity"
       ],
       "verified": false,
@@ -658,12 +660,18 @@
       "description": "A very simple tool to apply free models from OpenCode to pi-desktop; availability is not guaranteed.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "OpenCode Free Models",
+          "description": "A very simple tool to apply free models from OpenCode to pi-desktop; availability is not guaranteed."
+        },
         "zh-CN": {
           "name": "OpenCode 免费模型",
           "description": "一个很简单的将OpenCode中免费模型应用在pi-desktop的工具，不保证可用性。"
         }
       },
-      "categories": [],
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "com",
@@ -761,14 +769,17 @@
       "description": "Connect your own WorkBuddy or WorkBuddy AI account to PI through a local OpenAI Chat Completions bridge that starts with the PI plugin. Includes a configuration, key, authentication and model dashboard. Based on corrinehu/dsh-workbuddy-connect (MIT). Requires one-time PI model setup; not an official integration.",
       "author": "JHua07",
       "i18n": {
+        "en": {
+          "name": "WorkBuddy Connect",
+          "description": "Connect your own WorkBuddy or WorkBuddy AI account to PI through a local OpenAI Chat Completions bridge that starts with the PI plugin. Includes a configuration, key, authentication and model dashboard. Based on corrinehu/dsh-workbuddy-connect (MIT). Requires one-time PI model setup; not an official integration."
+        },
         "zh-CN": {
           "name": "WorkBuddy 接入管理",
           "description": "随 PI 插件启动的 WorkBuddy 本机桥接，支持国内/国际账号分离、自动认证与模型目录、Base URL 和本地 Key 管理、状态查询及网页后台。参考并复用 corrinehu/dsh-workbuddy-connect 的 MIT 代码；仍需首次手动配置 PI 的 OpenAI Chat Completions 连接。非官方集成，仅使用本人账号。"
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "integrations"
       ],
       "verified": false,
       "trust": "community",
@@ -822,8 +833,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -919,7 +929,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "creative"
       ],
       "verified": false,
       "trust": "community",
@@ -1041,12 +1051,18 @@
       "description": "Give PI-Desktop agents explicit tools to save, search, and retrieve the signed-in user's Memcode memories.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Memcode Memory",
+          "description": "Give PI-Desktop agents explicit tools to save, search, and retrieve the signed-in user's Memcode memories."
+        },
         "zh-CN": {
           "name": "Memcode 记忆",
           "description": "为 PI-Desktop Agent 提供明确的工具，用于保存、搜索和检索当前用户的 Memcode 记忆。"
         }
       },
-      "categories": [],
+      "categories": [
+        "knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "in",
@@ -1074,13 +1090,17 @@
       "name": "Nexus Scenic Themes",
       "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later. Checkout nexus at \nhttps://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus",
       "author": "Akshayxkill",
+      "i18n": {
+        "en": {
+          "name": "Nexus Scenic Themes",
+          "description": "Nexus Scenic Themes is an appearance theme pack for Pi Desktop, bringing four scenic themes from PI Desktop Nexus into the native theme system. Includes Twilight Mountains, Alpine Light, Obsidian Horizon, and Emerald Afterglow, with per-theme backdrop blur and bundled local assets. Requires Pi Desktop 0.15.8 or later. Checkout nexus at https://github.com/alphalaughs2024-netizen/PI-Desktop-Nexus"
+        },
+        "zh-CN": {
+          "name": "Nexus 风景主题",
+          "description": "Pi Desktop 外观主题包，将 PI Desktop Nexus 的四款风景主题接入原生主题系统：暮色山峦、阿尔卑斯晨光、黑曜石天际与翡翠余晖。每款主题均支持背景模糊，并附带本地资源；要求 Pi Desktop 0.15.8 或更高版本。"
+        }
+      },
       "categories": [
-        "Aesthetic",
-        "Themes",
-        "developer-tools",
-        "official",
-        "productivity",
-        "theme",
         "themes"
       ],
       "verified": false,
@@ -1120,8 +1140,18 @@
       "name": "Color Picker",
       "description": "Browse Tailwind and Material palettes, pick colors out of any image with a pixel loupe, build schemes with harmony rules or AI, check WCAG contrast and color blindness, and export CSS variables, Tailwind or JSON — or install the palette as a PI-Desktop theme.",
       "author": "Gargantua",
+      "i18n": {
+        "en": {
+          "name": "Color Picker",
+          "description": "Browse Tailwind and Material palettes, pick colors out of any image with a pixel loupe, build schemes with harmony rules or AI, check WCAG contrast and color blindness, and export CSS variables, Tailwind or JSON — or install the palette as a PI-Desktop theme."
+        },
+        "zh-CN": {
+          "name": "颜色工具箱",
+          "description": "浏览 Tailwind 与 Material 配色，从图片中用像素放大镜取色，按配色规则或借助 AI 生成方案，检查 WCAG 对比度与色觉差异，并导出 CSS 变量、Tailwind 或 JSON，也可将调色板安装为 PI-Desktop 主题。"
+        }
+      },
       "categories": [
-        "productivity"
+        "creative"
       ],
       "verified": false,
       "trust": "community",
@@ -1169,8 +1199,18 @@
       "name": "pi-desktop-xdpool",
       "description": "把本机 WorkBuddy、Trae、Qoder 的桌面登录接进 PI-Desktop。WorkBuddy 被限流时自动换号，三家各有开关。",
       "author": "chengzhi-c",
+      "i18n": {
+        "en": {
+          "name": "XDPool Account Bridge",
+          "description": "Connect local WorkBuddy, Trae, and Qoder desktop logins to PI-Desktop. WorkBuddy can switch accounts automatically when rate-limited; each provider has its own toggle."
+        },
+        "zh-CN": {
+          "name": "XDPool 账号接入",
+          "description": "把本机 WorkBuddy、Trae、Qoder 的桌面登录接进 PI-Desktop。WorkBuddy 被限流时自动换号，三家各有开关。"
+        }
+      },
       "categories": [
-        "productivity"
+        "integrations"
       ],
       "verified": false,
       "trust": "community",
