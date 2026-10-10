@@ -66,12 +66,18 @@
       "description": "",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Sax-design Animation theme",
+          "description": "An animated Pi Desktop theme based on the Sax-design-vue project, featuring particle-dissolve effects and other motion details."
+        },
         "zh-CN": {
           "name": "Sax-design 强动效风格主题",
           "description": "参考我个人项目Sax-design-vue而做的主题插件，内部用植入方式做了粒子消散等动画"
         }
       },
-      "categories": [],
+      "categories": [
+        "themes"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "adoin",
@@ -108,12 +114,18 @@
       "description": "A per-project knowledge base for PI-Desktop. Relevant knowhow and specs are attached to each message automatically, the Agent can search and load entries, and new lessons are saved only after you confirm them on an in-chat card. Optional Jev dedup, off by default.",
       "author": "",
       "i18n": {
+        "en": {
+          "name": "Project Knowledge",
+          "description": "A per-project knowledge base for PI-Desktop. Relevant knowhow and specs are attached to each message automatically, the Agent can search and load entries, and new lessons are saved only after you confirm them on an in-chat card. Optional Jev dedup, off by default."
+        },
         "zh-CN": {
           "name": "项目知识库",
           "description": "按项目保存的知识库：每条消息自动附上相关的经验和规则，Agent 可以检索和读取条目；新经验只有在你于聊天卡片中确认后才会保存。可选 Jev 去重，默认关闭。"
         }
       },
-      "categories": [],
+      "categories": [
+        "knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "axc00",
@@ -172,8 +184,18 @@
       "name": "会话通知",
       "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。",
       "author": "LectWolf",
+      "i18n": {
+        "en": {
+          "name": "Session Notifications",
+          "description": "Monitor session state changes and send session titles and status to Feishu, DingTalk, WeCom, KOOK, ServerChan, Telegram, or a generic webhook. Custom APIs are optional. Message bodies are not read."
+        },
+        "zh-CN": {
+          "name": "会话通知",
+          "description": "监听全部会话的状态变化，把标题和状态推到飞书、钉钉、企业微信、KOOK、Server酱、Telegram 或通用 Webhook。自定义 API 可选。不读消息正文。"
+        }
+      },
       "categories": [
-        "developer-tools",
+        "integrations",
         "productivity"
       ],
       "verified": false,
@@ -234,8 +256,17 @@
       "name": "会话用量",
       "description": "在输入框输入 /usage，查看当前会话的输入、输出、缓存命中、缓存创建和命中率。",
       "author": "LectWolf",
+      "i18n": {
+        "en": {
+          "name": "Session Usage",
+          "description": "Enter /usage in the composer to view the current session’s input and output, cache reads and writes, and cache hit rate."
+        },
+        "zh-CN": {
+          "name": "会话用量",
+          "description": "在输入框输入 /usage，查看当前会话的输入、输出、缓存命中、缓存创建和命中率。"
+        }
+      },
       "categories": [
-        "developer-tools",
         "productivity"
       ],
       "verified": false,
@@ -295,14 +326,17 @@
       "description": "复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。",
       "author": "TheFalreStar",
       "i18n": {
+        "en": {
+          "name": "Computer Use",
+          "description": "Codex-style computer control that lets the AI perform simple tasks on your desktop."
+        },
         "zh-CN": {
           "name": "电脑操作",
-          "description": ""
+          "description": "复刻 Codex 的电脑操控能力，让 AI 直接操作桌面完成简单任务。"
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -365,8 +399,17 @@
       "name": "Grok Enhance",
       "description": "给 Grok 加执行纪律，并在每轮第一请求直接激活 Grep / Glob（以及已装的 memory / skill_manage）。",
       "author": "TheFalreStar",
+      "i18n": {
+        "en": {
+          "name": "Grok Enhance",
+          "description": "Adds execution discipline to Grok and activates Grep/Glob, plus installed memory and skill_manage tools, on the first request of each turn."
+        },
+        "zh-CN": {
+          "name": "Grok 增强",
+          "description": "给 Grok 加执行纪律，并在每轮第一请求直接激活 Grep / Glob（以及已装的 memory / skill_manage）。"
+        }
+      },
       "categories": [
-        "community",
         "developer-tools"
       ],
       "verified": false,
@@ -424,13 +467,17 @@
       "description": "用自然语言描述需求，即可完成视频截取、拼接、变速、配乐和字幕添加，生成可在剪映中继续编辑的草稿。",
       "author": "TheFalreStar",
       "i18n": {
+        "en": {
+          "name": "Jianying Assistant",
+          "description": "Describe a video edit in natural language to trim, join, change speed, add music or subtitles, and create a draft you can continue editing in Jianying."
+        },
         "zh-CN": {
           "name": "剪映助手",
           "description": "用自然语言描述需求，即可完成视频截取、拼接、变速、配乐和字幕添加，生成可在剪映中继续编辑的草稿。"
         }
       },
       "categories": [
-        "productivity"
+        "creative"
       ],
       "verified": false,
       "trust": "community",
@@ -461,10 +508,18 @@
       "name": "Skill Learning（自学技能）",
       "description": "你把一件事做完，它把以后还能照着做的步骤做成 SKILL，下次同类活可以直接用。\n会话比较长时会在后台自己复盘，聊天里不会冒出来。",
       "author": "TheFalreStar",
+      "i18n": {
+        "en": {
+          "name": "Skill Learning",
+          "description": "Turn completed work into reusable SKILLs so similar tasks can follow the same steps next time. It can quietly review longer sessions in the background."
+        },
+        "zh-CN": {
+          "name": "技能学习",
+          "description": "你把一件事做完，它把以后还能照着做的步骤做成 SKILL，下次同类活可以直接用。 会话比较长时会在后台自己复盘，聊天里不会冒出来。"
+        }
+      },
       "categories": [
-        "community",
-        "developer-tools",
-        "productivity"
+        "knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -505,9 +560,18 @@
       "name": "User Profile（用户画像）",
       "description": "本地记「用户是谁」和「这台机器怎么用」。有字符上限。每轮注入系统提示，Agent 用 `memory` 工具写。\n不接远程记忆服务，不写 skill。兼容 modelcontextprotocol/server-memory。",
       "author": "TheFalreStar",
+      "i18n": {
+        "en": {
+          "name": "User Profile",
+          "description": "Keeps a size-limited local note about who the user is and how this machine is used. The note is injected into each system prompt and written through the memory tool. No remote memory service and no skills are written. Compatible with modelcontextprotocol/server-memory."
+        },
+        "zh-CN": {
+          "name": "用户画像",
+          "description": "本地记「用户是谁」和「这台机器怎么用」。有字符上限。每轮注入系统提示，Agent 用 `memory` 工具写。 不接远程记忆服务，不写 skill。兼容 modelcontextprotocol/server-memory。"
+        }
+      },
       "categories": [
-        "community",
-        "productivity"
+        "knowledge"
       ],
       "verified": false,
       "trust": "community",
