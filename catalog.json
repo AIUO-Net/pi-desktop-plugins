@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-10T06:39:50Z",
-  "generatedAt": "2026-10-10T06:39:50Z",
+  "updatedAt": "2026-10-11T05:10:39Z",
+  "generatedAt": "2026-10-11T05:10:39Z",
   "policyVersion": "2026.10.1",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2281,6 +2281,67 @@
             "sourceCommit": "e8f2d905ffedce2599cc4908dc52fffd2148840c",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-30T06:05:46Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.xinzhihong.group-rooms",
+      "name": "Group Rooms",
+      "description": "Create or join shared rooms, chat in native sessions, and manage members in the work panel.",
+      "author": "xinzhihong-ship-it",
+      "i18n": {
+        "zh-CN": {
+          "name": "群组房间",
+          "description": "创建或加入共享房间，在原生会话中聊天，并在工作面板中管理成员。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/xinzhihong-ship-it/pi-plugin-group-rooms",
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-10-11T05:10:39Z",
+          "changelog": "补充 MIT 许可证，修复 SRC005 审核暂缓。\n\n- 新增仓库根目录 LICENSE（MIT 许可证全文）。\n- manifest.json 增加 license: MIT，并补 author、homepage。\n- 功能与 0.1.0 相同；依赖宿主 PI-Desktop \u003e= 0.18.0-beta.2 且包含托管会话 API\n（上游 issue #1539 / PR #1540）。",
+          "minPiDesktop": "\u003e=0.18.0-beta.2",
+          "shasum": "75599e10aadab841e405721bc1fe598d29474246a64bf5c6d177f1de16edb98f",
+          "url": "packages/io.github.xinzhihong.group-rooms-0.1.1.piplug",
+          "sizeBytes": 586290,
+          "permissions": [
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "models.list",
+            "net.anyHost",
+            "renderer.extension",
+            "secrets.store",
+            "session.manage.own",
+            "session.read.own",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "userSelected",
+              "scope": []
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/xinzhihong-ship-it/pi-plugin-group-rooms",
+            "sourceRef": "v0.1.1",
+            "sourceCommit": "cbee7baded9f0825dab8732e29e6348f1cc9b32b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-11T05:10:39Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.1",
+            "reviewedAt": "2026-10-11T05:55:19Z"
           }
         }
       ]
