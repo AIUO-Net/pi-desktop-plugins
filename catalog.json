@@ -4,9 +4,9 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-12T07:37:26Z",
-  "generatedAt": "2026-10-12T07:37:26Z",
-  "policyVersion": "2026.10.1",
+  "updatedAt": "2026-10-12T09:49:27Z",
+  "generatedAt": "2026-10-12T09:49:27Z",
+  "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
     {
@@ -32,6 +32,27 @@
       "publisherId": "adoin",
       "downloads": 0,
       "versions": [
+        {
+          "version": "2.2.2",
+          "publishedAt": "2026-10-12T09:49:27Z",
+          "changelog": "2.2.2 更新说明\n\n新增自部署服务器支持，可连接用户指定的 HTTPS 地址。要求 PI-Desktop 0.18.0 或更高版本，更新时需批准新增的 net.anyHost 网络权限。认证、令牌刷新和会话同步均禁止重定向。\n\n新增批量项目共享：支持加载本地已保存项目、全选或单独选择，并记住选择。已有真实会话的项目可自动关联到 Anywhere，无需逐个手动添加。\n\n优化共享范围交互，明确区分“当前工作区”和“所选项目”。选择项目或全选会自动切换范围，但仍需明确确认共享。修复刷新项目列表时共享范围被重置的问题，保留仍有效的项目勾选。\n\n新增醒目的 Runtime 设置与同步状态提示，区分设备在线、运行时未启动和同步就绪。首次仍需在 Anywhere 添加并启用 Pi Desktop Runtime，后续正常重连会恢复已有实例。\n\n保留密码加密的连接配置、标签页记忆和会话去重。建议直接覆盖安装，不要先卸载，以免宿主清除本地配置。\n\n注意：空项目需产生真实会话后才会在远端出现；修改共享范围需重新连接后生效。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "9f4e36056e6d225ded397114a90437333a1bc8df73044ac89dc504a74b400c3e",
+          "url": "packages/adoin.panel.anywhere-2.2.2.piplug",
+          "sizeBytes": 194625,
+          "permissions": [
+            "background.service",
+            "desktop.control",
+            "models.list",
+            "net.anyHost",
+            "net.fetch",
+            "net.websocket",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "2.0.0",
           "publishedAt": "2026-10-01T14:07:17Z",
@@ -3411,7 +3432,7 @@
       "versions": [
         {
           "version": "1.3.0",
-          "publishedAt": "2026-10-12T07:37:26Z",
+          "publishedAt": "2026-10-12T07:39:12Z",
           "changelog": "### 1.3.0\n\n- 插件自己的设置面板（命令 **Prompt Enhancement: Settings** / 插件面板按钮）配置一切：模型下拉的选项来自宿主已就绪的模型列表（`pi.models.list()`），另有推理等级与用户模板。\n- 面板默认显示内置用户模板（与宿主此前使用的文本一致），可直接编辑；提供 **插入 {{draft}}** 与 **恢复内置模板**。原样提交内置模板时按“使用内置”保存，不会复制一份。\n- 面板文案跟随宿主语言（en / zh-CN）。\n- 不再声明宿主生成的设置项，设置只保留一个入口。\n\nThe plugin now configures itself in its own panel: the enhancement model comes\nfrom the host's ready model list, the reasoning level and the user template are\nedited there, and the built-in template is shown so an override starts from the\nsame text the model receives. The host-rendered settings sheet is dropped.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "474f81401817d1fe31f00ce84f6279bdf9c0ab57ce0ae2aaa8e1ac15b76fbb5a",
