@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-13T09:33:05Z",
-  "generatedAt": "2026-10-13T09:33:05Z",
+  "updatedAt": "2026-10-13T09:41:49Z",
+  "generatedAt": "2026-10-13T09:41:49Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2698,6 +2698,24 @@
       "safetyNotes": "No OAuth client credentials bundled; your own authorized client configuration is required. Unofficial Google integration. Handles OAuth tokens through the host; sends prompts and tool data to Google Cloud Code Assist. Trusted Agent code runs without an OS sandbox. Model settings write to the installed plugin directory. Use only accounts you are authorized to access.",
       "versions": [
         {
+          "version": "0.2.7",
+          "publishedAt": "2026-10-13T09:41:49Z",
+          "changelog": "作者很懒，什么都没写",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "4438348613871418c9ac06a978ecd12587db03998ce0d5fe7a98ed46fd04cf1f",
+          "url": "packages/local.pi-antigravity.desktop-0.2.7.piplug",
+          "sizeBytes": 2462630,
+          "permissions": [
+            "agent.extension",
+            "net.fetch",
+            "provider.oauth",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        },
+        {
           "version": "0.2.6",
           "publishedAt": "2026-10-13T08:23:38Z",
           "changelog": "## Marketplace compatibility / 市场兼容\nUse the required main.js entry with explicit CommonJS metadata. / 修正插件中心要求的 main.js 入口，保留无内置 OAuth 凭据设计。\n\n## Security / 安全变更\n- Removed the upstream default OAuth client ID and secret from source and both Desktop bundles. No credentials are hidden or encoded to bypass push protection.\n- 不再内置 OAuth 客户端 ID 或密钥；登录与刷新需在插件进程环境中设置 ANTIGRAVITY_CLIENT_ID 与 ANTIGRAVITY_CLIENT_SECRET，并完全重启 Desktop。缺配置在网络或回调监听前明确报错。\n- Use your own authorized OAuth client with access to the requested Google scopes. Creating a client alone does not grant Cloud Code Assist access. Existing tokens issued to the removed client may require reauthorization.\n- 保留双语模型选择、排序、高级设置和自定义模型面板；用户账号令牌仍由宿主处理，不写入发布包。\n\n## Verification / 验证\nSource, bundles, actual package and the complete clean release branch history passed targeted credential scanning. Base regressions, Desktop tests, typecheck, lint, behavior security checks, actual Desktop runner simulation, official PluginCheck and i18n gate passed. All OAuth/runtime tests use fake credentials and mocked responses; real Google login/model access has not been validated.\n\n## Install / 安装\nInstall local.pi-antigravity.desktop-0.2.6.piplug from PI-Desktop's plugin page after configuring your authorized client. Follow [Desktop instructions](https://github.com/new-Beginner/pi-antigravity/blob/desktop-v0.2.6/desktop/README.md).\n\nSHA-256: 247afd025355e24de15e1553e2692cf25ac9b0e4f49cc4e1c7f59174d95580bc\n\nThe desktop-release branch starts from a clean root snapshot to avoid uploading old credential-bearing ancestors. Local legacy history and upstream attribution are retained. This GitHub Release does not mean the plugin has passed official marketplace review.",
@@ -3730,7 +3748,7 @@
       "versions": [
         {
           "version": "0.7.1",
-          "publishedAt": "2026-10-13T09:33:05Z",
+          "publishedAt": "2026-10-13T09:33:39Z",
           "changelog": "## 0.7.1\n\n`SessionTask` 现在自己说清楚什么时候该用它。\n\n- 工具描述以显式的使用时机开头：并行做事、开子会话/子智能体、把任务委托给独立会话、跟进后台会话、协调多个 Agent 会话——任何语言都可以，不需要魔法关键词。\n- README 新增中英双语 Quick Start（含对照表），按 pull-first 的投递方式改写。\n- 修复：`send` 传空 model 时不再被当成显式模型，避免物化 schema 的模型报错。",
           "minPiDesktop": "\u003e=0.14.7",
           "shasum": "4b7c380692614761f0be9b8408665e722e77bc656e36d2efff18ac023fcd5e36",
