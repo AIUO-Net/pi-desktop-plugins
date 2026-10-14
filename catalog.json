@@ -2880,9 +2880,9 @@
     },
     {
       "id": "local.pi-session-filter",
-      "name": "Session Source Filter",
-      "description": "Filter the sidebar by source and age: tick what you want to see (PI-Desktop sessions / Pi sessions / newest / last 7 days / last 14 days / older), untick everything for no filter. A funnel button sits on every project header.",
-      "author": "maiming",
+      "name": "会话来源过滤(适用于只想显示PI-Desktop自己的会话)",
+      "description": "在侧边栏按来源和时间筛选会话：勾选你想看到的（PI-Desktop 原生会话 / Pi 会话 / 最新 / 近 7 天 / 近 14 天 / 更早），不勾就是全部显示。项目标题栏上有一个漏斗按钮。",
+      "author": "麦铭",
       "categories": [
         "productivity"
       ],
