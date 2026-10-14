@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-14T05:44:42Z",
-  "generatedAt": "2026-10-14T05:44:42Z",
+  "updatedAt": "2026-10-14T09:08:34Z",
+  "generatedAt": "2026-10-14T09:08:34Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2894,8 +2894,30 @@
       "safetyNotes": "Hides sidebar rows by marking them with an attribute and hiding them with one style element this plugin mounts in the host window. Adds one filter button to each project header. Registers one resident service that does no work: it exists only so the host announces the plugin to the renderer process at startup, because the boot-time plugin restore does not send the renderer's pluginChanged event. Reads no files, sends no network requests, and never touches session data.",
       "versions": [
         {
+          "version": "0.4.0",
+          "publishedAt": "2026-10-14T09:08:34Z",
+          "changelog": "每个项目各一套过滤。 Per-project filter sets: what you tick in one project no longer changes any other project.\n\nThe set belongs to the project the menu was opened from. The project key is the host's own data-sidebar-project-group (the normalized project path — the very attribute the host's drag-and-drop hit test reads), so it survives restarts and sidebar reordering. 项目文件夹真的改名（路径变了）时，那一套设置退回默认，不会串到别的项目上。\nThe menu title names the project, 和 says 跟随默认 while that project is still on the default set.\nTwo new rows: 跟随默认 drops this project's own set; 应用到全部项目 hands the current set to every project and clears the rest.\n设置里新增 projectFilters（项目键 → 过滤键 的 JSON 表）。原来的 filters 变成「默认显示哪些会话」：没单独设置过的项目、置顶会话和「临时对话」都跟随它。\nRemote project groups carry no host key, so their set is filed under the group name (title:\u003cname\u003e).\n188 offline assertions in npm test, including two projects changing independently in both directions and the name fallback.",
+          "minPiDesktop": "\u003e=0.20.0",
+          "shasum": "d4f44cae088812fe8e61df299bc051bd88410c515204e7ef12268846316aeb4a",
+          "url": "packages/local.pi-session-filter-0.4.0.piplug",
+          "sizeBytes": 111434,
+          "permissions": [
+            "background.service",
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mai-ming/pi-desktop-session-filter",
+            "sourceRef": "v0.4.0",
+            "sourceCommit": "2e6c07a9f47f63faf97ee58fa840acd11f018479",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-14T09:08:34Z"
+          }
+        },
+        {
           "version": "0.3.0",
-          "publishedAt": "2026-10-14T05:44:42Z",
+          "publishedAt": "2026-10-14T07:57:37Z",
           "changelog": "首个公开版本。侧边栏按来源与时间筛选会话：项目标题栏上的漏斗按钮打开多选清单（全部显示 / PI-Desktop 原生会话 / Pi 会话 / 最新 / 近 7 天 / 近 14 天 / 更早），勾什么显示什么，取消全部勾选自动回到「全部显示」。按钮与宿主自己的 ⋯、＋ 同一套画风（悬停才出现）；菜单沿用宿主的弹层样式，跟随主题。只做显示层过滤，不动会话与文件。123 项离线断言，隐藏效果按计算样式校验。",
           "minPiDesktop": "\u003e=0.20.0",
           "shasum": "e512ba5abacaefdbb8d94c94eac9077543789da60a70ad658f162f35af583273",
