@@ -2882,18 +2882,16 @@
       "id": "local.pi-session-filter",
       "name": "Session Source Filter",
       "description": "Filter the sidebar by source and age: tick what you want to see (PI-Desktop sessions / Pi sessions / newest / last 7 days / last 14 days / older), untick everything for no filter. A funnel button sits on every project header.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "会话来源过滤",
-          "description": "在侧边栏按来源和时间筛选会话：勾选你想看到的（PI-Desktop 原生会话 / Pi 会话 / 最新 / 近 7 天 / 近 14 天 / 更早），不勾就是全部显示。项目标题栏上有一个漏斗按钮。"
-        }
-      },
-      "categories": [],
+      "author": "maiming",
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
       "downloads": 0,
+      "homepage": "https://github.com/mai-ming/pi-desktop-session-filter",
+      "safetyNotes": "Hides sidebar rows by marking them with an attribute and hiding them with one style element this plugin mounts in the host window. Adds one filter button to each project header. Registers one resident service that does no work: it exists only so the host announces the plugin to the renderer process at startup, because the boot-time plugin restore does not send the renderer's pluginChanged event. Reads no files, sends no network requests, and never touches session data.",
       "versions": [
         {
           "version": "0.3.0",
