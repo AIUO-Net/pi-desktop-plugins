@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-14T11:51:12Z",
-  "generatedAt": "2026-10-14T11:51:12Z",
+  "updatedAt": "2026-10-15T02:56:06Z",
+  "generatedAt": "2026-10-15T02:56:06Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1549,6 +1549,48 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-22T18:54:38Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.hufangyuan460-blip.windows-terminal",
+      "name": "Windows ConPTY Terminal 终端",
+      "description": "在工作面板中使用真正的 Windows 交互式终端：ConPTY 伪终端，支持 PowerShell 7 / Windows PowerShell 5.1 / cmd、多标签、中文输入输出、复制粘贴与 Ctrl+C 中断，终端内容不会交给 AI。",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Windows 终端（ConPTY）",
+          "description": "在工作面板中使用真正的 Windows 交互式终端：ConPTY 伪终端，支持 PowerShell 7 / Windows PowerShell 5.1 / cmd、多标签、中文输入输出、复制粘贴与 Ctrl+C 中断，终端内容不会交给 AI。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "1.1.5",
+          "publishedAt": "2026-10-15T02:56:06Z",
+          "changelog": "在工作面板中使用真正的 Windows 交互式终端：ConPTY 伪终端，支持 PowerShell 7 / Windows PowerShell 5.1 / cmd、多标签、中文输入输出、复制粘贴与 Ctrl+C 中断，终端内容不会交给 AI。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "3a0324c39ed9a880675d387c0e11df313824f3d332bf6dcefee71e32f4f2cb11",
+          "url": "packages/io.github.hufangyuan460-blip.windows-terminal-1.1.5.piplug",
+          "sizeBytes": 11142248,
+          "permissions": [
+            "clipboard.read",
+            "clipboard.write",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/hufangyuan460-blip/windows-terminal-for-pi-desktop",
+            "sourceRef": "v1.1.5",
+            "sourceCommit": "e4b8e25bdfe6f27208640ace8f12645dbbca3524",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-15T02:56:06Z"
           }
         }
       ]
