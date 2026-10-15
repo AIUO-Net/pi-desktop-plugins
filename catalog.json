@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-15T06:28:44Z",
-  "generatedAt": "2026-10-15T06:28:44Z",
+  "updatedAt": "2026-10-15T08:27:11Z",
+  "generatedAt": "2026-10-15T08:27:11Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1322,7 +1322,7 @@
       "versions": [
         {
           "version": "1.2.0",
-          "publishedAt": "2026-10-15T06:28:44Z",
+          "publishedAt": "2026-10-15T06:29:12Z",
           "changelog": "首个公开版本\n- 按模型绑定提示词，首轮或整个会话生效\n- 首页列表每项带启停开关\n- 注入日志，便于确认是否生效",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "100394f72fd939bb8e385d455b151edbf879cd509b41b2652a9400699b606d02",
@@ -3380,6 +3380,35 @@
       "publisherId": "pi",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.9.0",
+          "publishedAt": "2026-10-15T08:27:11Z",
+          "changelog": "本次发布把 0.7.0 – 0.9.0 一次补齐（上一已发布版本为 0.6.1）。\n\n## 新增：PDF 只读预览\n- 连续滚动、单页 / 双页 / 双页（封面单独）三种布局，上一页 / 下一页、页码跳转、缩放、适应宽度与实际大小。\n- 可收起的导航侧栏：缩略图、嵌套目录 / 书签、文件名 / 体积 / 页数等文档信息；窄面板下侧栏覆盖显示，跳转后自动收起，Escape 关闭。\n- 全文查找复用匹配版本的 PDF.js 查找控制器，支持大小写、全字与正则，以及阅读区内的 Ctrl/Cmd+F。\n- PDF.js Worker、CMaps、标准字体、WASM 解码器与 ICC 资源全部随包内置，支持离线 file:// 视图；单文件上限 24 MiB。\n\n## 新增：git 联动\n- 文件列表标出修改 / 新增 / 删除 / 重命名 / 冲突（目录给整棵子树的汇总），行尾显示 +N/−N，顶部一句话概览分支与各类变化数量。\n- 右侧「变更」视图给出逐行对照的 unified diff，已暂存与未暂存分段标注；未跟踪的新文件按全文新增展示。\n- 只调用工作区里 git 的只读子命令（status / diff / rev-parse），5s 超时、带输出上限、2s 结果缓存；没有 git 时只是「没有状态」，其余功能照旧。\n\n## 新增：文件监听与自动刷新\n- 文件在编辑器之外被改动（外部编辑器、git checkout、构建产物、另一个窗口）会自动重新读取并刷新列表，1.2 秒内跟上。\n- 没有未保存改动时自动重读打开的文件；有未保存改动时只亮提示条、绝不覆盖。插件自己的保存会先记一笔，1.5 秒内的同名事件不算外部改动。\n- 顶部新增「自动刷新」开关，两个手动刷新按钮原样保留。\n\n## 新增：右键菜单「复制路径」与「通过…打开」\n- 新增「复制相对路径」「复制绝对路径」，以及二级子菜单「通过…打开」——hover 即展开，列出这台机器上真实安装的程序，选中即用它打开当前条目。\n- 按文件类型过滤：编辑器什么都能打开，浏览器只出现在它真能渲染的网页类文件上（.html / .htm / .shtml / .xhtml / .mhtml / .svg / .pdf / .xml）。\n- 编辑器探测不做目录遍历：注册表 App Paths 与 StartMenuInternet、PATH 候选名、少数固定安装位置，结果按日期缓存并多开共享（冷启约 600ms，之后 0ms）。\n- 可执行文件不出主进程：视图只递 id，spawn 不经 shell、参数只有一条绝对路径，子进程 detached + stdio ignore，每次打开记一条写入审计。\n\n## 修复\n- 修掉「自己保存（Ctrl+S）仍被判成外部改动」：noteSelfWrite 现在把每一层祖先目录一并记上（Windows 递归监听会额外给父目录各报一次 change）。\n- 修掉「预览模式下打开变更时，预览与差异视图重叠」：内容区改为单值渲染，「编辑 / 预览 / 变更」同组互斥页签。\n\n新增离线校验：pnpm verify:git、verify:watch、verify:editors、verify:pdf，并纳入 pnpm verify。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "d7e60a64f4b6fb6cbc4d4cf029f8e0dc1ccc933292610033031d24094bc0b49c",
+          "url": "packages/pi.file-manager-0.9.0.piplug",
+          "sizeBytes": 6911826,
+          "permissions": [
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Tioit-Wang/pi-desktop-plugin-file-manager",
+            "sourceRef": "v0.9.0",
+            "sourceCommit": "92ccff9b7c1102d1664915c44ae1e5f3bb5c56a6",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-15T08:27:11Z"
+          }
+        },
         {
           "version": "0.6.1",
           "publishedAt": "2026-09-28T09:32:32Z",
