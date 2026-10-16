@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-15T08:27:11Z",
-  "generatedAt": "2026-10-15T08:27:11Z",
+  "updatedAt": "2026-10-16T07:31:19Z",
+  "generatedAt": "2026-10-16T07:31:19Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2836,6 +2836,69 @@
       ]
     },
     {
+      "id": "local.pi-canvas",
+      "name": "PI Canvas",
+      "description": "Right-side local Canvas for PI-Desktop with isolated React views, versioned source and persistent state.",
+      "author": "payAgain",
+      "i18n": {
+        "en": {
+          "name": "PI Canvas",
+          "description": "Right-side local Canvas for PI-Desktop with isolated React views, versioned source and persistent state.",
+          "safetyNotes": "Trusted backend uses Node for its private library and packaged assets. Project TSX/JSX reads use host permissions. Generated views run in script-only sandbox iframes with no network or same-origin access. No chat reads, draft edits or message sends in the default package. Clipboard writes require an explicit user action. Back up the library before uninstalling."
+        },
+        "zh-CN": {
+          "name": "PI Canvas",
+          "description": "在 PI-Desktop 右侧展示本地交互画布，支持隔离 React 视图、源码版本与持久状态。",
+          "safetyNotes": "可信后端使用 Node 访问插件私有库和随包资源；读取项目 TSX/JSX 走宿主权限。生成视图仅在脚本沙箱 iframe 中运行，禁止网络与同源访问。默认包不读取聊天、不修改草稿、不发送消息；剪贴板写入只来自明确用户操作。卸载前请备份画布库。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/payAgain/pi-canvas",
+      "readmeMarkdown": "# PI Canvas\n\n## English\n\nPI Canvas 0.1.5 presents local interactive React canvases in PI-Desktop's **right work panel**. Open PI Canvas in the work-panel view menu after installing. No detached panel is declared or opened. The public host SDK cannot reveal/focus this view; tool selection returns opened=false and an existing visible view adopts it when safe.\n\nThe English/Chinese workbench supports source versions, persistent JSON state, themes, Design mode context copying and host-authorized project TSX/JSX import. Generated files import only @codex-canvas/sdk. Failed source retains the successful publication; failed candidate rendering retains the active iframe. canvas_status reports iframe readiness, not screenshots or focus.\n\nThe trusted backend has Node access to its private data and packaged assets. External project reads use host permissions. Generated React runs only in script-only sandbox iframes, without same-origin access or networking. The default package does not read chats, edit drafts or send messages. Clipboard copying is explicit. No desktop.control grant is requested; optional sending requires a separately authorized build and user action. Back up the library before uninstalling; no automatic migration is performed.\n\n0.1.2 has real native-view and user layout evidence. 0.1.5 release checks and marketplace status are tracked in the source repository; do not assume GitHub publication is marketplace approval.\n\n## 简体中文\n\nPI Canvas 0.1.5 在 PI-Desktop **右侧工作面板**呈现本地交互画布。安装后从视图菜单选择 PI Canvas；不声明、不创建独立窗口。公开宿主 SDK 暂不能自动展开或聚焦视图，因此工具返回 opened=false，已有可见视图在安全点接收新选择。\n\n工作台跟随宿主中英文，支持源码版本、持久状态、主题、Design mode 复制上下文和宿主授权的 TSX/JSX 导入。生成代码只从 @codex-canvas/sdk 导入。源码编译失败保留成功发布，候选视图失败保留活动 iframe。canvas_status 的就绪心跳不是截图或聚焦证明。\n\n可信 Node 后端访问插件私有库与随包资源；外部项目读取走宿主权限。生成 React 仅在脚本沙箱 iframe 中运行，禁止同源访问和网络。默认包不读聊天、不改草稿、不发消息；剪贴板复制来自明确操作。不申请 desktop.control；可选发送需另外授权的构建与用户操作。卸载前请备份，不自动迁移数据。\n\n0.1.2 已有原生侧栏与用户布局确认；0.1.5 的检查和市场状态在源码仓库记录，GitHub 发布不等于市场审核通过。\n\nSource / 源码: https://github.com/payAgain/pi-canvas\n\n[SDK](docs/SDK.md) · [Skill](skills/pi-canvas.md). MIT; upstream notices are preserved in docs/ and vendor/.\n",
+      "safetyNotes": "Trusted backend uses Node for its private library and packaged assets. Project TSX/JSX reads use host permissions. Generated views run in script-only sandbox iframes with no network or same-origin access. No chat reads, draft edits or message sends in the default package. Clipboard writes require an explicit user action. Back up the library before uninstalling.",
+      "versions": [
+        {
+          "version": "0.1.5",
+          "publishedAt": "2026-10-16T07:31:19Z",
+          "changelog": "## English\n\nPI Canvas 0.1.5 Preview resolves the compiler audit boundary: a hash-pinned TypeScript 5.9.3 compiler-only API replaces the full Node/language/server distribution. Node system initialization, Node performance loading, trace-file writing and language/server/plugin discovery are not shipped. Real semantic checking and upstream transpilation remain. Every original diagnostic is retained unchanged as readable JSON data, never evaluated as code.\n\nBuild, the loader-free AST audit, official packaging and i18n gate passed. Regressions passed: core 12, host 12 subcases, bridge 3, compiler 4, including exact parity against full TypeScript for all examples and boundary inputs. Permissions, default no-send behavior and right-side-only isolation are unchanged. No native 0.1.5 installation or screenshot acceptance is claimed; choose PI Canvas from the work-panel view menu on first use. Old release tags/assets remain immutable.\n\n## 简体中文\n\nPI Canvas 0.1.5 预览版修复编译器审计边界：使用固定源码哈希的 TypeScript 5.9.3 纯编译 API，不再携带 Node 系统初始化、Node 性能模块加载、追踪文件写入和语言服务/服务端插件发现。保留真实语义检查及上游转译；全部原始诊断按明文 JSON 数据原样保留，不作为代码执行。\n\n构建、零加载 AST 审计、官方打包和双语门槛通过；核心 12、宿主 12 个子场景、桥接 3、编译器 4 项回归通过，包含全部示例及边界输入与完整 TypeScript 的精确对比。权限、默认不发消息及右侧隔离渲染不变。尚未完成 0.1.5 原生安装或截图验收，首次仍需选择工作面板中的 PI Canvas。旧版标签及附件保持不变。",
+          "minPiDesktop": "\u003e=0.20.1",
+          "shasum": "8fddac21ff72cf33800627a65676d1ff175d946a0582ae59bd22bdbd0ee665ce",
+          "url": "packages/local.pi-canvas-0.1.5.piplug",
+          "sizeBytes": 7779471,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "clipboard.write",
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*.tsx",
+                "**/*.jsx"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/payAgain/pi-canvas",
+            "sourceRef": "v0.1.5",
+            "sourceCommit": "19455e4a5ce8755d1394db53b6b09bb4199c4689",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-16T07:31:19Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "local.pi-commandcode-desktop",
       "name": "pi-commandcode-desktop",
       "description": "帮你在pi-desktop上面使用commandcodego的订阅，喜欢的可以给我的github点个星星吗",
@@ -3382,7 +3445,7 @@
       "versions": [
         {
           "version": "0.9.0",
-          "publishedAt": "2026-10-15T08:27:11Z",
+          "publishedAt": "2026-10-15T08:27:44Z",
           "changelog": "本次发布把 0.7.0 – 0.9.0 一次补齐（上一已发布版本为 0.6.1）。\n\n## 新增：PDF 只读预览\n- 连续滚动、单页 / 双页 / 双页（封面单独）三种布局，上一页 / 下一页、页码跳转、缩放、适应宽度与实际大小。\n- 可收起的导航侧栏：缩略图、嵌套目录 / 书签、文件名 / 体积 / 页数等文档信息；窄面板下侧栏覆盖显示，跳转后自动收起，Escape 关闭。\n- 全文查找复用匹配版本的 PDF.js 查找控制器，支持大小写、全字与正则，以及阅读区内的 Ctrl/Cmd+F。\n- PDF.js Worker、CMaps、标准字体、WASM 解码器与 ICC 资源全部随包内置，支持离线 file:// 视图；单文件上限 24 MiB。\n\n## 新增：git 联动\n- 文件列表标出修改 / 新增 / 删除 / 重命名 / 冲突（目录给整棵子树的汇总），行尾显示 +N/−N，顶部一句话概览分支与各类变化数量。\n- 右侧「变更」视图给出逐行对照的 unified diff，已暂存与未暂存分段标注；未跟踪的新文件按全文新增展示。\n- 只调用工作区里 git 的只读子命令（status / diff / rev-parse），5s 超时、带输出上限、2s 结果缓存；没有 git 时只是「没有状态」，其余功能照旧。\n\n## 新增：文件监听与自动刷新\n- 文件在编辑器之外被改动（外部编辑器、git checkout、构建产物、另一个窗口）会自动重新读取并刷新列表，1.2 秒内跟上。\n- 没有未保存改动时自动重读打开的文件；有未保存改动时只亮提示条、绝不覆盖。插件自己的保存会先记一笔，1.5 秒内的同名事件不算外部改动。\n- 顶部新增「自动刷新」开关，两个手动刷新按钮原样保留。\n\n## 新增：右键菜单「复制路径」与「通过…打开」\n- 新增「复制相对路径」「复制绝对路径」，以及二级子菜单「通过…打开」——hover 即展开，列出这台机器上真实安装的程序，选中即用它打开当前条目。\n- 按文件类型过滤：编辑器什么都能打开，浏览器只出现在它真能渲染的网页类文件上（.html / .htm / .shtml / .xhtml / .mhtml / .svg / .pdf / .xml）。\n- 编辑器探测不做目录遍历：注册表 App Paths 与 StartMenuInternet、PATH 候选名、少数固定安装位置，结果按日期缓存并多开共享（冷启约 600ms，之后 0ms）。\n- 可执行文件不出主进程：视图只递 id，spawn 不经 shell、参数只有一条绝对路径，子进程 detached + stdio ignore，每次打开记一条写入审计。\n\n## 修复\n- 修掉「自己保存（Ctrl+S）仍被判成外部改动」：noteSelfWrite 现在把每一层祖先目录一并记上（Windows 递归监听会额外给父目录各报一次 change）。\n- 修掉「预览模式下打开变更时，预览与差异视图重叠」：内容区改为单值渲染，「编辑 / 预览 / 变更」同组互斥页签。\n\n新增离线校验：pnpm verify:git、verify:watch、verify:editors、verify:pdf，并纳入 pnpm verify。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "d7e60a64f4b6fb6cbc4d4cf029f8e0dc1ccc933292610033031d24094bc0b49c",
