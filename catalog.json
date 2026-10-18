@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T15:45:32Z",
-  "generatedAt": "2026-10-18T15:45:32Z",
+  "updatedAt": "2026-10-18T21:29:41Z",
+  "generatedAt": "2026-10-18T21:29:41Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2619,6 +2619,58 @@
       ]
     },
     {
+      "id": "io.github.xideadev.task-dida",
+      "name": "TASK Dida任务提示音",
+      "description": "在 AI 智能体完成任务回合、发生报错或等待操作时播放清脆悦耳的系统提示音，支持试听与自定义替换。",
+      "author": "XideaDev",
+      "i18n": {
+        "en": {
+          "name": "TASK Dida",
+          "description": "Play pleasant native sound alerts when AI finishes tasks, errors, or requires attention. Supports audition and sound customization.",
+          "safetyNotes": "Invokes the operating system's native command-line audio player to produce local alert sounds. Zero network requests, and no access to your API keys, credentials, or personal code files."
+        },
+        "zh-CN": {
+          "name": "TASK Dida任务提示音",
+          "description": "在 AI 智能体完成任务回合、发生报错或等待操作时播放清脆悦耳的系统提示音，支持试听与自定义替换。",
+          "safetyNotes": "调用操作系统原生音频播放命令（macOS 为 afplay，Windows 为 PowerShell SoundPlayer，Linux 为 aplay）播放本地提示音。无任何网络请求，绝不接触任何 API 密钥、凭据或代码文件。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida",
+      "readmeMarkdown": "# TASK Dida任务提示音 (Task Sound Alert for PI-Desktop)\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)\n[![PI-Desktop Plugin](https://img.shields.io/badge/PI--Desktop-Plugin-6366f1.svg)](https://github.com/vastsa/PI-Desktop)\n\nA lightweight, zero-dependency sound alert plugin designed specifically for **PI-Desktop**. Plays pleasant, customizable sound notifications when AI agent tasks finish, error out, or require attention.\n\n专为 **PI-Desktop** 打造的轻量级、零依赖任务完成声音通知插件。在 AI 智能体任务完成、发生异常中断或需要人工操作时，自动跟随系统通知播放清脆悦耳的提示音。\n\n---\n\n## 核心特性\n\n- **任务完成提示音 (Task Completion Sound)**: AI 顺利跑完代码或执行完回合时提供即时声音反馈（`task.completed`）。\n- **错误警示音 (Error Alert)**: 任务执行遇到异常中断或报错时播放低沉警示音。\n- **系统提示接管 (Override Host Beep)**: 可选择接管并替换系统自带单调的 660Hz 蜂鸣声，带来更悦耳的交互反馈。\n- **提示音在线试听 (Sound Audition)**: 内置可视化设置面板，支持一键在线试听各场景音效。\n- **防爆音节流 (Audio Throttling)**: 内建 2.0 秒全局冷却时间，防止多个子任务或通知密集并发导致声音撕裂。\n- **后台智能感知 (Focus Awareness)**: 可配置为仅当 PI-Desktop 窗口在后台失焦时才发声，减少前台盯屏时的听觉冗余。\n- **纯本地无外联 (Privacy First)**: 零外部网络请求，绝不接触任何 API 密钥、凭据或用户个人代码。\n\n---\n\n## 安装方式\n\n### 方式一：从官方插件市场一键安装 (推荐)\n1. 打开 PI-Desktop 客户端；\n2. 进入 **设置 (Settings)** → **插件 (Plugins)** → **插件市场 (Marketplace)**；\n3. 搜索 `TASK Dida任务提示音` 或 `Task Sound Alert`；\n4. 点击 **安装 (Install)** 并授权声音播放权限即可。\n\n### 方式二：从本地 `.piplug` 文件安装\n1. 前往 GitHub [Releases](https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida/releases) 下载最新的 `io.github.xideadev.task-dida-1.0.0.piplug`；\n2. 在 PI-Desktop 中进入 **设置 → 插件**；\n3. 点击右上角的 **“从文件安装 (Install from file)”**，选择下载的 `.piplug` 文件完成导入。\n\n---\n\n## 配置与试听面板\n\n安装后，可通过以下方式打开专属可视化设置与试听面板：\n- 按下快捷键 `Cmd + Shift + P`（Windows 为 `Ctrl + Shift + P`），搜索命令 **“TASK Dida任务提示音: 打开设置面板”**；\n- 在面板中可调节提示音量、开关各项通知，并支持针对各场景点击 **“试听音效”**。\n\n---\n\n## 开发者构建\n\n```bash\n# 1. 克隆仓库\ngit clone https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida.git\ncd PI-Desktop-Plugin-TaskDida\n\n# 2. 安装开发依赖\nnpm install\n\n# 3. 编译 TypeScript\nnpm run build\n\n# 4. 规范校验\nPluginCheck\n\n# 5. 打包 .piplug (Store-only ZIP 规范)\nPluginPack\n```\n\n---\n\n## License\n\n[MIT License](LICENSE) © 2025 XideaDev\n",
+      "safetyNotes": "调用操作系统原生音频播放命令（macOS 为 afplay，Windows 为 PowerShell SoundPlayer，Linux 为 aplay）播放本地提示音。无任何网络请求，绝不接触任何 API 密钥、凭据或代码文件。",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-18T21:29:41Z",
+          "changelog": "### Release v1.0.0: TASK Dida任务提示音\n\n专为 PI-Desktop 打造的轻量、零依赖任务完成声音通知插件。在 AI 智能体任务完成、发生异常中断或需要人工操作时，自动跟随系统通知播放清脆悦耳的提示音。\n\n#### 核心特性\n- 任务完成提示音 (Task Completion Sound)：AI 顺利跑完代码或执行完回合时提供即时声音反馈（task.completed）。\n- 错误警示音 (Error Alert)：任务执行遇到异常中断或报错时播放低沉警示音。\n- 系统提示接管 (Override Host Beep)：可选择接管并替换系统自带单调的 660Hz 蜂鸣声，带来更悦耳的交互反馈。\n- 提示音在线试听 (Sound Audition)：内置可视化设置面板，支持一键在线试听各场景音效。\n- 防爆音节流 (Audio Throttling)：内建 2.0 秒全局冷却时间，防止多个子任务或通知密集并发导致声音撕裂。\n- 后台智能感知 (Focus Awareness)：可配置为仅当 PI-Desktop 窗口在后台失焦时才发声，减少前台盯屏时的听觉冗余。\n- 纯本地无外联 (Privacy First)：零外部网络请求，绝不接触任何 API 密钥、凭据或用户个人代码。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "6f69ea18357a02e45886f8d4e19fb5cc1c476a37fa7fb922f88a72b35659266c",
+          "url": "packages/io.github.xideadev.task-dida-1.0.0.piplug",
+          "sizeBytes": 393441,
+          "permissions": [
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida",
+            "sourceRef": "v1.0.0",
+            "sourceCommit": "eda9d18bcbc64d34170350f2350ad76b4400cecc",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-18T21:29:41Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "io.github.xinzhihong.group-rooms",
       "name": "Group Rooms",
       "description": "Create or join shared rooms, chat in native sessions, and manage members in the work panel.",
@@ -3375,7 +3427,7 @@
       "versions": [
         {
           "version": "0.4.4",
-          "publishedAt": "2026-10-18T15:45:32Z",
+          "publishedAt": "2026-10-18T15:46:03Z",
           "changelog": "KnowStack 0.4.4 — 入口与项目上下文兼容修复\n\n- 正式入口统一为 main.js，消除原 MAN007 阻断。\n- 项目跟随使用当前窗口只读 DOM 身份标记，不再动态加载宿主模块或提取状态仓库，消除原 SEC003 阻断。\n- 保留无聊天项目、窗口隔离、草稿保护、会话归属和保存前复核，增加异步过期结果及快速 A→B→A 切换保护。\n- 修复身份解析期间重新读取的竞态；关闭/卸载释放监听并中止等待。\n- 保留自动保存、人工确认、项目开关、手动增删改与页内确认，无新增权限。\n\n验证：132 项 Node 测试、8 组 Chrome 可信输入测试及 PluginCheck/PluginPack 通过。官方源码及成包预审 0 阻断、22 项人工审查信号。浏览器使用模拟数据，不代表真实 Windows/Electron 验收或商店批准。内部 Renderer IPC、DOM 兼容边界和非原子整表保存限制仍存在。\n\nSource: new-Beginner/KnowStack @ v0.4.4\nCommit: 599a370a534b3dd7848aa2feeb6970b2f71186b0\nRelease: https://github.com/new-Beginner/KnowStack/releases/tag/v0.4.4\nPackage: local.project-memory-api-probe-0.4.4.piplug\nSHA-256: 23057766796ffeed4e249c29981324dd7dfb6384935fbdb951a9005930fed9ba\n\nEnglish: 0.4.4 standardizes main.js and replaces dynamic host-module loading with read-only window-local DOM identity markers. All saving modes, no-chat projects, isolation and draft protection remain. Stale async results, rapid context switches and pending reads are guarded. 132 Node tests and 8 Chrome trusted-input scenarios passed using mock data; official source/package preflight reports 0 blockers and 22 manual-review signals. Real-host acceptance and marketplace approval are not implied.",
           "minPiDesktop": "\u003e=0.20.1",
           "shasum": "23057766796ffeed4e249c29981324dd7dfb6384935fbdb951a9005930fed9ba",
