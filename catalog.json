@@ -1557,7 +1557,7 @@
     {
       "id": "io.github.eureka-0x01.open-with",
       "name": "OpenWith",
-      "description": "Open the current PI-Desktop project folder with File Explorer or an app you choose. Manage custom launchers, remember your selection, and show application icons beside the composer.",
+      "description": "通过资源管理器、代码编辑器或其他应用打开当前 PI-Desktop 项目目录。可管理自定义打开方式、记住所选应用，并在输入框旁显示应用图标。需要 PI-Desktop 0.9.0 或更高版本。",
       "author": "Eureka-0x01",
       "categories": [
         "developer-tools",
