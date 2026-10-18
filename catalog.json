@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T08:14:35Z",
-  "generatedAt": "2026-10-18T08:14:35Z",
+  "updatedAt": "2026-10-18T11:51:35Z",
+  "generatedAt": "2026-10-18T11:51:35Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1250,8 +1250,34 @@
       "safetyNotes": "Reads the WorkBuddy, Trae and Qoder sign-ins already saved on this machine. If an install is not in its default location, only its uninstall registry entry is read to find it. Keys for encrypted fields stay in memory. Tokens go only to each vendor's own hosts: copilot.tencent.com / codebuddy.cn / codebuddy.ai / workbuddy.ai / www.workbuddy.cn, api.trae.cn / solo.trae.cn / trae-api-cn.mchost.guru / coresg-normal.trae.ai / growsg-normal.trae.ai, gateway.qoder.com.cn / openapi.qoder.com.cn / api3.qoder.sh / openapi.qoder.sh. Chat is served from 127.0.0.1.",
       "versions": [
         {
+          "version": "1.0.41",
+          "publishedAt": "2026-10-18T11:51:35Z",
+          "changelog": "关于我的包打错了，无法删除发布版本这件事...",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "8ec0b5c11dd00da0b8b643ae53ed782bccef69baeba4dcece3592425a789e5d9",
+          "url": "packages/io.github.chengzhi-c.pi-desktop-wtq-pool-1.0.41.piplug",
+          "sizeBytes": 863492,
+          "permissions": [
+            "background.service",
+            "clipboard.write",
+            "provider.register",
+            "renderer.extension",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/chengzhi-c/pi-desktop-wtq-pool",
+            "sourceRef": "v1.0.41",
+            "sourceCommit": "45b97b7862c504def719f2efc94780ee5cad083b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-18T11:51:35Z"
+          }
+        },
+        {
           "version": "1.0.4",
-          "publishedAt": "2026-10-18T08:14:35Z",
+          "publishedAt": "2026-10-18T08:15:04Z",
           "changelog": "- Trae、Qoder 的流式回复改为单循环推送：宿主不再反复回调读取，回复不会中途停住；网关先发出响应头，再从桥接流直接泵出，不再读 `Response` 的 body，也不再经过 `Readable.fromWeb`。\n- Qoder 在结束帧后最多等 1 秒：没有后续帧就补上 `[DONE]` 并关闭，用量帧到达则立即收尾，回复写完不再一直显示未完成（上一版的一秒宽限只取消了上游读取，没有关闭转发流）。\n- WorkBuddy 网关同样先发出响应头；其余行为不变。\n- 面板的签到汇总按三家合计显示领取账号数，不再只算 WorkBuddy。\n- 网关拒绝跨站请求（`Sec-Fetch-Site: cross-site`），本机客户端不受影响。\n- 面板的签到日志持续轮询到结束，模型勾选与自动签到时间的未保存草稿不再被轮询覆盖，日志不再强制滚到底部，账号名单读取失败后可以重试。\n- 客户端提前断开时桥接流一并取消，泵送不再向已关闭的响应写入，释放读锁不再抛出。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "f9a40cd50dc912ebfd7f04338ca25e18d3adf5760d8f3e03d181438743b39098",
