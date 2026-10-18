@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T04:07:27Z",
-  "generatedAt": "2026-10-18T04:07:27Z",
+  "updatedAt": "2026-10-18T04:07:55Z",
+  "generatedAt": "2026-10-18T04:07:55Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1556,15 +1556,9 @@
     },
     {
       "id": "io.github.eureka-0x01.open-with",
-      "name": "Open With",
+      "name": "OpenWith",
       "description": "Open the current PI-Desktop project folder with File Explorer or an app you choose. Manage custom launchers, remember your selection, and show application icons beside the composer.",
       "author": "Eureka-0x01",
-      "i18n": {
-        "zh-CN": {
-          "name": "Open With",
-          "description": "在 PI-Desktop 输入框旁，通过资源管理器或自定义应用打开当前项目目录；支持添加、编辑和删除打开方式，保存选中项并显示程序图标。列表点选只切换应用，点击主按钮才打开目录。"
-        }
-      },
       "categories": [
         "developer-tools",
         "productivity"
@@ -1574,12 +1568,12 @@
       "publisherId": "github",
       "downloads": 0,
       "homepage": "https://github.com/Eureka-0x01/open-with",
-      "readmeMarkdown": "# Open With\r\n\r\n通过资源管理器、代码编辑器或其他应用打开当前 PI-Desktop 项目目录。需要 PI-Desktop 0.9.0 或更高版本。\r\n\r\n## 使用方法\r\n\r\n1. 在 PI-Desktop 中打开一个项目。\r\n2. 点击输入框底栏左侧的主按钮，用当前选中的应用打开目录。\r\n3. 点击右侧 ▾ 查看打开方式；点击应用行只切换选中项，再点击主按钮才打开。\r\n\r\n## 添加与管理应用\r\n\r\n点击 ▾ → 添加打开方式，填写名称和程序完整路径。在 Windows 上需要填写以 .exe 结尾的实际程序路径，例如 C:\\Program Files\\Microsoft VS Code\\Code.exe。程序需支持通过命令行参数打开文件夹。插件会清理常见隐藏字符和首尾引号，并尝试提取程序图标，失败或超时后使用默认图标。\r\n\r\n支持编辑、删除自定义应用，最多 32 个，名称最多 40 个字符。应用列表及选中项会持久保存。内置文件管理器不可编辑或删除；删除选中的自定义应用后自动回落文件管理器。\r\n\r\n## 权限与隐私\r\n\r\nrenderer.extension 允许界面在宿主主窗口中运行，需要明确授权。配置保存在插件设置中。插件不联网、不读取剪贴板、不主动修改或删除项目文件。点击主按钮会启动用户指定的外部程序，外部程序按其自身权限运行。Windows 上会调用系统 PowerShell 读取程序图标。\r\n\r\n## 许可与源码\r\n\r\nMIT License · Eureka-0x01\r\n\r\nhttps://github.com/Eureka-0x01/open-with",
+      "readmeMarkdown": "# OpenWith\n\n通过资源管理器、代码编辑器或其他应用打开当前 PI-Desktop 项目目录。需要 PI-Desktop 0.9.0 或更高版本。\n\n## 使用方法\n\n1. 在 PI-Desktop 中打开一个项目。\n2. 点击输入框底栏左侧的主按钮，用当前选中的应用打开目录。\n3. 点击右侧 ▾ 查看打开方式；点击应用行只切换选中项，再点击主按钮才打开。\n\n## 添加与管理应用\n\n点击 ▾ → 添加打开方式，填写名称和程序完整路径。在 Windows 上需要填写以 .exe 结尾的实际程序路径，例如 C:\\Program Files\\Microsoft VS Code\\Code.exe。程序需支持通过命令行参数打开文件夹。插件会清理常见隐藏字符和首尾引号，并尝试提取程序图标，失败或超时后使用默认图标。\n\n支持编辑、删除自定义应用，最多 32 个，名称最多 40 个字符。应用列表及选中项会持久保存。内置文件管理器不可编辑或删除；删除选中的自定义应用后自动回落文件管理器。\n\n## 权限与隐私\n\nrenderer.extension 允许界面在宿主主窗口中运行，需要明确授权。配置保存在插件设置中。插件不联网、不读取剪贴板、不主动修改或删除项目文件。点击主按钮会启动用户指定的外部程序，外部程序按其自身权限运行。Windows 上会调用系统 PowerShell 读取程序图标。\n\n## 许可与源码\n\nMIT License · Eureka-0x01\n\nhttps://github.com/Eureka-0x01/open-with",
       "safetyNotes": "唯一声明权限为 renderer.extension，用于在宿主主窗口显示按钮和弹层。读取当前项目目录，并将其作为参数传给系统文件管理器或用户保存的程序；应用路径、参数、选中状态和图标保存在插件设置。Windows 上检查盘符绝对路径是否存在，并调用系统 PowerShell 提取程序图标。主进程使用 Node 原生进程启动和文件存在性检查。插件不联网、不读取剪贴板、不主动修改或删除项目文件；启动的外部程序按其自身权限运行。",
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-10-18T04:07:27Z",
+          "publishedAt": "2026-10-18T04:07:55Z",
           "changelog": "0.1.0 首次正式发布：新增输入框底栏打开方式按钮；支持使用内置文件管理器或自定义应用打开当前项目目录；支持添加、编辑、删除自定义应用，持久保存选中状态，删除选中应用后自动回落文件管理器；支持 Windows exe 路径清理、校验和程序图标提取；图标提取超时后回退默认图标。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "71a70359eefe9a299c8ea4f956d9cbc07924cfde0b482397c0e035f3f7c82674",
