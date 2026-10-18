@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T11:51:35Z",
-  "generatedAt": "2026-10-18T11:51:35Z",
+  "updatedAt": "2026-10-18T12:04:06Z",
+  "generatedAt": "2026-10-18T12:04:06Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1251,7 +1251,7 @@
       "versions": [
         {
           "version": "1.0.41",
-          "publishedAt": "2026-10-18T11:51:35Z",
+          "publishedAt": "2026-10-18T11:52:05Z",
           "changelog": "关于我的包打错了，无法删除发布版本这件事...",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "8ec0b5c11dd00da0b8b643ae53ed782bccef69baeba4dcece3592425a789e5d9",
@@ -2571,6 +2571,49 @@
             "sourceCommit": "e8f2d905ffedce2599cc4908dc52fffd2148840c",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-30T06:05:46Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.wenziji-hub.market-translator",
+      "name": "Marketplace Chinese Translation",
+      "description": "Chinese display for the skill and MCP marketplace: list cards and the pre-install detail sheet (title, description, full SKILL.md preview). Uses an optional Google Cloud Translation key (no model quota) or an already configured model; falls back to the model when Google fails. Originals, install commands and MCP settings stay untouched. Never reads your model base URL, API keys, chat history or project files.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "技能与 MCP 市场中文翻译",
+          "description": "让技能市场与 MCP 市场显示中文：列表卡片和安装前详情页（标题、简介、整篇 SKILL.md 预览）都会翻译。可用可选的谷歌云翻译密钥（不消耗模型额度），也可以用已在 PI-Desktop 中配置的模型；谷歌失败会自动回退模型。原文、安装命令与 MCP 配置一律不改，也不读取你的模型地址、API 密钥、聊天记录或项目文件。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.6",
+          "publishedAt": "2026-10-18T12:04:06Z",
+          "changelog": "0.1.6 首个公开版本。\n\n- 列表与详情页中文显示，译文原位替换、不保留英文对照\n- 可选的谷歌翻译引擎：自带密钥、不耗模型额度、失败自动回退模型\n- 模型缓存优先，谷歌缓存排最后；换模型可选重新翻译或沿用旧译文\n- 缓存上限可选 100–2000 条，附 80 万字符保护\n- 新增「清除本机密钥」",
+          "minPiDesktop": "\u003e=0.20.1",
+          "shasum": "7a9ca5ab5300315ca01eaeae5e383cb56d190aead0c837285b13b3c6c6252b30",
+          "url": "packages/io.github.wenziji-hub.market-translator-0.1.6.piplug",
+          "sizeBytes": 46035,
+          "permissions": [
+            "agent.complete",
+            "models.list",
+            "net.fetch",
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/wenziji-hub/pi-market-translator",
+            "sourceRef": "v0.1.6",
+            "sourceCommit": "d921308618caae60c1e97eb7c0da29a419e879ea",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-18T12:04:06Z"
           }
         }
       ]
