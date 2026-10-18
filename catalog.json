@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T14:54:50Z",
-  "generatedAt": "2026-10-18T14:54:50Z",
+  "updatedAt": "2026-10-18T15:45:32Z",
+  "generatedAt": "2026-10-18T15:45:32Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2704,7 +2704,7 @@
       "versions": [
         {
           "version": "1.4.50",
-          "publishedAt": "2026-10-18T14:54:50Z",
+          "publishedAt": "2026-10-18T14:55:22Z",
           "changelog": "1.4.50\n- 优化会话审查侧栏：隐藏已确认 +0/-0 条目及行数未知的已删除文件，保留真实行变更和未删除的未知条目；首屏、分页、实时刷新规则一致，不删除采集证据。\n- 包含 1.4.49 的多 Git 仓库切换、选择持久化和会话页面缓存优化。\n- 无新增权限或依赖。\n\n验证：类型检查和构建通过；单元/集成测试 671 项通过、1 项跳过；相关界面测试 8 项通过（模拟桥接，不替代原生客户端验收）。",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "3bd079699a6facaefb1e72d2506ac9d70452416f2c7770f6cd294b84958ffc88",
@@ -3346,6 +3346,54 @@
             "sourceCommit": "9d7f4af1b61bdfbb02b1303802d7c2c6daac2fa7",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-14T05:44:42Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.project-memory-api-probe",
+      "name": "KnowStack",
+      "description": "Concise, deduplicated native project memory for PI-Desktop, with session-bound saves, per-project automatic saving or user approval, and a memory editor.",
+      "author": "KnowStack",
+      "i18n": {
+        "zh-CN": {
+          "name": "知栈 · KnowStack",
+          "description": "将已验证、可复用的新结论精简追加到 PI-Desktop 原生项目记忆；支持去重、按项目自动保存或人工确认，以及当前窗口项目记忆管理。没有新知识时不凑数。"
+        }
+      },
+      "categories": [
+        "knowledge",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/new-Beginner/KnowStack",
+      "readmeMarkdown": "# 知栈 · KnowStack 0.4.4\r\n\r\n只使用 PI-Desktop 原生项目记忆。精简提炼已验证、可复用且当前记忆未覆盖的新结论，没有新知识就不生成占位记忆。\r\n\r\n## 功能\r\n- 保存前读取当前原生记忆，结合 Agent 语义比较和本地重复拦截；每批最多 3 条，标题不超过 24 字符，正文不超过 300 字符。\r\n- 绑定可信发起会话，保存前核对项目归属和快照，回读验证后才报告成功。\r\n- 默认自动保存，可按项目关闭改为工具卡人工确认；提供可视化项目开关，多文件夹项目共用记忆和设置。\r\n- 右侧工作面板“新建（＋）→ 项目记忆”打开编辑器，跟随当前窗口本地项目，包括无聊天项目；支持手动增删改和重新读取，显式保存才写入。\r\n- 项目切换保留未保存草稿并停止旧草稿提交；删除和放弃草稿使用页内确认。\r\n\r\n## 0.4.4 修复\r\n正式入口统一为 main.js；项目跟随替换为当前窗口只读 DOM 身份标记，不动态加载宿主模块或提取状态仓库。保留全部保存模式、无聊天项目和窗口隔离；增加异步过期结果及快速 A→B→A 切换保护，修复身份解析期间重新读取的竞态，关闭或卸载时清理监听。\r\n\r\n## 使用\r\n1. PI-Desktop 最低版本 \u003e=0.20.1，安装并审核权限。\r\n2. 停用旧 axc00.project-knowledge 插件，避免两套流程竞争。\r\n3. 开始新 Agent 会话或重启已有 Agent，使扩展指引生效。\r\n4. 在工具卡核对保存回执；关闭自动后须点击确认。\r\n\r\n## 安全及验证\r\nAgent 只追加，不自动改写或删除旧记忆；手动编辑需显式保存。不联网、不调用 Jev、不维护 .workflow 知识库，不直接访问数据库或改宿主源码。语义去重依赖任务 Agent，不承诺每轮必定生成记忆。\r\n\r\nDOM 标记和原生记忆内部 Renderer IPC 是兼容边界，整表保存不具备跨窗口原子并发保护，请勿同时修改同一项目记忆。遇到冲突、归属变化或结果不确定时先重新读取核对，不盲目重试；远程项目不纳入管理。\r\n\r\n132 项 Node 回归、8 组 Chrome 可信输入测试及 PluginCheck/PluginPack 通过；官方源码及成包预审 0 阻断、22 项人工审查信号。模拟浏览器测试不代替真实 Windows/Electron 项目跟随、记忆保存和删除后聊天焦点验收，不代表商店批准。\r\n\r\n## Source / 源码\r\nhttps://github.com/new-Beginner/KnowStack\r\n\r\nSource tag: v0.4.4\r\nCommit: 599a370a534b3dd7848aa2feeb6970b2f71186b0\r\nRelease: https://github.com/new-Beginner/KnowStack/releases/tag/v0.4.4\r\nPackage: local.project-memory-api-probe-0.4.4.piplug\r\nSHA-256: 23057766796ffeed4e249c29981324dd7dfb6384935fbdb951a9005930fed9ba\r\n\r\n## English\r\nKnowStack uses only PI-Desktop native project memory: concise lessons, deduplication, session-bound appends, per-project automatic/manual saving and a current-window memory editor. Automatic saving is ON by default; disable it per project for a real approval click. No new knowledge means no new memory.\r\n\r\n0.4.4 standardizes main.js and replaces dynamic host-module loading with read-only window-local DOM identity markers, retaining no-chat projects, window isolation, drafts, ownership checks and all saving modes. Internal renderer IPC, DOM compatibility and non-atomic whole-list writes remain limitations. Automated mock-data checks do not imply real-host acceptance or marketplace approval.",
+      "safetyNotes": "默认开启自动保存：合格新记忆可直接追加到发起会话所属项目，可按项目关闭以要求真实用户点击确认。Agent 仅追加，不自动改写或删除旧记忆；手动编辑需显式保存，仅加载插件不会写入。\r\n\r\n仅使用原生项目记忆，不联网、不调用 Jev、不维护第二套 .workflow 知识库、不直接访问数据库或修改宿主源码。现有 agent.tool.register、agent.extension、renderer.extension 权限不变。\r\n\r\n0.4.4 项目识别使用当前窗口只读 DOM 身份标记，不动态加载宿主模块或提取状态仓库。会话路径由受限固定 sessionGet 核验；DOM 与原生记忆内部 Renderer IPC 仍是兼容边界。整表保存无跨窗口原子并发保护，请勿同时修改同一项目记忆。上下文缺失、歧义或远程身份停止读写。\r\n\r\n132 项 Node 测试和 8 组 Chrome 可信输入测试通过；浏览器使用模拟数据。源码及成包自动预审为 0 阻断、22 项人工审查信号，不代表真实 Windows/Electron 验收或商店批准。停用旧 axc00.project-knowledge，避免流程竞争。\r\n\r\nAutomatic saving is ON by default; disable it per project for a real approval click. The Agent only appends; manual edits require explicit saving. No network access, Jev, parallel knowledge files, database access or host-source changes. Internal renderer IPC, DOM compatibility and non-atomic whole-list writes remain limitations. Mock-data checks do not imply real-host acceptance or marketplace approval.",
+      "versions": [
+        {
+          "version": "0.4.4",
+          "publishedAt": "2026-10-18T15:45:32Z",
+          "changelog": "KnowStack 0.4.4 — 入口与项目上下文兼容修复\n\n- 正式入口统一为 main.js，消除原 MAN007 阻断。\n- 项目跟随使用当前窗口只读 DOM 身份标记，不再动态加载宿主模块或提取状态仓库，消除原 SEC003 阻断。\n- 保留无聊天项目、窗口隔离、草稿保护、会话归属和保存前复核，增加异步过期结果及快速 A→B→A 切换保护。\n- 修复身份解析期间重新读取的竞态；关闭/卸载释放监听并中止等待。\n- 保留自动保存、人工确认、项目开关、手动增删改与页内确认，无新增权限。\n\n验证：132 项 Node 测试、8 组 Chrome 可信输入测试及 PluginCheck/PluginPack 通过。官方源码及成包预审 0 阻断、22 项人工审查信号。浏览器使用模拟数据，不代表真实 Windows/Electron 验收或商店批准。内部 Renderer IPC、DOM 兼容边界和非原子整表保存限制仍存在。\n\nSource: new-Beginner/KnowStack @ v0.4.4\nCommit: 599a370a534b3dd7848aa2feeb6970b2f71186b0\nRelease: https://github.com/new-Beginner/KnowStack/releases/tag/v0.4.4\nPackage: local.project-memory-api-probe-0.4.4.piplug\nSHA-256: 23057766796ffeed4e249c29981324dd7dfb6384935fbdb951a9005930fed9ba\n\nEnglish: 0.4.4 standardizes main.js and replaces dynamic host-module loading with read-only window-local DOM identity markers. All saving modes, no-chat projects, isolation and draft protection remain. Stale async results, rapid context switches and pending reads are guarded. 132 Node tests and 8 Chrome trusted-input scenarios passed using mock data; official source/package preflight reports 0 blockers and 22 manual-review signals. Real-host acceptance and marketplace approval are not implied.",
+          "minPiDesktop": "\u003e=0.20.1",
+          "shasum": "23057766796ffeed4e249c29981324dd7dfb6384935fbdb951a9005930fed9ba",
+          "url": "packages/local.project-memory-api-probe-0.4.4.piplug",
+          "sizeBytes": 1489820,
+          "permissions": [
+            "agent.extension",
+            "agent.tool.register",
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/new-Beginner/KnowStack",
+            "sourceRef": "v0.4.4",
+            "sourceCommit": "599a370a534b3dd7848aa2feeb6970b2f71186b0",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-18T15:45:32Z"
           }
         }
       ]
