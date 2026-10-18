@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-17T11:37:35Z",
-  "generatedAt": "2026-10-17T11:37:35Z",
+  "updatedAt": "2026-10-18T04:07:27Z",
+  "generatedAt": "2026-10-18T04:07:27Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1251,7 +1251,7 @@
       "versions": [
         {
           "version": "1.0.3",
-          "publishedAt": "2026-10-17T11:37:35Z",
+          "publishedAt": "2026-10-17T11:38:13Z",
           "changelog": "- WorkBuddy 国际版补齐会话头族与版本 UA，不再被渠道校验回 400 / 11128；不带会话标记的 401（含网关返回的 HTML 拒绝页）按登录失效分类并换号。\n- WorkBuddy 拿不到本机密钥、或刷新令牌过期但访问令牌仍有效时账号不再从账号池消失；刷新到的新令牌不再被下一次扫描换回磁盘上的旧值，余额重新读到积分时释放扣留。\n- 额度用尽与登录失效退出轮换，直到余额重新读到或重新登录；400 / 422 提到额度、429 响应体里的额度文案都不再被读成余额耗尽。\n- 上游主机不可达（DNS、连接重置、TLS、30x 重定向）时换下一个登录重试，不再直接给客户端 502；调用方挂断（含首字节前的 peek 阶段）不算上游故障，不冷却健康账号。\n- 上游只在 `Retry-After` 响应头给出等待时按它冷却并透传给客户端（截到两小时）；响应头超时只覆盖等响应头，流中途的静默交给空闲看门狗。\n- 调用方挂断后上游请求真正被拆掉，错误响应体在挂断或超限时立即取消；WorkBuddy 流中途失败改为发出带内错误帧、终止帧与 `[DONE]`。\n- 超过 64 MiB 的请求体先排空再关闭并回 413；peek 期间连接中断不再绕过故障转移。\n- Trae、Qoder 的第一个登录不可用时自动换下一个，模型目录也换号读，不再整个网关答 503；Trae 的登录拒绝与流内拒绝（订阅门槛、队列帧等）按真实状态码应答。\n- Qoder 的失败帧（空 choices、字符串 `error`/`details`、`errcode` 拼写、嵌套确认码）都按真实编码换号或冷却。\n- Qoder 的一轮在结束帧后即向客户端收尾，只留一秒等尾随的用量帧，不再等上游关闭连接。\n- Trae 的每个存储文件只在第一个认领它的版本下探一次；一台安装登录多个账号时明确报告设备号是回退值。\n- Qoder 发布目录给出的最大上下文窗口，不再在 200K 处截断；数字时间戳的到期时间不再被当成永不过期。\n- Trae、Qoder 的登录发现按 30 秒缓存，Qoder 不再每个请求 spawn PowerShell 解密钥；目录读取失败进入 30 秒退避。\n- Trae 与 Qoder 的 SSE 解码支持单独 CR 行分隔与 64 MiB 单行上限，`data:` 数组不再一直涨；中继按客户端消费速度读上游，慢客户端不再把整份回复缓存在网关里。\n- 模型名册只有真读到的那份才算数：读取超时留下的兜底列表不再被拿来判定「已下线」；进入面板会自动重新拉一次名册，读取失败或账号扫描尚未完成时按 15 秒重试，保存的模型选择因此能正确生效，不再每次启动都显示全部、也不再挂着提示。\n- 模型页保存的思考等级与上游声明的 `defaultEffort` 都生效，不再显示「高级」却发布兜底等级。\n- 设置文档与面板保存共用同一组边界（积分保底、模型 id 长度、覆写表大小、token 预算、模型 id 条数）；`enabledModelIds: []` 对 Trae 与 Qoder 也禁用全部模型；只由标点组成的别名不再把模型移除；旧版 `imageModelIds` 与 `contextBudgets` 折进模型覆写。\n- provider 行只在网关预热时保留，插件被停用时清空遗留的 provider 行；网关启动失败不再被当成「还在预热」，模型组摘掉、连接检查报出原因。\n- 账号池刷新：强制刷新不再放行式交接；`authFile` 改指后补一次扫描且旧目录不写回；宿主设置变更只在来源开关时重置缓存；全部冷却时面板继续轮询，停用账号退出探测；某个 region 启动失败只记警告并继续。\n- 面板与命令：`/invoke` 等待期间关闭面板不再让插件子进程死亡；补上内容安全策略、框架祖先限制与 `nosniff`；输入框积分浮层在功能关闭后停止轮询并区分两种未知；两条命令同时运行时各自汇报自己的结果；被其他操作清掉的顶部警告会重新出现，放弃轮询时「检测中」会收尾。\n- 签到与领取：Trae 签到响应缺省 `enable` 时不再被当成未开通；Qoder 的领取读完整响应体（不再按错误体的 300 字节截断），带 `grantId`／金额的已发放响应不再被报成「跳过」，200 里的业务错误码按失败上报并带上游原话；拒绝里带「already」不再算当天已领，连登奖励不再空转，重启不重跑整天、时段落盘保留三天，停启后各类签到重新起跑，报告不再出现空行；Qoder claim 未到账时不再携带 `amount`；Trae 返回 9074 时在失败原因里说明设备号来源。\n- 签到一次只跑一轮：单账号签到与整批签到互斥，面板的整批签到也记下当次时段，定时任务不再一分钟后再跑一遍；旅行的失败进入计数；Qoder 活动列表读取失败与「该账号无签到活动」分开显示；面板不再把签到失败显示成「今天都已签到」，失败会带原因说出来。\n- 上游响应体无论是否为 JSON 都先脱敏再转给客户端；手写签到时段里的空值不再被当成 00:00。\n- PI 桌面端宿主：加载期间的面板调用不再撞上未初始化的账号池；偏好账号的清除进入写队列，不再覆盖同时进行的设置写入。\n- 连接检查自身抛错会写进报告，超时后的回退读取受剩余预算约束；at-rest 的可执行文件候选只收文件，注册表扫描结果按进程缓存。\n- 面板与声明：声明的变更比对按键序归一化并缓存 `manifest.json`，页脚在第一次写入之前不再显示「已更新」；积分弹层的账号包列表截到 8 条，不再触发宿主的 64 KB 应答上限；加载过程在 await 之间复查服务是否已停止。\n- 服务启动即扫描 WorkBuddy 账号，首个对话不再等待完整的密钥获取，扫描在并发请求间共享一次。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "6b4bd45cc5221c09bc1bc0cd8b2c5a6bbaabb3a6906db8fdc27af6d98d5f3d6a",
@@ -1550,6 +1550,52 @@
             "sourceCommit": "2859c3b501c25df07b459457eab066ef4398cef3",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-23T13:17:56Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.eureka-0x01.open-with",
+      "name": "Open With",
+      "description": "Open the current PI-Desktop project folder with File Explorer or an app you choose. Manage custom launchers, remember your selection, and show application icons beside the composer.",
+      "author": "Eureka-0x01",
+      "i18n": {
+        "zh-CN": {
+          "name": "Open With",
+          "description": "在 PI-Desktop 输入框旁，通过资源管理器或自定义应用打开当前项目目录；支持添加、编辑和删除打开方式，保存选中项并显示程序图标。列表点选只切换应用，点击主按钮才打开目录。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/Eureka-0x01/open-with",
+      "readmeMarkdown": "# Open With\r\n\r\n通过资源管理器、代码编辑器或其他应用打开当前 PI-Desktop 项目目录。需要 PI-Desktop 0.9.0 或更高版本。\r\n\r\n## 使用方法\r\n\r\n1. 在 PI-Desktop 中打开一个项目。\r\n2. 点击输入框底栏左侧的主按钮，用当前选中的应用打开目录。\r\n3. 点击右侧 ▾ 查看打开方式；点击应用行只切换选中项，再点击主按钮才打开。\r\n\r\n## 添加与管理应用\r\n\r\n点击 ▾ → 添加打开方式，填写名称和程序完整路径。在 Windows 上需要填写以 .exe 结尾的实际程序路径，例如 C:\\Program Files\\Microsoft VS Code\\Code.exe。程序需支持通过命令行参数打开文件夹。插件会清理常见隐藏字符和首尾引号，并尝试提取程序图标，失败或超时后使用默认图标。\r\n\r\n支持编辑、删除自定义应用，最多 32 个，名称最多 40 个字符。应用列表及选中项会持久保存。内置文件管理器不可编辑或删除；删除选中的自定义应用后自动回落文件管理器。\r\n\r\n## 权限与隐私\r\n\r\nrenderer.extension 允许界面在宿主主窗口中运行，需要明确授权。配置保存在插件设置中。插件不联网、不读取剪贴板、不主动修改或删除项目文件。点击主按钮会启动用户指定的外部程序，外部程序按其自身权限运行。Windows 上会调用系统 PowerShell 读取程序图标。\r\n\r\n## 许可与源码\r\n\r\nMIT License · Eureka-0x01\r\n\r\nhttps://github.com/Eureka-0x01/open-with",
+      "safetyNotes": "唯一声明权限为 renderer.extension，用于在宿主主窗口显示按钮和弹层。读取当前项目目录，并将其作为参数传给系统文件管理器或用户保存的程序；应用路径、参数、选中状态和图标保存在插件设置。Windows 上检查盘符绝对路径是否存在，并调用系统 PowerShell 提取程序图标。主进程使用 Node 原生进程启动和文件存在性检查。插件不联网、不读取剪贴板、不主动修改或删除项目文件；启动的外部程序按其自身权限运行。",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-10-18T04:07:27Z",
+          "changelog": "0.1.0 首次正式发布：新增输入框底栏打开方式按钮；支持使用内置文件管理器或自定义应用打开当前项目目录；支持添加、编辑、删除自定义应用，持久保存选中状态，删除选中应用后自动回落文件管理器；支持 Windows exe 路径清理、校验和程序图标提取；图标提取超时后回退默认图标。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "71a70359eefe9a299c8ea4f956d9cbc07924cfde0b482397c0e035f3f7c82674",
+          "url": "packages/io.github.eureka-0x01.open-with-0.1.0.piplug",
+          "sizeBytes": 55776,
+          "permissions": [
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Eureka-0x01/open-with",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "b2fc7a9f750d35da53e86fc23af59ac9578083e9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-18T04:07:27Z"
           }
         }
       ]
