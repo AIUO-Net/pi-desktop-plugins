@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T12:04:06Z",
-  "generatedAt": "2026-10-18T12:04:06Z",
+  "updatedAt": "2026-10-18T14:54:50Z",
+  "generatedAt": "2026-10-18T14:54:50Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2594,7 +2594,7 @@
       "versions": [
         {
           "version": "0.1.6",
-          "publishedAt": "2026-10-18T12:04:06Z",
+          "publishedAt": "2026-10-18T12:04:33Z",
           "changelog": "0.1.6 首个公开版本。\n\n- 列表与详情页中文显示，译文原位替换、不保留英文对照\n- 可选的谷歌翻译引擎：自带密钥、不耗模型额度、失败自动回退模型\n- 模型缓存优先，谷歌缓存排最后；换模型可选重新翻译或沿用旧译文\n- 缓存上限可选 100–2000 条，附 80 万字符保护\n- 新增「清除本机密钥」",
           "minPiDesktop": "\u003e=0.20.1",
           "shasum": "7a9ca5ab5300315ca01eaeae5e383cb56d190aead0c837285b13b3c6c6252b30",
@@ -2702,6 +2702,32 @@
       "readmeMarkdown": "# Diff view / 差异审查\r\n\r\n版本：1.4.41 · 插件 ID：local.diff-view · 许可证：MIT\r\n\r\n## 功能\r\n- 按会话和用户轮次保存明确文件工具的修改证据，查看当前与历史轮次的统一或并排差异。\r\n- 文末变更卡片和运行浮窗，支持逐行评论、搜索、复制路径和补丁，不自动发送聊天。\r\n- 独立本地 Git 管理：工作区、暂存区、提交、分支、历史、blame 与 stash；不提供远程 Git 操作。\r\n- 文件行打开按钮使用 Windows 默认程序打开经本会话记录校验的当前文件。\r\n\r\n## 安装与使用\r\n要求 PI-Desktop 0.17.0+。安装 local.diff-view-1.4.41.piplug 并手动批准权限，在右侧工作面板添加差异审查 / Diff view。新增 desktop.control 用于两项只读公开查询。任务安全结束后再重新加载 Agent 扩展。\r\n\r\n## 1.4.41 方案 A\r\n生产路径已移除宿主私有 store、动态模块导入和宿主私有历史目录读取。后端通过官方 agent/getStatus、session/get 获取状态与结构化证据，结合插件自有 Agent 快照和精确工具 ID 恢复；Renderer 只共享轮询精简元数据，不传聊天正文或工具证据。会话切换、A→B→A、卸载和迟到响应保留隔离。拒权、超时和缺失证据保持未知，不用当前文件补造历史前像。\r\n\r\n## 数据与安全\r\n这是可信非沙箱本地插件。仅采集明确的 Write/Edit 与 FastCtx 单文件替换目标；目录、预览、Shell/Task 不自动归属本轮。快照、去正文证据、评论和恢复副本保存在插件私有数据区，清理历史时删除。文件恢复及 Git 写入需人工操作和确认，应备份重要项目。\r\n\r\n## 验证与限制\r\n类型检查、构建、601 项单元/集成测试及 56 项聚焦浏览器测试通过；单元/集成另有 1 项跳过。公开副本隐私预检、PluginCheck、PluginPack 和包内正式 JavaScript 扫描通过。模拟宿主测试不等于原生客户端验收；未宣称完整浏览器套件全部通过。DOM 标记并非稳定 SDK；多实例歧义停止绑定。agent.extension 的市场签名/准入仍需官方确认。\r\n\r\n源码仓库：https://github.com/new-Beginner/pi-diff-view\r\n计划源码 tag：v1.4.41（本轮未创建或推送，正式提交前须核对源码与安装包匹配）。",
       "safetyNotes": "可信的非沙箱本地插件，使用 agent.extension、renderer.extension、ui.panel、ui.view、clipboard.write、desktop.control 权限，需用户明确批准。desktop.control 仅用于官方操作目录发现及 agent/getStatus、session/get 两项只读查询；不动态导入宿主模块、不读取私有 store、宿主 JSONL、review-changes 或 app.asar，不写宿主数据库、不联网、不执行远程 Git。Agent 仅采集 Write/Edit 与 FastCtx 单文件替换的明确目标，跳过预览、目录、凭据、私有数据及链接；不推断 Shell/Task 工作区修改。结合精确工具 ID 和自有快照恢复证据，状态失败保持未知，缺失前像、并发归属不明及断链明确标注，不用当前磁盘伪造历史。去正文结构化证据存于插件数据区，单记录 8 MiB、最多 200 条、总量 128 MiB；清理历史时删除。文件恢复和 Git 写操作需明确操作与确认，仓库 hooks/filters 为受信任本地代码。系统打开由用户点击触发，使用固定 Windows PowerShell 启动器与默认程序，校验本会话文件，可执行类型额外确认，不导出历史副本、不自动重试。DOM 会话跟随和审查导航仍属兼容实现，多实例歧义停止绑定。原生客户端验收及 agent.extension 的市场签名/准入仍待官方确认，本地检查通过不等于市场审核通过。",
       "versions": [
+        {
+          "version": "1.4.50",
+          "publishedAt": "2026-10-18T14:54:50Z",
+          "changelog": "1.4.50\n- 优化会话审查侧栏：隐藏已确认 +0/-0 条目及行数未知的已删除文件，保留真实行变更和未删除的未知条目；首屏、分页、实时刷新规则一致，不删除采集证据。\n- 包含 1.4.49 的多 Git 仓库切换、选择持久化和会话页面缓存优化。\n- 无新增权限或依赖。\n\n验证：类型检查和构建通过；单元/集成测试 671 项通过、1 项跳过；相关界面测试 8 项通过（模拟桥接，不替代原生客户端验收）。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "3bd079699a6facaefb1e72d2506ac9d70452416f2c7770f6cd294b84958ffc88",
+          "url": "packages/local.diff-view-1.4.50.piplug",
+          "sizeBytes": 2984265,
+          "permissions": [
+            "agent.extension",
+            "clipboard.write",
+            "desktop.control",
+            "renderer.extension",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/new-Beginner/pi-diff-view",
+            "sourceRef": "v1.4.50",
+            "sourceCommit": "c1d94a8f8fe55b152ead69ba108dd4ded44a89ca",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-18T14:54:50Z"
+          }
+        },
         {
           "version": "1.4.48",
           "publishedAt": "2026-10-17T10:56:21Z",
