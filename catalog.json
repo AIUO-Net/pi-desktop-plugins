@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-18T21:29:41Z",
-  "generatedAt": "2026-10-18T21:29:41Z",
+  "updatedAt": "2026-10-19T00:23:20Z",
+  "generatedAt": "2026-10-19T00:23:20Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2398,6 +2398,58 @@
       ]
     },
     {
+      "id": "io.github.readon.deepseek-web",
+      "name": "DeepSeek Web",
+      "description": "Real-time web search and URL content extraction powered by DeepSeek's Search \u0026 Fetch APIs.",
+      "author": "Readon",
+      "i18n": {
+        "en": {
+          "name": "DeepSeek Web",
+          "description": "Real-time web search and URL content extraction powered by DeepSeek's Search \u0026 Fetch APIs.",
+          "safetyNotes": "Makes authenticated HTTPS calls to api.deepseek.com using your existing DeepSeek API key, resolved from pi's model registry, the DEEPSEEK_API_KEY environment variable, or ~/.pi/agent/auth.json. No key is bundled in the package and none is sent anywhere except the DeepSeek API."
+        },
+        "zh-CN": {
+          "name": "DeepSeek 联网搜索",
+          "description": "基于 DeepSeek Search 与 Fetch API 的实时网络搜索与网页正文抽取工具，为智能体提供联网能力。",
+          "safetyNotes": "使用你已有的 DeepSeek API Key（依次从 pi 模型注册表、DEEPSEEK_API_KEY 环境变量、~/.pi/agent/auth.json 解析）向 api.deepseek.com 发起认证 HTTPS 请求。包内不捆绑任何密钥，除 DeepSeek API 外不会把密钥发送到别处。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/Readon/pi-deepseek-web",
+      "readmeMarkdown": "# pi-deepseek-web\n\n为 Pi 生态接入 DeepSeek 官方 Search / Fetch API 的扩展：让 agent 具备实时联网搜索与网页正文提取能力。**自动复用你已有的 DeepSeek 密钥**，无需额外维护任何 key。\n\n## 提供的资源\n\n| 资源 | 用途 |\n| --- | --- |\n| `deepseek_search` 工具 | 联网搜索，返回标题 / URL / 摘要（最多 10 条，可选附带全文） |\n| `deepseek_fetch` 工具 | 对指定 URL 提取干净的可读正文（对 JS 重度页面优于朴素抓取） |\n| `/search \u003c查询\u003e` 命令 | 手动发起搜索并以通知展示结果 |\n| `/deepseek-key` 命令 | 查看当前生效的密钥来源（脱敏显示） |\n\n工具的详细行为说明由扩展自身向模型声明，此处不重复。\n\n## 安装\n\n### pi 终端（`pi` CLI）\n\n```bash\n# 发布到 npm 之后\npi install npm:pi-deepseek-web\n\n# 开发期：从本地路径安装\npi install ./pi-deepseek-web\n```\n\n验证：`pi list` 中出现 `npm:pi-deepseek-web`。重启会话后工具即生效。\n\n### PI-Desktop\n\nPI-Desktop 不加载 `~/.pi/agent` 下的扩展，需经插件体系导入：\n\n1. 打开 PI-Desktop 的 **插件（Plugins）** 页\n2. 点击 **「导入 pi 扩展」**，选择本包所在目录（如 `C:\\...\\pi-deepseek-web`）\n3. 导入成功后以插件形式出现在列表中（ID 形如 `imported.pi-deepseek-web`），启用即可\n\n注意：PI-Desktop 的模型注册表不提供密钥访问，此时密钥走下文密钥解析顺序的第 2 / 3 级回退。\n\n## 密钥解析顺序\n\n1. **宿主模型注册表** — pi CLI 中即你为 DeepSeek 聊天模型配置的那个 key\n2. **环境变量** `DEEPSEEK_API_KEY` — 面向 headless / CI 场景\n3. **本地凭据文件** `~/.pi/agent/auth.json` 中的 `deepseek.key` — pi CLI 登录时落盘的同一份密钥，供 PI-Desktop 等无法访问注册表的宿主使用\n\n本扩展只读不写这份文件，也不把密钥包含在任何输出或日志中（`/deepseek-key` 仅显示 `前5位…后4位`）。\n\n## 费用与限流（DeepSeek 官方口径）\n\n- 计费：Search ¥5 / 千次成功请求；Fetch ¥5 / 千次成功请求（失败不计费）\n- 限流：各接口 5 QPS\n- 本扩展对 429 / 5xx / 网络抖动做指数退避重试（最多 3 次），401 不重试\n- 输出截断保护：搜索总量 ≤ 24k 字符（单条 ≤ 3k），抓取 ≤ 20k 字符，防止撑爆上下文\n\n## 开发与发布\n\n唯一源文件：`extensions/deepseek-web/index.ts`，由宿主的 jiti 加载器直接执行，无构建步骤。\n\n```bash\n# 类型检查（需本地安装 pi 系列包作为 devDependency）\nnpx tsc --noEmit\n\n# 打包预览（核对 tarball 内容）\nnpm pack --dry-run\n\n# 发布\nnpm publish\n```\n",
+      "safetyNotes": "Makes authenticated HTTPS calls to api.deepseek.com using your existing DeepSeek API key, resolved from pi's model registry, the DEEPSEEK_API_KEY environment variable, or ~/.pi/agent/auth.json. No key is bundled in the package and none is sent anywhere except the DeepSeek API.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-10-19T00:23:20Z",
+          "changelog": "## v0.1.0\n- Adds deepseek_search and deepseek_fetch agent tools backed by DeepSeek's Search \u0026 Fetch APIs.\n- Adds the /search \u003cquery\u003e command.\n- Works in both pi CLI and PI-Desktop (dual-host).\n- Uses your existing DeepSeek API key (model registry / DEEPSEEK_API_KEY / ~/.pi/agent/auth.json); no key is bundled.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "335c5d10310ea44e01579ed9b56e7e6d40766f5e688fd148e8b97283267828ba",
+          "url": "packages/io.github.readon.deepseek-web-0.1.0.piplug",
+          "sizeBytes": 14318,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Readon/pi-deepseek-web",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "c27a9129d5df601c7e091354fd39d0a8d43e5da4",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-19T00:23:20Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "io.github.tonkic.agent-governance",
       "name": "Agent Governance",
       "description": "Repository handoff, project boards, source-backed architecture and Git collaboration with isolated worktrees and commit-bound verification.",
@@ -2648,7 +2700,7 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishedAt": "2026-10-18T21:29:41Z",
+          "publishedAt": "2026-10-18T21:30:11Z",
           "changelog": "### Release v1.0.0: TASK Dida任务提示音\n\n专为 PI-Desktop 打造的轻量、零依赖任务完成声音通知插件。在 AI 智能体任务完成、发生异常中断或需要人工操作时，自动跟随系统通知播放清脆悦耳的提示音。\n\n#### 核心特性\n- 任务完成提示音 (Task Completion Sound)：AI 顺利跑完代码或执行完回合时提供即时声音反馈（task.completed）。\n- 错误警示音 (Error Alert)：任务执行遇到异常中断或报错时播放低沉警示音。\n- 系统提示接管 (Override Host Beep)：可选择接管并替换系统自带单调的 660Hz 蜂鸣声，带来更悦耳的交互反馈。\n- 提示音在线试听 (Sound Audition)：内置可视化设置面板，支持一键在线试听各场景音效。\n- 防爆音节流 (Audio Throttling)：内建 2.0 秒全局冷却时间，防止多个子任务或通知密集并发导致声音撕裂。\n- 后台智能感知 (Focus Awareness)：可配置为仅当 PI-Desktop 窗口在后台失焦时才发声，减少前台盯屏时的听觉冗余。\n- 纯本地无外联 (Privacy First)：零外部网络请求，绝不接触任何 API 密钥、凭据或用户个人代码。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "6f69ea18357a02e45886f8d4e19fb5cc1c476a37fa7fb922f88a72b35659266c",
