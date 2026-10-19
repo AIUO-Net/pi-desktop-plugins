@@ -4,11 +4,44 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-19T07:09:35Z",
-  "generatedAt": "2026-10-19T07:09:35Z",
+  "updatedAt": "2026-10-19T08:02:37Z",
+  "generatedAt": "2026-10-19T08:02:37Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
+    {
+      "id": "adoin.deepseek-harness",
+      "name": "DeepSeek DSH向优化",
+      "description": "让DeepSeek的模型在pi-desktop上使用更接近dsh：提示词优化、请求协议、缓存和推理参数优化。",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "DeepSeek DSH向优化",
+          "description": "让DeepSeek的模型在pi-desktop上使用更接近dsh：提示词优化、请求协议、缓存和推理参数优化。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "adoin",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-10-19T08:02:37Z",
+          "changelog": "使用1017的时候能更接近官方dsh体验，后续其他的也会增进",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "8a43db473876e9bf49c0dad01fa6fb0c33a5ae77daca952f411b1f38fd838031",
+          "url": "packages/adoin.deepseek-harness-0.2.0.piplug",
+          "sizeBytes": 30268,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
     {
       "id": "adoin.panel.anywhere",
       "name": "Anywhere Panel",
@@ -2478,7 +2511,7 @@
       "versions": [
         {
           "version": "0.8.3",
-          "publishedAt": "2026-10-19T07:09:35Z",
+          "publishedAt": "2026-10-19T07:10:08Z",
           "changelog": "# 0.8.3\n\n- 默认64px图标栏，鼠标/键盘覆盖展开，取消手动切换按钮；窄屏直接导航，正文不位移。\n- 行为文档升级一级页面，支持直接链接、只读来源/证据、手动刷新、离线缓存与迟到隔离。\n- 汇总0.7.0以来的共享浏览器工作台、三栏看板/完成历史、架构设计、受限Markdown阅读、本地MCP/Skills与简洁检查流程。\n- PI仅保留轻量浏览器入口；移除models.list，按已批准清单使用agent.prompt.inject、shell.openExternal、ui.view等能力。安装/更新须用户确认权限，不自动安装。\n- 已核对官方82文件包；源码main通过219项测试、251图浏览器及原10行为，实际双OS CI通过。人工目视/已安装宿主完整E2E仍未完成。\n\nDefault collapsed hover/keyboard overlay navigation and first-class Behavior docs. Safe readonly loading, manual refresh and offline/late-response guards. One shared browser workbench; no automatic install, model controls, tag/Release or npm publication.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "a5a9914db393480bbc10e261bef60c2057b1b9d0918c5629b2b09f6dcec248f4",
