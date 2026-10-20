@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-20T02:21:58Z",
-  "generatedAt": "2026-10-20T02:21:58Z",
+  "updatedAt": "2026-10-20T15:15:56Z",
+  "generatedAt": "2026-10-20T15:15:56Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -735,7 +735,7 @@
       "versions": [
         {
           "version": "0.5.5",
-          "publishedAt": "2026-10-20T02:21:58Z",
+          "publishedAt": "2026-10-20T02:22:32Z",
           "changelog": "把 OpenCode Zen 的匿名免费模型接入 PI-Desktop 模型选择器。本次更新集中在匿名通道门禁对齐、流式协议健壮性、工具调用与代理路由。\n\n## 重点变化\n\n### 匿名通道恢复与门禁对齐\n- 对齐上游 2026-10-14 起的客户端指纹校验：会话 ID、`x-opencode-*` 关联头、project 头与官方工具定义\n- 会话 ID 按对话记忆化，使用真实倒序时间戳（感谢 @pengwei269446668，#7）\n- 未选择思考档位时不再注入 `reasoning_effort`，修复相关 400（感谢 @pengwei269446668，#7）\n- 修复 `403 FreeTierError` 导致的整轮对话失败（感谢 @pengwei269446668，#7）\n\n### Responses 通道\n- 补齐 Responses 免费门禁，Muse Spark 系列可以正常使用（感谢 @YahooYuan666，#2）\n- Chat 与 Responses 分别按各自协议聚合，并按各自终止事件判定成功\n\n### 流式与非流式\n- 非流式请求自动把 SSE 聚合成完整 JSON（感谢 @YahooYuan666，#5）\n- 新增增量 SSE 解析：BOM、注释、CRLF/CR/LF、多行 `data:`、任意字节分块、UTF-8 校验\n- 只有收到合法终止事件才算成功：Chat 为 `[DONE]`，Responses 为`response.completed` / `response.incomplete`\n- 文本已输出但上游提前断开时补截断提示；其余异常返回明确错误（感谢 @pengwei269446668，#7）\n- 增加读取超时、空闲超时与响应大小限制\n\n### 工具调用\n- 工具名唯一映射，兼容大小写与下划线差异\n- 流式工具调用先缓冲再重写，避免输出半截参数\n- 非流式 Chat / Responses 工具调用统一改写\n\n### 模型目录\n- 通过 OpenCode 模型目录与 models.dev 自动发现协议，不再依赖模型名前缀\n- 排除只能走 SystemOne 的 `jev-*` 模型\n- 当前提供 9 个 Chat 免费模型；目录中没有可声明的 Responses 免费模型\n- 目录缓存写入宿主数据目录，断网启动沿用上次清单\n\n### 代理与网络\n- 新增自带传输层：HTTP CONNECT / SOCKS5 隧道，保留 SSE 流式\n- 默认自动探测代理：插件设置 → 环境变量 → Windows 系统代理 → 常见本地端口 → 直连（感谢 @banned104，#4）\n- 探测到代理候选后不再回退直连；代理抖动时重拨同一代理，地区门禁时换下一个候选\n- 转发 `Retry-After`、`x-request-id` 等上游响应头，过滤 hop-by-hop、`content-length`、`content-encoding`\n- 修复 `response.headers.forEach is not a function` 导致的 502\n\n**校验和（sha256）**\n\n```\nd2c8f070435c8a5916dd4952996acd483c3f70bb9e0bb1b9ecd35c123ea0360d  com.opencode2pi-local.piplug\n```\n\n## 已知限制\n\n- 如果 VPN/代理工具开启了 TUN 或虚拟网卡模式，本版可能出现调用失败。建议暂时关闭 TUN 模式，改用系统代理或本地代理端口；后续版本会考虑针对该场景进行修复。\n- 匿名通道按出口 IP 限速，`429/403` 会原样返回。\n\n## 验证\n\n- 27 项自动化测试全部通过，覆盖 SSE 解析、协议聚合、工具策略、\n  代理响应头与真实 HTTP 代理集成",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "c9fbaf59aa9d7762707eddb4afb3f8c912843e23e856aef6934da4147c53f5c0",
@@ -3683,6 +3683,39 @@
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-29T20:33:27Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "local.terminal",
+      "name": "pi-terminal",
+      "description": "侧边终端工具栏，同Codex Desktop",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "终端",
+          "description": ""
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.3",
+          "publishedAt": "2026-10-20T15:15:56Z",
+          "changelog": "自测通过",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "a2f9070955e1388fb68bae134af18a7e44b568f67c86fc589e4c79eb4c444ead",
+          "url": "packages/local.terminal-0.1.3.piplug",
+          "sizeBytes": 525953,
+          "permissions": [
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
