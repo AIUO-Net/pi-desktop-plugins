@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-21T04:32:06Z",
-  "generatedAt": "2026-10-21T04:32:06Z",
+  "updatedAt": "2026-10-21T04:35:34Z",
+  "generatedAt": "2026-10-21T04:35:34Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2114,8 +2114,29 @@
       "safetyNotes": "Only writes one style element and CSS custom properties on the host document root, and reads the app shell's sidebar class and width to keep the adjustment in step. renderer.extension is flagged high risk because the extension runs in the host document; this plugin does not read transcript or draft text, does not use internal IPC, sends nothing off the device and registers no agent tools.",
       "versions": [
         {
+          "version": "0.1.2",
+          "publishedAt": "2026-10-21T04:35:34Z",
+          "changelog": "## 0.1.2\n\n- The composer button lost its border and background, so only the icon is left; the icon went from 14 to 18 px.\n- The icon is a solid glyph now (content block plus solid arrows), which stays readable at toolbar size.\n- 中文：工具栏按钮去掉边框与底色只留图标，图标从 14px 放大到 18px 并改成实心图形，工具栏尺寸下不再糊。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "3d1cb1a691a9862b04c065c7cff231815b49764a27b8618a746b09dd5397875f",
+          "url": "packages/io.github.mafeis.layout-control-0.1.2.piplug",
+          "sizeBytes": 41324,
+          "permissions": [
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mafeis/pi-desktop-layout-control",
+            "sourceRef": "v0.1.2",
+            "sourceCommit": "f94932339f40947c4e679eb7d4376c3e0dad774d",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-21T04:35:34Z"
+          }
+        },
+        {
           "version": "0.1.1",
-          "publishedAt": "2026-10-21T04:32:06Z",
+          "publishedAt": "2026-10-21T04:32:38Z",
           "changelog": "## 0.1.1\n\n- The composer button is a plain layout icon now: a content container with arrows pointing out to the side gutters. No number on it.\n- The effective width, and any sidebar bonus, show in the button's tooltip instead.\n- 中文：工具栏按钮换成「内容容器 + 两侧向外箭头」的布局图标，不再显示数字；当前宽度与侧栏加成移到悬浮提示里。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "4a374257595a5bfcf42773e6c5e10ae4380c6e9d130d648b24dc808ca30993df",
