@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-20T17:25:30Z",
-  "generatedAt": "2026-10-20T17:25:30Z",
+  "updatedAt": "2026-10-20T17:26:08Z",
+  "generatedAt": "2026-10-20T17:26:08Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3339,7 +3339,7 @@
       "versions": [
         {
           "version": "0.3.81",
-          "publishedAt": "2026-10-20T17:25:30Z",
+          "publishedAt": "2026-10-20T17:26:08Z",
           "changelog": "PI Bot 首次在插件市场发布。\n\n- 支持多个 Bot 私聊及群聊协作，由管理员协调任务分配。\n- 提供记忆管理、历史检索、技能导入与批量分配。\n- 支持语音输入、语音对话及应用连接，相关服务需自行配置。\n- 支持明暗主题切换和 GitHub 新版本提醒。\n- 统一插件名称及标识为 PI Bot / local.pi-bot。\n- 增加旧版数据自动迁移，支持迁移中断后重试。\n\n升级提醒：\n使用 0.3.80 或更早版本的用户，请先停用旧版，暂不要卸载，再安装新版并重启 PI Desktop。首次启动将自动迁移旧数据，请勿同时启用新旧两个插件。\n\n本项目基于 DeepSeek-Bot 学习与适配，遵循 Apache-2.0 许可证，保留上游来源与致谢。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "43aed535d123f0d3e31f5208e22762a337210e4a62490267bcf86f0a65b769fd",
@@ -3748,18 +3748,15 @@
       "id": "local.terminal",
       "name": "pi-terminal",
       "description": "侧边终端工具栏，同Codex Desktop",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "终端",
-          "description": ""
-        }
-      },
-      "categories": [],
+      "author": "zwwangoo",
+      "categories": [
+        "terminal"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
       "downloads": 0,
+      "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
         {
           "version": "0.1.3",
