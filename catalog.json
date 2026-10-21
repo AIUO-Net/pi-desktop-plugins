@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-21T04:38:38Z",
-  "generatedAt": "2026-10-21T04:38:38Z",
+  "updatedAt": "2026-10-21T08:21:31Z",
+  "generatedAt": "2026-10-21T08:21:31Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2115,7 +2115,7 @@
       "versions": [
         {
           "version": "0.1.3",
-          "publishedAt": "2026-10-21T04:38:38Z",
+          "publishedAt": "2026-10-21T04:39:05Z",
           "changelog": "## 0.1.3\n\n- New setting showTrigger: turn the composer shortcut icon off and on from the plugin settings page.\n- Hiding the icon closes the panel it anchors and leaves the toolbar untouched; the width override keeps working.\n- 中文：新增设置 showTrigger，可在插件设置页关闭/开启输入框里的快捷图标；关闭时自动收起面板，宽度覆盖照常生效。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "20795aa219f058df9bc90d8658618e73b83d71adf814c77221b46961a3cdd42a",
@@ -2174,6 +2174,48 @@
             "sourceCommit": "8a5998587e7857cc7cbe856313138d3b8d9f7c8a",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-21T04:06:04Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.moyunliuyin.cline-upstream",
+      "name": "cline使用与上游检测",
+      "description": "Expose ClinePass' real upstream choice.\r\n\r\nEvery chat request is logged with the provider that actually served it, how many fallbacks remained, the prompt-cache hit count and the exact cost. The model list ships 18 built-in cline-pass models with their context window and thinking levels; tick the ones you allow and anything else is rejected at forward time with 404 model_not_enabled. The ClinePass API key is sealed at rest with Windows DPAPI (bound to the current user) — only ciphertext touches disk, and it is decrypted into memory once at startup.\r\n\r\nNote: the Cline gateway ignores client-side routing hints. provider.only and allow_fallbacks were tested with three different providers and the request still landed on the affinity-pinned upstream, so this plugin reports the real route instead of promising to pin it.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "",
+          "description": "把 ClinePass 的真实上游摊开看。\n\n每个对话请求都会记一行日志：实际落在哪家上游、还有多少备选、命中多少 prompt 缓存、这次花了多少钱。模型清单内置 18 个 cline-pass 模型（含上下文窗口与思考档位），勾选即生效，未勾选的模型在转发层直接返回 404 model_not_enabled。ClinePass API Key 用 Windows DPAPI 加密后落盘（绑定当前用户），磁盘上只有密文，启动时解密到内存。\n\n注意：Cline 网关会忽略客户端传入的路由字段。provider.only 与 allow_fallbacks 已用三个不同上游实测，请求仍然落在会话亲和的节点上，因此本插件只如实报告真实落点，不承诺把请求钉到指定上游。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.5.0",
+          "publishedAt": "2026-10-21T08:21:31Z",
+          "changelog": "0.5.0 — 首个公开版本\n\n【功能】\n- 逐条请求日志：每个对话请求一行，记录时间、完整模型 id、实际落点上游、网关钉住的上游、剩余备选数、prompt 缓存命中 token 数、本次成本，以及路由校验结果；服务端保留最近 200 条，面板展示最近 60 条。\n- 模型管理：内置 18 个 cline-pass 模型（含上下文窗口、视觉支持、思考档位），勾选即生效；未勾选的模型在转发层直接返回 404 model_not_enabled，不消耗上游额度。\n- 凭据安全：ClinePass API Key 使用 Windows DPAPI（绑定当前登录用户）加密后写入插件设置，磁盘与下发快照只保留密文，启动时解密到内存；从旧版本升级时，已有明文会被自动加密并清空。\n- 本机 OpenAI 兼容端点：插件在 127.0.0.1:41891 提供 /v1 兼容接口，把请求转发到 api.cline.bot，并保持流式响应不变。\n\n【重要说明】\n- Cline 网关会忽略客户端传入的路由字段。provider.only 与 allow_fallbacks 已用 fireworks / gmicloud / baseten 三个不同上游各测一次，请求仍落在会话亲和的节点上，因此本插件定位为「观察器」：如实报告真实上游，不承诺把请求固定到指定上游。面板与 README 均按此说明。\n- PI 的服务商模型列表由宿主在启动时按清单重建，模型清单改动需重启 PI 才会同步到下拉框；插件会在面板上直接标出这一点。\n- 上游 /api/v1/models 自 2026-10-21 起返回 OpenRouter 风格目录、不再包含 cline-pass/*，因此模型清单内置在插件中，不依赖该接口。\n\n【权限】\nui.panel（面板）、background.service（常驻转发服务）、provider.register（注册服务商）。仅向 api.cline.bot 出站。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "15a390fe870eb3b094a3724291659ab1e27137216c35be6d4e03f272b8719b09",
+          "url": "packages/io.github.moyunliuyin.cline-upstream-0.5.0.piplug",
+          "sizeBytes": 80457,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/moyunliuyin/pi-desktop-cline-upstream",
+            "sourceRef": "v0.5.0",
+            "sourceCommit": "a5907f6b58ac0d40e25225c833e8cf5e83f2e850",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-21T08:21:31Z"
           }
         }
       ]
