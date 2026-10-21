@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-21T15:47:27Z",
-  "generatedAt": "2026-10-21T15:47:27Z",
+  "updatedAt": "2026-10-21T17:51:10Z",
+  "generatedAt": "2026-10-21T17:51:10Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3473,8 +3473,42 @@
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
         {
+          "version": "0.3.84",
+          "publishedAt": "2026-10-21T17:51:10Z",
+          "changelog": "本次更新主要修复附件读取、文件粘贴和长消息处理问题，并优化大文件上传。\n\n- 修复群聊、私聊中部分附件无法读取，以及群聊转交附件后读取失败的问题。\n- 输入框支持 Ctrl+V 粘贴剪贴板中的文件和图片，支持多文件添加、上传进度显示及仅附件发送。\n- 修复长消息全文读取失败、长中文消息发送异常，以及展开内容在刷新后自动折叠的问题。\n- 对齐 DeepSeek Bot 的附件规则：普通文件取消原有的单文件 20 MB 和最多 8 个附件限制；图片单张最多 20 MiB，每条消息最多 20 张，图片合计最多 200 MiB。\n- 优化大文件处理，采用分片读取和写入，降低内存占用；保持原始文件内容，不额外压缩图片。\n- 完善上传失败、取消和中断后的临时文件清理。\n\n升级后保留原有 Bot、群聊及配置，无需新增插件权限。文件解析能力仍取决于所选模型和相关工具，大文件传输速度受宿主通信机制影响。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "68f0971b0a431c1aa2f011305943e10d89f70ad183f3d1d2aa1af8555b28223d",
+          "url": "packages/local.pi-bot-0.3.84.piplug",
+          "sizeBytes": 7968387,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.84",
+            "sourceCommit": "6daf89c02ced7e372bb74f45e1f7ed75f9c06c52",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-21T17:51:10Z"
+          }
+        },
+        {
           "version": "0.3.82",
-          "publishedAt": "2026-10-21T15:47:27Z",
+          "publishedAt": "2026-10-21T15:48:06Z",
           "changelog": "新增：\n- 群聊独立记忆：支持查看、添加、删除和整理本群记忆，不同群聊分别保存。\n- 消息时间与回复耗时：聊天记录显示发送时间，Bot 回复展示已有记录中的实际处理耗时。\n- 私聊交互卡片：支持文本、指标、表格、进度、单选、多选、确认和短表单。\n\n优化与修复：\n- 交互卡片支持输入草稿保留、提交状态反馈、回答失败重试和重复点击保护。\n- 修复原生侧栏插件入口留空的问题，相邻插件停用后自动补位，重新启用后避免重叠。\n\n说明：\n交互卡片目前限 Bot 私聊使用，需要模型支持工具调用。本次部分新增功能参考 DeepSeek-Bot 0.2.0，并适配 PI Desktop 插件接口。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "f491827f4704c4735152c257bbf2c1aa27f05d45b69b86525ed14f962613bda8",
