@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-21T04:06:04Z",
-  "generatedAt": "2026-10-21T04:06:04Z",
+  "updatedAt": "2026-10-21T04:32:06Z",
+  "generatedAt": "2026-10-21T04:32:06Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2114,8 +2114,29 @@
       "safetyNotes": "Only writes one style element and CSS custom properties on the host document root, and reads the app shell's sidebar class and width to keep the adjustment in step. renderer.extension is flagged high risk because the extension runs in the host document; this plugin does not read transcript or draft text, does not use internal IPC, sends nothing off the device and registers no agent tools.",
       "versions": [
         {
+          "version": "0.1.1",
+          "publishedAt": "2026-10-21T04:32:06Z",
+          "changelog": "## 0.1.1\n\n- The composer button is a plain layout icon now: a content container with arrows pointing out to the side gutters. No number on it.\n- The effective width, and any sidebar bonus, show in the button's tooltip instead.\n- 中文：工具栏按钮换成「内容容器 + 两侧向外箭头」的布局图标，不再显示数字；当前宽度与侧栏加成移到悬浮提示里。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "4a374257595a5bfcf42773e6c5e10ae4380c6e9d130d648b24dc808ca30993df",
+          "url": "packages/io.github.mafeis.layout-control-0.1.1.piplug",
+          "sizeBytes": 41125,
+          "permissions": [
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mafeis/pi-desktop-layout-control",
+            "sourceRef": "v0.1.1",
+            "sourceCommit": "b76cfc5be51d28abf010b3aeefc22aafd85b42e9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-21T04:32:06Z"
+          }
+        },
+        {
           "version": "0.1.0",
-          "publishedAt": "2026-10-21T04:06:04Z",
+          "publishedAt": "2026-10-21T04:06:38Z",
           "changelog": "## 0.1.0\n\nFirst release.\n\n- Conversation content width from the composer toolbar: presets 760 / 960 / 1200 / 1440 / full width, or any value 640–2400 px\n- Side gutters 8–56 px\n- Adds the freed space while the sidebar is collapsed, and gives it back when it expands\n- Steps aside for the native width drag handles, then adopts the dragged width\n- Opaque panel background; the toolbar button is a plain icon with the width in its tooltip\n- Bilingual panel copy (en / zh-CN) following the app language",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "7184dc22720309cc202446e7a4973e5a6c16792f93a5d70757edc866b0d4a728",
