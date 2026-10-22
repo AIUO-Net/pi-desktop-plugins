@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-21T17:51:10Z",
-  "generatedAt": "2026-10-21T17:51:10Z",
+  "updatedAt": "2026-10-22T04:44:41Z",
+  "generatedAt": "2026-10-22T04:44:41Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1258,6 +1258,60 @@
             "sourceCommit": "2887578826006754ae9898cf0be23deb01fc08fa",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-19T08:36:32Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.caopengfei.opencode-quota",
+      "name": "OpenCode Quota",
+      "description": "OpenCode Go subscription quota in a compact panel: rolling 5-hour, weekly and monthly allowance left, with reset times. Read-only, one endpoint, English and Simplified Chinese.",
+      "author": "caopengfei",
+      "i18n": {
+        "en": {
+          "name": "OpenCode Quota",
+          "description": "OpenCode Go subscription quota in a compact panel: rolling 5-hour, weekly and monthly allowance left, with reset times. Read-only, one endpoint, English and Simplified Chinese.",
+          "safetyNotes": "Read-only. It calls exactly one endpoint (GET opencode.ai/zen/go/v1/usage) with an OpenCode Go API key that you paste into this plugin's settings, and only while the active provider is an OpenCode Go one — with any other provider the panel shows no numbers and makes no request. It never reads chats, transcripts, project files, or PI-Desktop's own provider secrets; the key stays in this plugin's local settings file on your machine and is sent nowhere else."
+        },
+        "zh-CN": {
+          "name": "OpenCode 额度",
+          "description": "紧凑面板显示 OpenCode Go 订阅额度：滚动 5 小时、每周、每月三档余量与重置时间。只读，仅访问一个接口，中英双语。",
+          "safetyNotes": "只读。仅在当前供应商是 OpenCode Go 时，用你填入本插件设置的 API Key 访问唯一接口 GET opencode.ai/zen/go/v1/usage；换成其他供应商时不显示任何数字、也不发请求。不读取对话、记录、项目文件，也不读取 PI-Desktop 自身的供应商密钥；Key 保存在本机插件设置文件中，不会发往任何其他地方。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/caopengfei",
+      "readmeMarkdown": "# OpenCode Quota ｜ OpenCode 额度\n\nShow how much of your **OpenCode Go** subscription is left, without leaving PI-Desktop.\n\n在 PI-Desktop 里直接看到 **OpenCode Go** 订阅还剩多少额度，不用再开浏览器。\n\n---\n\n## English\n\n### What it does\n\nA compact panel with one row per quota window:\n\n| Window | What it means |\n| --- | --- |\n| Rolling 5h | Resets 5 hours after your first use |\n| Weekly | Resets every Monday 00:00 UTC |\n| Monthly | Resets with your paid period |\n\nEach row shows the progress bar (how much is *used*), the share **still available**, and how long until it resets. Rows turn amber at 25% left and red at 10%, so a nearly-exhausted window is obvious at a glance.\n\nThe panel refreshes every minute, and again whenever the window regains focus.\n\n### Only when it applies\n\nThe panel asks PI-Desktop which provider is active. If it is **not** an OpenCode Go / Zen provider, no numbers are shown and **no request is made** — the panel says which provider is in use instead. Printing `0%` there would read as \"full quota\", which is the opposite of the truth.\n\n### Setup\n\n1. Open **OpenCode Quota: Open** from the command palette.\n2. In this plugin's settings, paste an **OpenCode Go API key** — create one at [opencode.ai/console](https://opencode.ai/console) under **Account → Personal API keys**.\n3. That's it. The panel fills in on its next poll.\n\n### Language\n\nEnglish and Simplified Chinese, **following your system language** by default. Pin it in the plugin settings if you prefer. Traditional Chinese (`zh-TW` / `zh-HK` / `zh-Hant`) falls back to English rather than showing Simplified text.\n\n### Privacy\n\n- **Read-only.** The only request the plugin ever makes is `GET https://opencode.ai/zen/go/v1/usage`, and only while an OpenCode Go provider is active.\n- **One domain.** The manifest declares `net.domains: [\"opencode.ai\"]`, so no other host is reachable.\n- **No file scanning.** It never reads chats, transcripts, project files, or PI-Desktop's own provider secrets. (PI-Desktop does not let plugins read its credential store, which is why the key is entered by hand.)\n- **The key stays local.** It lives in this plugin's own `settings.json` under PI-Desktop's data directory and is sent to no one but the endpoint above.\n- **Nothing is cached.** Quota is never written to disk; reopening the panel always reads live numbers.\n\n### Permissions\n\n| Permission | Why |\n| --- | --- |\n| `ui.panel` | Draw the quota panel |\n| `models.list` | Read the active provider, so quota is never shown for the wrong one |\n| `net.fetch` | Call the single quota endpoint on `opencode.ai` |\n\n### Changelog\n\n- **0.3.0** — Compact single-row layout; the last-refreshed time moved into the header just before the refresh button; removed the provider subtitle and the endpoint footer.\n- **0.2.0** — English and Simplified Chinese, following the system locale.\n- **0.1.0** — First release.\n\n---\n\n## 中文\n\n### 功能\n\n一个紧凑面板，每个额度窗口一行：\n\n| 窗口 | 含义 |\n| --- | --- |\n| 滚动 5 小时 | 首次使用后 5 小时重置 |\n| 每周 | 每周一 00:00 UTC 重置 |\n| 每月 | 随订阅周期重置 |\n\n每行显示进度条（**已用**多少）、**剩余**百分比，以及还有多久重置。剩余低于 25% 变黄，低于 10% 变红，一眼就能看出哪一档快用完了。\n\n面板每分钟刷新一次，窗口重新获得焦点时也会刷新。\n\n### 只在适用时显示\n\n面板会向 PI-Desktop 查询当前使用的供应商。若**不是** OpenCode Go / Zen 供应商，就**不显示任何数字、也不发请求**，只提示当前用的是什么。若在那里显示 `0%`，会被读成「额度全满」，与事实正好相反。\n\n### 配置\n\n1. 从命令面板执行 **OpenCode Quota: Open**。\n2. 在本插件设置里填入 **OpenCode Go API Key** —— 可在 [opencode.ai/console](https://opencode.ai/console) 的「账户 → 个人 API 密钥」创建。\n3. 完成。下次轮询就会显示数据。\n\n### 语言\n\n内置英文与简体中文，**默认跟随系统语言**；也可以在插件设置里手动指定。繁体中文（`zh-TW` / `zh-HK` / `zh-Hant`）回落英文，而不是硬塞简体。\n\n### 隐私\n\n- **只读。** 插件唯一会发的请求是 `GET https://opencode.ai/zen/go/v1/usage`，且只在当前供应商是 OpenCode Go 时才发。\n- **只访问一个域名。** manifest 声明了 `net.domains: [\"opencode.ai\"]`，其他主机一律不可达。\n- **不扫描文件。** 不读取对话、记录、项目文件，也不读取 PI-Desktop 自身的供应商密钥（宿主不允许插件读取凭据，所以 Key 需要你手填）。\n- **Key 只留在本机。** 保存在本插件自己的 `settings.json`（位于 PI-Desktop 数据目录），除上述接口外不发给任何地方。\n- **不做缓存。** 额度不落盘，每次打开面板都是实时数据。\n\n### 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` | 绘制额度面板 |\n| `models.list` | 读取当前供应商，避免在错误的供应商下显示额度 |\n| `net.fetch` | 调用 `opencode.ai` 上唯一的额度接口 |\n\n### 更新记录\n\n- **0.3.0** —— 改为紧凑单行布局；更新时间移到标题栏、刷新按钮之前；移除供应商副标题与接口地址页脚。\n- **0.2.0** —— 支持英文与简体中文，跟随系统语言。\n- **0.1.0** —— 首个版本。\n",
+      "safetyNotes": "Read-only. It calls exactly one endpoint (GET opencode.ai/zen/go/v1/usage) with an OpenCode Go API key that you paste into this plugin's settings, and only while the active provider is an OpenCode Go one — with any other provider the panel shows no numbers and makes no request. It never reads chats, transcripts, project files, or PI-Desktop's own provider secrets; the key stays in this plugin's local settings file on your machine and is sent nowhere else.",
+      "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-10-22T04:44:41Z",
+          "changelog": "First public release.\n\n**What it does** — a compact panel showing how much of an OpenCode Go subscription is left: rolling 5-hour, weekly and monthly allowance, with the remaining share, a progress bar and the reset countdown for each window. Rows turn amber at 25% left and red at 10%.\n\n**Only when it applies** — the panel reads the active provider and, for anything that is not an OpenCode Go / Zen provider, shows no numbers and makes no request at all.\n\n**Read-only** — the only request is `GET https://opencode.ai/zen/go/v1/usage`, and the manifest limits egress to `opencode.ai`. Nothing is read from chats, transcripts or project files, and quota is never cached to disk.\n\n**Bilingual** — English and Simplified Chinese, following the system locale, with a manual override in the plugin settings.",
+          "minPiDesktop": "\u003e=0.20.0",
+          "shasum": "dfaa41eb7e87dd82f721778d7f36ae64a1656d883b91421e77da503cccef0af4",
+          "url": "packages/io.github.caopengfei.opencode-quota-0.3.0.piplug",
+          "sizeBytes": 32325,
+          "permissions": [
+            "models.list",
+            "net.fetch",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/caopengfei/pi-desktop-opencode-quota",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "e66401fcdf7ab8a0de28af69110295b47b8f4684",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T04:44:41Z"
           }
         }
       ]
@@ -3474,7 +3528,7 @@
       "versions": [
         {
           "version": "0.3.84",
-          "publishedAt": "2026-10-21T17:51:10Z",
+          "publishedAt": "2026-10-21T17:51:52Z",
           "changelog": "本次更新主要修复附件读取、文件粘贴和长消息处理问题，并优化大文件上传。\n\n- 修复群聊、私聊中部分附件无法读取，以及群聊转交附件后读取失败的问题。\n- 输入框支持 Ctrl+V 粘贴剪贴板中的文件和图片，支持多文件添加、上传进度显示及仅附件发送。\n- 修复长消息全文读取失败、长中文消息发送异常，以及展开内容在刷新后自动折叠的问题。\n- 对齐 DeepSeek Bot 的附件规则：普通文件取消原有的单文件 20 MB 和最多 8 个附件限制；图片单张最多 20 MiB，每条消息最多 20 张，图片合计最多 200 MiB。\n- 优化大文件处理，采用分片读取和写入，降低内存占用；保持原始文件内容，不额外压缩图片。\n- 完善上传失败、取消和中断后的临时文件清理。\n\n升级后保留原有 Bot、群聊及配置，无需新增插件权限。文件解析能力仍取决于所选模型和相关工具，大文件传输速度受宿主通信机制影响。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "68f0971b0a431c1aa2f011305943e10d89f70ad183f3d1d2aa1af8555b28223d",
