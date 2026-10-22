@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T04:44:41Z",
-  "generatedAt": "2026-10-22T04:44:41Z",
+  "updatedAt": "2026-10-22T04:57:17Z",
+  "generatedAt": "2026-10-22T04:57:17Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1292,8 +1292,31 @@
       "safetyNotes": "Read-only. It calls exactly one endpoint (GET opencode.ai/zen/go/v1/usage) with an OpenCode Go API key that you paste into this plugin's settings, and only while the active provider is an OpenCode Go one — with any other provider the panel shows no numbers and makes no request. It never reads chats, transcripts, project files, or PI-Desktop's own provider secrets; the key stays in this plugin's local settings file on your machine and is sent nowhere else.",
       "versions": [
         {
+          "version": "0.3.1",
+          "publishedAt": "2026-10-22T04:57:17Z",
+          "changelog": "上架信息改为中文。\n\n- 插件描述、安全说明、更新记录全部换成中文\n- 市场详情页（README）改为中文优先，英文内容保留在下方\n- 插件设置项标题以中文打头\n\n面板本身行为不变：中英双语、默认跟随系统语言。",
+          "minPiDesktop": "\u003e=0.20.0",
+          "shasum": "515a5c23f022dd114d5d1cda6c41fb561bc31b08295cf949be1a24099c4714cd",
+          "url": "packages/io.github.caopengfei.opencode-quota-0.3.1.piplug",
+          "sizeBytes": 31283,
+          "permissions": [
+            "models.list",
+            "net.fetch",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/caopengfei/pi-desktop-opencode-quota",
+            "sourceRef": "v0.3.1",
+            "sourceCommit": "a995a8ae0b633c69c02302bd1fc4f2543b545985",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T04:57:17Z"
+          }
+        },
+        {
           "version": "0.3.0",
-          "publishedAt": "2026-10-22T04:44:41Z",
+          "publishedAt": "2026-10-22T04:45:22Z",
           "changelog": "First public release.\n\n**What it does** — a compact panel showing how much of an OpenCode Go subscription is left: rolling 5-hour, weekly and monthly allowance, with the remaining share, a progress bar and the reset countdown for each window. Rows turn amber at 25% left and red at 10%.\n\n**Only when it applies** — the panel reads the active provider and, for anything that is not an OpenCode Go / Zen provider, shows no numbers and makes no request at all.\n\n**Read-only** — the only request is `GET https://opencode.ai/zen/go/v1/usage`, and the manifest limits egress to `opencode.ai`. Nothing is read from chats, transcripts or project files, and quota is never cached to disk.\n\n**Bilingual** — English and Simplified Chinese, following the system locale, with a manual override in the plugin settings.",
           "minPiDesktop": "\u003e=0.20.0",
           "shasum": "dfaa41eb7e87dd82f721778d7f36ae64a1656d883b91421e77da503cccef0af4",
