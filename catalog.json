@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T06:26:51Z",
-  "generatedAt": "2026-10-22T06:26:51Z",
+  "updatedAt": "2026-10-22T06:41:15Z",
+  "generatedAt": "2026-10-22T06:41:15Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2266,6 +2266,29 @@
       "publisherId": "github",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.7.5",
+          "publishedAt": "2026-10-22T06:41:15Z",
+          "changelog": "可以选择锚定的上游(注:可能会导致有的时候无法正常使用)",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "7bab94d747bbcc2a05bdc0b632e04484f5be2d5cc8b89ea61a3021740d06cec8",
+          "url": "packages/io.github.moyunliuyin.cline-upstream-0.7.5.piplug",
+          "sizeBytes": 96233,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/moyunliuyin/pi-desktop-cline-upstream",
+            "sourceRef": "v0.7.5",
+            "sourceCommit": "17cfc8502f060051d20144fffb80908ae87dadb3",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T06:41:15Z"
+          }
+        },
         {
           "version": "0.7.3",
           "publishedAt": "2026-10-22T06:26:51Z",
