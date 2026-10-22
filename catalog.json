@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T05:21:11Z",
-  "generatedAt": "2026-10-22T05:21:11Z",
+  "updatedAt": "2026-10-22T05:49:28Z",
+  "generatedAt": "2026-10-22T05:49:28Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2273,8 +2273,31 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.6.1",
+          "publishedAt": "2026-10-22T05:49:28Z",
+          "changelog": "0.6.1 — 首个公开版本\n\n【功能】\n- 逐条请求日志：每个对话请求一行，记录时间、完整模型 id、实际落点上游、网关钉住的上游、\n  剩余备选数、prompt 缓存命中 token 数、本次成本，以及路由校验结果。\n  服务端保留最近 200 条，面板展示最近 60 条。\n- 每个模型的默认思考强度：面板每个模型右侧可选档位（选项取自该模型支持的 thinking levels），\n  保存后写入服务商声明，重启 PI 后输入框默认使用该档位；非法档位自动回退。\n- 模型管理：内置 18 个 cline-pass 模型（含上下文窗口、视觉支持、思考档位），勾选即生效；\n  未勾选的模型在转发层直接返回 404 model_not_enabled，不消耗上游额度。\n- 凭据安全：ClinePass API Key 使用 Windows DPAPI（绑定当前登录用户）加密后落盘，\n  磁盘与下发快照只保留密文，启动时解密到内存；旧版明文会在升级首启时自动加密并清空。\n- 本机 OpenAI 兼容端点：127.0.0.1:41891 提供 /v1 兼容接口，转发到 api.cline.bot 并保持流式响应不变。\n\n【0.6.1 修复】\n- 成本列改为优先取网关的 marketCost / inferenceCost。走私有通道时 cost 字段恒为 0，\n  此前面板会一直显示 $0；缓存字段缺失时显示 —，不再当作 0。\n\n【0.6.0 修复】\n- 修复只修改思考档位时声明不落盘的问题（此前只比较模型 id，列表未变就提前返回）。\n\n【重要说明】\n- Cline 网关会忽略客户端传入的路由字段。provider.only 与 allow_fallbacks 已用\n  fireworks / gmicloud / baseten 三个上游各测一次，请求仍落在会话亲和的节点上，\n  因此本插件定位为「观察器」：如实报告真实上游，不承诺固定上游。\n- PI 的服务商模型列表由宿主在启动时按清单重建，改动模型清单或思考档位需重启 PI 生效，面板会直接标出。\n- 上游 /api/v1/models 自 2026-10-21 起返回 OpenRouter 风格目录、不再包含 cline-pass/*，\n  因此模型清单内置在插件中，不依赖该接口。\n\n【权限】\nui.panel（面板）、background.service（常驻转发服务）、provider.register（注册服务商）。\n出站仅 api.cline.bot。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "a79be7cd80ca5f7a120994d7b55db1653d1a123b6559c7371be15dfde45d25e7",
+          "url": "packages/io.github.moyunliuyin.cline-upstream-0.6.1.piplug",
+          "sizeBytes": 84794,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/moyunliuyin/pi-desktop-cline-upstream",
+            "sourceRef": "v0.6.1",
+            "sourceCommit": "f0b87a58e26b054b7341514e39f428b8552c7164",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T05:49:28Z"
+          }
+        },
+        {
           "version": "0.6.0",
-          "publishedAt": "2026-10-22T05:21:11Z",
+          "publishedAt": "2026-10-22T05:21:48Z",
           "changelog": "0.6.0\n- 新增「每个模型的默认思考强度」：面板每个模型右侧可选择档位，选项取自该模型支持的 thinking levels；\n  保存后写入服务商声明，重启 PI 后输入框默认使用该档位。非法档位会自动回退到原默认值。\n- 修复只改思考档位时声明不落盘的问题（此前只比较模型 id，会在列表未变时提前返回）。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "efdddcf7d9cba5deefac47cbaa0f3e31f83b805f6be592a5cadd73dc1a622445",
