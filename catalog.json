@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T07:13:55Z",
-  "generatedAt": "2026-10-22T07:13:55Z",
+  "updatedAt": "2026-10-22T10:06:10Z",
+  "generatedAt": "2026-10-22T10:06:10Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1426,6 +1426,32 @@
       "readmeMarkdown": "# WTQ账号池\n\n把本机 WorkBuddy、Trae、Qoder 的桌面登录接入 PI-Desktop。WorkBuddy 被限流或额度用尽时自动换号；Trae、Qoder 按请求选择账号，不保证失败后重试。三个来源独立开关，国内与国际账号分别成组。\n\n[English](./README.en.md)\n\n## 预览\n\n设置面板界面如下（默认亮色）：\n\n![账号池](docs/preview-pool.png)\n\n面板跟随 PI-Desktop 的外观设置，暗色与亮色各一套配色：\n\n![暗色主题](docs/preview-dark.png)\n\n模型页可以改显示名、上下文窗口、输出上限、思考等级和贴图。Trae 目录给出费率的模型会带上 `x0.79` 这样的费率标签，未给出费率的模型（以及 Qoder 全部模型）不标注：\n\n![模型设置](docs/preview-models.png)\n\n在线预览：\u003chttps://chengzhi-c.github.io/pi-desktop-wtq-pool/\u003e。\n\n`docs/index.html` 加载实际面板代码并使用虚构演示数据，支持来源切换、模型设置和主题预览，不读取本机账号或令牌。\n\n![预览页](docs/preview-page.png)\n\n开启 `showComposerPoints` 后，输入框工具栏显示当前模型的账号积分，点击可查看该组账号并切换账号。下图由实际输入框扩展离屏渲染，非对话测试截图：\n\n![输入框积分](docs/preview-composer.png)\n\n本地运行：`node docs/serve.cjs`，然后打开它输出的地址。\n（`docs/index.html` 需经本地服务器打开：`file://` 页面无法读取同目录的面板文件。）\n\n## 安装\n\nPI-Desktop → 插件 → 安装本地插件，选择本地生成的 `.piplug`。\n\n开发与检查：`npm ci \u0026\u0026 npm run typecheck \u0026\u0026 npm run build \u0026\u0026 npm test`。修改 `src/` 后须重建 `lib/`。\n打包使用 PI-Desktop 的 `PluginCheck` / `PluginPack`，不使用通用 ZIP 工具。打包前先把工作树复制成仅含运行时文件的副本（去掉 `src/`、`tests/`、`build.mjs`、`tsconfig.json`、`package-lock.json`），并清空 `manifest.json` 的 `contributes.providers`：`PluginPack` 只排除 `.git`、`node_modules` 和 `dist`，运行时声明里带着本机上一次发布的模型组与端口，直接打包会把它带进发布产物。\n\n## 使用\n\n在各家桌面 App 里登录，再点面板「重新检测账号」。WorkBuddy 要多个账号，就在 App 里逐个登录；5.6 起的 `$wbEncrypted` 登录由插件向本机已安装的 WorkBuddy 要密钥再读。Trae 国内版有 Trae CN 与 TRAE SOLO CN 两个登录位，Qoder 每个安装只保存一个登录，在 App 里重新登录会覆盖前一个。\n\n模型分组没出现时，按面板顶部的提示重启 PI-Desktop。\n\n面板顶层选来源，下面是账号池、模型和连接检查。\n\n- 账号卡支持积分明细、签到、停用、移除和区域首选账号；输入框积分弹窗可刷新当前模型所在组。\n- WorkBuddy 支持优先使用、轮询、临期积分优先和会话固定账号；Trae、Qoder 支持轮询与临期积分优先。\n- 模型页保存后更新插件声明；宿主尚未重载时按面板提示重启。一个模型组最多发布 64 个，超出的勾选标为「未发布」，网关仍支持这些模型。\n- 自动签到默认关闭，开启后默认于 09:00（北京时间）执行；错过时段将在下次启动补领。「立即运行」执行同一轮，包含三家的签到、WorkBuddy 国内账号的连登和任务奖励及猫猫旅行。Trae 每日签到按设备限制，Qoder 新轮次于 10:00 开放。\n\n## 设置\n\n插件页里可改的项：\n\n| 键 | 默认 | 说明 |\n| --- | --- | --- |\n| `enabled` | `true` | 关闭后网关不启动 |\n| `sourceWorkbuddy` / `sourceTrae` / `sourceQoder` | `true` | 关闭后该来源不扫描、不发布、不请求 |\n| `distribution` | `priority` | WorkBuddy 池的发放方式：`priority` 先用一个账号，`round-robin` 均摊，`expiry` 优先消耗临期积分，`sticky` 同一对话固定 |\n| `sourceDistributions` | `{}` | Trae、Qoder 的分发方式：`round-robin` / `expiry`；兼容旧值 `priority` |\n| `cooldownSeconds` | `60` | 限流冷却时长。上游报出重置时间时以它为准，按北京时间 |\n| `creditReserves` | `{}` | 按账号 id 设定的积分保底，余额低于它的账号不参与分发 |\n| `authFile` | `\"\"` | WorkBuddy 登录文件路径；扫描其所在目录的全部 `.info` 登录，留空自动发现 |\n| `autoCheckin` | `{\"enabled\":false,\"hours\":[9]}` | 自动签到的开关与时点；`hours` 为北京时间整点，留空用 09:00 |\n| `showComposerPoints` | `false` | 在输入框工具栏显示当前账号积分 |\n\n模型勾选和首选账号由面板保存。命令面板里也可以打开面板、重新检测、清除冷却、全部签到、连接检查。\n\n## 端口\n\n```\nWorkBuddy  41831 / 41841\nTrae       41851 / 41861\nQoder      41871 / 41881\n```\n\n宿主在插件进程启动前读取清单地址，因此端口固定。端口被占用时请先查看连接检查，不应连接其他进程的服务。国内模型仅使用国内账号。\n\n## 数据\n\n只读三家 App 的本机登录文件。令牌仅在插件进程中使用，并发往对应厂商接口；网关仅监听 `127.0.0.1`，同机其他进程仍可调用并消耗账号额度。插件设置由宿主持久化，模型分组写入本插件清单；插件不直接管理或删除宿主会话记录。重启后回复缺失时应同时检查插件流是否完成与宿主持久化日志。\n\n## 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` | 打开设置面板 |\n| `background.service` | 常驻运行网关与扫描 |\n| `provider.register` | 把三个来源作为模型提供方写进本插件清单 |\n| `renderer.extension` | 在输入框工具栏显示积分 |\n| `shell.openExternal` | 面板页脚打开外部链接 |\n| `clipboard.write` | 连接检查页复制报告 |\n\n出网请求由插件进程直接发送，不经过宿主 `net.fetch` 通道。\n\n令牌只会发往以下主机，与 `manifest.json` 的 `safetyNotes` 一致：\n\n- WorkBuddy：`copilot.tencent.com`、`www.codebuddy.cn`、`www.codebuddy.ai`、`www.workbuddy.ai`、`www.workbuddy.cn`\n- Trae：`api.trae.cn`、`solo.trae.cn`、`trae-api-cn.mchost.guru`、`coresg-normal.trae.ai`、`growsg-normal.trae.ai`\n- Qoder：`gateway.qoder.com.cn`、`openapi.qoder.com.cn`、`api3.qoder.sh`、`openapi.qoder.sh`\n\n## 致谢\n\n本插件的若干模块移植或参考自下列 MIT 项目，特此鸣谢：\n\n| 项目 | 版权 | 用于 |\n| --- | --- | --- |\n| [XDTrees/dsh-workbuddy-xdpool](https://github.com/XDTrees/dsh-workbuddy-xdpool) | (c) 2026 XDTrees | WorkBuddy 账号池与整体移植来源 |\n| [corrinehu/dsh-workbuddy-connect](https://github.com/corrinehu/dsh-workbuddy-connect) | (c) 2026 Corrine Hu | 回环端点的安全模型 |\n| [dingminhua/dsh-connect-workbuddy](https://github.com/dingminhua/dsh-connect-workbuddy) | (c) 2026 LaoDing | 上游接口与错误分类 |\n| [dingminhua/dsh-connect-trae](https://github.com/dingminhua/dsh-connect-trae) | (c) 2026 dingminhua | Trae 协议参考 |\n| [eghrhegpe/dsh-connect-qoder](https://github.com/eghrhegpe/dsh-connect-qoder) | (c) 2026 eghrhegpe | Qoder 协议参考 |\n| [eric8bit/pi-desktop-workbuddy](https://github.com/eric8bit/pi-desktop-workbuddy) | (c) 2026 eric8bit | 同一上游的 PI-Desktop 移植版，本插件的前身 |\n\n## 许可\n\nMIT，见 [LICENSE](./LICENSE)。\n",
       "safetyNotes": "Reads the WorkBuddy, Trae and Qoder sign-ins already saved on this machine. If an install is not in its default location, only its uninstall registry entry is read to find it. Keys for encrypted fields stay in memory. Tokens go only to each vendor's own hosts: copilot.tencent.com / codebuddy.cn / codebuddy.ai / workbuddy.ai / www.workbuddy.cn, api.trae.cn / solo.trae.cn / trae-api-cn.mchost.guru / coresg-normal.trae.ai / growsg-normal.trae.ai, gateway.qoder.com.cn / openapi.qoder.com.cn / api3.qoder.sh / openapi.qoder.sh. Chat is served from 127.0.0.1.",
       "versions": [
+        {
+          "version": "1.0.51",
+          "publishedAt": "2026-10-22T10:06:10Z",
+          "changelog": "## [1.0.51]\n\n- Qoder 不再列出 Ultimate、Efficient、Sonus、Cantus 四条内部路由，只保留有名称的模型。\n\n## [1.0.5]\n\n- **新增成长中心页签**：按账号列出连登档位，「读取状态」只读，「立即执行」单独跑成长环节，按补签卡、礼包与补偿、活跃上报、连登档位与抽奖分项报告，两个 region 都执行，不含任务奖励的列表、接取与领取。\n- 读数留在进程内，重开面板直接重绘；超过两分钟、期间跑过一轮或账号池变动时重读，读取期间池子变动则不写回。\n- 成长中心与签到互斥：它执行期间「全部签到」、单账号签到与延迟执行的 Qoder 签到都等它结束；重载或重启后按「立即执行」会重新领取。\n- 命令面板不再提供本插件的 `xdpool.*` 命令，面板与卡片入口不受影响。\n- 面板的「添加账号」在浏览器打开官方登录页，登录完成即入池，凭证写在 `signins/` 下，没有桌面 App 也能用。\n- 面板添加的账号可删除，登录文件与留档一并清除，按两次确认、八秒内未再按即解除；删除先等进行中的扫描结束，并清掉停用标记、积分保底与首选设置。\n- 删除确认超时后提示一并消失；该行忙碌时置灰，按下不进入确认状态。桌面 App 自身的登录没有该按钮。\n- 凭证留档读不出或损坏时扫描不改写，被覆盖的账号仍可恢复。\n- 挂起按原因区分：「额度用尽」读到余额即释放，「登录失效」需重新登录或手动重置；扫到新登录时释放并以该份登录请求，原因不被另一种改写。\n- 未给重置时间的限流冷却逐次翻倍，封顶 15 分钟，间隔超过 30 分钟重新计数；上游给出重置时间时以它为准。\n- 空池的拒绝状态码按原因区分，仍有账号在限流时随响应发出该期限。\n- 轮转与临期积分优先都先排可用登录，被挂起的排后面；Qoder 延迟轮次只在真正完成时清除重试时间。\n- WorkBuddy 模型拒绝缺省思考等级时，补上声明的默认等级重发一次。\n- Trae 的默认档与 Max 档都作为上限发布：窗口高于所有默认档才用 Max，目录未声明更大档位时取实测上限，同一模型的多份声明全部保留。\n- Trae 的查询被拒时改用同模型的下一份声明重试一次，目录残缺时并入已缓存名单。\n- 目录晚于启动返回时，该来源的模型组补发一次声明。\n- Trae 模型发布实测可用的 1M 上限档，默认窗口不变。\n- 面板三个来源页签右侧与 README 顶部写明封号风险。\n- 模型页左列的编辑标记跟随当前打开的编辑面板，关闭、取消勾选或保存后清除。\n- 模型页的预设档位含模型自身的上限，超出的不出现。\n- 保存的上限高于当前目录时显示目录中的值，不计为未保存的改动。\n- 数值被拒绝时回填实际保存的值，清空字段即回到跟随目录；手工输入的窗口与输出优先于夹紧时暂存的值；带思考等级的模型在缺少默认等级下拉时正常渲染。\n- 打开模型页不中断后台刷新轮询；Trae、Qoder 按网关实际发布的列表显示勾选状态。\n- 输入框的积分读数按声明名称查找，两个网关共有的模型带网关后缀（`… (CN)` / `… (Global)`），并与网关用同一个账号顺序。\n- 「立即刷新」跑一轮令牌保活，按刷新、无需处理、失败、无刷新令牌分项报告，无定时任务与开关，重启后照常显示。\n- 国际版登录文件被覆盖时，为读到的凭证留档并继续分发；服务运行期间每分钟重读一次桌面登录。\n- 冷却中的账号仍读取签到状态，「全部限流」排除已停用的账号，选择器不列出登录已过期的账号。\n- 签到慢轮询失败三次后停止，页面隐藏时两个轮询都停。\n- 面板补齐对比度与可访问名称，页签标出 `aria-selected`，失败提示标出 `role=\"alert\"`。\n- 账号行按钮按账号本身定位，焦点回到按下的那一行。\n- 缺字文案补齐。\n- 签名扫描在装了商店版 PowerShell 7 的机器上同样生效。\n- 积分包的到期时间接受秒级时间戳；连接检查的 at-rest 行在通过时也写一行。\n- 网关在目录全部失败时的 503 带上真实原因；请求体缺少工具调用标识时返回其自身的说明；回复里出现过工具调用又被预算截断时，发给宿主的是「被截断」。\n- 新增 `tools/import-signins.cjs`：把其他工具的账号文件按本插件识别的形状写入 `signins/`，默认跳过已有账号，`--dry-run` 预览，`--force` 覆盖。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "3eb96727e502c5ae7fc12d418a54c3544fff3e7df95ae2668b523c036287f8ea",
+          "url": "packages/io.github.chengzhi-c.pi-desktop-wtq-pool-1.0.51.piplug",
+          "sizeBytes": 1023879,
+          "permissions": [
+            "background.service",
+            "clipboard.write",
+            "provider.register",
+            "renderer.extension",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/chengzhi-c/pi-desktop-wtq-pool",
+            "sourceRef": "v1.0.51",
+            "sourceCommit": "f552284c0ab765747dc99163d9a2138f53716da7",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T10:06:10Z"
+          }
+        },
         {
           "version": "1.0.41",
           "publishedAt": "2026-10-18T11:52:05Z",
@@ -5377,7 +5403,7 @@
       "versions": [
         {
           "version": "1.5.2",
-          "publishedAt": "2026-10-22T07:13:55Z",
+          "publishedAt": "2026-10-22T07:14:32Z",
           "changelog": "1.5.1：常驻规则在 PI-Desktop 0.20.x 上完全没送达\n根因：0.20.x 更换了扩展 runner，把 systemPromptOptions 硬编码成空对象，且只读取返回的 systemPrompt 字符串。插件原本只写入 sections[name]，这等于写进一个每轮都会被丢弃的空对象，并且不报错。\n\n修复：增加双通道投递：\n\n有 section 表（0.15.x–0.19.x、上游 pi）→ 只写自己的 section，不接管整条提示\n无 section 表（0.20.x+）→ 把规则包成 \u003cpi-thinkrail-workflow\u003e，追加到提示尾部\n规则保留原有提示，不替换它；重复投递保持幂等；多个插件的规则按顺序合并时互不覆盖。\n\n1.5.2：项目只有一份草稿，却仍被判成「已有 spec 图」\n根因：规则要求判断 durable graph 时忽略 .thinkrail/context/ 下的草稿，但索引中的 IGNORED_DIRS 不含 .thinkrail。于是草稿被当成普通 spec，模型据此判定「已有图 → 跳过 onboarding」。会话 eb0090c3 就是这样跳过项目 setup 的。\n\n修复：只调整图和检索，不调整写入：spec_graph、spec_grep、spec_validate 和面板都过滤掉草稿；spec_create 仍可写草稿，spec_update 和 spec_delete 仍能按 id 找到它。\n\n真实项目验证（pidesktopsolfi）：修复前索引到 1 个 durable spec，修复后为 0 个，因此会触发 onboarding。",
           "minPiDesktop": "\u003e=0.15.6",
           "shasum": "5c25e30dc36914ce647dce6793e4ef7af8274ff96e371600cad84379b0037ef5",
