@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T06:41:15Z",
-  "generatedAt": "2026-10-22T06:41:15Z",
+  "updatedAt": "2026-10-22T07:13:55Z",
+  "generatedAt": "2026-10-22T07:13:55Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2268,7 +2268,7 @@
       "versions": [
         {
           "version": "0.7.5",
-          "publishedAt": "2026-10-22T06:41:15Z",
+          "publishedAt": "2026-10-22T06:41:55Z",
           "changelog": "可以选择锚定的上游(注:可能会导致有的时候无法正常使用)",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "7bab94d747bbcc2a05bdc0b632e04484f5be2d5cc8b89ea61a3021740d06cec8",
@@ -5375,6 +5375,41 @@
       "publisherId": "pi",
       "downloads": 0,
       "versions": [
+        {
+          "version": "1.5.2",
+          "publishedAt": "2026-10-22T07:13:55Z",
+          "changelog": "1.5.1：常驻规则在 PI-Desktop 0.20.x 上完全没送达\n根因：0.20.x 更换了扩展 runner，把 systemPromptOptions 硬编码成空对象，且只读取返回的 systemPrompt 字符串。插件原本只写入 sections[name]，这等于写进一个每轮都会被丢弃的空对象，并且不报错。\n\n修复：增加双通道投递：\n\n有 section 表（0.15.x–0.19.x、上游 pi）→ 只写自己的 section，不接管整条提示\n无 section 表（0.20.x+）→ 把规则包成 \u003cpi-thinkrail-workflow\u003e，追加到提示尾部\n规则保留原有提示，不替换它；重复投递保持幂等；多个插件的规则按顺序合并时互不覆盖。\n\n1.5.2：项目只有一份草稿，却仍被判成「已有 spec 图」\n根因：规则要求判断 durable graph 时忽略 .thinkrail/context/ 下的草稿，但索引中的 IGNORED_DIRS 不含 .thinkrail。于是草稿被当成普通 spec，模型据此判定「已有图 → 跳过 onboarding」。会话 eb0090c3 就是这样跳过项目 setup 的。\n\n修复：只调整图和检索，不调整写入：spec_graph、spec_grep、spec_validate 和面板都过滤掉草稿；spec_create 仍可写草稿，spec_update 和 spec_delete 仍能按 id 找到它。\n\n真实项目验证（pidesktopsolfi）：修复前索引到 1 个 durable spec，修复后为 0 个，因此会触发 onboarding。",
+          "minPiDesktop": "\u003e=0.15.6",
+          "shasum": "5c25e30dc36914ce647dce6793e4ef7af8274ff96e371600cad84379b0037ef5",
+          "url": "packages/pi.thinkrail-1.5.2.piplug",
+          "sizeBytes": 567211,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": true
+            },
+            "read": {
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "scope": [
+                "**/*.md",
+                ".thinkrail/**"
+              ]
+            }
+          },
+          "yanked": false
+        },
         {
           "version": "1.5.0",
           "publishedAt": "2026-09-25T18:57:21Z",
