@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T05:49:28Z",
-  "generatedAt": "2026-10-22T05:49:28Z",
+  "updatedAt": "2026-10-22T06:26:13Z",
+  "generatedAt": "2026-10-22T06:26:13Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2273,8 +2273,31 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.7.3",
+          "publishedAt": "2026-10-22T06:26:13Z",
+          "changelog": "0.7.3 — 首个公开版本\n\n【功能】\n- 逐条请求日志：每个对话请求一行，记录时间、完整模型 id、实际落点上游、网关钉住的上游、\n  剩余备选数、prompt 缓存命中 token 数、本次成本与路由校验结果。服务端保留最近 200 条，\n  面板展示最近 60 条。\n- 锚定上游（按模型 id 改写）：面板可为每个模型「探测」同族的不同 id，列出各自会落在哪家上游，\n  并区分「可锚定」（有 id 主选它）与「仅备选」（只在降级时使用）；选定后插件在转发时改写\n  `model` 字段，保存即生效，无需重启。\n- 每个模型的默认思考强度：模型行右侧可选档位（选项取自该模型支持的 thinking levels），\n  写入服务商声明，重启 PI 后输入框默认使用该档位；非法值自动回退。\n- 模型管理：内置 18 个 cline-pass 模型（含上下文窗口、视觉支持、思考档位），勾选即生效；\n  未勾选的模型在转发层直接返回 404 model_not_enabled，不消耗上游额度。\n- 凭据安全：ClinePass API Key 用 Windows DPAPI（绑定当前登录用户）加密后落盘，磁盘与下发快照\n  只保留密文，启动时解密到内存；旧版明文会在升级首启时自动加密并清空。\n- 本机 OpenAI 兼容端点：127.0.0.1:41891 提供 /v1 兼容接口，转发到 api.cline.bot 并保持流式响应。\n\n【为什么锚定要改模型 id】\n实测三条结论：① 请求体里的 provider.only / allow_fallbacks 被网关忽略；\n② clientSessionId 由 API Key 决定，客户端传什么都不变，无法靠换会话重掷；\n③ 落点是 (key, 模型 id) 的函数——同一 id 永远是同一家，换 id 才换家。\n因此唯一可行的锚定方式就是改写请求里的 model 字段。注意：id 变了，实际服务的模型变体也会变\n（同族，但可能是不同版本或量化）；想零风险就把下拉留在「原样转发」，只当观察器使用。\n\n【版本历史】\n- 0.7.3 修复探测结果被后续刷新覆盖，提示条现在保留并分行列出可锚定/仅备选\n- 0.7.2 修复探测候选为空：候选改从接口返回的全量目录匹配（此前读的是过滤后的列表）\n- 0.7.1 探测补全可达上游全集，区分可锚定与仅备选\n- 0.7.0 新增锚定上游（按模型 id 改写）\n- 0.6.1 成本改读网关的 marketCost / inferenceCost（私有通道 cost 恒为 0，此前面板一直显示 $0）\n- 0.6.0 新增每个模型的默认思考强度；修复只改档位时声明不落盘\n- 0.5.0 逐条请求日志；API Key 改为 DPAPI 加密存储；定位更正为观察器\n\n【重要说明】\n- 模型清单与思考档位由宿主在启动时按声明重建，改动需重启 PI 生效，面板会直接标出；\n  锚定的 id 改写属于插件侧请求改写，保存即生效。\n- 上游 /api/v1/models 自 2026-10-21 起返回 OpenRouter 风格目录、不再包含 cline-pass/*，\n  因此模型清单内置在插件中，不依赖该接口。\n- 每次探测会产生几次真实调用（每次约 $0.00003）。\n\n【权限】\nui.panel（面板）、background.service（常驻转发服务）、provider.register（注册服务商）。\n出站仅 api.cline.bot。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "d033cb1161e3b6d857d637d4f1cab78c3c37cd4b09426d2f5d733dbe6d507633",
+          "url": "packages/io.github.moyunliuyin.cline-upstream-0.7.3.piplug",
+          "sizeBytes": 95313,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/moyunliuyin/pi-desktop-cline-upstream",
+            "sourceRef": "v0.7.3",
+            "sourceCommit": "daa0aece6eb65343c7bb58d2cb4a16d3b7a7c488",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T06:26:13Z"
+          }
+        },
+        {
           "version": "0.6.1",
-          "publishedAt": "2026-10-22T05:49:28Z",
+          "publishedAt": "2026-10-22T05:50:06Z",
           "changelog": "0.6.1 — 首个公开版本\n\n【功能】\n- 逐条请求日志：每个对话请求一行，记录时间、完整模型 id、实际落点上游、网关钉住的上游、\n  剩余备选数、prompt 缓存命中 token 数、本次成本，以及路由校验结果。\n  服务端保留最近 200 条，面板展示最近 60 条。\n- 每个模型的默认思考强度：面板每个模型右侧可选档位（选项取自该模型支持的 thinking levels），\n  保存后写入服务商声明，重启 PI 后输入框默认使用该档位；非法档位自动回退。\n- 模型管理：内置 18 个 cline-pass 模型（含上下文窗口、视觉支持、思考档位），勾选即生效；\n  未勾选的模型在转发层直接返回 404 model_not_enabled，不消耗上游额度。\n- 凭据安全：ClinePass API Key 使用 Windows DPAPI（绑定当前登录用户）加密后落盘，\n  磁盘与下发快照只保留密文，启动时解密到内存；旧版明文会在升级首启时自动加密并清空。\n- 本机 OpenAI 兼容端点：127.0.0.1:41891 提供 /v1 兼容接口，转发到 api.cline.bot 并保持流式响应不变。\n\n【0.6.1 修复】\n- 成本列改为优先取网关的 marketCost / inferenceCost。走私有通道时 cost 字段恒为 0，\n  此前面板会一直显示 $0；缓存字段缺失时显示 —，不再当作 0。\n\n【0.6.0 修复】\n- 修复只修改思考档位时声明不落盘的问题（此前只比较模型 id，列表未变就提前返回）。\n\n【重要说明】\n- Cline 网关会忽略客户端传入的路由字段。provider.only 与 allow_fallbacks 已用\n  fireworks / gmicloud / baseten 三个上游各测一次，请求仍落在会话亲和的节点上，\n  因此本插件定位为「观察器」：如实报告真实上游，不承诺固定上游。\n- PI 的服务商模型列表由宿主在启动时按清单重建，改动模型清单或思考档位需重启 PI 生效，面板会直接标出。\n- 上游 /api/v1/models 自 2026-10-21 起返回 OpenRouter 风格目录、不再包含 cline-pass/*，\n  因此模型清单内置在插件中，不依赖该接口。\n\n【权限】\nui.panel（面板）、background.service（常驻转发服务）、provider.register（注册服务商）。\n出站仅 api.cline.bot。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "a79be7cd80ca5f7a120994d7b55db1653d1a123b6559c7371be15dfde45d25e7",
