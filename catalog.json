@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T04:57:17Z",
-  "generatedAt": "2026-10-22T04:57:17Z",
+  "updatedAt": "2026-10-22T05:21:11Z",
+  "generatedAt": "2026-10-22T05:21:11Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1293,7 +1293,7 @@
       "versions": [
         {
           "version": "0.3.1",
-          "publishedAt": "2026-10-22T04:57:17Z",
+          "publishedAt": "2026-10-22T04:57:52Z",
           "changelog": "上架信息改为中文。\n\n- 插件描述、安全说明、更新记录全部换成中文\n- 市场详情页（README）改为中文优先，英文内容保留在下方\n- 插件设置项标题以中文打头\n\n面板本身行为不变：中英双语、默认跟随系统语言。",
           "minPiDesktop": "\u003e=0.20.0",
           "shasum": "515a5c23f022dd114d5d1cda6c41fb561bc31b08295cf949be1a24099c4714cd",
@@ -2272,6 +2272,29 @@
       "publisherId": "github",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.6.0",
+          "publishedAt": "2026-10-22T05:21:11Z",
+          "changelog": "0.6.0\n- 新增「每个模型的默认思考强度」：面板每个模型右侧可选择档位，选项取自该模型支持的 thinking levels；\n  保存后写入服务商声明，重启 PI 后输入框默认使用该档位。非法档位会自动回退到原默认值。\n- 修复只改思考档位时声明不落盘的问题（此前只比较模型 id，会在列表未变时提前返回）。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "efdddcf7d9cba5deefac47cbaa0f3e31f83b805f6be592a5cadd73dc1a622445",
+          "url": "packages/io.github.moyunliuyin.cline-upstream-0.6.0.piplug",
+          "sizeBytes": 84038,
+          "permissions": [
+            "background.service",
+            "provider.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/moyunliuyin/pi-desktop-cline-upstream",
+            "sourceRef": "v0.6.0",
+            "sourceCommit": "97561a1ddae3f0fde418d8ceecb777c26a7d634e",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-22T05:21:11Z"
+          }
+        },
         {
           "version": "0.5.0",
           "publishedAt": "2026-10-21T08:22:08Z",
