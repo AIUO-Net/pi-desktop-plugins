@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-23T23:05:41Z",
-  "generatedAt": "2026-10-23T23:05:41Z",
+  "updatedAt": "2026-10-23T23:06:23Z",
+  "generatedAt": "2026-10-23T23:06:23Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3247,21 +3247,9 @@
     },
     {
       "id": "io.github.xideadev.task-dida",
-      "name": "TASK Dida任务提示音",
+      "name": "任务提示音",
       "description": "在 AI 智能体完成任务回合、发生报错或等待操作时播放清脆悦耳的系统提示音，支持试听与自定义替换。",
       "author": "XideaDev",
-      "i18n": {
-        "en": {
-          "name": "TASK Dida",
-          "description": "Play pleasant native sound alerts when AI finishes tasks, errors, or requires attention. Supports audition and sound customization.",
-          "safetyNotes": "Invokes the operating system's native command-line audio player to produce local alert sounds. Zero network requests, and no access to your API keys, credentials, or personal code files."
-        },
-        "zh-CN": {
-          "name": "TASK Dida任务提示音",
-          "description": "在 AI 智能体完成任务回合、发生报错或等待操作时播放清脆悦耳的系统提示音，支持试听与自定义替换。",
-          "safetyNotes": "调用操作系统原生音频播放命令（macOS 为 afplay，Windows 为 PowerShell SoundPlayer，Linux 为 aplay）播放本地提示音。无任何网络请求，绝不接触任何 API 密钥、凭据或代码文件。"
-        }
-      },
       "categories": [
         "productivity"
       ],
@@ -3275,7 +3263,7 @@
       "versions": [
         {
           "version": "1.0.1",
-          "publishedAt": "2026-10-23T23:05:41Z",
+          "publishedAt": "2026-10-23T23:06:23Z",
           "changelog": "### Release v1.0.1: 任务提示音 (TASK Dida)\n\n优化全平台稳定度与安全性加固，全面提升完成事件捕获可靠性。\n\n#### 更新日志\n- 更名优化：插件正式精简更名为「任务提示音」（EN: TASK Dida）。\n- 完成事件监听重构：采用 Node 22+ 原生 node:sqlite DatabaseSync 与 sqlite3 -json 格式化输出，彻底解决因会话标题含特殊符号导致的数据截断问题。\n- 并发任务防遗漏：引入毫秒级已处理 ID 缓冲集合，解决同时间戳批量子任务完成漏发声缺陷。\n- 前后台失焦感知实现：实现真正的 onlyWhenBlurred 系统前后台焦点状态判定，前台专注盯屏时自动智能静音。\n- 试听体验升级：修复试听双声重叠问题，建立 AudioContext 单例连接池，防止多次试听后浏览器音频资源超限。\n- 事件泄漏修复：规范插件卸载阶段清理所有注册的宿主事件监听器。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "13a5203ab7cfa1d1625c696a99d79505d877b083d1a6476952938c04ed9b198e",
