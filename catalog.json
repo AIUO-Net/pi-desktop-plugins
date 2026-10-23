@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-22T13:59:35Z",
-  "generatedAt": "2026-10-22T13:59:35Z",
+  "updatedAt": "2026-10-23T23:05:41Z",
+  "generatedAt": "2026-10-23T23:05:41Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3273,6 +3273,28 @@
       "readmeMarkdown": "# TASK Dida任务提示音 (Task Sound Alert for PI-Desktop)\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)\n[![PI-Desktop Plugin](https://img.shields.io/badge/PI--Desktop-Plugin-6366f1.svg)](https://github.com/vastsa/PI-Desktop)\n\nA lightweight, zero-dependency sound alert plugin designed specifically for **PI-Desktop**. Plays pleasant, customizable sound notifications when AI agent tasks finish, error out, or require attention.\n\n专为 **PI-Desktop** 打造的轻量级、零依赖任务完成声音通知插件。在 AI 智能体任务完成、发生异常中断或需要人工操作时，自动跟随系统通知播放清脆悦耳的提示音。\n\n---\n\n## 核心特性\n\n- **任务完成提示音 (Task Completion Sound)**: AI 顺利跑完代码或执行完回合时提供即时声音反馈（`task.completed`）。\n- **错误警示音 (Error Alert)**: 任务执行遇到异常中断或报错时播放低沉警示音。\n- **系统提示接管 (Override Host Beep)**: 可选择接管并替换系统自带单调的 660Hz 蜂鸣声，带来更悦耳的交互反馈。\n- **提示音在线试听 (Sound Audition)**: 内置可视化设置面板，支持一键在线试听各场景音效。\n- **防爆音节流 (Audio Throttling)**: 内建 2.0 秒全局冷却时间，防止多个子任务或通知密集并发导致声音撕裂。\n- **后台智能感知 (Focus Awareness)**: 可配置为仅当 PI-Desktop 窗口在后台失焦时才发声，减少前台盯屏时的听觉冗余。\n- **纯本地无外联 (Privacy First)**: 零外部网络请求，绝不接触任何 API 密钥、凭据或用户个人代码。\n\n---\n\n## 安装方式\n\n### 方式一：从官方插件市场一键安装 (推荐)\n1. 打开 PI-Desktop 客户端；\n2. 进入 **设置 (Settings)** → **插件 (Plugins)** → **插件市场 (Marketplace)**；\n3. 搜索 `TASK Dida任务提示音` 或 `Task Sound Alert`；\n4. 点击 **安装 (Install)** 并授权声音播放权限即可。\n\n### 方式二：从本地 `.piplug` 文件安装\n1. 前往 GitHub [Releases](https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida/releases) 下载最新的 `io.github.xideadev.task-dida-1.0.0.piplug`；\n2. 在 PI-Desktop 中进入 **设置 → 插件**；\n3. 点击右上角的 **“从文件安装 (Install from file)”**，选择下载的 `.piplug` 文件完成导入。\n\n---\n\n## 配置与试听面板\n\n安装后，可通过以下方式打开专属可视化设置与试听面板：\n- 按下快捷键 `Cmd + Shift + P`（Windows 为 `Ctrl + Shift + P`），搜索命令 **“TASK Dida任务提示音: 打开设置面板”**；\n- 在面板中可调节提示音量、开关各项通知，并支持针对各场景点击 **“试听音效”**。\n\n---\n\n## 开发者构建\n\n```bash\n# 1. 克隆仓库\ngit clone https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida.git\ncd PI-Desktop-Plugin-TaskDida\n\n# 2. 安装开发依赖\nnpm install\n\n# 3. 编译 TypeScript\nnpm run build\n\n# 4. 规范校验\nPluginCheck\n\n# 5. 打包 .piplug (Store-only ZIP 规范)\nPluginPack\n```\n\n---\n\n## License\n\n[MIT License](LICENSE) © 2025 XideaDev\n",
       "safetyNotes": "调用操作系统原生音频播放命令（macOS 为 afplay，Windows 为 PowerShell SoundPlayer，Linux 为 aplay）播放本地提示音。无任何网络请求，绝不接触任何 API 密钥、凭据或代码文件。",
       "versions": [
+        {
+          "version": "1.0.1",
+          "publishedAt": "2026-10-23T23:05:41Z",
+          "changelog": "### Release v1.0.1: 任务提示音 (TASK Dida)\n\n优化全平台稳定度与安全性加固，全面提升完成事件捕获可靠性。\n\n#### 更新日志\n- 更名优化：插件正式精简更名为「任务提示音」（EN: TASK Dida）。\n- 完成事件监听重构：采用 Node 22+ 原生 node:sqlite DatabaseSync 与 sqlite3 -json 格式化输出，彻底解决因会话标题含特殊符号导致的数据截断问题。\n- 并发任务防遗漏：引入毫秒级已处理 ID 缓冲集合，解决同时间戳批量子任务完成漏发声缺陷。\n- 前后台失焦感知实现：实现真正的 onlyWhenBlurred 系统前后台焦点状态判定，前台专注盯屏时自动智能静音。\n- 试听体验升级：修复试听双声重叠问题，建立 AudioContext 单例连接池，防止多次试听后浏览器音频资源超限。\n- 事件泄漏修复：规范插件卸载阶段清理所有注册的宿主事件监听器。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "13a5203ab7cfa1d1625c696a99d79505d877b083d1a6476952938c04ed9b198e",
+          "url": "packages/io.github.xideadev.task-dida-1.0.1.piplug",
+          "sizeBytes": 405782,
+          "permissions": [
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida",
+            "sourceRef": "v1.0.1",
+            "sourceCommit": "50665bbcdd83b919394e97827fb900229d21444b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-23T23:05:41Z"
+          }
+        },
         {
           "version": "1.0.0",
           "publishedAt": "2026-10-18T21:30:11Z",
