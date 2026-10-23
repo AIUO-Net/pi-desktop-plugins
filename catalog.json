@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-23T23:06:23Z",
-  "generatedAt": "2026-10-23T23:06:23Z",
+  "updatedAt": "2026-10-23T23:18:29Z",
+  "generatedAt": "2026-10-23T23:18:29Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3241,6 +3241,60 @@
             "sourceCommit": "d921308618caae60c1e97eb7c0da29a419e879ea",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-18T12:04:06Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.xideadev.skill-hub",
+      "name": "技能管理",
+      "description": "PI-Desktop 官方级侧边栏技能管理工作台：直观查看、分类检索、启用控制及项目/全局精准注入。",
+      "author": "xidea",
+      "i18n": {
+        "en": {
+          "name": "Skill Hub",
+          "description": "PI-Desktop skill management workspace: browse, search, toggle and inject skills directly from sidebar.",
+          "safetyNotes": "Only accesses skill directories in user and workspace scopes to manage skill definitions. No remote network calls or telemetry."
+        },
+        "zh-CN": {
+          "name": "技能管理",
+          "description": "PI-Desktop 官方级侧边栏技能管理工作台：直观查看、分类检索、启用控制及项目/全局精准注入。",
+          "safetyNotes": "仅读取和维护用户全局及当前工作区 .agents/skills 目录下的技能定义文件，无任何远程外联与遥测。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "readmeMarkdown": "# Skill Hub · PI-Desktop 技能管理工作台\n\n停靠在 PI-Desktop 侧边栏的原生技能（Skill）生命周期中枢。\n\n## 功能核心\n1. **多源技能归集与分层呈现**：自动无缝聚合全局通用（`~/.agents/skills`）与项目专属（`\u003cworkspace\u003e/.agents/skills`）技能。\n2. **三级生效绑定与双轨注入**：支持一键启闭技能，可灵活选择全局常驻、项目作用域或当前会话绑定，支持轻量目录索引注入与强制常驻注入。\n3. **极简原生交互**：点击技能标题直接展开查看与编辑，无多余按键与冗余层级，100% 自适应宿主深浅色调色板。\n",
+      "safetyNotes": "仅读取和维护用户全局及当前工作区 .agents/skills 目录下的技能定义文件，无任何远程外联与遥测。",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-10-23T23:18:29Z",
+          "changelog": "### Release v0.1.0: 技能管理 (Skill Hub)\n\nPI-Desktop 官方级侧边栏技能管理工作台首发版本，专为打造直观、零负担的技能（Skill）生命周期管控体验。\n\n#### 核心特性\n- **多源技能自动归集**：无缝聚合全局通用（`~/.agents/skills`）与项目专属（`\u003cworkspace\u003e/.agents/skills`）所有技能。\n- **极简原生交互**：点击技能名称直接展开查看与编辑技能定义（SKILL.md / YAML 前置块），无冗余跳转与多余按键。\n- **一键智能整理**：自动规范转义字符、统一中英文标点格式，保持技能库整洁规范。\n- **自适应系统调色板**：纯本地原生 CSS 与系统变量集成，无缝跟随 PI-Desktop 浅色/深色主题动态切换。\n- **隐私与本地优先**：零外部网络依赖与遥测，所有技能及配置完全保存在本地磁盘。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "29b9c435fd5023f91243919344a179a9d2239e444bc68b458536cc8ad8c14e79",
+          "url": "packages/io.github.xideadev.skill-hub-0.1.0.piplug",
+          "sizeBytes": 53592,
+          "permissions": [
+            "agent.complete",
+            "agent.extension",
+            "agent.prompt.inject",
+            "desktop.control",
+            "models.list",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/PI-Desktop-Plugin-SkillHub",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "75ad09849e993bb587109df11aa1f2777a404cc3",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-23T23:18:29Z"
           }
         }
       ]
