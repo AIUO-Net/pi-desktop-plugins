@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-23T23:18:29Z",
-  "generatedAt": "2026-10-23T23:18:29Z",
+  "updatedAt": "2026-10-24T13:35:40Z",
+  "generatedAt": "2026-10-24T13:35:40Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3788,6 +3788,40 @@
       "readmeMarkdown": "# PI Bot\r\n\r\nPI Bot 是面向 PI Desktop 的 AI Bot 团队协作插件，基于 DeepSeek-Bot 学习、迁移并持续适配。\r\n\r\n## 主要功能\r\n\r\n- 创建多个 Bot，分别配置角色、模型与能力。\r\n- 支持私聊和群聊，由管理员协调成员协作完成任务。\r\n- 支持记忆管理、历史检索与技能导入，可批量分配技能。\r\n- 提供语音输入、语音对话及应用连接功能。\r\n- 支持明暗主题，并提供 GitHub 新版本提醒。\r\n\r\n## 开始使用\r\n\r\n1. 安装插件，按需授权并重启 PI Desktop。\r\n2. 在 PI Desktop 中配置可用的模型。\r\n3. 打开 PI Bot，创建 Bot 或群聊。\r\n4. 语音及第三方应用连接需另行配置对应服务。\r\n\r\n模型及第三方服务可能产生费用，以所选服务商的计费规则为准。\r\n\r\n## 旧版升级提醒\r\n\r\n从 0.3.80 或更早版本升级时，请先停用旧版 PI Bot，暂不要卸载，再安装新版并重启。\r\n\r\n新版插件标识为 local.pi-bot，首次启动会自动迁移旧数据。请等待迁移完成，勿同时启用新旧两个插件。\r\n\r\n## 开源与致谢\r\n\r\n本项目是独立维护的 PI Desktop 适配项目，基于 DeepSeek-Bot，保留上游来源说明与许可声明，使用 Apache-2.0 许可证。\r\n\r\n项目主页：https://github.com/vsd269/PI-Bot\r\n问题反馈：https://github.com/vsd269/PI-Bot/issues\r\n上游项目：https://github.com/Fei2411/DeepSeek-Bot",
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
+        {
+          "version": "0.3.85",
+          "publishedAt": "2026-10-24T13:35:40Z",
+          "changelog": "参考 DeepSeek Bot 0.2.1，适配并新增以下功能：\n\n- 新增独立侧问：在 Bot 私聊输入 /btw 加上问题，可单独获取回答，不打断主任务。\n- 新增图表与计算卡片：支持五种图表，以及滑块、数字输入和公式联动计算。\n- 新增消息外观设置：支持气泡与平铺布局、消息宽度调整，以及思考过程显示开关。\n- 新增群聊继续功能：自动交接达到上限后保留待办，可点击“继续”恢复。\n- 新增密钥用途备注编辑，无需重新填写密钥。\n- 加强记忆文件保护，避免读取异常时误覆盖原有内容。\n- 优化窄窗口布局、侧栏切换和触屏消息操作。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "463a8cbb51c544dd63f596f019be0b5d97a0d32621eb4fcddf41c34ccac7fe5d",
+          "url": "packages/local.pi-bot-0.3.85.piplug",
+          "sizeBytes": 8075934,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.85",
+            "sourceCommit": "aff266ad6cc370e0ded38d87bfd8102c24af2ff2",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-24T13:35:40Z"
+          }
+        },
         {
           "version": "0.3.84",
           "publishedAt": "2026-10-21T17:51:52Z",
