@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-25T13:08:09Z",
-  "generatedAt": "2026-10-25T13:08:09Z",
+  "updatedAt": "2026-10-25T13:58:29Z",
+  "generatedAt": "2026-10-25T13:58:29Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3246,6 +3246,57 @@
       ]
     },
     {
+      "id": "io.github.xideadev.pi-wechatbot",
+      "name": "微信 BOT",
+      "description": "PI_WeChatBot：在微信中与 PI-Desktop 无缝协同，双向同步、文件互传、远程智能会话控制。",
+      "author": "Xidea",
+      "i18n": {
+        "en": {
+          "name": "PI_WeChatBot",
+          "description": "PI_WeChatBot: Connect WeChat to PI-Desktop for remote coding tasks, two-way sync, and mobile workflow control.",
+          "safetyNotes": "Official iLink Bot connector by Xidea. Injects prompts and captures model responses securely."
+        },
+        "zh-CN": {
+          "name": "微信 BOT",
+          "description": "PI_WeChatBot：在微信中与 PI-Desktop 无缝协同，双向同步、文件互传、远程智能会话控制。",
+          "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://www.ifolo.cn",
+      "readmeMarkdown": "# 微信 BOT (PI_WeChatBot)\n\n\u003e **PI_WeChatBot** 是专为 [PI-Desktop](https://earendil.com) 智能体桌面客户端打造的微信无缝协同桥梁。  \n\u003e 通过微信官方 iLink Bot Web 协议，实现手机微信与桌面端编程智能体的双向对话同步、文件互传与远程会话掌控。\n\n由 **[Xidea 团队](https://www.ifolo.cn)** 精心出品。\n\n---\n\n## 🌟 核心特性\n\n- **📱 手机微信随时派活**：在微信中直接发送自然语言需求，PI-Desktop 自动调动桌面环境、工具与模型执行任务。\n- **🔄 智能单轮闭环响应**：微信提问一次，AI 答复完毕后系统自动收敛；桌面端后续的人类键盘聊天绝不骚扰微信手机端。\n- **✂️ 1200 字符智能防截断切片**：解决微信单条文本消息物理限制，严格保护代码块跨片自动闭合与语言前缀，长文自动追加 `[1/N]` 序号进度。\n- **⚡ 强大远程控制指令**：支持在手机端直接发送 `/sessions`（查看会话）、`/switch \u003c序号\u003e`（远程切会话）、`/projects`（查看项目）、`/status`（查运行态）、`/mute`（静音）、`/stop`（紧急中止任务）、`/about`（关于团队）。\n- **🎨 纯净会话流**：桌面端会话中仅展示干净的用户指令，彻底移除冗余样板规则提示词；交互规范由全局环境隐式托管。\n- **🖼️ 原生高清矢量扫码**：面板内置纯 SVG 矢量二维码生成器，零外部 CDN 依赖，暗黑/明亮主题自动适配。\n\n---\n\n## 🛠️ 手机端可用远程指令\n\n在微信对话框中发送以下任意指令，即可由本地调度器秒级响应（不消耗模型 Token）：\n\n| 指令 | 别名 / 中文触发 | 作用与功能说明 |\n| :--- | :--- | :--- |\n| **`/help`** | `帮助`、`菜单` | 显示包含全部指令的完整欢迎与操作菜单 |\n| **`/sessions`** | `会话列表`、`会话` | 查看当前最近活跃的 6 个对话会话与数字序号 |\n| **`/switch \u003c序号\u003e`** | `/use \u003c序号\u003e` | 手机端直接切换微信指令绑定的会话（如 `/switch 2`） |\n| **`/projects`** | `项目列表`、`项目` | 列出电脑上当前打开与已登记的所有工程项目目录 |\n| **`/status`** | `状态` | 查看助手当前连接状态、当前会话及推送模式 |\n| **`/about`** | `关于` | 查看 PI_WeChatBot 简介、Xidea 开发团队与官网信息 |\n| **`/mute`** | `静音`、`/bye` | 立即静音当前会话，停止向手机推送后续所有内容 |\n| **`/listen`** | `监听`、`/unmute` | 开启 30 分钟持续镜像推送模式 |\n| **`/stop`** | `中止`、`停止` | 若电脑端 AI 正在执行耗时较长任务，立即紧急取消 |\n\n\u003e 💡 **提示**：日常编程无需输入任何斜杠，直接在微信发送问题（如：“帮我检查代码有没有语法错误”），电脑 AI 将自动处理并回复到微信！\n\n---\n\n## 🚀 安装与使用\n\n### 方式一：直接安装打包文件（推荐）\n1. 在 Release 页面下载最新的 `cn.ifolo.pi-wechatbot-1.1.0.piplug`；\n2. 打开 PI-Desktop 的 **插件**（Plugins）管理页面；\n3. 将 `.piplug` 文件拖拽至插件窗口即可完成安装。\n\n### 方式二：开发插件加载\n1. 克隆本项目到本地：\n   ```bash\n   git clone https://github.com/XideaDev/Pi-WechatBot.git\n   ```\n2. 打开 PI-Desktop，进入 **插件** 页面，点击右上角 **“加载开发插件”**；\n3. 选择包含 `manifest.json` 的目录即可完成加载。\n\n---\n\n## 📖 使用指南\n\n1. **扫码认证**：\n   - 安装完成后，在命令面板输入 `微信 BOT: 打开控制面板`（或在插件列表点击面板图标）。\n   - 手机微信扫描面板中的二维码，并在手机上点击“允许登录”。\n2. **选择目标会话**：\n   - 在面板的“会话路由与派发目标”中，可选择“自动跟随当前最新活跃会话”或锁定特定工程会话。\n3. **推送策略配置**：\n   - **仅单轮闭环响应**（默认推荐）：微信问一条 AI 答一条，答完自动安静，桌面打字不打扰手机。\n   - **全局双向镜像**：桌面和微信发起的对话全量实时推送到微信。\n\n---\n\n## 🔒 隐私与安全性\n\n- **直连腾讯官方 iLink Bot 服务**：所有消息与长轮询直接通过官方接口通信，不经过任何第三方中转服务器。\n- **本地存储凭据**：登录凭据仅保存在当前设备本地的插件数据目录中。\n- **敏感信息守卫**：支持远程 `/stop` 紧急打断与单轮生命周期收敛，杜绝无关内容泄露。\n\n---\n\n## 👥 关于开发团队\n\n- **出品团队**：**Xidea**\n- **官方网站**：[www.ifolo.cn](https://www.ifolo.cn)\n- **联系与反馈**：欢迎在 [GitHub Issues](https://github.com/XideaDev/Pi-WechatBot/issues) 提交反馈与建议。\n\n---\n\n## 📄 许可证\n\n本项目基于 [MIT License](LICENSE) 开源。\n",
+      "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishedAt": "2026-10-25T13:58:29Z",
+          "changelog": "### PI_WeChatBot v1.1.0 首发版本\n\n- **微信双向协同**：手机微信与桌面 PI-Desktop 智能体双向同步\n- **单轮闭环响应**：微信提问单轮响应后自动收敛，电脑端后续操作不打扰手机\n- **1200 字符智能切片**：解决微信长文本限制，代码块自动闭合，[1/N] 进度提示\n- **丰富远程指令**：支持 /help、/sessions、/switch、/projects、/status、/about、/mute、/stop\n- **关于与开发团队**：由 Xidea (www.ifolo.cn) 精心出品",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "ae0d27ad4d1bd587fd3244cca1ddb3abe1df2d61ef3086a79ff980ece4d732c6",
+          "url": "packages/io.github.xideadev.pi-wechatbot-1.1.0.piplug",
+          "sizeBytes": 111715,
+          "permissions": [
+            "agent.extension",
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/Pi-WechatBot",
+            "sourceRef": "v1.1.0",
+            "sourceCommit": "8e92ddb09ecc59a5030286c38374c17dd414498f",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-25T13:58:29Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "io.github.xideadev.skill-hub",
       "name": "技能管理",
       "description": "PI-Desktop 官方级侧边栏技能管理工作台：直观查看、分类检索、启用控制及项目/全局精准注入。",
@@ -4366,7 +4417,7 @@
       "versions": [
         {
           "version": "0.3.15",
-          "publishedAt": "2026-10-25T13:08:09Z",
+          "publishedAt": "2026-10-25T13:08:57Z",
           "changelog": "新增与优化：\n- 支持选择图片并显示缩略图，可随消息交给 Pi Desktop 原生会话处理，回复显示在 UniPi 内。\n- 支持 PNG、JPEG、WebP、GIF，单张最多 10 MB，每条消息最多 5 张。\n- 支持导入文本和代码文件，移除暂不可用的话筒按钮。\n\n问题修复：\n- 修复图片上传触发“plugin.call exceeds 10 calls/s”的问题，统一限制上传与后台轮询的调用频率。\n- 修复 Muse、Plush 主题预览存在，但实际背景和配色未生效的问题。\n\n使用说明：\n- 图片识别需要支持视觉输入的模型。\n- 新增 desktop.control 权限，更新时需确认授权；图片会话遵循 Pi Desktop 原生权限与审批机制。\n- PDF 和语音输入暂不支持。\n\n验证情况：\n- 已通过调用限速、模拟图片传输和安装包完整性检查；真实视觉模型的完整流程尚待实测。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "7918d678de81054e092b20bb8fe0811762680c335fbd035d55c5c54189247e98",
