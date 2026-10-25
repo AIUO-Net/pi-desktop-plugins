@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-25T17:09:14Z",
-  "generatedAt": "2026-10-25T17:09:14Z",
+  "updatedAt": "2026-10-25T17:17:34Z",
+  "generatedAt": "2026-10-25T17:17:34Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3272,8 +3272,31 @@
       "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。",
       "versions": [
         {
+          "version": "1.2.1",
+          "publishedAt": "2026-10-25T17:17:34Z",
+          "changelog": "### PI_WeChatBot v1.2.1: 登录凭据持久化加固\n\n- **持久化升级与免重新登录**：将登录认证凭据迁移至 PI-Desktop 官方持久化目录 (~/.pi-desktop/plugins/data/)，彻底解决应用商店更新/覆盖安装时凭据被清空需要重新扫码的问题。\n- **平滑兼容**：自动兼容历史数据，更新后无感保留当前登录状态。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "c3f8cb93210e52517a1737f2e0a90694e37b97991fb2d6eab6cb5727f818b7d9",
+          "url": "packages/io.github.xideadev.pi-wechatbot-1.2.1.piplug",
+          "sizeBytes": 117607,
+          "permissions": [
+            "agent.extension",
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/Pi-WechatBot",
+            "sourceRef": "v1.2.1",
+            "sourceCommit": "d88397e4bad6ea2cba1d67dca61078107a8fe27c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-25T17:17:34Z"
+          }
+        },
+        {
           "version": "1.2.0",
-          "publishedAt": "2026-10-25T17:09:14Z",
+          "publishedAt": "2026-10-25T17:09:53Z",
           "changelog": "### PI_WeChatBot v1.2.0: 核心体验与多模态重磅升级\n\n- **微信多模态图片/截图下发**：手机端发送图片自动从腾讯 CDN 解密（AES-128-ECB）无损落盘至工作区，模型直接眼睛看图改代码\n- **新建独立会话 (/new)**：手机端直接发送 `/new \u003c标题\u003e` 在电脑端开辟全新 Session 并自动切换绑定\n- **Agent 多步工具调用防抖收敛**：智能识别复杂任务中间过程碎语，确保将耗时任务的最终完整结论稳妥推送到微信\n- **微信排版纯净化**：剔除 HTML 标签乱码，采用微信原生高亮排版与快捷菜单\n- **关于与品牌认证**：新增 `/about` 指令，出品团队 Xidea (www.ifolo.cn)",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "b5c5d60e3f2701728b3f970cd4c997aa9c09a63af73237ab17985f70f36ce2d9",
