@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-24T13:35:40Z",
-  "generatedAt": "2026-10-24T13:35:40Z",
+  "updatedAt": "2026-10-25T12:00:59Z",
+  "generatedAt": "2026-10-25T12:00:59Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3272,7 +3272,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-10-23T23:18:29Z",
+          "publishedAt": "2026-10-24T13:36:21Z",
           "changelog": "### Release v0.1.0: 技能管理 (Skill Hub)\n\nPI-Desktop 官方级侧边栏技能管理工作台首发版本，专为打造直观、零负担的技能（Skill）生命周期管控体验。\n\n#### 核心特性\n- **多源技能自动归集**：无缝聚合全局通用（`~/.agents/skills`）与项目专属（`\u003cworkspace\u003e/.agents/skills`）所有技能。\n- **极简原生交互**：点击技能名称直接展开查看与编辑技能定义（SKILL.md / YAML 前置块），无冗余跳转与多余按键。\n- **一键智能整理**：自动规范转义字符、统一中英文标点格式，保持技能库整洁规范。\n- **自适应系统调色板**：纯本地原生 CSS 与系统变量集成，无缝跟随 PI-Desktop 浅色/深色主题动态切换。\n- **隐私与本地优先**：零外部网络依赖与遥测，所有技能及配置完全保存在本地磁盘。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "29b9c435fd5023f91243919344a179a9d2239e444bc68b458536cc8ad8c14e79",
@@ -3790,7 +3790,7 @@
       "versions": [
         {
           "version": "0.3.85",
-          "publishedAt": "2026-10-24T13:35:40Z",
+          "publishedAt": "2026-10-24T13:36:21Z",
           "changelog": "参考 DeepSeek Bot 0.2.1，适配并新增以下功能：\n\n- 新增独立侧问：在 Bot 私聊输入 /btw 加上问题，可单独获取回答，不打断主任务。\n- 新增图表与计算卡片：支持五种图表，以及滑块、数字输入和公式联动计算。\n- 新增消息外观设置：支持气泡与平铺布局、消息宽度调整，以及思考过程显示开关。\n- 新增群聊继续功能：自动交接达到上限后保留待办，可点击“继续”恢复。\n- 新增密钥用途备注编辑，无需重新填写密钥。\n- 加强记忆文件保护，避免读取异常时误覆盖原有内容。\n- 优化窄窗口布局、侧栏切换和触屏消息操作。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "463a8cbb51c544dd63f596f019be0b5d97a0d32621eb4fcddf41c34ccac7fe5d",
@@ -4338,6 +4338,58 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "local.unipi",
+      "name": "UniPi",
+      "description": "Muse Desktop, adapted for PI-Desktop! UniPi is an unofficial port of the open-source Muse Desktop project, bringing its interface and themes to PI-Desktop with your configured models—no Muse Code CLI required. Includes conversation management, model switching, project file previews, read-only Git information, and replacement unicorn artwork.\r\n\r\nBased on Muse Desktop by Robert Courson (@robzilla1738), with original attribution and MIT license preserved. Model tool execution, attachments, and microphone input are currently unavailable.",
+      "author": "vsd269",
+      "i18n": {
+        "zh-CN": {
+          "name": "UniPi",
+          "description": "把 Muse Desktop 带进 PI-Desktop！UniPi 是由开源项目 Muse Desktop 移植改编而来的非官方插件，保留其界面风格和多主题体验，直接使用你在 PI-Desktop 中配置的模型进行对话，无需另外安装 Muse Code CLI。支持会话管理、模型切换、项目文件预览和只读 Git 信息，并换上独角兽图标与背景。\n\n原项目由 Robert Courson（@robzilla1738）开发，本插件保留原作者署名及 MIT 许可。当前暂不支持模型工具执行、附件和麦克风。"
+        }
+      },
+      "categories": [
+        "productivity",
+        "themes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/vsd269/UniPi",
+      "readmeMarkdown": "# UniPi：由 Muse Desktop 移植改编的 PI-Desktop 插件\r\n\r\n把 Muse Desktop 带进 PI-Desktop！UniPi 基于开源项目 Muse Desktop 进行非官方移植与改编，保留其界面风格和多主题体验，直接使用你在 PI-Desktop 中配置的模型，无需另外安装 Muse Code CLI。\r\n\r\n## 主要功能\r\n\r\n- 会话管理与模型切换。\r\n- 多主题界面，使用独角兽图标、Logo 和背景。\r\n- 项目文件预览与只读 Git 状态、差异查看。\r\n- 对话压缩与偏好设置。\r\n- 侧栏入口自动排列，不依赖 PI Bot 等其他插件。\r\n- 提供最小化、最大化/还原及返回 PI-Desktop 原生界面的入口。\r\n\r\n## 使用方法\r\n\r\n1. 在 PI-Desktop 中配置可用模型，然后安装并启用 UniPi。\r\n2. 点击侧栏独角兽图标，或在命令面板执行“UniPi: Open”。\r\n3. 选择项目并开始对话。默认使用 PI-Desktop 的默认模型，也可通过插件设置中的 modelKey 指定模型。\r\n4. 点击左上角返回箭头或关闭 UniPi 页面，回到 PI-Desktop 原生界面。\r\n\r\n需要 PI-Desktop 0.21.0 或更高版本。\r\n\r\n## 当前限制\r\n\r\n模型回复一次性返回，暂不支持逐字流式显示。模型不执行工具，附件和麦克风暂不可用。\r\n\r\n如果安装过旧版 Muse Desktop 适配插件，请禁用旧版，避免出现重复入口。UniPi 使用独立插件标识，旧版会话不会自动迁移，请保留旧版数据。\r\n\r\n## 来源与致谢\r\n\r\nUniPi 由 vsd269 维护，是用于学习与兼容适配的非官方迁移项目。\r\n\r\n上游项目：https://github.com/robzilla1738/muse-desktop\r\n原作者：Robert Courson（@robzilla1738）。\r\n\r\n本项目保留原作者署名、MIT 许可与上游原始 NOTICE，不代表上游作者或 Meta 的官方版本。\r\n\r\n上游说明指出，源码与文档的 MIT 许可不授予第三方商标、参考图片或角色设计的使用权。因此，本适配版已将图标、Logo、背景及角色图片替换为维护者提供的独角兽素材。替换素材的权利说明详见仓库中的 THIRD-PARTY-NOTICES.md。\r\n\r\n## 源码与反馈\r\n\r\n源码：https://github.com/vsd269/UniPi\r\n问题反馈：https://github.com/vsd269/UniPi/issues",
+      "safetyNotes": "本插件使用 PI-Desktop 中配置的模型。发送消息时，对话内容和项目文件夹路径会发送给你选择的模型服务商，并消耗相应模型额度。\r\n\r\n插件在自己的数据目录保存会话和偏好设置，可读取所选项目中的文件以供预览、查询只读 Git 状态与差异，并支持在资源管理器中定位目录、打开终端及打开网页链接。\r\n\r\n模型不会自动执行工具或命令。插件不读取账号凭据，不修改项目文件；附件和麦克风暂不可用。请仅选择你信任的项目目录，避免发送敏感信息。",
+      "versions": [
+        {
+          "version": "0.3.11",
+          "publishedAt": "2026-10-25T12:00:59Z",
+          "changelog": "首次发布 UniPi：\n- 将 Muse Desktop 的界面迁移适配到 PI-Desktop 插件体系，使用宿主配置的模型进行对话。\n- 支持会话管理、模型选择、多主题、项目文件预览和只读 Git 信息。\n- 使用独角兽图标、Logo 和背景，入口自动排列，不依赖其他插件。\n- 适配窗口控制、返回原生界面入口及亮色主题输入光标。\n- 安装包使用插件市场要求的 Store（不压缩）格式。\n\n上游项目：https://github.com/robzilla1738/muse-desktop\n原作者：Robert Courson（@robzilla1738）。本插件为非官方适配版，保留原作者署名和 MIT 许可。\n\n当前限制：模型回复一次性返回，暂不支持模型工具执行、附件和麦克风。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "755dbae890c97de4e0763df1bbcd9c3781b224e6a02c812dc0ada8e62619be3e",
+          "url": "packages/local.unipi-0.3.11.piplug",
+          "sizeBytes": 5117065,
+          "permissions": [
+            "agent.complete",
+            "fs.read",
+            "models.list",
+            "renderer.extension",
+            "shell.openExternal",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/UniPi",
+            "sourceRef": "v0.3.11",
+            "sourceCommit": "0f0e9ff46b621936f1d90815c070058411086a4e",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-25T12:00:59Z"
+          }
         }
       ]
     },
