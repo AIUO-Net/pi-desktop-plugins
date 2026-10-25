@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-25T17:24:24Z",
-  "generatedAt": "2026-10-25T17:24:24Z",
+  "updatedAt": "2026-10-25T19:03:20Z",
+  "generatedAt": "2026-10-25T19:03:20Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3272,8 +3272,32 @@
       "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。",
       "versions": [
         {
+          "version": "1.3.0",
+          "publishedAt": "2026-10-25T19:03:20Z",
+          "changelog": "### Release v1.3.0: 多模态视觉图文双向互通与腾讯官方 CDN 原生文件直传\n\n微信 BOT (PI_WeChatBot) 迎来重大里程碑更新：\n\n#### 🌟 核心特性升级\n- **📸 多模态视觉图文互通**：支持在微信中发送手机截屏、现场照片或架构设计草图。插件后台自动完成 AES-128-ECB 解密与持久化存储，无缝注入当前会话供智能体深度分析；生成的图表亦可通过 `send_image_to_wechat` 原图回传。\n- **📦 腾讯官方 CDN 原生文件卡片直传**：彻底解决手机看代码排版难题。智能体生成的 Markdown 报告、PDF 方案、Zip 代码包等产物，通过官方 C2C CDN 加密通道以原生微信文件卡片形式直推手机。\n- **📱 移动端 4 屏真机全景展示**：在 README 中正式公布移动端全景截图与交互矩阵，采用 jsDelivr 全球加速 CDN 链接保障随处预览无裂图。\n- **⚡ 本地毫秒级指令矩阵完善**：支持 `/new`（新建标定会话）、`/switch`（远程切换工作会话）、`/sessions`（历史记录检索）、`/reset`（重置会话）、`/stop`（紧急掐断）等 11 项免 Token 消耗指令。\n- **🔄 Turn Debounce 消抖与代码语法树保护**：消解多步终端命令中间垃圾日志刷屏，严格执行 1200 字符上限，跨分片自动补全代码块闭合与语言高亮前缀。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "bd6657cd9c5c7fbc481fcf48c3077f83581448eef3edf7e842d0c3a25393666e",
+          "url": "packages/io.github.xideadev.pi-wechatbot-1.3.0.piplug",
+          "sizeBytes": 1180076,
+          "permissions": [
+            "agent.extension",
+            "agent.tool.register",
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/Pi-WechatBot",
+            "sourceRef": "v1.3.0",
+            "sourceCommit": "5980d1158ed0ace0aa9284a45216cab555fb9c9f",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-25T19:03:20Z"
+          }
+        },
+        {
           "version": "1.2.2",
-          "publishedAt": "2026-10-25T17:24:24Z",
+          "publishedAt": "2026-10-25T17:24:54Z",
           "changelog": "### PI_WeChatBot v1.2.2: 登录超时检测与自动恢复\n\n- **修复凭据超时识别**：精准捕获微信 errcode: -14 session timeout，会话失效时自动感知并及时提示扫码恢复，避免假在线。\n- **全链路多模态看图与新建会话稳定保障**。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "7d3bdf9437771267cc9e7f302abe2d967073b785441c6bb161bd5c1014294a02",
