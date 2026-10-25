@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-25T14:46:56Z",
-  "generatedAt": "2026-10-25T14:46:56Z",
+  "updatedAt": "2026-10-25T17:09:14Z",
+  "generatedAt": "2026-10-25T17:09:14Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3272,6 +3272,29 @@
       "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。",
       "versions": [
         {
+          "version": "1.2.0",
+          "publishedAt": "2026-10-25T17:09:14Z",
+          "changelog": "### PI_WeChatBot v1.2.0: 核心体验与多模态重磅升级\n\n- **微信多模态图片/截图下发**：手机端发送图片自动从腾讯 CDN 解密（AES-128-ECB）无损落盘至工作区，模型直接眼睛看图改代码\n- **新建独立会话 (/new)**：手机端直接发送 `/new \u003c标题\u003e` 在电脑端开辟全新 Session 并自动切换绑定\n- **Agent 多步工具调用防抖收敛**：智能识别复杂任务中间过程碎语，确保将耗时任务的最终完整结论稳妥推送到微信\n- **微信排版纯净化**：剔除 HTML 标签乱码，采用微信原生高亮排版与快捷菜单\n- **关于与品牌认证**：新增 `/about` 指令，出品团队 Xidea (www.ifolo.cn)",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "b5c5d60e3f2701728b3f970cd4c997aa9c09a63af73237ab17985f70f36ce2d9",
+          "url": "packages/io.github.xideadev.pi-wechatbot-1.2.0.piplug",
+          "sizeBytes": 117354,
+          "permissions": [
+            "agent.extension",
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/Pi-WechatBot",
+            "sourceRef": "v1.2.0",
+            "sourceCommit": "c0d4e4fd36f0f2adb9f08adf6a92c3f413c9fdb4",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-25T17:09:14Z"
+          }
+        },
+        {
           "version": "1.1.0",
           "publishedAt": "2026-10-25T13:59:06Z",
           "changelog": "### PI_WeChatBot v1.1.0 首发版本\n\n- **微信双向协同**：手机微信与桌面 PI-Desktop 智能体双向同步\n- **单轮闭环响应**：微信提问单轮响应后自动收敛，电脑端后续操作不打扰手机\n- **1200 字符智能切片**：解决微信长文本限制，代码块自动闭合，[1/N] 进度提示\n- **丰富远程指令**：支持 /help、/sessions、/switch、/projects、/status、/about、/mute、/stop\n- **关于与开发团队**：由 Xidea (www.ifolo.cn) 精心出品",
@@ -4417,7 +4440,7 @@
       "versions": [
         {
           "version": "0.3.24",
-          "publishedAt": "2026-10-25T14:46:56Z",
+          "publishedAt": "2026-10-25T14:47:37Z",
           "changelog": "本次更新集中优化了附件粘贴、主题背景和对话管理体验。\n\n【附件体验】\n- 支持通过 Ctrl+V、拖放或附件按钮添加文件。\n- 修复粘贴 TXT、代码等文件时，文件内容直接进入输入框的问题，现在统一显示为附件卡片；普通文字仍可正常粘贴。\n- 发送后保留文档附件名称，方便查看消息中附带的文件。\n- 其他文档通过 Pi Desktop 原生附件接口传递，具体解析能力取决于宿主和所用模型。单个附件最大 10 MB，每条消息最多 5 个附件。\n\n【主题与外观】\n- 修复“俏皮特写（Plush）”错误显示为蓝色的问题，恢复暖桃粉色配色。\n- 修复对话背景过淡、重复叠图的问题，背景按设置中的强度显示。\n- 优化对话文字区域的底色，兼顾背景效果与阅读清晰度。\n- 修复侧栏折叠后，展开按钮与返回 Pi Desktop 按钮重叠的问题。\n\n【对话管理】\n- 新增单个删除和批量删除，支持勾选多条或全选当前列表。\n- 删除前显示确认提示，删除当前对话后自动返回新对话页。\n- 优化删除确认框的布局、留白、提示文案和按钮样式。\n\n说明：删除仅移除 UniPi 中的对话及消息，Pi Desktop 原生会话和原始附件文件会保留；正在回复的对话需先停止后再删除。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "31f906451804227c025da777f4ec55da817b18675da138e1d03140e4053130a6",
