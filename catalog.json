@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-25T17:17:34Z",
-  "generatedAt": "2026-10-25T17:17:34Z",
+  "updatedAt": "2026-10-25T17:24:24Z",
+  "generatedAt": "2026-10-25T17:24:24Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3272,8 +3272,31 @@
       "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。",
       "versions": [
         {
+          "version": "1.2.2",
+          "publishedAt": "2026-10-25T17:24:24Z",
+          "changelog": "### PI_WeChatBot v1.2.2: 登录超时检测与自动恢复\n\n- **修复凭据超时识别**：精准捕获微信 errcode: -14 session timeout，会话失效时自动感知并及时提示扫码恢复，避免假在线。\n- **全链路多模态看图与新建会话稳定保障**。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "7d3bdf9437771267cc9e7f302abe2d967073b785441c6bb161bd5c1014294a02",
+          "url": "packages/io.github.xideadev.pi-wechatbot-1.2.2.piplug",
+          "sizeBytes": 117561,
+          "permissions": [
+            "agent.extension",
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/Pi-WechatBot",
+            "sourceRef": "v1.2.2",
+            "sourceCommit": "f03f23d551ff0980aee03fd65a026b42859365c0",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-25T17:24:24Z"
+          }
+        },
+        {
           "version": "1.2.1",
-          "publishedAt": "2026-10-25T17:17:34Z",
+          "publishedAt": "2026-10-25T17:18:07Z",
           "changelog": "### PI_WeChatBot v1.2.1: 登录凭据持久化加固\n\n- **持久化升级与免重新登录**：将登录认证凭据迁移至 PI-Desktop 官方持久化目录 (~/.pi-desktop/plugins/data/)，彻底解决应用商店更新/覆盖安装时凭据被清空需要重新扫码的问题。\n- **平滑兼容**：自动兼容历史数据，更新后无感保留当前登录状态。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "c3f8cb93210e52517a1737f2e0a90694e37b97991fb2d6eab6cb5727f818b7d9",
