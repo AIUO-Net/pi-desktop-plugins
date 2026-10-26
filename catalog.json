@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-26T03:00:02Z",
-  "generatedAt": "2026-10-26T03:00:02Z",
+  "updatedAt": "2026-10-26T16:52:49Z",
+  "generatedAt": "2026-10-26T16:52:49Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -230,6 +230,49 @@
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-10-02T16:34:31Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "cc.fee.pi-terminal",
+      "name": "PI-Terminal",
+      "description": "A real terminal the agent can drive: multi-session local shells and SSH, command read/write, upload/download, host and settings management, bastion/jump hosts, host-key checks, all well supported across platforms.",
+      "author": "Sunrise",
+      "i18n": {
+        "zh-CN": {
+          "name": "",
+          "description": "Agent 管理的真实终端：支持本地 shell 与 SSH 多会话管理、命令读写、上传下载、主机管理、设置管理、跳板机与主机指纹校验，跨平台支持良好。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cc",
+      "downloads": 0,
+      "homepage": "https://github.com/yanecc/PI-Terminal",
+      "readmeMarkdown": "# PI-Terminal\r\n\r\n**A terminal in PI-Desktop's work panel** — local shells and SSH sessions over a\r\nreal pty, with tabs, saved hosts, agent read/write access, and file transfers\r\nover the same authenticated SSH connection.\r\n\r\n[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)\r\n![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)\r\n![Plugin id](https://img.shields.io/badge/plugin%20id-cc.fee.pi--terminal-informational)\r\n\r\n- **Plugin id** `cc.fee.pi-terminal`\r\n- **Version** 1.0.0\r\n- **Requires** PI-Desktop 0.20.0+\r\n- **Author** Sunrise · **License** Apache-2.0\r\n\r\n---\r\n\r\n## Features\r\n\r\n- **Local shells** — a real pty (not a pipe), so `vim`, `top`, `ssh`, `python`\r\n  and anything else that needs a TTY behaves exactly as in a native terminal.\r\n  Local terminals inherit the full system PATH, including entries added after\r\n  PI-Desktop started.\r\n- **SSH sessions** — key, ssh-agent or password auth, jump hosts (up to 4 hops),\r\n  keepalive, and host-key verification in OpenSSH `known_hosts` format. A\r\n  changed fingerprint always refuses the connection; there is no \"ignore once\".\r\n- **Tabs and session management** — inline rename, right-click menu (copy\r\n  session id / rename), per-session output ring buffer addressed by a monotonic\r\n  `seq`, a live-session limit, and a status line that says whether output is\r\n  streaming or falling back to polling.\r\n- **Saved hosts** — grouped, collapsible, editable; the form shows only the\r\n  fields the chosen authentication needs, and a saved secret is never echoed\r\n  back.\r\n- **File transfers** — upload and download files *and* folders over the same\r\n  already-authenticated SSH connection (`ssh2-sftp-client`), with no second\r\n  handshake and no second use of the credentials.\r\n- **Agent access** — eight tools the model can call, split by risk. Reads are\r\n  redacted; writes to a shell, file moves and credential-touching actions ask\r\n  you first.\r\n- **Follows PI-Desktop** — language (English / 简体中文) and light/dark theme\r\n  come from the host, so the panel never looks like a foreign window.\r\n",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-26T16:52:49Z",
+          "changelog": "首次发布，基础功能完全可用",
+          "minPiDesktop": "\u003e=0.20.0",
+          "shasum": "75f9641e3df48ac13768592dfd5f4998af41dd0d46eea54890d9aa322ead41fb",
+          "url": "packages/cc.fee.pi-terminal-1.0.0.piplug",
+          "sizeBytes": 6138546,
+          "permissions": [
+            "agent.tool.register",
+            "clipboard.read",
+            "clipboard.write",
+            "net.fetch",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
