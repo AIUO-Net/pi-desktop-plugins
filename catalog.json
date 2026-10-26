@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-26T15:32:42Z",
-  "generatedAt": "2026-10-26T15:32:42Z",
+  "updatedAt": "2026-10-26T03:00:02Z",
+  "generatedAt": "2026-10-26T03:00:02Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -229,43 +229,6 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-10-02T16:34:31Z"
-          }
-        }
-      ]
-    },
-    {
-      "id": "cc.fee.probe-cli",
-      "name": "Probe CLI",
-      "description": "throwaway probe package",
-      "author": "yanecc",
-      "categories": [],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "cc",
-      "downloads": 0,
-      "homepage": "https://github.com/yanecc/puts",
-      "readmeMarkdown": "probe",
-      "safetyNotes": "probe",
-      "versions": [
-        {
-          "version": "0.0.1",
-          "publishedAt": "2026-10-26T15:32:42Z",
-          "changelog": "probe",
-          "minPiDesktop": "\u003e=0.20.0",
-          "shasum": "ffacb02e78c975f52194cf171e8f748e020c04a6958c6ca7fc061655a7e8b2eb",
-          "url": "packages/cc.fee.probe-cli-0.0.1.piplug",
-          "sizeBytes": 577,
-          "permissions": [
-            "ui.view"
-          ],
-          "fs": {},
-          "yanked": false,
-          "provenance": {
-            "sourceRepository": "https://github.com/yanecc/puts",
-            "sourceRef": "main",
-            "sourceCommit": "f4b2ede947513e2e325110ce531266227019c416",
-            "builder": "console-upload@1.0.0",
-            "builtAt": "2026-10-26T15:32:42Z"
           }
         }
       ]
