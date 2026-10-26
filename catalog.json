@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-26T02:59:23Z",
-  "generatedAt": "2026-10-26T02:59:23Z",
+  "updatedAt": "2026-10-26T15:32:42Z",
+  "generatedAt": "2026-10-26T15:32:42Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -229,6 +229,43 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-10-02T16:34:31Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cc.fee.probe-cli",
+      "name": "Probe CLI",
+      "description": "throwaway probe package",
+      "author": "yanecc",
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "cc",
+      "downloads": 0,
+      "homepage": "https://github.com/yanecc/puts",
+      "readmeMarkdown": "probe",
+      "safetyNotes": "probe",
+      "versions": [
+        {
+          "version": "0.0.1",
+          "publishedAt": "2026-10-26T15:32:42Z",
+          "changelog": "probe",
+          "minPiDesktop": "\u003e=0.20.0",
+          "shasum": "ffacb02e78c975f52194cf171e8f748e020c04a6958c6ca7fc061655a7e8b2eb",
+          "url": "packages/cc.fee.probe-cli-0.0.1.piplug",
+          "sizeBytes": 577,
+          "permissions": [
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/yanecc/puts",
+            "sourceRef": "main",
+            "sourceCommit": "f4b2ede947513e2e325110ce531266227019c416",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-26T15:32:42Z"
           }
         }
       ]
@@ -3273,7 +3310,7 @@
       "versions": [
         {
           "version": "1.3.1",
-          "publishedAt": "2026-10-26T02:59:23Z",
+          "publishedAt": "2026-10-26T03:00:02Z",
           "changelog": "### Release v1.3.1: 深度架构加固、长轮询优化与多模态文件互通\n\n#### 🌟 核心升级摘要\n- **修复跨进程 IPC 目录隔离**：统一指向宿主标准持久化数据目录，保障 Agent 运行时工具与 typing 状态通知完全恢复。\n- **消除 /new 远程指令的安全隐患**：彻底废除 Shell 字符串拼接，改用安全的参数数组与标准输入通信，杜绝注入漏洞。\n- **防止会话长文输出截断丢消息**：在 SessionWatcher 增加行缓存（Line Buffer）与文件截断重置机制，并增加 try...finally 强保文件句柄释放，彻底解决高频读取泄露。\n- **Markdown 1200 字符智能分片超长保护**：预留序号前缀裕量，增加无换行超长字符串的字符级硬切拆分。\n- **多模态图片解密自适应兼容**：自适应处理 32 位十六进制与 24 位 Base64 的密钥格式，确保 16 字节密钥精准解密。\n- **长轮询日志纯净化与超时优化**：长轮询超时从 40 秒放宽至 55 秒，自动识别空闲期正常心跳超时，不再输出误导性的‘轮询错误’。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "29eb0cb11c48c9b3ac1b7ae2653f013335757dfaf9ab6034297b26181d2cf1e8",
