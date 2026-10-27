@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T14:52:15Z",
-  "generatedAt": "2026-10-27T14:52:15Z",
+  "updatedAt": "2026-10-27T16:06:17Z",
+  "generatedAt": "2026-10-27T16:06:17Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3872,7 +3872,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-10-27T14:52:15Z",
+          "publishedAt": "2026-10-27T14:53:01Z",
           "changelog": "- 在每天指定的时段内，每隔一段时间用它发一次最小补全，让上游的额度窗口保持活跃\n- 支持结果推 Bark 通知到手机",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "d6fee23456bb0e9a9724a711751a1bb8da5496f998d206a497a234e090615d5b",
@@ -4162,6 +4162,40 @@
       "readmeMarkdown": "# PI Bot\r\n\r\nPI Bot 是面向 PI Desktop 的 AI Bot 团队协作插件，基于 DeepSeek-Bot 学习、迁移并持续适配。\r\n\r\n## 主要功能\r\n\r\n- 创建多个 Bot，分别配置角色、模型与能力。\r\n- 支持私聊和群聊，由管理员协调成员协作完成任务。\r\n- 支持记忆管理、历史检索与技能导入，可批量分配技能。\r\n- 提供语音输入、语音对话及应用连接功能。\r\n- 支持明暗主题，并提供 GitHub 新版本提醒。\r\n\r\n## 开始使用\r\n\r\n1. 安装插件，按需授权并重启 PI Desktop。\r\n2. 在 PI Desktop 中配置可用的模型。\r\n3. 打开 PI Bot，创建 Bot 或群聊。\r\n4. 语音及第三方应用连接需另行配置对应服务。\r\n\r\n模型及第三方服务可能产生费用，以所选服务商的计费规则为准。\r\n\r\n## 旧版升级提醒\r\n\r\n从 0.3.80 或更早版本升级时，请先停用旧版 PI Bot，暂不要卸载，再安装新版并重启。\r\n\r\n新版插件标识为 local.pi-bot，首次启动会自动迁移旧数据。请等待迁移完成，勿同时启用新旧两个插件。\r\n\r\n## 开源与致谢\r\n\r\n本项目是独立维护的 PI Desktop 适配项目，基于 DeepSeek-Bot，保留上游来源说明与许可声明，使用 Apache-2.0 许可证。\r\n\r\n项目主页：https://github.com/vsd269/PI-Bot\r\n问题反馈：https://github.com/vsd269/PI-Bot/issues\r\n上游项目：https://github.com/Fei2411/DeepSeek-Bot",
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
+        {
+          "version": "0.3.86",
+          "publishedAt": "2026-10-27T16:06:17Z",
+          "changelog": "PI Bot 0.3.86\n\n- 新增共享头像库，可分页浏览并在多个 Bot 间复用头像，支持备份与恢复。\n- 新增 /side 侧问命令，与 /btw 用法相同；已结束的侧问记录可以删除。\n- 群聊中可看到 Bot 收到的排队任务及未读数量。\n- 为 Bot 之间的消息派发增加请求去重，减少重试造成的重复任务。\n- 上游项目名称更新为 DS Bot。\n\n更新后请重载 PI Bot 插件或重启 PI Desktop。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "4832381dfb4306f0bde9e74f8c713f81279862fe8e967372b3f48a847cee11bc",
+          "url": "packages/local.pi-bot-0.3.86.piplug",
+          "sizeBytes": 8097265,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.86",
+            "sourceCommit": "214ae34d4a28e07828ee5ba2880b1b53bf75ca77",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-27T16:06:17Z"
+          }
+        },
         {
           "version": "0.3.85",
           "publishedAt": "2026-10-24T13:36:21Z",
