@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-26T20:12:30Z",
-  "generatedAt": "2026-10-26T20:12:30Z",
+  "updatedAt": "2026-10-27T02:45:22Z",
+  "generatedAt": "2026-10-27T02:45:22Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1492,7 +1492,7 @@
       "versions": [
         {
           "version": "1.1.0",
-          "publishedAt": "2026-10-26T20:12:30Z",
+          "publishedAt": "2026-10-26T20:13:14Z",
           "changelog": "- 登录：多处登录按签发时间取最新；续期写回插件自管文件；被拒登录先刷新重试，刷新令牌也失效才挂起 6 小时，挂起期间跳过轮询、签到、成长与保活。\n- 账号限制：11140 标注「已限制」并换号，全部受限回 403 提示申诉；11158 按账号 × 模型停用 24 小时，全部被拒回 400。\n- 网络：刷新超时、限流或网络故障时账号留在轮换；网络错误结束本轮，不冷却账号。\n- 网关：200 信封里的账号级业务码按原因处理；缺结束帧时补 `finish_reason` 与 `[DONE]`；Trae、Qoder 等待期间发保活；路由支持查询串；空正文回 502。\n- 面板：区分「需重新登录」「已限制」与普通冷却；删除立即消失且不被桌面快照带回；签到防连点；重载后提示刷新。\n- 令牌保活：独立卡片，按签发时间续期；桌面遗留快照由插件接管，正在使用的由桌面端续期。\n- 连接检查：网关启动失败原因与端口记入报告，停用、重启与卸载时清除；重载清掉未完成的设备登录。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "ff92a5f95da8cdd84bd3d64c09deac0bb67574183db4988fc4f32244745e20e4",
@@ -2306,6 +2306,27 @@
       "readmeMarkdown": "# Layout Control\n\n\u003e `io.github.mafeis.layout-control` — widen the PI-Desktop conversation area, and set its side gutters, from a button in the composer toolbar.\n\nPI-Desktop caps conversation content at 760px (`.main-pane` → `--chat-content-max-width`), so on a wide window both sides stay empty. This plugin takes over the three width variables through a renderer extension:\n\n| Variable | Controls |\n| --- | --- |\n| `--chat-content-max-width` | the transcript column `.thread-content`, settle placeholder |\n| `--chat-composer-max-width` | the composer stack `.composer-stack` |\n| `--chat-prose-max-width` | a single message / card (`.message-bubble`, tool cards, …) |\n\n## Usage\n\n1. Click `⇔ 1200` on the right of the composer toolbar — a panel opens.\n2. Pick a preset (default 760 / comfortable 960 / wide 1200 / extra wide 1440 / full width), or drag the slider for anything between 640 and 2400 px.\n3. **Side gutter** is the transcript's inline padding (default 32 px, down to 8 px). On a narrow window it does more than the width does.\n4. Turn **Enable layout override** off and the app's own width is back, untouched.\n5. **Widen when the sidebar is collapsed** (on by default): collapsing the session list adds the freed space — sidebar width minus the 56 px rail it leaves behind — and expanding it gives the space back. The number on the button is the width actually in effect; the tooltip says how much was added.\n6. The native drag handles still work: the plugin steps aside while you drag, then adopts and remembers the width you dragged out (with the sidebar bonus subtracted before saving).\n\nThe last line of the panel, \"measured content width\", is the real measured value — proof the override landed.\n\nThe same four values are plugin settings (`width` / `gutter` / `enabled` / `followSidebar`), so editing them on the settings page works too; those edits reach the UI the next time you open the panel or reload the plugin.\n\n## How it works\n\n- `main.js` only reads and writes plugin settings and answers `getLayoutConfig` / `setLayoutConfig` through `onRendererCall`.\n- `renderer/index.mjs` does all the UI work:\n  - the width lives in `--pio-w` on `\u003chtml\u003e` and the stylesheet rules only forward it with `var()` → changing the width never re-injects a stylesheet;\n  - the host writes its variables as **plain inline declarations** on `.chat-surface`, so a stylesheet rule with `!important` wins;\n  - while dragging, the host marks both `\u003chtml\u003e` and `.chat-surface` with `data-chat-resizing`; the rules step aside with `:not([data-chat-resizing])` and adopt the dragged value once dragging ends;\n  - a collapsed sidebar puts `sidebar-collapsed` on `.app-shell` (leaving `.sidebar-rail`), so the plugin watches class changes and adds \"sidebar width (inline `--ds-sidebar-width` on `.app-shell`) − 56 px rail\".\n- The only permission requested is `renderer.extension` — flagged high risk because the extension runs inside PI-Desktop's own window. No filesystem, network or clipboard access, no agent tools.\n- The layout override needs its own `\u003cstyle\u003e` element: `pi.ui.injectStyle` wraps every rule in `@scope ([data-pi-plugin=\"\u003cid\u003e\"])`, which can only reach the plugin's own subtree and never the app's DOM. The button and panel still use `injectStyle` for their own styling.\n\n## Develop\n\n```bash\nnode --check main.js\nnode --check renderer/index.mjs\n```\n\nLoad the folder as a development plugin (**Plugins → ⋯ → Load development plugin**); saving a file reloads it. `~/.pi-desktop/logs/app/plugin.log` should then show `plugin.load.success` / `plugin.reload.success` with `pluginId: io.github.mafeis.layout-control`.\n\nTo install it like any other plugin, build the package with the host's own `PluginCheck` / `PluginPack` and install the resulting `dist/io.github.mafeis.layout-control-0.1.0.piplug` from the plugins page.\n\n## 中文说明\n\n把会话区从「不到 760px 的一窄条」放开：内容宽度、左右留白都能调，入口在输入框工具栏右侧的 `⇔` 按钮上。\n\n1. 点 `⇔ 1200` 打开面板。\n2. 选预设（默认 760 / 舒适 960 / 宽 1200 / 超宽 1440 / 满宽），或拖滑杆自定义 640–2400px。\n3. 「左右留白」调的是正文栏内边距（默认 32px，最低 8px）；窗口不宽时它比宽度更有效。\n4. 关掉「启用布局覆盖」就完全回到应用自己的宽度。\n5. 「侧栏收起时自动加宽」（默认开）：收起左侧会话列表后正文自动加上腾出来的空间（侧栏宽 − 56px 轨道），展开即退回；按钮上的数字是当前实际生效宽度。\n6. 拖动会话两侧边缘照旧可用：拖动期间插件让位，松手后接住拖出来的宽度（自动扣掉侧栏加成再存）。\n\n面板底部「正文栏实际宽度」是量出来的真实值。设置项（`width` / `gutter` / `enabled` / `followSidebar`）在设置页改同样有效，但要等下次打开面板或重载插件才反映到界面。\n\n## License\n\nMIT — see [LICENSE](LICENSE).\n",
       "safetyNotes": "Only writes one style element and CSS custom properties on the host document root, and reads the app shell's sidebar class and width to keep the adjustment in step. renderer.extension is flagged high risk because the extension runs in the host document; this plugin does not read transcript or draft text, does not use internal IPC, sends nothing off the device and registers no agent tools.",
       "versions": [
+        {
+          "version": "0.1.4",
+          "publishedAt": "2026-10-27T02:45:22Z",
+          "changelog": "## 0.1.4\n\n- Settings changed on the plugin settings page now take effect right away: the renderer re-reads them on a short poll and whenever the window regains focus, instead of only once at load.\n- Turning the composer icon back on, or changing the width, no longer needs an app restart.\n- 中文：设置页的改动现在立刻生效——渲染器会短间隔回读并在窗口重新获得焦点时立即同步，不再只在加载时读一次；重新打开快捷图标或改宽度都不必重启应用。",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "15bb048a108905a0a4c94ea256271d2a76ab5234db6244cef683519abde80976",
+          "url": "packages/io.github.mafeis.layout-control-0.1.4.piplug",
+          "sizeBytes": 45803,
+          "permissions": [
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/mafeis/pi-desktop-layout-control",
+            "sourceRef": "v0.1.4",
+            "sourceCommit": "546e14b16a78d9498e6a9bb1cbe500b54af6bb72",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-27T02:45:22Z"
+          }
+        },
         {
           "version": "0.1.3",
           "publishedAt": "2026-10-21T04:39:05Z",
