@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T02:45:22Z",
-  "generatedAt": "2026-10-27T02:45:22Z",
+  "updatedAt": "2026-10-27T04:19:19Z",
+  "generatedAt": "2026-10-27T04:19:19Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2308,7 +2308,7 @@
       "versions": [
         {
           "version": "0.1.4",
-          "publishedAt": "2026-10-27T02:45:22Z",
+          "publishedAt": "2026-10-27T02:46:06Z",
           "changelog": "## 0.1.4\n\n- Settings changed on the plugin settings page now take effect right away: the renderer re-reads them on a short poll and whenever the window regains focus, instead of only once at load.\n- Turning the composer icon back on, or changing the width, no longer needs an app restart.\n- 中文：设置页的改动现在立刻生效——渲染器会短间隔回读并在窗口重新获得焦点时立即同步，不再只在加载时读一次；重新打开快捷图标或改宽度都不必重启应用。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "15bb048a108905a0a4c94ea256271d2a76ab5234db6244cef683519abde80976",
@@ -4590,6 +4590,21 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.1.5",
+          "publishedAt": "2026-10-27T04:19:19Z",
+          "changelog": "- 链接支持使用浏览器打开",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "599efbe7563def61820d7e66ff7fb24c21d4fb8919b681d1fdfda449775a69b9",
+          "url": "packages/local.terminal-0.1.5.piplug",
+          "sizeBytes": 527671,
+          "permissions": [
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "0.1.4",
           "publishedAt": "2026-10-21T01:25:40Z",
