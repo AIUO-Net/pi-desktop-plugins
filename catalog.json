@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T05:06:52Z",
-  "generatedAt": "2026-10-27T05:06:52Z",
+  "updatedAt": "2026-10-27T07:50:18Z",
+  "generatedAt": "2026-10-27T07:50:18Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1284,7 +1284,7 @@
       "versions": [
         {
           "version": "1.0.2",
-          "publishedAt": "2026-10-27T05:06:52Z",
+          "publishedAt": "2026-10-27T05:07:35Z",
           "changelog": "## 本版变化\n\n- 配色向 Claude 桌面端原生外观靠拢，深色模式下文字层次更清晰，弱化文字不再发灰。\n- 顶栏会话标题与项目名整体放大，长标题更易读。\n- 输入框控件行统一字号与字重：模型名、推理等级、上下文用量不再大小不一；推理等级改为纯文字，不再套胶囊底。\n- 左侧模式与权限标签收敛为小号常规字重，小字不再发虚。\n- 品牌橙略微加深，橙色文字在浅色背景上达到无障碍标准 AA。",
           "minPiDesktop": "\u003e=0.20.1",
           "shasum": "409a2205893533e4cd6bb5fe6ade914b081969d7e3cf5f6e0a598cc30d7be101",
@@ -3810,6 +3810,41 @@
             "clipboard.write",
             "desktop.control",
             "renderer.extension",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "local.hindsight.memory",
+      "name": "Hindsight Memory",
+      "description": "Hindsight Memory — PI-Desktop 插件\r\n一个插件，两部分：\r\n\r\n长期记忆（agent 侧）：包装官方 @vectorize-io/hindsight-coding-agents 的 pi 扩展，会话开始自动召回、 结束自动写回，并修掉 PI-Desktop 与上游之间的两处不兼容。\r\n配置面板（人侧）：工作面板「Hindsight 记忆」标签页，编辑 ~/.hindsight/coding-agent.json、 浏览/搜索/阅读 knowledge page、看同步诊断、向库提问。",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Hindsight Memory",
+          "description": ""
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-10-27T07:50:18Z",
+          "changelog": "- 长期记忆（agent 侧）：包装官方 @vectorize-io/hindsight-coding-agents 的 pi 扩展，会话开始自动召回、 结束自动写回，并修掉 PI-Desktop 与上游之间的两处不兼容。\n- 配置面板（人侧）：工作面板「Hindsight 记忆」标签页，编辑 ~/.hindsight/coding-agent.json、 浏览/搜索/阅读 knowledge page、看同步诊断、向库提问。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "651e8a63698bc4c27d446e79bce807c35a567ec63b13efb0f36260a8e2b6f81f",
+          "url": "packages/local.hindsight.memory-0.2.0.piplug",
+          "sizeBytes": 2351580,
+          "permissions": [
+            "agent.extension",
             "ui.panel",
             "ui.view"
           ],
