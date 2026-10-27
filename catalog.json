@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T04:19:19Z",
-  "generatedAt": "2026-10-27T04:19:19Z",
+  "updatedAt": "2026-10-27T05:06:52Z",
+  "generatedAt": "2026-10-27T05:06:52Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1282,6 +1282,27 @@
       "readmeMarkdown": "# Claude Theme\r\n\r\n为 PI-Desktop 提供的非官方 Claude 风格浅色与深色主题。\r\n\r\n## 安装\r\n\r\n1. 下载 v1.0.0 的 .piplug 安装包。\r\n2. 在 PI-Desktop 插件页面选择“安装插件包”，确认权限后安装。\r\n3. 在主题设置中选择 Claude Theme Light 或 Claude Theme Dark。\r\n\r\n需要 PI-Desktop 0.20.1 或更高版本。\r\n\r\n## 特点\r\n\r\n- 浅色与深色两套配色，覆盖聊天、侧栏、设置与常用反馈界面。\r\n- 内嵌 Inter 与 JetBrains Mono 字体，无需联网加载。\r\n- 保留原生过程结构与折叠交互，不增加过程区整体外框，不截断正文。\r\n- 仅使用 ui.theme 权限，无网络请求、工具注册或运行时 DOM 脚本。\r\n\r\n## 已知限制\r\n\r\n主题只调整外观，不改变宿主业务行为。中文等字形使用系统字体回退。已在 PI-Desktop 0.20.1 上验证，未来宿主版本的兼容性以实际使用为准。\r\n\r\n## 许可\r\n\r\n代码使用 MIT 许可；Inter 与 JetBrains Mono 字体使用 SIL OFL 1.1。本项目为非官方主题，不隶属于 Anthropic，也未获其背书。",
       "safetyNotes": "纯声明式主题，仅申请 ui.theme 权限。main.js 为空生命周期，不注入脚本、不访问网络、不注册工具、不更改宿主或其他插件行为。宿主直接读取包内 CSS 与内嵌 OFL 字体，切换主题即可恢复；不含 Anthropic 专有字体、logo 或官方产品代码。",
       "versions": [
+        {
+          "version": "1.0.2",
+          "publishedAt": "2026-10-27T05:06:52Z",
+          "changelog": "## 本版变化\n\n- 配色向 Claude 桌面端原生外观靠拢，深色模式下文字层次更清晰，弱化文字不再发灰。\n- 顶栏会话标题与项目名整体放大，长标题更易读。\n- 输入框控件行统一字号与字重：模型名、推理等级、上下文用量不再大小不一；推理等级改为纯文字，不再套胶囊底。\n- 左侧模式与权限标签收敛为小号常规字重，小字不再发虚。\n- 品牌橙略微加深，橙色文字在浅色背景上达到无障碍标准 AA。",
+          "minPiDesktop": "\u003e=0.20.1",
+          "shasum": "409a2205893533e4cd6bb5fe6ade914b081969d7e3cf5f6e0a598cc30d7be101",
+          "url": "packages/io.github.b1eight.pi-desktop-claude-theme-1.0.2.piplug",
+          "sizeBytes": 111134,
+          "permissions": [
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/B1eight/pi-desktop-claude-theme",
+            "sourceRef": "v1.0.2",
+            "sourceCommit": "8112cbf4c05a292f86554b7bdd22f3bc916fcfd9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-27T05:06:52Z"
+          }
+        },
         {
           "version": "1.0.1",
           "publishedAt": "2026-10-26T17:33:30Z",
@@ -4592,7 +4613,7 @@
       "versions": [
         {
           "version": "0.1.5",
-          "publishedAt": "2026-10-27T04:19:19Z",
+          "publishedAt": "2026-10-27T04:19:57Z",
           "changelog": "- 链接支持使用浏览器打开",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "599efbe7563def61820d7e66ff7fb24c21d4fb8919b681d1fdfda449775a69b9",
