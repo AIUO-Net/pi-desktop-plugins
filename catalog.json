@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T07:50:18Z",
-  "generatedAt": "2026-10-27T07:50:18Z",
+  "updatedAt": "2026-10-27T10:30:43Z",
+  "generatedAt": "2026-10-27T10:30:43Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3837,7 +3837,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-10-27T07:50:18Z",
+          "publishedAt": "2026-10-27T07:50:57Z",
           "changelog": "- 长期记忆（agent 侧）：包装官方 @vectorize-io/hindsight-coding-agents 的 pi 扩展，会话开始自动召回、 结束自动写回，并修掉 PI-Desktop 与上游之间的两处不兼容。\n- 配置面板（人侧）：工作面板「Hindsight 记忆」标签页，编辑 ~/.hindsight/coding-agent.json、 浏览/搜索/阅读 knowledge page、看同步诊断、向库提问。",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "651e8a63698bc4c27d446e79bce807c35a567ec63b13efb0f36260a8e2b6f81f",
@@ -4646,6 +4646,21 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.1.6",
+          "publishedAt": "2026-10-27T10:30:43Z",
+          "changelog": "- 终端自动切英文输入法，失焦切回需要安装 im-select",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "518425fff609609a8d602e396484784e1e83b1f651844ac50042567c99c31029",
+          "url": "packages/local.terminal-0.1.6.piplug",
+          "sizeBytes": 539837,
+          "permissions": [
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "0.1.5",
           "publishedAt": "2026-10-27T04:19:57Z",
