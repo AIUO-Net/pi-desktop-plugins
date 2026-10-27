@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T10:30:43Z",
-  "generatedAt": "2026-10-27T10:30:43Z",
+  "updatedAt": "2026-10-27T14:52:15Z",
+  "generatedAt": "2026-10-27T14:52:15Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3854,6 +3854,45 @@
       ]
     },
     {
+      "id": "local.igniter",
+      "name": "pi.igniter",
+      "description": "按时点灯：每个 5 小时额度窗口一重置，就点亮下一个窗口。",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "点灯人",
+          "description": ""
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-10-27T14:52:15Z",
+          "changelog": "- 在每天指定的时段内，每隔一段时间用它发一次最小补全，让上游的额度窗口保持活跃\n- 支持结果推 Bark 通知到手机",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "d6fee23456bb0e9a9724a711751a1bb8da5496f998d206a497a234e090615d5b",
+          "url": "packages/local.igniter-0.1.0.piplug",
+          "sizeBytes": 81970,
+          "permissions": [
+            "agent.complete",
+            "background.service",
+            "models.list",
+            "net.anyHost",
+            "net.fetch",
+            "notify",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
       "id": "local.mi-note",
       "name": "mi-note小米笔记",
       "description": "把小米云笔记做成 PI-Desktop 里的图形化工作面板，并让 AI 直接读写你的笔记。\n功能\n扫一扫登录 \n两栏界面 \n笔记管理 \n大纲 \n导出 \nMarkdown 预览 \n写作辅助 \n自动保存 \n\n删除可撤销 \nAI 问答\n自动同步 \n侧边栏\nAI 可以直接操作你的笔记\n插件内置 10 个工具，AI 能读取、搜索、创建、修改、删除笔记，无需任何额外配置。",
@@ -4648,7 +4687,7 @@
       "versions": [
         {
           "version": "0.1.6",
-          "publishedAt": "2026-10-27T10:30:43Z",
+          "publishedAt": "2026-10-27T10:31:26Z",
           "changelog": "- 终端自动切英文输入法，失焦切回需要安装 im-select",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "518425fff609609a8d602e396484784e1e83b1f651844ac50042567c99c31029",
