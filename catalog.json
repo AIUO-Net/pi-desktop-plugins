@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-28T08:02:54Z",
-  "generatedAt": "2026-10-28T08:02:54Z",
+  "updatedAt": "2026-10-28T08:07:55Z",
+  "generatedAt": "2026-10-28T08:07:55Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -4771,7 +4771,7 @@
       "versions": [
         {
           "version": "0.2.1",
-          "publishedAt": "2026-10-28T08:02:54Z",
+          "publishedAt": "2026-10-28T08:03:41Z",
           "changelog": "## 0.2.1\n\n- 新增窗口快捷键：在对话窗口按 ⌘T（Windows / Linux 为 Ctrl+T）即可把终端面板切到前台；快捷键可在本插件的设置里修改或清空，⌘K 命令面板里也有「打开终端」。终端面板内部的 ⌘T 仍是新建标签。\n- 精简并重写 README，更正手改 `settings.json` 的生效方式说明。",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "d9d660b1d3b1c538b356715c54fd2eb75884e9e85c9edb4f45e8e5b934bdb073",
@@ -5620,6 +5620,51 @@
             "sourceCommit": "549fb853c67decf645f769f3743e03656584547b",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-28T09:25:36Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.mobile-remote-control",
+      "name": "Pi-Desktop 机器人",
+      "description": "通过飞书、Telegram、微信等聊天工具接入 PI-Desktop Agent：发送任务、接收结果、回答问题和审阅计划。",
+      "author": "icedly",
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/CJLY-0915/pi-desktop-bot",
+      "readmeMarkdown": "# Pi-Desktop 机器人\r\n\r\n通过飞书、Telegram、微信等外部聊天工具接入本机 PI-Desktop Agent：发送任务、接收结果、回答问题、中断执行和审阅 Plan 检查点。当前使用长连接或长轮询，钉钉面板显示“即将支持”；Webhook 接入尚未实现。\r\n\r\n## 为什么不是 anywhere 面板或微信 BOT\r\n\r\n- **Anywhere 面板**（`pi.agents-anywhere` / `adoin.panel.anywhere`）本质是外部 *Agents Anywhere* 中继平台的客户端，平台不可达即失效，且需要广域网络权限。\r\n- **微信 BOT（第三方网关）**：openclaw 等协议扫码登录易掉线；本插件走微信官方 iLink Bot 协议（扫码登录 + 长轮询），不经第三方网关。\r\n- 本插件：**零第三方中继**，只连飞书/钉钉/Telegram/微信官方开放平台；长连接/Stream/长轮询模式**不需要公网 URL、不需要自己的服务器**。\r\n\r\n## 安装（开发期）\r\n\r\n1. 将本目录复制到 `C:\\Users\\\u003c你\u003e\\.pi-desktop\\plugins\\installed\\pi.mobile-remote-control`（或用 PI-Desktop 插件页导入）。\r\n2. 重启 PI-Desktop，命令面板执行 `Pi-Desktop 机器人: 打开控制面板`。\r\n\r\n安装包已包含二维码和通道 SDK 的运行依赖，无需在安装目录执行 npm install。控制面板按独立工作窗口设计，默认 680×840；窗口缩小时自动调整布局，较长内容可纵向滚动。\r\n\r\n## 配置\r\n\r\n面板选择渠道，在“连接机器人”卡内完成接入和绑定：\r\n\r\n| 渠道 | 接入步骤 |\r\n|---|---|\r\n| 飞书 | 点“扫码创建” → 用飞书扫码并在手机上创建应用 → 自动显示绑定命令 |\r\n| 微信 | 点“扫码登录” → 用微信扫码确认 → 自动显示绑定命令 |\r\n| Telegram | 扫码打开 [@BotFather](https://t.me/BotFather) 或点击入口 → 发送 `/newbot` 获取 Bot Token → 填入 Token → 保存并连接 → 自动显示绑定命令 |\r\n| 钉钉 | 即将支持；面板不提供接入操作 |\r\n\r\n微信扫码凭据保存后先启动消息长轮询，首次 `/getupdates` 成功才显示已连接；后续拉取失败仍如实展示错误并重试。连续失败先等待 2 秒，第三次失败等待 30 秒；成功后恢复正常轮询并清除连接错误，保留原游标。登录和消息请求携带一致的 iLink 应用标识及编码版本头；固定长度的请求体由 Node 自动计算字节长度。HTTP 错误仅展示脱敏后的结构化错误码与说明，不输出原始响应。无需用空请求调用 `/getconfig` 验证连接，该接口仅在有聊天目标时获取 typing 配置，失败记录警告，不阻止消息收发。\r\n\r\nHTTP 412 表示服务器拒绝本次请求，公开客户端未定义其具体原因，不能直接当作令牌失效。协议对照与验证边界见 [微信请求兼容说明](docs/weixin-request-compatibility.md)。\r\n\r\n复制命令并发送到机器人私聊，面板检测到绑定成功后自动收起命令，显示“已连通”和“解绑”。复制本身不会完成绑定。绑定码 10 分钟有效，过期后可重新生成。\r\n\r\n凭据只保存在本机插件数据目录。面板“解绑”撤销该渠道的聊天授权及会话关联，保留登录凭据，便于重新绑定；“清除此渠道的登录凭据”还会删除该渠道凭据，其他渠道不受影响。各渠道可同时启用，每个渠道运行一个机器人连接；切换左侧渠道仅查看配置，启停和清除凭据只影响所选渠道。\r\n\r\n“回复颗粒度”按渠道独立保存，修改从下一轮任务生效。微信和 Telegram 支持三档：标准回复（助手正文和文件变更，隐藏工具过程）、完整回复（正文、工具调用进度和文件变更）、摘要回复（只发最终结果和文件变更摘要）。旧文本设置默认按标准回复兼容。飞书固定为 Card JSON 2.0 流式卡片，正文与工具组按执行顺序交错，最新工具组运行时展开，完成后折叠；帮助、状态和错误也使用卡片，附件保留文件消息。成功 Edit/Write 按本轮净差异汇总文件和可计算的增删行数；Shell 或外部程序改动不自动列入。项目范围按渠道独立设置“所有项目”或“指定项目”；指定模式过滤会话并阻止范围外执行。范围变化不强制中断桌面任务，但停止旧轮回传，新派发重新校验。\r\n\r\n二维码使用本地 `qrcode` 生成，不向第三方图片服务发送授权链接。飞书注册失败会显示具体 HTTP、平台或网络原因；未配置凭据是待接入状态，不显示连接失败。\r\n\r\n升级此版本后需在插件管理页重新加载插件并授予 `shell.openExternal`、`clipboard.write`，使“在浏览器中打开”和“复制命令”生效；权限增加不会通过热更新自动授予。\r\n\r\n## 使用\r\n\r\n1. 完成扫码或 Token 接入，面板自动显示绑定命令。\r\n2. 手机端给机器人私聊发送 `/bind \u003c绑定码\u003e`。\r\n3. 显示“已连通”后，直接发送消息即可执行任务；发送 `/帮助` 查看常用命令。\r\n\r\n常用入口只保留会话和配置两组：\r\n\r\n```text\r\n会话\r\n/新建 [标题]    新建并关联会话\r\n/会话           选择已有会话\r\n/状态           查看当前会话、工作区和模型\r\n/停止           中断当前任务\r\n\r\n配置\r\n/项目           选择工作区（已有会话不会移动）\r\n/模型           先选择服务商，再选择模型\r\n/思考           选择当前模型支持的思考等级\r\n```\r\n\r\n其他操作放在 `/帮助 更多`：\r\n\r\n```text\r\n/模式           选择 Agent / Plan / Goal\r\n/权限           选择会话权限模式\r\n/回复           标准、完整或摘要回复（仅微信、Telegram）\r\n/改动           查看桌面工作区改动\r\n/发送 \u003c路径\u003e    把本机文件发到手机（仅飞书、Telegram）\r\n/解绑           解除会话关联，保留聊天授权\r\n/重试           补发最近失败结果，不重新执行任务\r\n/定时           查看私聊定时任务用法，支持间隔/每日/暂停/恢复/删除\r\n```\r\n\r\n点击菜单或回复数字选择，`/取消` 或 `0` 退出。帮助只展示中文主命令；原有英文命令和别名继续兼容，包括 `/help`、`/help more`、`/new`、`/clear`、`/task`、`/切换`、`/use \u003c序号或ID\u003e`、`/sessions`、`/status`、`/project`、`/workspace`、`/model`、`/think`、`/thoughtlevel`、`/mode`、`/permission`、`/reply`、`/stop`、`/cancel`、`/diff`、`/send` 和 `/unbind`。\r\n\r\n- 飞书回答卡运行中保留正文与工具摘要顺序，使用“⏳ 运行中 / ✅ 已完成 / ❌ 已终止”。结束后将过程说明和工具记录放入默认折叠的“执行过程”，最终答复、错误提示及文件变更单独显示在外；没有过程时不显示空折叠区。同一工具的开始与结束更新原条目。`/新建` 创建真实空会话，首条任务前显示草稿状态。\r\n- 工具摘要采用“状态 · 工具 · 执行命令/路径”，例如 `执行中 · powershell · Get-Location`、`完成 · Read · src/app.js`；更新和结束事件缺少参数时保留开始时的命令或路径。命令继续脱敏、截断，不转发完整工具输出。微信和 Telegram 选择“完整回复”后显示工具过程。\r\n- 飞书与 Telegram 可同时绑定工作区 A 的会话 A-1，`/状态` 等命令各回原渠道；绑定端可同步接收该会话的后续回复。同一会话一次只派发一个任务，其他渠道发送新任务时会收到忙碌提示。手机问答和 Agent 文件工具只投递给原任务发起端；恢复记录按渠道和会话隔离。\r\n- Agent 通过 `ask_phone` 等待手机回答，支持多题、单选、多选、自定义文字和 `/取消提问`。答案回到原工具；请求失效或投递失败时明确报错。\r\n- Plan/Goal 卡片展示完整计划，回复 `1` 批准、`2` 拒绝；提交后仍须在桌面确认宿主授权。\r\n- 绑定会话在桌面继续执行时同步后续 AI 输出；也可在目标任务执行中用 `/use \u003c会话ID\u003e` 切入，继续接收该轮后续输出。桌面来源仅同步内容，不增加手机端的交互授权。已记录轮次支持重载恢复、分页补读和结束事件去重。任务已完成但无法补读正文时单独提示「回复同步失败」。\r\n- 同轮扩展已确认的最终答复优先于宿主快照，避免落后快照覆盖结果。宿主终态先到时，限时等待同轮扩展最终回执，即使已有过程正文也不提前封存；空结束回执不擦除已收到的最终正文。\r\n- 图片与文件通过宿主正式附件字段提交，不只是在文本中附本机路径。图片理解取决于模型能力；音频作为文件上下文，不保证自动转写。\r\n- `/重试` 或面板“重试发送”只补发保存的失败结果；平台超时可能已送达，因此可能重复。解绑或授权变化后旧结果失效。\r\n- `/定时 每隔 30 检查项目状态`、`/定时 每天 09:00 汇总待办` 创建插件日程；`/定时 列表` 查看，`/定时 暂停|恢复|删除 \u003cid\u003e` 管理。按本机时区运行，需保持 PI-Desktop 和插件运行；重启不补跑历史，会话忙碌或派发失败不自动重执行。\r\n- 项目、模型、思考、运行模式和权限切换默认允许。桌面「Pi-Desktop 机器人」面板 →「机器人设置」中的「允许远程配置切换」可随时关闭或开启，保存后立即生效，所有渠道共用。旧版本未保存该字段时默认开启，明确保存的关闭值会保留。项目访问范围及宿主原生确认仍生效；执行中的会话不能切换配置或关联到其他会话。`/mode ask` 等旧权限写法仍兼容，推荐 `/权限`。\r\n- 菜单支持按钮或数字回复，每页最多 8 个业务选项，10 分钟过期。`/取消`、`0`、新命令或普通任务会使旧菜单失效；选择前重新检查聊天授权、会话关联和项目范围。\r\n- `/项目` 只切换桌面当前工作区，不移动已有会话；之后 `/新建` 在当前可访问项目创建会话。`/模型 服务商ID/模型ID`、`/思考 high`、`/模式 plan`、`/权限 ask`、`/回复 summary` 也可直接传值；模型和思考选项来自宿主配置，思考等级同时显示中文名称与实际值。\r\n\r\n## 安全模型\r\n\r\n- 默认要求绑定码，未绑定聊天仅可用 `/bind` 完成授权，不能派发任务。\r\n- 每聊天令牌桶限速（默认 12 条/分钟），排队上限可配。\r\n- 出站文本自动脱敏（token/password/api_key/JWT）。\r\n- `manifest.net.domains` 声明所需平台域名，无 `net.anyHost`；Node HTTP/SDK 不属于宿主托管网络沙箱，域名声明不构成对全部流量的强制隔离。\r\n- 全部远程指令写入审计日志（插件数据目录 `audit.jsonl`，512KB 滚动）。\r\n\r\n## 实现说明（为何直接用官方 SDK 的长连接）\r\n\r\n飞书与钉钉的长连接端点在连接时动态下发，SDK 自行处理平台协议。飞书/钉钉采用官方 Node SDK，Telegram 与微信使用官方 HTTP API 长轮询；全部通过 Node TLS 发起，无第三方中继，也不需要公网回调地址。网络边界以具体适配器和端点校验为准，不能把 manifest 域名表当作 Node 网络沙箱。\r\n\r\n## 已知限制\r\n\r\n- 钉钉接入 UI 暂未开放；微信通道不支持媒体上传（`/send` 会返回明确错误）；飞书、Telegram 支持。\r\n- 原生工具权限请求无法通过当前插件 API 独立在手机逐项批准，仍需桌面处理；配置切换和 Plan 批准也受宿主原生桌面确认约束。`ask_phone` 处理业务问答，不替代权限批准。\r\n- Telegram Bot API 需要本机网络能直连 `api.telegram.org`；微信 iLink Bot 需平台侧具备 Bot 开通资格（扫码流程会展示平台返回的错误）。\r\n- 附件单条最多 4 个、单文件 5 MiB；超限整条拒绝。微信和 Telegram 临时下载失败保留游标，飞书下载失败提示重发，本条正文不残缺执行。\r\n- 微信上下文只对授权私聊持久化，群消息不更新；没有群协作或话题功能。\r\n- 插件日程与宿主定时页分别管理；宿主未公开所需 CRUD 和运行归属接口，不自动匹配宿主已有日程结果。完整范围见 [本次实现与边界](docs/zcode-private-chat-implementation.md)。\r\n\r\n## 开发\r\n```powershell\r\ncd E:\\Program\\pi-desktop-plugin\\pi-plugin-mobile-remote-control\r\nnpm ci                            # 开发环境依赖\r\nnpm run build                     # 生成随包 vendor 与第三方许可信息\r\nnpm test                          # 含无 node_modules 的安装隔离测试\r\n```\r\n\r\n发布前先构建、运行测试，再用 PluginCheck 和 PluginPack 校验打包。将生成的安装包解压到会话 scratch，在该目录运行 `node scripts/smoke-plugin.cjs .`，确认主入口、二维码、SDK 与插件初始化无需外部 npm 模块；这不替代真实宿主和平台收发验收。\r\n\r\n结构：\r\n\r\n```\r\nmain.js                 装配：生命周期、服务注册、面板 RPC\r\nscripts/build-vendor.cjs 构建随包依赖，避免安装时依赖 node_modules\r\nscripts/smoke-plugin.cjs 安装隔离检查（不连接真实平台）\r\nvendor/                 随包 SDK、二维码实现与第三方许可信息\r\nlib/bridge.cjs          桥接核心：指令路由、会话队列、事件回传、审批轮询\r\nlib/bot-commands.cjs    中文别名、分页菜单与宿主配置命令\r\nlib/channel.cjs         通道接口与工厂\r\nlib/feishu.cjs          飞书适配器（WSClient 长连接）\r\nlib/dingtalk.cjs        钉钉适配器（DWClient Stream）\r\nlib/feishu-api.cjs      飞书 API（token 缓存、发消息、媒体）\r\nlib/feishu-card.cjs     流式卡片：Card JSON 2.0 构建、元素预算分段、写失败断路器\r\nlib/feishu-registration.cjs 飞书扫码建应用（device-code 流程）\r\nlib/telegram.cjs         Telegram 适配器（Bot API 长轮询 + 内联按钮）\r\nlib/weixin.cjs           微信 iLink 适配器（长轮询 + CDN AES 解密）\r\nlib/weixin-registration.cjs 微信扫码登录（device-code 流程）\r\nlib/security.cjs        配对码、白名单、限速、脱敏\r\nlib/store.cjs           持久化（配对/绑定/凭据/审计）\r\nlib/ipc.cjs             Agent 扩展 ↔ 插件主进程事件通道\r\nlib/render.cjs          结果分段与文本渲染\r\nextensions/agent.js     Agent 进程内扩展\r\nrenderer/index.html     控制面板结构\r\nrenderer/style.css      布局、状态与响应式样式\r\nrenderer/app.js         渠道接入、扫码及绑定状态\r\n```\r\n",
+      "safetyNotes": "连接凭据只保存在插件私有数据目录，除所选平台的官方 API 端点外不发送到任何地方。所有入站消息必须先通过配对码校验，未配对的聊天无法驱动任何会话。远程指令统一经由宿主 desktop.control 网关注入目标会话，会话权限、项目范围与审计记录与桌面端完全一致。插件仅声明所需平台域名，不申请广域网络权限。",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-28T08:07:55Z",
+          "changelog": "首个正式版本：通过飞书、Telegram、微信官方 iLink 协议和钉钉 Stream 接入本机 PI-Desktop Agent，发送任务、接收结果、回答交互问题、中断执行与审阅 Plan 检查点；含控制面板、扫码接入、配对码校验、文件回传、回复颗粒度与项目范围设置。\n\n- 修正公共 HTTP 客户端的完整请求体发送方式，使用 `end(body)` 自动生成正确字节长度，避免 JSON 和文件请求不必要地采用 chunked 传输。\n- 微信扫码与消息接口补齐 `iLink-App-Id`、编码后的 `iLink-App-ClientVersion`，与公开 iLink 客户端的请求头格式对齐。\n- 首轮连接后后续轮询失败仍展示真实错误；保留游标，连续失败采用 2/2/30 秒退避，成功后清除连接错误。非 200 JSON 响应保留脱敏后的 ret/errcode/errmsg，不展示原始响应体。\n- 新增真实本地 HTTP 报文回归，覆盖中文与 emoji 字节长度、二进制与空请求体，以及首轮成功后连续 412、游标保留、退避和恢复。HTTP 412 的微信服务端原因尚未确认，未将本地测试计为真实微信验收。\n- 修复已收到的最终答复被落后的过程快照覆盖，以及有过程正文时跳过等待同轮最终回执的问题；空结束回执不擦除已收到的最终正文。\n- 飞书终态将过程说明和工具整体置于默认折叠的“执行过程”，最终答复、错误提示和文件变更在外显示。超预算时先分段再更新原卡，防止最终结果被超限更新阻断；补充内容去重、迟到终态、空回执及长过程预算回归。\n- 开发脚本改为字面量 require：隔离安装冒烟改为自定位、从安装包内 `scripts/` 目录运行，vendor 打包入口显式列出；安装包随之通过插件中心动态模块加载审计。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "80b85ad19059e5cab4cff1545119f15ec7081b15e5187a3805258a6d1f868aa7",
+          "url": "packages/pi.mobile-remote-control-1.0.0.piplug",
+          "sizeBytes": 3189588,
+          "permissions": [
+            "agent.extension",
+            "agent.tool.register",
+            "background.service",
+            "clipboard.write",
+            "desktop.control",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/CJLY-0915/pi-desktop-bot",
+            "sourceRef": "v1.0.0",
+            "sourceCommit": "dd411796b4e9765b2be60d207bad7c3df528f1df",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-28T08:07:55Z"
           }
         }
       ]
