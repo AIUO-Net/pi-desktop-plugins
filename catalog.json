@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-27T16:06:17Z",
-  "generatedAt": "2026-10-27T16:06:17Z",
+  "updatedAt": "2026-10-28T02:45:11Z",
+  "generatedAt": "2026-10-28T02:45:11Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -4164,7 +4164,7 @@
       "versions": [
         {
           "version": "0.3.86",
-          "publishedAt": "2026-10-27T16:06:17Z",
+          "publishedAt": "2026-10-27T16:07:11Z",
           "changelog": "PI Bot 0.3.86\n\n- 新增共享头像库，可分页浏览并在多个 Bot 间复用头像，支持备份与恢复。\n- 新增 /side 侧问命令，与 /btw 用法相同；已结束的侧问记录可以删除。\n- 群聊中可看到 Bot 收到的排队任务及未读数量。\n- 为 Bot 之间的消息派发增加请求去重，减少重试造成的重复任务。\n- 上游项目名称更新为 DS Bot。\n\n更新后请重载 PI Bot 插件或重启 PI Desktop。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "4832381dfb4306f0bde9e74f8c713f81279862fe8e967372b3f48a847cee11bc",
@@ -4719,6 +4719,28 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.1.7",
+          "publishedAt": "2026-10-28T02:45:11Z",
+          "changelog": "- 修复输入法切换收敛问题\n- 终端输出改为按序号读取，并加入背压控制\n- manifest 补充完整的中英文 i18n 与分类",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "b03588e22a6c895df261aba97a83cd46580e32d0f6aefda7db4c753f4c91e54c",
+          "url": "packages/local.terminal-0.1.7.piplug",
+          "sizeBytes": 555082,
+          "permissions": [
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/zwwangoo/pi-terminal",
+            "sourceRef": "v0.1.7",
+            "sourceCommit": "ca7cacf32eb5c766082e2af32c5e34f630cac7a2",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-28T02:45:11Z"
+          }
+        },
         {
           "version": "0.1.6",
           "publishedAt": "2026-10-27T10:31:26Z",
