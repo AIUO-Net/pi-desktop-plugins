@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-28T02:45:11Z",
-  "generatedAt": "2026-10-28T02:45:11Z",
+  "updatedAt": "2026-10-28T05:14:36Z",
+  "generatedAt": "2026-10-28T05:14:36Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3893,6 +3893,56 @@
       ]
     },
     {
+      "id": "local.mac-file-open",
+      "name": "Mac 文件打开增强（macOS Apple Silicon）",
+      "description": "macOS 专用本地文件链接右键菜单增强：支持在 Finder 中显示、使用默认应用打开、选择系统关联应用（打开方式）、应用内预览及复制完整或相对路径。仅支持 macOS，目前内置原生助手仅编译了 Apple Silicon (arm64) 版本。",
+      "author": "RugkeyPro",
+      "i18n": {
+        "en": {
+          "name": "Mac File Open Enhancer (macOS Apple Silicon)",
+          "description": "macOS context-menu enhancer for local file links in chat: Reveal in Finder, Open with Default App, Open With any macOS-associated application, preview in PI-Desktop, and copy full or relative paths. macOS only; the bundled native helper is currently compiled for Apple Silicon (arm64) only.",
+          "safetyNotes": "macOS only; the bundled native helper (native-open) is currently compiled for Apple Silicon (arm64) only. File actions run strictly on explicit user click and are confined to regular files inside the active local project or session scratch directory (blocking sensitive directories and executable or script extensions). Uses macOS NSWorkspace APIs via execFile without shell command interpolation, never alters system default app associations, and makes no network requests. The renderer extension runs in the host window to attach the context menu."
+        },
+        "zh-CN": {
+          "name": "Mac 文件打开增强（macOS Apple Silicon）",
+          "description": "macOS 专用本地文件链接右键菜单增强：支持在 Finder 中显示、使用默认应用打开、选择系统关联应用（打开方式）、应用内预览及复制完整或相对路径。仅支持 macOS，目前内置原生助手仅编译了 Apple Silicon (arm64) 版本。",
+          "safetyNotes": "仅支持 macOS，且当前内置原生助手（native-open）仅编译了 Apple Silicon (arm64) 版本。所有文件操作均仅由用户右键点击触发，严格限制在当前本地项目目录或当前会话附件目录内的普通文件（拒绝敏感目录与可执行脚本后缀）。通过 macOS NSWorkspace 原生接口枚举关联应用并打开文件，不拼接或执行 shell 命令字符串，不修改系统默认应用，不联网。渲染扩展在应用窗口内运行以挂载右键菜单。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/RugkeyPro/agent-skills",
+      "readmeMarkdown": "# Mac 文件打开增强 / Mac File Open Enhancer (macOS Apple Silicon)\n\n**系统与架构要求（重要）**：\n- **仅支持 macOS**。\n- **目前内置原生助手（`native-open`）仅编译了 Apple Silicon (`arm64`) 版本**。如果在 Intel Mac 上使用，可在插件目录下自行编译源码：`xcrun swiftc native.swift -o native-open`。\n\n## 功能说明\n\n在聊天消息中右键点击本地文件链接（`file://` 或 `/` 路径），弹出增强菜单：\n- **在 PI-Desktop 中预览**：保持宿主原有的应用内预览行为\n- **在 Finder 中显示**：调用 `NSWorkspace.shared.activateFileViewerSelecting` 定位并高亮文件\n- **使用默认应用打开**：使用系统默认关联应用打开文件\n- **打开方式…**：枚举系统关联的全部应用程序（标注默认项），指定应用直接打开，不修改系统默认关联\n- **复制完整地址 / 复制相对地址**：将规范化后的真实路径或项目相对路径写入剪贴板\n\n安全边界：仅允许当前项目目录或当前会话 `scratch` 附件目录内的普通文件，自动拒绝 `.git`、`.ssh`、`.env` 及可执行脚本后缀，不拼接执行任何 shell 命令字符串。\n\n## English\n\n**Platform \u0026 Architecture Requirement**:\n- **macOS only**.\n- **The bundled native helper (`native-open`) is currently compiled for Apple Silicon (`arm64`) only**. On Intel Macs, recompile from source with `xcrun swiftc native.swift -o native-open`.\n\nRight-click any local file link (`file://` or `/`) in chat messages to:\n- **Preview in PI-Desktop**\n- **Reveal in Finder**\n- **Open with Default App**\n- **Open With…** (lists all macOS-associated applications via `NSWorkspace` without changing system default associations)\n- **Copy Full Path / Copy Relative Path**\n",
+      "safetyNotes": "仅支持 macOS，且当前内置原生助手（native-open）仅编译了 Apple Silicon (arm64) 版本。所有文件操作均仅由用户右键点击触发，严格限制在当前本地项目目录或当前会话附件目录内的普通文件（拒绝敏感目录与可执行脚本后缀）。通过 macOS NSWorkspace 原生接口枚举关联应用并打开文件，不拼接或执行 shell 命令字符串，不修改系统默认应用，不联网。渲染扩展在应用窗口内运行以挂载右键菜单。",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-28T05:14:36Z",
+          "changelog": "## 1.0.0\n\n- 独立拆分「Mac 文件打开增强」插件，支持在聊天消息文件链接右键菜单中调用系统默认应用、可用应用列表打开及在访达中显示。\n- **平台说明**：仅支持 macOS 系统，且当前内置原生助手（`native-open`）仅编译了 Apple Silicon (`arm64`) 版本（附带 `native.swift` 源码）。\n- Standalone macOS file link context-menu enhancer (macOS only; bundled `native-open` helper currently compiled for Apple Silicon `arm64`).",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "3985dde3ae846d980228e95b1f650b5961f1f94948a0c82fe6f9c3f7bb7e5592",
+          "url": "packages/local.mac-file-open-1.0.0.piplug",
+          "sizeBytes": 108807,
+          "permissions": [
+            "clipboard.write",
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/RugkeyPro/agent-skills",
+            "sourceRef": "dc30625688e4281535248d1c08b7e73a2c24bb8a",
+            "sourceCommit": "dc30625688e4281535248d1c08b7e73a2c24bb8a",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-28T05:14:36Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "local.mi-note",
       "name": "mi-note小米笔记",
       "description": "把小米云笔记做成 PI-Desktop 里的图形化工作面板，并让 AI 直接读写你的笔记。\n功能\n扫一扫登录 \n两栏界面 \n笔记管理 \n大纲 \n导出 \nMarkdown 预览 \n写作辅助 \n自动保存 \n\n删除可撤销 \nAI 问答\n自动同步 \n侧边栏\nAI 可以直接操作你的笔记\n插件内置 10 个工具，AI 能读取、搜索、创建、修改、删除笔记，无需任何额外配置。",
@@ -4721,7 +4771,7 @@
       "versions": [
         {
           "version": "0.1.7",
-          "publishedAt": "2026-10-28T02:45:11Z",
+          "publishedAt": "2026-10-28T02:45:54Z",
           "changelog": "- 修复输入法切换收敛问题\n- 终端输出改为按序号读取，并加入背压控制\n- manifest 补充完整的中英文 i18n 与分类",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "b03588e22a6c895df261aba97a83cd46580e32d0f6aefda7db4c753f4c91e54c",
