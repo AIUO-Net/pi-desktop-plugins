@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-28T05:14:36Z",
-  "generatedAt": "2026-10-28T05:14:36Z",
+  "updatedAt": "2026-10-28T06:24:22Z",
+  "generatedAt": "2026-10-28T06:24:22Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3920,7 +3920,7 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishedAt": "2026-10-28T05:14:36Z",
+          "publishedAt": "2026-10-28T05:15:23Z",
           "changelog": "## 1.0.0\n\n- 独立拆分「Mac 文件打开增强」插件，支持在聊天消息文件链接右键菜单中调用系统默认应用、可用应用列表打开及在访达中显示。\n- **平台说明**：仅支持 macOS 系统，且当前内置原生助手（`native-open`）仅编译了 Apple Silicon (`arm64`) 版本（附带 `native.swift` 源码）。\n- Standalone macOS file link context-menu enhancer (macOS only; bundled `native-open` helper currently compiled for Apple Silicon `arm64`).",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "3985dde3ae846d980228e95b1f650b5961f1f94948a0c82fe6f9c3f7bb7e5592",
@@ -4769,6 +4769,30 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-10-28T06:24:22Z",
+          "changelog": "## 0.2.0\n\n**新增**\n- 终端区右键菜单：复制 / 粘贴 / 粘贴为单行 / 全选 / 清除滚动缓冲 / 新建标签 / 关闭标签；鼠标悬停在 http(s) 链接上时额外提供「打开链接」「复制链接地址」。\n- 快捷键：⌘C（仅有选区时复制，不影响 Ctrl+C 中断）、⌘V、⌘A、⌘K；⌘+ / ⌘- / ⌘0 缩放字体，调整后的字号会自动保存。\n- 设置：新增「按住 ⌘ 才打开链接」「粘贴时把多行折成单行」两个开关。\n- 程序开启鼠标上报（vim / tmux 等）时右键归该程序，按住 Shift 右键才弹出本菜单。\n- 面板提示与按钮文案支持中英文。\n\n**权限变化**\n- 新增 `clipboard.read`、`clipboard.write`（中风险）：仅在你粘贴或复制时读写剪贴板，内容不保存、不外发。从旧版本升级需要重新授权。\n\n**修复**\n- 全局点击强制聚焦终端会抢走菜单项焦点的问题。\n- 临时提示的定时清除会误清持久错误提示的问题。\n\n**说明**\n- 字体与输入法 id 没有放进设置弹窗，可在 `~/.pi-desktop/plugins/data/local.terminal/settings.json` 里用 `fontFamily`、`imeTarget` 配置。\n\n## 0.2.0 (English)\n\n- Right-click menu (copy, paste, paste as single line, select all, clear scrollback, new/close tab, plus open/copy link when over a link); Cmd+C/V/A/K shortcuts; Cmd +/-/0 font zoom that is saved.\n- New switches: require Cmd to open links; fold multi-line paste into one line.\n- New permissions `clipboard.read` / `clipboard.write` (medium risk), used only when you paste or copy. Upgrading from an older version asks for them again.\n- Fixes: menu focus stolen by the global click handler; transient status timer wiping persistent errors.",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "b6b9040509d7660b5ec04a27d8fd670101dc701c976d25ed9ba9544bd37f8d61",
+          "url": "packages/local.terminal-0.2.0.piplug",
+          "sizeBytes": 580797,
+          "permissions": [
+            "clipboard.read",
+            "clipboard.write",
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/zwwangoo/pi-terminal",
+            "sourceRef": "v0.2.0",
+            "sourceCommit": "dd3e2043d07139d74e81674a86da7e95d858cf53",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-28T06:24:22Z"
+          }
+        },
         {
           "version": "0.1.7",
           "publishedAt": "2026-10-28T02:45:54Z",
