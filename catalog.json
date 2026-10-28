@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-28T09:29:27Z",
-  "generatedAt": "2026-10-28T09:29:27Z",
+  "updatedAt": "2026-10-28T12:53:11Z",
+  "generatedAt": "2026-10-28T12:53:11Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1513,7 +1513,7 @@
       "versions": [
         {
           "version": "1.2.0",
-          "publishedAt": "2026-10-28T09:29:27Z",
+          "publishedAt": "2026-10-28T09:30:17Z",
           "changelog": "- 品牌：模型提供商 ID 由 `xdpool-*` 改为 `wtqpool-*`；升级后模型选择需要重新选一次。\n\n## [1.1.1]\n\n- 登录：刷新失败的账号在本轮请求内跳过，不再反复重试同一个账号；200 信封的登录失效也区分「被拒」与「刷新失败」，后者不再写 6 小时停用。\n- 渠道校验：11128 出现在 HTTP 200 的 JSON 信封时同样折叠系统消息并重试一次，通过的提示照常按 region 记住。\n- 签到：Trae、Qoder 的单账号签到在超时后继续占用守卫，避免第二次点击与仍在进行的领取并行。\n- Qoder：展示用量只带到期时间、没有可用额度时回退到 quota 路由，不再直接报「用量不可用」。\n- 设置：宿主推送的旧设置文档不再覆盖刚保存的账号停用、移除与模型选择；地址漂移按实际发布地址判断。\n- 面板与文档：保活卡片只在 WorkBuddy 页签显示；补充刷新重置时间的 2 小时上限、输入框积分关闭后的慢轮询、助手历史改名说明。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "6b36e4b4693005f718b1e25b3ae493b0ea68b55565b247e466d7b9120f862512",
@@ -5088,6 +5088,40 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-25T12:00:59Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "mfy.pi-desktop-open-tools",
+      "name": "pi-desktop-open-tools",
+      "description": "An entry point for launching external tools has been added below the project chat box; you can configure it to open tools such as VS Code, a terminal, etc.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "打开外部工具",
+          "description": "在项目聊天框下添加了打开外部工具入口，可自定义配置打开诸如 VS Code、终端 等外部工具"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "mfy",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.5.0",
+          "publishedAt": "2026-10-28T12:53:11Z",
+          "changelog": "首次上传，内置了 windows 下常用的 VS Code、Explorer、PowerShell 等入口",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "aaebe318bd1bbfca2cb3601b93258949b0530b4df229f5ffb0870e8c20f12c1f",
+          "url": "packages/mfy.pi-desktop-open-tools-0.5.0.piplug",
+          "sizeBytes": 123762,
+          "permissions": [
+            "notify",
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
