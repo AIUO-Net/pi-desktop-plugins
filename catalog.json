@@ -4191,6 +4191,64 @@
       ]
     },
     {
+      "id": "local.next-reply",
+      "name": "下一句推荐",
+      "description": "回答结束后基于近期对话智能推荐用户的下一句回复，支持 Tab 填入可编辑草稿、Esc 忽略或通过命令手动生成，完全独立运行，无需文件打开组件。",
+      "author": "RugkeyPro",
+      "i18n": {
+        "en": {
+          "name": "Next Reply Suggestion",
+          "description": "Suggests the user's likely next reply in the composer after each assistant turn. Press Tab to insert as an editable draft, Esc to dismiss, or trigger manually via command. Works standalone without any file-opening helper.",
+          "safetyNotes": "Calls the current session model (or a user-configured modelKey) after a completed turn or manual command, sending at most the latest 12 messages and 12,000 characters of visible conversation text, which incurs one normal model completion call. Never reads credentials or local files, makes no external network requests, and never auto-sends messages. The renderer extension only syncs visible session messages inside the app window."
+        },
+        "zh-CN": {
+          "name": "下一句推荐",
+          "description": "回答结束后基于近期对话智能推荐用户的下一句回复，支持 Tab 填入可编辑草稿、Esc 忽略或通过命令手动生成，完全独立运行，无需文件打开组件。",
+          "safetyNotes": "仅在回合完成或手动触发时调用当前会话模型（或插件设置中指定的模型），最多发送当前会话最近 12 条、12000 字符的已加载对话文本，会产生一次常规模型调用费用。不读取任何密钥或本地文件，不发起外部网络请求，生成的建议仅填入输入框草稿，绝不自动发送消息。渲染扩展仅用于在应用窗口内同步当前可见会话消息。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/RugkeyPro/agent-skills",
+      "readmeMarkdown": "# 下一句推荐 / Next Reply Suggestion\n\n在每轮回答结束后，基于当前已加载会话的近期消息（最多 12 条、12,000 字符），调用当前会话模型（或插件设置中指定的 `modelKey`）预测用户下一步可能输入的回复，并显示在输入框中。\n\n- **Tab**：将推荐内容填入输入框作为可编辑草稿（不会自动发送）\n- **Esc**：忽略并清除当前推荐\n- **手动触发**：命令面板执行「生成下一句建议」\n- **完全独立**：仅包含下一句推荐逻辑，不依赖任何本地文件打开组件或平台原生二进制，跨平台通用。\n\n## English\n\nAfter each assistant turn, predicts a natural next user reply from recent visible conversation context (up to 12 messages and 12,000 characters) using the active session model or a configured `modelKey`.\n\n- **Tab**: Insert the suggestion into the composer as an editable draft (never auto-sent)\n- **Esc**: Dismiss the suggestion\n- **Manual command**: Run `生成下一句建议` from the command palette\n- **Standalone**: Pure reply suggestion plugin with no file-opening dependency or platform-specific binary.\n",
+      "safetyNotes": "仅在回合完成或手动触发时调用当前会话模型（或插件设置中指定的模型），最多发送当前会话最近 12 条、12000 字符的已加载对话文本，会产生一次常规模型调用费用。不读取任何密钥或本地文件，不发起外部网络请求，生成的建议仅填入输入框草稿，绝不自动发送消息。渲染扩展仅用于在应用窗口内同步当前可见会话消息。",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishedAt": "2026-10-28T05:14:26Z",
+          "changelog": "## 1.0.0\n\n- 独立拆分「下一句推荐」插件，无需任何本地文件打开助手或剪贴板权限。\n- 支持每轮回复完成后自动预测用户的下一句回复，按 Tab 插入草稿、Esc 忽略，或通过命令手动触发。\n- Standalone Next Reply Suggestion plugin without any file-opening helper dependency.",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "cfc15bb16714f54ef342331866b2df1ae54caea4e1fa56856c2afe64d8c4d1de",
+          "url": "packages/local.next-reply-1.0.0.piplug",
+          "sizeBytes": 11435,
+          "permissions": [
+            "agent.complete",
+            "composer.suggest",
+            "models.list",
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/RugkeyPro/agent-skills",
+            "sourceRef": "dc30625688e4281535248d1c08b7e73a2c24bb8a",
+            "sourceCommit": "dc30625688e4281535248d1c08b7e73a2c24bb8a",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-28T05:14:26Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.2",
+            "reviewedAt": "2026-10-28T09:06:06Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "local.pi-bot",
       "name": "PI Bot",
       "description": "Bring persistent AI Bot teams to PI Desktop, with private chats, multi-agent group collaboration, memory, skills, voice input, and app connections. An independently maintained adaptation of DeepSeek-Bot.",
