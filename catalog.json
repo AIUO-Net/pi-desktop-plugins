@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-28T12:53:11Z",
-  "generatedAt": "2026-10-28T12:53:11Z",
+  "updatedAt": "2026-10-28T12:59:00Z",
+  "generatedAt": "2026-10-28T12:59:00Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3107,6 +3107,30 @@
       "safetyNotes": "Reads two local session directories read-only and caches derived numbers in its own plugin data directory. desktop.control is used only for providers/list, session/list and project/list; nothing is written back to the host, nothing leaves the machine.",
       "versions": [
         {
+          "version": "0.1.2",
+          "publishedAt": "2026-10-28T12:59:00Z",
+          "changelog": "## 0.1.2\n\n- 模型定价：内置 232 个常用模型的列表价（Claude / GPT / Gemini / DeepSeek / Kimi / GLM / Qwen / Grok / MiniMax / Mistral / 豆包 / 混元 等，取自 cc-switch 的种子数据，MIT），会话里没带价格的记录开箱即用它们估算；面板顶部新增定价入口，按模型覆盖每百万 token 的输入 / 输出 / 缓存读 / 缓存写单价（美元），留空的字段继续用内置价\n- 会话自带的价格永远优先，估算部分继续显示 `≈`；定价列表列出内置价目表里的全部模型（顶部可搜索），标出哪些来自内置表、各有几条记录缺价，清除某一行即回落到内置价\n- 定价表随偏好持久化在插件设置里，改动后立刻重算，不需要重新扫描\n- 估算口径贯通全部出口：成本卡片、来源/项目排行、热力图方块悬停、趋势图提示、环形图图例，凡是含有估算的金额都带 `≈`，一条按内置价或自定义价算出来的记录不会被当成账单数字\n- 定价弹窗在没有记录的首次安装下也能打开；搜索框过滤后计数跟着变化，没有匹配项时给出空态说明",
+          "minPiDesktop": "\u003e=0.20.1",
+          "shasum": "ff458d01e0b174a311169b0d1d14ccdec977e5e6021fdda8bc56a2e9e1e0a5ef",
+          "url": "packages/io.github.techd81.pi-desktop-usage-0.1.2.piplug",
+          "sizeBytes": 348635,
+          "permissions": [
+            "desktop.control",
+            "keyboard.globalShortcut",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Techd81/pi-desktop-usage",
+            "sourceRef": "v0.1.2",
+            "sourceCommit": "2a21dc5cef84ee3ae4bebec453845d468ff8c97b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-28T12:59:00Z"
+          }
+        },
+        {
           "version": "0.1.1",
           "publishedAt": "2026-10-22T13:59:35Z",
           "changelog": "## 0.1.1\n\n- 指标卡：环比从灰色小字改成右上角涨跌胶囊，上升绿、下降红，上一周期没有流量时直接显示绝对差额；迷你趋势线按涨跌方向着色，并且不再和指标文字抢位置\n- 热力图：方块悬停弹出当日卡片（日期 / 等级 / 总用量 / 按模型的份额条），数据侧为每一天补上前 5 个模型与其余合计\n- 环形图图例：取消选中的项转为静音色、占比显示「—」，不再用半透明数字充当占比\n- 热力图配色：深浅档位改用活跃日的四分位划分——某一天突然有几亿 Token 时，其余日子仍能分出层次（原按最大值取比例，会把整年一起压到最浅一档）\n- 面板顶部：改用宿主 v3 穿透式 chrome——拖拽带由宿主按顶部空白区域铺设，顶栏只保留宿主窗口控制胶囊，标题区更干净",
@@ -5110,7 +5134,7 @@
       "versions": [
         {
           "version": "0.5.0",
-          "publishedAt": "2026-10-28T12:53:11Z",
+          "publishedAt": "2026-10-28T12:53:58Z",
           "changelog": "首次上传，内置了 windows 下常用的 VS Code、Explorer、PowerShell 等入口",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "aaebe318bd1bbfca2cb3601b93258949b0530b4df229f5ffb0870e8c20f12c1f",
