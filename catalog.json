@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-29T09:18:48Z",
-  "generatedAt": "2026-10-29T09:18:48Z",
+  "updatedAt": "2026-10-29T09:32:34Z",
+  "generatedAt": "2026-10-29T09:32:34Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3666,8 +3666,30 @@
       "safetyNotes": "调用操作系统原生音频播放命令（macOS 为 afplay，Windows 为 PowerShell SoundPlayer，Linux 为 aplay）播放本地提示音。无任何网络请求，绝不接触任何 API 密钥、凭据或代码文件。",
       "versions": [
         {
+          "version": "1.0.3",
+          "publishedAt": "2026-10-29T09:32:34Z",
+          "changelog": "### Release v1.0.3: 任务提示音 (高并发智能分级节流版)\n\n专为多智能体（Subagents）并行与高频任务流优化的并发版本。\n\n#### 核心更新\n- 智能分级音频节流器 (Smart Priority Audio Throttler)：\n  - 声学防相位抵消：保证任意两个音频调用之间至少有 400ms 物理声学间距，从根源杜绝并发时声音撕裂与重叠破音；\n  - 高优先级即时放行：异常报错 (error) 与系统交互/提问 (notify) 支持快速响应（800ms 窗口），不再被长时间完成冷却卡死；\n  - 子任务短间隔响应：阶段子任务步骤 (subagent) 采用 600ms 独立冷却区间。\n- 子任务配置流转闭环：面板正式接入阶段子任务开关与试听，支持开启或静默并发子任务步骤提示。\n- 100% 离线内置音频多端兼容：继承 WMP COM + SoundPlayer 双降级方案，Windows 与 macOS 无缝适配。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "1aa0cdaa5902665a8f977b94f2b0f039bd37302b67ab146b073a4ec031ad5d0e",
+          "url": "packages/io.github.xideadev.task-dida-1.0.3.piplug",
+          "sizeBytes": 826239,
+          "permissions": [
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida",
+            "sourceRef": "v1.0.3",
+            "sourceCommit": "3d36629a82667530f98e8b449ee23b2517bf989c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-29T09:32:34Z"
+          }
+        },
+        {
           "version": "1.0.2",
-          "publishedAt": "2026-10-29T09:18:48Z",
+          "publishedAt": "2026-10-29T09:19:43Z",
           "changelog": "### Release v1.0.2: 任务提示音 (内置全量音频多端兼容版)\n\n彻底解决 Windows 平台无声问题，实现 100% 插件内置离线高保真音频。\n\n#### 核心更新\n- 全量音频本地内置集成：所有提示音效（任务完成、报错警示、系统交互、阶段子任务）100% 预置在插件包内（标准 16-bit PCM WAV），零外部系统路径依赖。\n- Windows 播放引擎双保险加固：优先调用 Windows Media Player COM 接口 (wmplayer.ocx)，天然支持立体声、音量调节与各类编码；自动降级为 System.Media.SoundPlayer 同步兜底，在精简版、企业版及任何 Windows 系统均能 100% 播放成功。\n- Webview 设置面板离线即时试听：面板同步内嵌 Base64 音频字典，新增阶段子任务轻音试听，零延迟响应。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "32abd9956aab626fac908a255c8e63414dfa0d21c00db4fc39b9bf687ce4858d",
