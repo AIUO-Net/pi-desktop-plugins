@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-29T10:01:07Z",
-  "generatedAt": "2026-10-29T10:01:07Z",
+  "updatedAt": "2026-10-29T15:47:10Z",
+  "generatedAt": "2026-10-29T15:47:10Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -4945,6 +4945,30 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-10-29T15:47:10Z",
+          "changelog": "## 0.3.0\n\n- 新增可选的 tmux 持久会话（设置里的开关，默认关闭）：开启后每个标签跑在插件专用的 tmux 服务里，重载插件、重启宿主后 shell 和里面的程序仍在，下次打开自动接回。\n- 加载你自己的 `~/.tmux.conf`；没有该文件时使用一份最小配置。\n- tmux 标签有 `tmux` 标识；`exit` 后自动关标签，前缀键脱离后按回车可接回；右键菜单始终可用，Option 拖选可选择多行文字。\n- 新增命令「结束所有 tmux 后台会话」。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "6b9aaca8984f2bad3c2b101beacbb2b7c86fb5d05095f1e3cbc2469525fc0c58",
+          "url": "packages/local.terminal-0.3.0.piplug",
+          "sizeBytes": 602453,
+          "permissions": [
+            "clipboard.read",
+            "clipboard.write",
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/zwwangoo/pi-terminal",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "231d0d51d67046de030ad56eec43ce5f4056e210",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-29T15:47:10Z"
+          }
+        },
         {
           "version": "0.2.1",
           "publishedAt": "2026-10-28T08:03:41Z",
