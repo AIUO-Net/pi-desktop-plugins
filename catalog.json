@@ -236,7 +236,7 @@
     {
       "id": "bone.token.statistics",
       "name": "Token用量统计",
-      "description": "A local token usage dashboard across PI-Desktop projects, models and sessions, with daily trends, activity heatmaps, CSV export and optional cost estimates. Reads completed-turn counters and project metadata without conversation content.",
+      "description": "跨项目、模型和会话查看 PI-Desktop 的 Token 用量，支持每日趋势、活动热力图、CSV 导出及自定义单价成本估算。只读取已完成轮次计数和项目元数据，不读取对话正文。",
       "author": "Taokoplay",
       "categories": [
         "developer-tools",
@@ -247,7 +247,7 @@
       "publisherId": "bone",
       "downloads": 0,
       "homepage": "https://github.com/taokoplay/bone-token-statistics",
-      "readmeMarkdown": "# BoneTokenStatistics\r\n\r\n跨项目 Token 用量统计，支持时间、项目、模型筛选，每日趋势、周小时热力图和 CSV 导出。\r\n\r\n![统计界面](https://raw.githubusercontent.com/taokoplay/bone-token-statistics/v0.1.1/docs/images/token-statistics-dashboard.png)\r\n\r\n## 0.1.1\r\n修复项目名称回退为编号，改为读取宿主项目列表。升级需接受 desktop.control 权限，然后刷新统计页。\r\n\r\n源代码与完整说明：https://github.com/taokoplay/bone-token-statistics/tree/v0.1.1\r\n\r\nMIT License。",
+      "readmeMarkdown": "# Token用量统计\n\n跨项目 Token 用量统计，支持时间、项目、模型筛选，每日趋势、周小时热力图和 CSV 导出。\n\n![统计界面](https://raw.githubusercontent.com/taokoplay/bone-token-statistics/v0.1.1/docs/images/token-statistics-dashboard.png)\n\n## 0.1.1\n修复项目名称回退为编号，改为读取宿主项目列表。升级需接受 desktop.control 权限，然后刷新统计页。\n\n源代码与完整说明：https://github.com/taokoplay/bone-token-statistics/tree/v0.1.1\n\n采用 MIT 开源许可证。",
       "safetyNotes": "仅查询本地已完成轮次统计。desktop.control 仅调用只读 project/list 获取项目名称，不读取会话正文，不修改宿主状态。成本按用户配置的单价估算。",
       "versions": [
         {
