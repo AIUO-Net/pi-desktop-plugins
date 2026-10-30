@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-30T08:02:17Z",
-  "generatedAt": "2026-10-30T08:02:17Z",
+  "updatedAt": "2026-10-30T08:20:38Z",
+  "generatedAt": "2026-10-30T08:20:38Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -250,6 +250,29 @@
       "readmeMarkdown": "# Token用量统计\n\n跨项目 Token 用量统计，支持时间、项目、模型筛选，每日趋势、周小时热力图和 CSV 导出。\n\n![统计界面](https://raw.githubusercontent.com/taokoplay/bone-token-statistics/v0.1.1/docs/images/token-statistics-dashboard.png)\n\n## 0.1.1\n修复项目名称回退为编号，改为读取宿主项目列表。升级需接受 desktop.control 权限，然后刷新统计页。\n\n源代码与完整说明：https://github.com/taokoplay/bone-token-statistics/tree/v0.1.1\n\n采用 MIT 开源许可证。",
       "safetyNotes": "仅查询本地已完成轮次统计。desktop.control 仅调用只读 project/list 获取项目名称，不读取会话正文，不修改宿主状态。成本按用户配置的单价估算。",
       "versions": [
+        {
+          "version": "0.1.2",
+          "publishedAt": "2026-10-30T08:20:38Z",
+          "changelog": "优化周 × 小时热力图布局：24 小时列自动等分卡片可用宽度，消除右侧大片留白，小时标签同步伸缩。保持 7 天 × 24 小时数据、紧凑行高和悬浮提示不变。已通过 390、720、905、1280、1600px 五种窗口宽度的浏览器布局检查、60 项后端检查及安装包校验。本版本不新增权限。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "436a43c93efd50ebe6e7ab8db1b3713d655e15da268b4e8b621ff63efeec2038",
+          "url": "packages/bone.token.statistics-0.1.2.piplug",
+          "sizeBytes": 180189,
+          "permissions": [
+            "desktop.control",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-token-statistics",
+            "sourceRef": "v0.1.2",
+            "sourceCommit": "e27531b120ff2b93a584fe07b7471c15c3105643",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-30T08:20:38Z"
+          }
+        },
         {
           "version": "0.1.1",
           "publishedAt": "2026-10-30T08:02:17Z",
