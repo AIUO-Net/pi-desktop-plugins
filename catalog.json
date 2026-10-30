@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-30T15:07:09Z",
-  "generatedAt": "2026-10-30T15:07:09Z",
+  "updatedAt": "2026-10-30T17:10:25Z",
+  "generatedAt": "2026-10-30T17:10:25Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -4454,6 +4454,40 @@
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
         {
+          "version": "0.3.89",
+          "publishedAt": "2026-10-30T17:10:25Z",
+          "changelog": "本次更新汇总 0.3.87～0.3.89 的功能与优化：\n\n1. 优化任务派发可靠性\n完善接收确认、重复请求防护和重启后的状态核对；任务恢复中心新增执行记录，方便查看任务进度和中断情况。\n\n2. 新增群聊全部停止\n可在群详情中一键请求停止本群任务，阻止旧结果继续触发派发。已完成的外部修改不会撤销。\n\n3. 新增工作经验复盘\nBot 可根据已完成任务提出 Skill 或项目规则建议，预览并确认后保存。自动复盘默认关闭，开启后会产生额外模型用量。\n\n4. 优化侧栏布局\n支持拖动侧栏宽度、折叠为头像栏，改善窄窗口下的显示与操作体验。\n\n5. 接入轻量 Office 工具\n支持 Word 内容读取与定点编辑、PPT 页面操作和结构检查、Excel 内容及公式缓存读取。需独立 Node.js 20+，不包含完整 Office 排版与公式重算环境。\n\n6. 新增私密 Bot\n普通 Bot 可在单独设置中开启，需独立工作目录且不能加入群聊。限制其他 Bot 通过插件访问其聊天、记忆和任务，分享由用户确认。\n此功能属于插件层保护，不是系统级沙箱，原生工具仍由 PI Desktop 权限控制。\n\n更新前建议导出备份，安装后请重载 PI Bot 插件或重启 PI Desktop。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "7a82f3f630e06048b75feb49867c44e2bd849cd716ee355ecde785b32166885c",
+          "url": "packages/local.pi-bot-0.3.89.piplug",
+          "sizeBytes": 8496105,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.89",
+            "sourceCommit": "02963f9c36a7475f296c5da74a981b71dc0602cf",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-30T17:10:25Z"
+          }
+        },
+        {
           "version": "0.3.86",
           "publishedAt": "2026-10-27T16:07:11Z",
           "changelog": "PI Bot 0.3.86\n\n- 新增共享头像库，可分页浏览并在多个 Bot 间复用头像，支持备份与恢复。\n- 新增 /side 侧问命令，与 /btw 用法相同；已结束的侧问记录可以删除。\n- 群聊中可看到 Bot 收到的排队任务及未读数量。\n- 为 Bot 之间的消息派发增加请求去重，减少重试造成的重复任务。\n- 上游项目名称更新为 DS Bot。\n\n更新后请重载 PI Bot 插件或重启 PI Desktop。",
@@ -5026,7 +5060,7 @@
       "versions": [
         {
           "version": "1.1.1",
-          "publishedAt": "2026-10-30T15:07:09Z",
+          "publishedAt": "2026-10-30T15:07:56Z",
           "changelog": "## 1.1.1\n- 修复手动选择夜空版／云昼版后被跟随系统轮询覆盖的问题。\n- Auto 保持独立主题 ID，仅更新其深浅色配色；固定模式不受系统主题影响。\n- 同步主题列表、插件面板和命令中的三种模式选择，并在重载时恢复。\n- 新增手动选择、多轮轮询、模式持久化、重载及其他主题保护回归测试。\n- GitHub 回归测试及 PluginCheck 通过；i18n 0 fail，4 项双语命令标题兼容性 review。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "ab7200d61a44a371b13efe7624cb950c9030c87a8cd4a6eac42b493f431048d8",
