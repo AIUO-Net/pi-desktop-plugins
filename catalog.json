@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-30T08:20:38Z",
-  "generatedAt": "2026-10-30T08:20:38Z",
+  "updatedAt": "2026-10-30T14:51:12Z",
+  "generatedAt": "2026-10-30T14:51:12Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.1.2",
-          "publishedAt": "2026-10-30T08:20:38Z",
+          "publishedAt": "2026-10-30T08:21:22Z",
           "changelog": "优化周 × 小时热力图布局：24 小时列自动等分卡片可用宽度，消除右侧大片留白，小时标签同步伸缩。保持 7 天 × 24 小时数据、紧凑行高和悬浮提示不变。已通过 390、720、905、1280、1600px 五种窗口宽度的浏览器布局检查、60 项后端检查及安装包校验。本版本不新增权限。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "436a43c93efd50ebe6e7ab8db1b3713d655e15da268b4e8b621ff63efeec2038",
@@ -4992,6 +4992,58 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-29T20:33:27Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.starry-bus-theme",
+      "name": "Starry Bus Theme",
+      "description": "Starry Bus glassmorphic theme pack for PI-Desktop with automatic OS light/dark theme switching between Starry Bus Night and Starry Bus Day.",
+      "author": "yuehan1228",
+      "i18n": {
+        "en": {
+          "name": "Starry Bus Theme",
+          "description": "Starry Bus glassmorphic theme pack for PI-Desktop inspired by the starry clouds, retro bus, and sunlit meadow illustration, with automatic OS light/dark mode switching.",
+          "safetyNotes": "Registers themes and a panel. Runs fixed read-only OS appearance queries using reg.exe on Windows, defaults on macOS, or gsettings on Linux every four seconds in Auto mode. Reads bundled assets and writes only plugin-owned data. No network or credential access."
+        },
+        "zh-CN": {
+          "name": "星夜巴士主题",
+          "description": "灵感源自星夜积雨云、复古大众小巴士与阳光草坡插画的 PI-Desktop 毛玻璃主题包，支持根据操作系统深浅色自动切换「夜空版」与「云昼版」。",
+          "safetyNotes": "注册主题和面板；自动模式每四秒运行固定的只读系统外观查询（Windows reg.exe、macOS defaults、Linux gsettings）。读取随包资源，仅写入插件自身数据目录，不访问网络或凭据。"
+        }
+      },
+      "categories": [
+        "themes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/yuehan1228/starry-bus-theme",
+      "readmeMarkdown": "# 星夜巴士主题 · Starry Bus Theme (`local.starry-bus-theme`)\n\n根据「星夜积雨云、复古大众小巴士与阳光草坡」插画定制的 PI-Desktop 双模式毛玻璃主题包，支持**跟随操作系统深浅色自动切换「夜空版」与「云昼版」**。\n\n## 核心特性\n\n1. **跟随系统深浅色自动切换 (`starry-bus-auto` / `themeMode: \"auto\"`)**\n   - 实时检测操作系统深色/浅色状态（Windows 注册表 `AppsUseLightTheme` / macOS `AppleInterfaceStyle` / Linux `gsettings`）：\n     - 当操作系统处于 **深色模式 (Dark)** 时，自动切换为 **「星夜巴士 · 夜空版 (Starry Bus Night)」**；\n     - 当操作系统处于 **浅色模式 (Light)** 时，自动切换为 **「星夜巴士 · 云昼版 (Starry Bus Day)」**。\n   - 同时支持在插件面板或命令面板中手动固定为「夜空版」或「云昼版」。\n\n2. **插画色彩体系与毛玻璃视觉**\n   - **星夜巴士 · 夜空版 (`starry-bus-night`, Dark)**：提取左上深邃夜空靛蓝 `#061220`、积雨云高光白 `#EEF5FB`、复古巴士晴空蓝 `#4DA6E8`、阳光草坡暖金 `#F0B85A` 与草丛萤火虫翠绿 `#52D186`。\n   - **星夜巴士 · 云昼版 (`starry-bus-day`, Light)**：提取巨型积雨云的明亮日光白 `#F4F8FC` 与晴空浅蓝 `#E8F1F9`，搭配深海蓝 `#0D2338` 高对比正文与 `#246FA8` 巴士蓝强调色。\n   - **全屏插画背景层 (`.app-scenic-backdrop`)**：自动将随包附带的插画壁纸同步至插件数据目录并挂载至背景层，配合侧栏、顶栏、输入框和消息气泡的毛玻璃 (`backdrop-filter: blur`) 效果。\n",
+      "safetyNotes": "Registers themes and a panel. Runs fixed read-only OS appearance queries using reg.exe on Windows, defaults on macOS, or gsettings on Linux every four seconds in Auto mode. Reads bundled assets and writes only plugin-owned data. No network or credential access.",
+      "versions": [
+        {
+          "version": "1.1.0",
+          "publishedAt": "2026-10-30T14:51:12Z",
+          "changelog": "## 1.1.0\n- Automatically switch Night / Day with OS light/dark mode; pin either variant manually.\n- Bundle illustration wallpaper and remove machine-specific asset paths.\n- Add bilingual panel, lifecycle cleanup, and automated switching tests.\n- Auto mode executes fixed read-only appearance queries (reg.exe/defaults/gsettings) every four seconds. No network or credential access.\n- Local tests and PluginCheck passed. i18n gate: 0 fail, 4 review for bilingual command-title strings required by the current host. macOS/Linux detection is implemented but not hardware-tested.",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "3368cbb025280c41903b8f2d6e81920143f6f4b3fcc06834941f851b6b4ab7fb",
+          "url": "packages/local.starry-bus-theme-1.1.0.piplug",
+          "sizeBytes": 200435,
+          "permissions": [
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/yuehan1228/starry-bus-theme",
+            "sourceRef": "fcd52e701bbbaf0f83e417943e178460fe3140a9",
+            "sourceCommit": "fcd52e701bbbaf0f83e417943e178460fe3140a9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-30T14:51:12Z"
           }
         }
       ]
