@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-30T14:51:12Z",
-  "generatedAt": "2026-10-30T14:51:12Z",
+  "updatedAt": "2026-10-30T15:07:09Z",
+  "generatedAt": "2026-10-30T15:07:09Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -5025,8 +5025,30 @@
       "safetyNotes": "Registers themes and a panel. Runs fixed read-only OS appearance queries using reg.exe on Windows, defaults on macOS, or gsettings on Linux every four seconds in Auto mode. Reads bundled assets and writes only plugin-owned data. No network or credential access.",
       "versions": [
         {
+          "version": "1.1.1",
+          "publishedAt": "2026-10-30T15:07:09Z",
+          "changelog": "## 1.1.1\n- 修复手动选择夜空版／云昼版后被跟随系统轮询覆盖的问题。\n- Auto 保持独立主题 ID，仅更新其深浅色配色；固定模式不受系统主题影响。\n- 同步主题列表、插件面板和命令中的三种模式选择，并在重载时恢复。\n- 新增手动选择、多轮轮询、模式持久化、重载及其他主题保护回归测试。\n- GitHub 回归测试及 PluginCheck 通过；i18n 0 fail，4 项双语命令标题兼容性 review。",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "ab7200d61a44a371b13efe7624cb950c9030c87a8cd4a6eac42b493f431048d8",
+          "url": "packages/local.starry-bus-theme-1.1.1.piplug",
+          "sizeBytes": 201391,
+          "permissions": [
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/yuehan1228/starry-bus-theme",
+            "sourceRef": "6530d9639322898260b78c979f67dfbcc5408349",
+            "sourceCommit": "6530d9639322898260b78c979f67dfbcc5408349",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-30T15:07:09Z"
+          }
+        },
+        {
           "version": "1.1.0",
-          "publishedAt": "2026-10-30T14:51:12Z",
+          "publishedAt": "2026-10-30T14:52:01Z",
           "changelog": "## 1.1.0\n- Automatically switch Night / Day with OS light/dark mode; pin either variant manually.\n- Bundle illustration wallpaper and remove machine-specific asset paths.\n- Add bilingual panel, lifecycle cleanup, and automated switching tests.\n- Auto mode executes fixed read-only appearance queries (reg.exe/defaults/gsettings) every four seconds. No network or credential access.\n- Local tests and PluginCheck passed. i18n gate: 0 fail, 4 review for bilingual command-title strings required by the current host. macOS/Linux detection is implemented but not hardware-tested.",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "3368cbb025280c41903b8f2d6e81920143f6f4b3fcc06834941f851b6b4ab7fb",
