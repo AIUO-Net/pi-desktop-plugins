@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-10-29T15:47:59Z",
-  "generatedAt": "2026-10-29T15:47:59Z",
+  "updatedAt": "2026-10-30T08:01:32Z",
+  "generatedAt": "2026-10-30T08:01:32Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -229,6 +229,54 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-10-02T16:34:31Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bone.token.statistics",
+      "name": "BoneTokenStatistics",
+      "description": "A local token usage dashboard across PI-Desktop projects, models and sessions, with daily trends, activity heatmaps, CSV export and optional cost estimates. Reads completed-turn counters and project metadata without conversation content.",
+      "author": "taokoplay",
+      "i18n": {
+        "zh-CN": {
+          "name": "BoneTokenStatistics · Token 统计",
+          "description": "跨项目、模型和会话查看 PI-Desktop 的 Token 用量，支持每日趋势、活动热力图、CSV 导出及自定义单价成本估算。只读取已完成轮次计数和项目元数据，不读取对话正文。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "bone",
+      "downloads": 0,
+      "homepage": "https://github.com/taokoplay/bone-token-statistics",
+      "readmeMarkdown": "# BoneTokenStatistics\r\n\r\n跨项目 Token 用量统计，支持时间、项目、模型筛选，每日趋势、周小时热力图和 CSV 导出。\r\n\r\n![统计界面](https://raw.githubusercontent.com/taokoplay/bone-token-statistics/v0.1.1/docs/images/token-statistics-dashboard.png)\r\n\r\n## 0.1.1\r\n修复项目名称回退为编号，改为读取宿主项目列表。升级需接受 desktop.control 权限，然后刷新统计页。\r\n\r\n源代码与完整说明：https://github.com/taokoplay/bone-token-statistics/tree/v0.1.1\r\n\r\nMIT License。",
+      "safetyNotes": "仅查询本地已完成轮次统计。desktop.control 仅调用只读 project/list 获取项目名称，不读取会话正文，不修改宿主状态。成本按用户配置的单价估算。",
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-10-30T08:01:32Z",
+          "changelog": "首次上架 0.1.1。支持跨项目 Token 统计、趋势、热力图、项目与模型明细、CSV 导出。修复项目名称回退为编号：使用只读 project/list，刷新后更新名称，移除永久缓存与 40 项目查名限制。desktop.control 仅用于只读项目列表。通过 3 项名称回归、60 项后端检查、23 项聚合检查和安装包校验。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "258f90eb67cffc013dea1fc51b17665c39b7c60f2f79561c647b7301bc63174b",
+          "url": "packages/bone.token.statistics-0.1.1.piplug",
+          "sizeBytes": 179964,
+          "permissions": [
+            "desktop.control",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-token-statistics",
+            "sourceRef": "v0.1.1",
+            "sourceCommit": "9bbd929f856cb9427920f3fec3a4f6370a9e2139",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-10-30T08:01:32Z"
           }
         }
       ]
