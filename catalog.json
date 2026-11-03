@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-03T15:19:29Z",
-  "generatedAt": "2026-11-03T15:19:29Z",
+  "updatedAt": "2026-11-03T15:41:36Z",
+  "generatedAt": "2026-11-03T15:41:36Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -229,6 +229,84 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-10-02T16:34:31Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bone.project-wiki",
+      "name": "BoneProjectWiki",
+      "description": "A general user-owned project knowledge base with automatic agent memory, Obsidian-style tree explorer and multi-format asset management.",
+      "author": "taokoplay",
+      "i18n": {
+        "en": {
+          "name": "Project Knowledge Base",
+          "description": "General user-owned project knowledge base with Obsidian-style hierarchy, in-place note editor, and media/office asset management.",
+          "safetyNotes": "Operates strictly locally within the project .bone-project-wiki directory. No cloud account or external network calls required."
+        },
+        "zh-CN": {
+          "name": "项目知识库",
+          "description": "用户私有的项目通用知识库，支持类 Obsidian 树形文件浏览器、纯中文 Markdown 笔记无感实时编辑、图片/音视频/PDF/Word/WPS 资产管理与外部目录实时同步。",
+          "safetyNotes": "完全本地运行，仅在当前项目 .bone-project-wiki/ 目录下读写文件，不向外网发送任何数据。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "bone",
+      "downloads": 0,
+      "homepage": "https://github.com/taokoplay/bone-project-wiki",
+      "readmeMarkdown": "# 项目知识库（BoneProjectWiki）\n\n适用于 PI-Desktop 的本地优先（Local-first）项目知识库与资产管理插件。包含用户私有的通用项目知识库、Agent 自动协作记忆层、HTML 原型沙箱以及全格式媒体与文档资产管理。\n\n---\n\n## 核心特性\n\n- **类 Obsidian 层级文件树**：左侧树形目录导航，支持文件夹无极层级折叠展开、新建目录、折叠/展开全部、快速刷新。\n- **无感实时笔记编辑器**：右侧实时在线笔记编辑，采用防抖自动保存技术；标题与磁盘物理文件名（`[标题].md`）实时双向联动，纯中文路径与文件名真实落盘，无 UUID 乱码。\n- **全格式文件与多媒体支持**：\n  - **文档**：原生 Markdown（`.md`）、纯文本（`.txt`）、Word 文档（`.docx`, `.doc`）、WPS 文档（`.wps`, `.wpt`）、PDF（`.pdf`）。\n  - **表格**：Excel 电子表格（`.xlsx`, `.xls`, `.csv`）、WPS 表格（`.et`, `.ett`）。\n  - **演示**：PowerPoint（`.pptx`, `.ppt`）、WPS 演示（`.dps`, `.dpt`）、Keynote（`.key`）。\n  - **多媒体**：图片（`.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.svg`）、音频（`.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`）与视频（`.mp4`, `.webm`, `.mov`），内嵌原生播放与大图预览。\n- **外部目录实时同步**：支持直接从操作系统访达（Finder）或文件资源管理器将文件/多层文件夹直接拖入或拷入，窗口聚焦自动静默同步。\n- **扁平化矢量图标**：全套采用精致单色 1px 细线矢量 SVG 图标，自动适配亮色与暗色模式。\n- **Agent 协作记忆层**：在轮次结算后保存用户明确表达的具体偏好与事实；需要结合上文的记忆请求由 Agent 提炼后通过工具保存，下一轮以有篇幅限制的摘要与全文路径提供参考。\n\n---\n\n## 使用指南\n\n1. **初始化知识库**：\n   - 打开项目知识库面板；\n   - 点击“初始化知识库”，即可在当前项目目录下创建标准 `.bone-project-wiki/` 知识库目录结构。\n2. **日常记录与整理**：\n   - 在右侧直接输入标题与内容，系统自动保存并实时在左侧目录树生成对应的 `.md` 文件；\n   - 支持右键点击笔记或文件夹进行：**移动到…**、**在文件管理器中打开**、**删除**；\n   - 拖拽任意多层文件夹或文档进入面板，自动递归解析并创建对应分类目录。\n3. **打开与查看各类资产**：\n   - 笔记直接在右侧实时编辑；\n   - 图片自适应大图查看；音频与视频直接在右侧面板内嵌原生控件播放；\n   - Word、WPS、Excel、PDF 等办公文档提供一键“在系统中打开”与“在访达中定位”。\n\n## 记忆如何生效\n\n- **具体事实**：例如“请记住：本项目布局统一采用 PinLayout”，可在本轮结束后自动保存到当前项目的记忆目录。\n- **结合上文**：例如“记录到记忆中”“把刚才的开发规范记住”，会提示 Agent 从当前对话提炼具体内容、保留来源，并通过 `project_wiki` 保存。工具确认成功前不能声称已记录；缺少上文或工具时需说明未保存。\n- **避免空记忆**：查询句、单独的记录指令、密码与密钥等内容不会自动当成事实保存。旧的空指令记录不会继续进入对话摘要，但原文件不会被自动删除。\n- **可追溯**：有用的记忆应包含适用项目、具体约定和来源文档。摘要会标明省略并提供记忆文件路径，完整规则仍应读取原文核对。\n- **范围与限制**：记忆属于当前项目，作为参考数据使用。自动捕获使用本地规则，不会自动理解所有自然语言或把全部助手回复作为已确认事实保存；超过长度限制的显式请求交给 Agent 提炼，避免截断事实。\n\n---\n\n## 数据格式与便携性\n\n知识库所有数据均保存在当前项目根目录的 `.bone-project-wiki/` 下，具备高度的可移植性：\n\n```text\n.bone-project-wiki/\n├── project.json              # 项目知识库配置与版本元数据\n├── index.json                # 类似 Git index 的轻量派生缓存索引\n├── knowledge/                # 通用知识库\n│   ├── general/              # 默认通用分类（支持任意中文自定义目录）\n│   │   ├── 需求设计方案.md     # 纯中文 Markdown 笔记文件\n│   │   └── 产品原型.png       # 真实图片与多媒体资产\n│   └── 财务资料/              # 用户自定义分类目录\n│       └── 预算报表.xlsx      # 办公文档与表格附件\n└── memory/                   # Agent 自动捕获的项目协作记忆\n    └── index.json\n```\n\n- **索引缓存机制**：知识库通过派生的 `index.json` 记录文件的大小（size）和修改时间（mtime）。只有真正发生变动的文件才会触发重新读取，千条记录扫描秒级完成。如果删除 `index.json`，下一次加载会自动全量重新扫描生成，绝不丢失任何数据。\n- **版本冲突保护**：保存时严格比对内容 Hash 与版本修订号（Revision），防止外部并发修改造成内容覆盖。\n\n---\n\n## Agent 工具契约（API）\n\nAI Agent 可通过 `project_wiki` 工具安全管理与检索当前项目的知识库：\n\n```json\n// 获取知识库快照\n{ \"action\": \"snapshot\" }\n\n// 保存或更新记录（修改标题将同步触发物理重命名）\n{\n  \"action\": \"save\",\n  \"workspacePath\": \"/path/to/project\",\n  \"title\": \"退款规则说明\",\n  \"category\": \"业务规范\",\n  \"kind\": \"document\",\n  \"status\": \"confirmed\",\n  \"content\": \"# 退款规则说明\\n\\n部分退款不能超过实付金额。\"\n}\n\n// 增量获取最近更新的上下文\n{\n  \"action\": \"context\",\n  \"workspacePath\": \"/path/to/project\",\n  \"since\": \"2026-11-01T00:00:00Z\"\n}\n```\n\n支持的操作（Actions）：\n`snapshot`, `init`, `read`, `save`, `import`, `search`, `context`, `export`, `move`, `delete`, `deleteCategory`, `reveal`, `openDefault`, `preferencesGet`, `preferencesSave`, `forget`, `reindex`。\n",
+      "safetyNotes": "Operates strictly locally within the project .bone-project-wiki directory. No cloud account or external network calls required.",
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-11-03T15:41:36Z",
+          "changelog": "- 区分具体事实、查询句和仅引用上文的保存指令，不再自动把“记录到记忆中”等空指令当成记忆正文。\n- 对需要结合上文或超过长度限制的请求，引导 Agent 提炼具体内容并通过 `project_wiki` 保存、保留来源与确认结果，禁止以编辑 `MEMORY.md` 代替。\n- 移除对不存在的 `pi.session` 的依赖；待保存内容按会话与项目隔离，新一轮输入、取消或关闭会话时不会误存旧候选。\n- 自动事实在 800 字符上限内完整保存；恢复目录符号链接检查，敏感信息与空指令在创建目录前过滤。\n- 按更新时间读取最新记忆，省略摘要带全文路径；旧空指令仅从注入内容排除，不自动删除原文件。\n- 新增完整保存与恢复路径、空指令、查询误判、会话隔离、取消、去重与路径边界的回归测试。\n- 统一使用插件中心要求的 `main.js` 入口，保持原有插件加载与业务行为，并同步打包清单和生命周期测试。",
+          "minPiDesktop": "\u003e=0.4.22",
+          "shasum": "7682ed03f9c8a6209298b5e9d63fe4c789b9f8b421989fc0c9075bc68f50e558",
+          "url": "packages/bone.project-wiki-0.1.1.piplug",
+          "sizeBytes": 213954,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": false,
+              "scope": [
+                ".bone-project-wiki/memory/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".bone-project-wiki/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".bone-project-wiki/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-project-wiki",
+            "sourceRef": "ebef0f808fd5796ad33f1e7aac6bc1de9495f020",
+            "sourceCommit": "ebef0f808fd5796ad33f1e7aac6bc1de9495f020",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-03T15:41:36Z"
           }
         }
       ]
@@ -4470,7 +4548,7 @@
       "versions": [
         {
           "version": "0.3.93",
-          "publishedAt": "2026-11-03T15:19:29Z",
+          "publishedAt": "2026-11-03T15:21:25Z",
           "changelog": "本次合并 0.3.90～0.3.93 的新增功能、问题修复与体验优化。\n- 群聊协作更可靠：完善任务保存、续跑和结果回收，任务先保存成功再执行，减少重复派发；状态不明确时提示核对。\n- 群聊停止更方便：运行时发送键自动切换为停止键，可直接停止本群任务；取消正常群内文字交接的固定次数上限，保留空转保护。\n- 新增“待处理”页面：集中查看用户问题、审批入口、工作经验提案、运行异常及已结束待查看的任务。\n- 修复管理员计划异常：重复派发、回复格式错误时显示具体原因，支持一次纠正；失败时保留原回复，不再用笼统错误覆盖内容。\n- 新增任务追踪能力：支持定时任务执行记录、本地文件条件等待、工具重复失败提示和工作摘要。\n- 完善记忆与配置复用：自动记忆支持查看用户原话来源；新增团队配置模板，可预览、导入和导出角色分工与群结构。\n- 优化后台与数据保护：减少空闲检查和无变化时的重复保存，加强团队数据冲突保护与进程锁核对。\n- 修复侧栏和窗口交互：支持左右侧栏拖动缩放，恢复右侧栏展开／收起动画，调整顶栏拖窗区域及工作经验按钮布局。\n- 新增应用连接页面：支持应用图标、分类、搜索、分页及多 Bot 分配。用户可填写自己的 Composio 项目密钥授权应用，保留 GitHub 与 MCP 连接方式。\n感谢 GitHub 用户 @royrao2007 提供详细问题报告与改进建议。\n\n使用提示：应用连接需自行配置账号及额度，部分服务可能收费；本地定时和文件等待需保持 PI Desktop 运行。团队模板不包含聊天、记忆、密钥及账号授权；停止任务不会撤销已完成的外部操作。\n\n建议更新前导出个人备份。更新后请重载 PI Bot 插件或重启 PI Desktop。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "107847125eb23209c7efef5d9bbc7eebb72a82bb7f3e84f5ae83b8079d0e15e4",
