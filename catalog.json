@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-03T12:58:14Z",
-  "generatedAt": "2026-11-03T12:58:14Z",
+  "updatedAt": "2026-11-03T15:19:29Z",
+  "generatedAt": "2026-11-03T15:19:29Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -4468,6 +4468,40 @@
       "readmeMarkdown": "# PI Bot\r\n\r\nPI Bot 是面向 PI Desktop 的 AI Bot 团队协作插件，基于 DeepSeek-Bot 学习、迁移并持续适配。\r\n\r\n## 主要功能\r\n\r\n- 创建多个 Bot，分别配置角色、模型与能力。\r\n- 支持私聊和群聊，由管理员协调成员协作完成任务。\r\n- 支持记忆管理、历史检索与技能导入，可批量分配技能。\r\n- 提供语音输入、语音对话及应用连接功能。\r\n- 支持明暗主题，并提供 GitHub 新版本提醒。\r\n\r\n## 开始使用\r\n\r\n1. 安装插件，按需授权并重启 PI Desktop。\r\n2. 在 PI Desktop 中配置可用的模型。\r\n3. 打开 PI Bot，创建 Bot 或群聊。\r\n4. 语音及第三方应用连接需另行配置对应服务。\r\n\r\n模型及第三方服务可能产生费用，以所选服务商的计费规则为准。\r\n\r\n## 旧版升级提醒\r\n\r\n从 0.3.80 或更早版本升级时，请先停用旧版 PI Bot，暂不要卸载，再安装新版并重启。\r\n\r\n新版插件标识为 local.pi-bot，首次启动会自动迁移旧数据。请等待迁移完成，勿同时启用新旧两个插件。\r\n\r\n## 开源与致谢\r\n\r\n本项目是独立维护的 PI Desktop 适配项目，基于 DeepSeek-Bot，保留上游来源说明与许可声明，使用 Apache-2.0 许可证。\r\n\r\n项目主页：https://github.com/vsd269/PI-Bot\r\n问题反馈：https://github.com/vsd269/PI-Bot/issues\r\n上游项目：https://github.com/Fei2411/DeepSeek-Bot",
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
+        {
+          "version": "0.3.93",
+          "publishedAt": "2026-11-03T15:19:29Z",
+          "changelog": "本次合并 0.3.90～0.3.93 的新增功能、问题修复与体验优化。\n- 群聊协作更可靠：完善任务保存、续跑和结果回收，任务先保存成功再执行，减少重复派发；状态不明确时提示核对。\n- 群聊停止更方便：运行时发送键自动切换为停止键，可直接停止本群任务；取消正常群内文字交接的固定次数上限，保留空转保护。\n- 新增“待处理”页面：集中查看用户问题、审批入口、工作经验提案、运行异常及已结束待查看的任务。\n- 修复管理员计划异常：重复派发、回复格式错误时显示具体原因，支持一次纠正；失败时保留原回复，不再用笼统错误覆盖内容。\n- 新增任务追踪能力：支持定时任务执行记录、本地文件条件等待、工具重复失败提示和工作摘要。\n- 完善记忆与配置复用：自动记忆支持查看用户原话来源；新增团队配置模板，可预览、导入和导出角色分工与群结构。\n- 优化后台与数据保护：减少空闲检查和无变化时的重复保存，加强团队数据冲突保护与进程锁核对。\n- 修复侧栏和窗口交互：支持左右侧栏拖动缩放，恢复右侧栏展开／收起动画，调整顶栏拖窗区域及工作经验按钮布局。\n- 新增应用连接页面：支持应用图标、分类、搜索、分页及多 Bot 分配。用户可填写自己的 Composio 项目密钥授权应用，保留 GitHub 与 MCP 连接方式。\n感谢 GitHub 用户 @royrao2007 提供详细问题报告与改进建议。\n\n使用提示：应用连接需自行配置账号及额度，部分服务可能收费；本地定时和文件等待需保持 PI Desktop 运行。团队模板不包含聊天、记忆、密钥及账号授权；停止任务不会撤销已完成的外部操作。\n\n建议更新前导出个人备份。更新后请重载 PI Bot 插件或重启 PI Desktop。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "107847125eb23209c7efef5d9bbc7eebb72a82bb7f3e84f5ae83b8079d0e15e4",
+          "url": "packages/local.pi-bot-0.3.93.piplug",
+          "sizeBytes": 8691379,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.93",
+            "sourceCommit": "22881d315ea2e8f404fcae451769bb39065c778e",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-03T15:19:29Z"
+          }
+        },
         {
           "version": "0.3.89",
           "publishedAt": "2026-10-30T17:11:14Z",
