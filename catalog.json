@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-03T11:14:36Z",
-  "generatedAt": "2026-11-03T11:14:36Z",
+  "updatedAt": "2026-11-03T12:58:14Z",
+  "generatedAt": "2026-11-03T12:58:14Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -3756,7 +3756,7 @@
       "versions": [
         {
           "version": "1.0.4",
-          "publishedAt": "2026-11-03T11:14:36Z",
+          "publishedAt": "2026-11-03T12:58:14Z",
           "changelog": "### Release v1.0.4: 任务提示音 (Windows 全场景发声与宿主事件修复版)\n\n1. **核心发声逻辑深度修复 (Windows)**：\n   - 彻底修复从 Windows 资源管理器「复制为路径」时首尾夹带的双引号导致的路径探测失效。\n   - 优化 PowerShell 发声通道：默认优先使用 .NET 原生 System.Media.SoundPlayer 异步流式播放 WAV，消除了旧版依赖 Windows Media Player COM 组件导致的进程挂起与静默失败。\n   - 增加原生命令退出码拦截，当系统进程报错退出时准确回退至 Web Audio API 兜底通道。\n\n2. **宿主回合结束感知 (Turn End Detection)**：\n   - 深度挂载 PI-Desktop 宿主进程广播的 session:turnEnded 真实内核事件，解决部分 Windows 环境未安装或无法执行 sqlite3.exe 时无法触发发声的问题。\n   - 双重保险：同时保留轻量级 SQLite WAL 轮询通道与内核事件广播，确保发声 100% 触发。\n\n3. **试听与自定义交互优化**：\n   - 修复前端试听面板中自定义文件路径错误时回退到默认音效的混淆体验，明确提示路径错误。\n   - 完善深浅色自适应与视听即时反馈。",
           "minPiDesktop": "\u003e=0.14.0",
           "shasum": "47df70cfae22e1f100ab99410a944d4168ce53da9e4a0d5dd233ff0313bf0d21",
