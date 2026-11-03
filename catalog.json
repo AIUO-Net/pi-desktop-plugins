@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-02T11:41:30Z",
-  "generatedAt": "2026-11-02T11:41:30Z",
+  "updatedAt": "2026-11-03T11:14:36Z",
+  "generatedAt": "2026-11-03T11:14:36Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1576,32 +1576,6 @@
       "readmeMarkdown": "# WTQ账号池\n\n把本机 WorkBuddy、Trae、Qoder 的桌面登录接入 PI-Desktop。WorkBuddy 被限流或额度用尽时自动换号；Trae、Qoder 按请求选择账号，不保证失败后重试。三个来源独立开关，国内与国际账号分别成组。\n\n[English](./README.en.md)\n\n## 预览\n\n设置面板界面如下（默认亮色）：\n\n![账号池](docs/preview-pool.png)\n\n面板跟随 PI-Desktop 的外观设置，暗色与亮色各一套配色：\n\n![暗色主题](docs/preview-dark.png)\n\n模型页可以改显示名、上下文窗口、输出上限、思考等级和贴图。Trae 目录给出费率的模型会带上 `x0.79` 这样的费率标签，未给出费率的模型（以及 Qoder 全部模型）不标注：\n\n![模型设置](docs/preview-models.png)\n\n在线预览：\u003chttps://chengzhi-c.github.io/pi-desktop-wtq-pool/\u003e。\n\n`docs/index.html` 加载实际面板代码并使用虚构演示数据，支持来源切换、模型设置和主题预览，不读取本机账号或令牌。\n\n![预览页](docs/preview-page.png)\n\n开启 `showComposerPoints` 后，输入框工具栏显示当前模型的账号积分，点击可查看该组账号并切换账号。下图由实际输入框扩展离屏渲染，非对话测试截图：\n\n![输入框积分](docs/preview-composer.png)\n\n本地运行：`node docs/serve.cjs`，然后打开它输出的地址。\n（`docs/index.html` 需经本地服务器打开：`file://` 页面无法读取同目录的面板文件。）\n\n## 安装\n\nPI-Desktop → 插件 → 安装本地插件，选择本地生成的 `.piplug`。\n\n开发与检查：`npm ci \u0026\u0026 npm run typecheck \u0026\u0026 npm run build \u0026\u0026 npm test`。修改 `src/` 后须重建 `lib/`。\n打包使用 PI-Desktop 的 `PluginCheck` / `PluginPack`，不使用通用 ZIP 工具。打包前先把工作树复制成仅含运行时文件的副本（去掉 `src/`、`tests/`、`build.mjs`、`tsconfig.json`、`package-lock.json`），并清空 `manifest.json` 的 `contributes.providers`：`PluginPack` 只排除 `.git`、`node_modules` 和 `dist`，运行时声明里带着本机上一次发布的模型组与端口，直接打包会把它带进发布产物。\n\n## 使用\n\n在各家桌面 App 里登录，再点面板「重新检测账号」。WorkBuddy 要多个账号，就在 App 里逐个登录；5.6 起的 `$wbEncrypted` 登录由插件向本机已安装的 WorkBuddy 要密钥再读。Trae 国内版有 Trae CN 与 TRAE SOLO CN 两个登录位，Qoder 每个安装只保存一个登录，在 App 里重新登录会覆盖前一个。\n\n模型分组没出现时，按面板顶部的提示重启 PI-Desktop。\n\n面板顶层选来源，下面是账号池、模型和连接检查。\n\n- 账号卡支持积分明细、签到、停用、移除和区域首选账号；输入框积分弹窗可刷新当前模型所在组。\n- WorkBuddy 支持优先使用、轮询、临期积分优先和会话固定账号；Trae、Qoder 支持轮询与临期积分优先。\n- 模型页保存后更新插件声明；宿主尚未重载时按面板提示重启。一个模型组最多发布 64 个，超出的勾选标为「未发布」，网关仍支持这些模型。\n- 自动签到默认关闭，开启后默认于 09:00（北京时间）执行；错过时段将在下次启动补领。「立即运行」执行同一轮，包含三家的签到、WorkBuddy 国内账号的连登和任务奖励及猫猫旅行。Trae 每日签到按设备限制，Qoder 新轮次于 10:00 开放。\n\n## 设置\n\n插件页里可改的项：\n\n| 键 | 默认 | 说明 |\n| --- | --- | --- |\n| `enabled` | `true` | 关闭后网关不启动 |\n| `sourceWorkbuddy` / `sourceTrae` / `sourceQoder` | `true` | 关闭后该来源不扫描、不发布、不请求 |\n| `distribution` | `priority` | WorkBuddy 池的发放方式：`priority` 先用一个账号，`round-robin` 均摊，`expiry` 优先消耗临期积分，`sticky` 同一对话固定 |\n| `sourceDistributions` | `{}` | Trae、Qoder 的分发方式：`round-robin` / `expiry`；兼容旧值 `priority` |\n| `cooldownSeconds` | `60` | 限流冷却时长。上游报出重置时间时以它为准，按北京时间 |\n| `creditReserves` | `{}` | 按账号 id 设定的积分保底，余额低于它的账号不参与分发 |\n| `authFile` | `\"\"` | WorkBuddy 登录文件路径；扫描其所在目录的全部 `.info` 登录，留空自动发现 |\n| `autoCheckin` | `{\"enabled\":false,\"hours\":[9]}` | 自动签到的开关与时点；`hours` 为北京时间整点，留空用 09:00 |\n| `showComposerPoints` | `false` | 在输入框工具栏显示当前账号积分 |\n\n模型勾选和首选账号由面板保存。命令面板里也可以打开面板、重新检测、清除冷却、全部签到、连接检查。\n\n## 端口\n\n```\nWorkBuddy  41831 / 41841\nTrae       41851 / 41861\nQoder      41871 / 41881\n```\n\n宿主在插件进程启动前读取清单地址，因此端口固定。端口被占用时请先查看连接检查，不应连接其他进程的服务。国内模型仅使用国内账号。\n\n## 数据\n\n只读三家 App 的本机登录文件。令牌仅在插件进程中使用，并发往对应厂商接口；网关仅监听 `127.0.0.1`，同机其他进程仍可调用并消耗账号额度。插件设置由宿主持久化，模型分组写入本插件清单；插件不直接管理或删除宿主会话记录。重启后回复缺失时应同时检查插件流是否完成与宿主持久化日志。\n\n## 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` | 打开设置面板 |\n| `background.service` | 常驻运行网关与扫描 |\n| `provider.register` | 把三个来源作为模型提供方写进本插件清单 |\n| `renderer.extension` | 在输入框工具栏显示积分 |\n| `shell.openExternal` | 面板页脚打开外部链接 |\n| `clipboard.write` | 连接检查页复制报告 |\n\n出网请求由插件进程直接发送，不经过宿主 `net.fetch` 通道。\n\n令牌只会发往以下主机，与 `manifest.json` 的 `safetyNotes` 一致：\n\n- WorkBuddy：`copilot.tencent.com`、`www.codebuddy.cn`、`www.codebuddy.ai`、`www.workbuddy.ai`、`www.workbuddy.cn`\n- Trae：`api.trae.cn`、`solo.trae.cn`、`trae-api-cn.mchost.guru`、`coresg-normal.trae.ai`、`growsg-normal.trae.ai`\n- Qoder：`gateway.qoder.com.cn`、`openapi.qoder.com.cn`、`api3.qoder.sh`、`openapi.qoder.sh`\n\n## 致谢\n\n本插件的若干模块移植或参考自下列 MIT 项目，特此鸣谢：\n\n| 项目 | 版权 | 用于 |\n| --- | --- | --- |\n| [XDTrees/dsh-workbuddy-xdpool](https://github.com/XDTrees/dsh-workbuddy-xdpool) | (c) 2026 XDTrees | WorkBuddy 账号池与整体移植来源 |\n| [corrinehu/dsh-workbuddy-connect](https://github.com/corrinehu/dsh-workbuddy-connect) | (c) 2026 Corrine Hu | 回环端点的安全模型 |\n| [dingminhua/dsh-connect-workbuddy](https://github.com/dingminhua/dsh-connect-workbuddy) | (c) 2026 LaoDing | 上游接口与错误分类 |\n| [dingminhua/dsh-connect-trae](https://github.com/dingminhua/dsh-connect-trae) | (c) 2026 dingminhua | Trae 协议参考 |\n| [eghrhegpe/dsh-connect-qoder](https://github.com/eghrhegpe/dsh-connect-qoder) | (c) 2026 eghrhegpe | Qoder 协议参考 |\n| [eric8bit/pi-desktop-workbuddy](https://github.com/eric8bit/pi-desktop-workbuddy) | (c) 2026 eric8bit | 同一上游的 PI-Desktop 移植版，本插件的前身 |\n\n## 许可\n\nMIT，见 [LICENSE](./LICENSE)。\n",
       "safetyNotes": "Reads the WorkBuddy, Trae and Qoder sign-ins already saved on this machine. If an install is not in its default location, only its uninstall registry entry is read to find it. Keys for encrypted fields stay in memory. Tokens go only to each vendor's own hosts: copilot.tencent.com / codebuddy.cn / codebuddy.ai / workbuddy.ai / www.workbuddy.cn, api.trae.cn / solo.trae.cn / trae-api-cn.mchost.guru / coresg-normal.trae.ai / growsg-normal.trae.ai, gateway.qoder.com.cn / openapi.qoder.com.cn / api3.qoder.sh / openapi.qoder.sh. Chat is served from 127.0.0.1.",
       "versions": [
-        {
-          "version": "1.2.2",
-          "publishedAt": "2026-11-02T11:41:30Z",
-          "changelog": "- 登录：新的登录流程替换旧流程后，不再保存旧流程的结果或清除新流程。\n- 账号池：每次续期后重新确认账号资格，避免使用在等待期间被停用、移除或冷却的账号。\n- 隐私：关闭 WorkBuddy 或其全部区域后，刷新跳过登录凭证扫描；未完成的扫描不再回填账号或继续写入凭证。\n- 成长中心：任务取消后停止后续补签、领奖、活动上报与抽奖，不再继续消费补签卡。\n- WorkBuddy：补齐或折叠系统消息时使用非空内容，兼容 Kimi 3.1 的消息校验，避免空系统消息触发 11151。\n- 账号发现：手动重新检测会在当前扫描结束后重新读取，避免漏掉刚新增的登录。\n- 流式输出：WorkBuddy 在 `[DONE]` 前补齐缺失的结束帧，正确处理分块结束标记与未分隔的尾帧；工具调用补用 `tool_calls` 结束原因。\n- 签到：单账号签到显示领取结果并更新状态；批量签到显示脱敏后的首个失败原因，Qoder 的不可重试拒绝不再安排补领。\n- 安全：本地预览只提供必要的公开资源，拒绝非回环 Host，不再公开仓库内部文件。\n- 面板与文档：调整风险提示与悬停标签对比度，明确两版独立存储和共享凭证的续期限制。",
-          "minPiDesktop": "\u003e=0.15.0",
-          "shasum": "40e31d839f182ee4e31474d5badf2df687eb555cb0f416345cc58a19c63018d7",
-          "url": "packages/io.github.chengzhi-c.pi-desktop-wtq-pool-1.2.2.piplug",
-          "sizeBytes": 1125330,
-          "permissions": [
-            "background.service",
-            "clipboard.write",
-            "provider.register",
-            "renderer.extension",
-            "shell.openExternal",
-            "ui.panel"
-          ],
-          "fs": {},
-          "yanked": false,
-          "provenance": {
-            "sourceRepository": "https://github.com/chengzhi-c/pi-desktop-wtq-pool",
-            "sourceRef": "v1.2.2",
-            "sourceCommit": "f932ecb10506faf478c81c134056d9d7e9f705a2",
-            "builder": "console-upload@1.0.0",
-            "builtAt": "2026-11-02T11:41:30Z"
-          }
-        },
         {
           "version": "1.2.0",
           "publishedAt": "2026-10-28T09:30:17Z",
@@ -3780,6 +3754,21 @@
       "readmeMarkdown": "# TASK Dida任务提示音 (Task Sound Alert for PI-Desktop)\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)\n[![PI-Desktop Plugin](https://img.shields.io/badge/PI--Desktop-Plugin-6366f1.svg)](https://github.com/vastsa/PI-Desktop)\n\nA lightweight, zero-dependency sound alert plugin designed specifically for **PI-Desktop**. Plays pleasant, customizable sound notifications when AI agent tasks finish, error out, or require attention.\n\n专为 **PI-Desktop** 打造的轻量级、零依赖任务完成声音通知插件。在 AI 智能体任务完成、发生异常中断或需要人工操作时，自动跟随系统通知播放清脆悦耳的提示音。\n\n---\n\n## 核心特性\n\n- **任务完成提示音 (Task Completion Sound)**: AI 顺利跑完代码或执行完回合时提供即时声音反馈（`task.completed`）。\n- **错误警示音 (Error Alert)**: 任务执行遇到异常中断或报错时播放低沉警示音。\n- **系统提示接管 (Override Host Beep)**: 可选择接管并替换系统自带单调的 660Hz 蜂鸣声，带来更悦耳的交互反馈。\n- **提示音在线试听 (Sound Audition)**: 内置可视化设置面板，支持一键在线试听各场景音效。\n- **防爆音节流 (Audio Throttling)**: 内建 2.0 秒全局冷却时间，防止多个子任务或通知密集并发导致声音撕裂。\n- **后台智能感知 (Focus Awareness)**: 可配置为仅当 PI-Desktop 窗口在后台失焦时才发声，减少前台盯屏时的听觉冗余。\n- **纯本地无外联 (Privacy First)**: 零外部网络请求，绝不接触任何 API 密钥、凭据或用户个人代码。\n\n---\n\n## 安装方式\n\n### 方式一：从官方插件市场一键安装 (推荐)\n1. 打开 PI-Desktop 客户端；\n2. 进入 **设置 (Settings)** → **插件 (Plugins)** → **插件市场 (Marketplace)**；\n3. 搜索 `TASK Dida任务提示音` 或 `Task Sound Alert`；\n4. 点击 **安装 (Install)** 并授权声音播放权限即可。\n\n### 方式二：从本地 `.piplug` 文件安装\n1. 前往 GitHub [Releases](https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida/releases) 下载最新的 `io.github.xideadev.task-dida-1.0.0.piplug`；\n2. 在 PI-Desktop 中进入 **设置 → 插件**；\n3. 点击右上角的 **“从文件安装 (Install from file)”**，选择下载的 `.piplug` 文件完成导入。\n\n---\n\n## 配置与试听面板\n\n安装后，可通过以下方式打开专属可视化设置与试听面板：\n- 按下快捷键 `Cmd + Shift + P`（Windows 为 `Ctrl + Shift + P`），搜索命令 **“TASK Dida任务提示音: 打开设置面板”**；\n- 在面板中可调节提示音量、开关各项通知，并支持针对各场景点击 **“试听音效”**。\n\n---\n\n## 开发者构建\n\n```bash\n# 1. 克隆仓库\ngit clone https://github.com/XideaDev/PI-Desktop-Plugin-TaskDida.git\ncd PI-Desktop-Plugin-TaskDida\n\n# 2. 安装开发依赖\nnpm install\n\n# 3. 编译 TypeScript\nnpm run build\n\n# 4. 规范校验\nPluginCheck\n\n# 5. 打包 .piplug (Store-only ZIP 规范)\nPluginPack\n```\n\n---\n\n## License\n\n[MIT License](LICENSE) © 2025 XideaDev\n",
       "safetyNotes": "调用操作系统原生音频播放命令（macOS 为 afplay，Windows 为 PowerShell SoundPlayer，Linux 为 aplay）播放本地提示音。无任何网络请求，绝不接触任何 API 密钥、凭据或代码文件。",
       "versions": [
+        {
+          "version": "1.0.4",
+          "publishedAt": "2026-11-03T11:14:36Z",
+          "changelog": "### Release v1.0.4: 任务提示音 (Windows 全场景发声与宿主事件修复版)\n\n1. **核心发声逻辑深度修复 (Windows)**：\n   - 彻底修复从 Windows 资源管理器「复制为路径」时首尾夹带的双引号导致的路径探测失效。\n   - 优化 PowerShell 发声通道：默认优先使用 .NET 原生 System.Media.SoundPlayer 异步流式播放 WAV，消除了旧版依赖 Windows Media Player COM 组件导致的进程挂起与静默失败。\n   - 增加原生命令退出码拦截，当系统进程报错退出时准确回退至 Web Audio API 兜底通道。\n\n2. **宿主回合结束感知 (Turn End Detection)**：\n   - 深度挂载 PI-Desktop 宿主进程广播的 session:turnEnded 真实内核事件，解决部分 Windows 环境未安装或无法执行 sqlite3.exe 时无法触发发声的问题。\n   - 双重保险：同时保留轻量级 SQLite WAL 轮询通道与内核事件广播，确保发声 100% 触发。\n\n3. **试听与自定义交互优化**：\n   - 修复前端试听面板中自定义文件路径错误时回退到默认音效的混淆体验，明确提示路径错误。\n   - 完善深浅色自适应与视听即时反馈。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "47df70cfae22e1f100ab99410a944d4168ce53da9e4a0d5dd233ff0313bf0d21",
+          "url": "packages/io.github.xideadev.task-dida-1.0.4.piplug",
+          "sizeBytes": 833505,
+          "permissions": [
+            "desktop.control",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "1.0.3",
           "publishedAt": "2026-10-29T09:33:23Z",
