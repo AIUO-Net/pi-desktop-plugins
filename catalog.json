@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-03T16:47:59Z",
-  "generatedAt": "2026-11-03T16:47:59Z",
+  "updatedAt": "2026-11-03T16:49:51Z",
+  "generatedAt": "2026-11-03T16:49:51Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1656,7 +1656,7 @@
       "versions": [
         {
           "version": "1.2.2",
-          "publishedAt": "2026-11-03T16:47:59Z",
+          "publishedAt": "2026-11-03T16:49:51Z",
           "changelog": "- 登录：新的登录流程替换旧流程后，不再保存旧流程的结果或清除新流程。\n- 账号池：每次续期后重新确认账号资格，避免使用在等待期间被停用、移除或冷却的账号。\n- 隐私：关闭 WorkBuddy 或其全部区域后，刷新跳过登录凭证扫描；未完成的扫描不再回填账号或继续写入凭证。\n- 成长中心：任务取消后停止后续补签、领奖、活动上报与抽奖，不再继续消费补签卡。\n- WorkBuddy：补齐或折叠系统消息时使用非空内容，兼容 Kimi 3.1 的消息校验，避免空系统消息触发 11151。\n- 账号发现：手动重新检测会在当前扫描结束后重新读取，避免漏掉刚新增的登录。\n- 流式输出：WorkBuddy 在 `[DONE]` 前补齐缺失的结束帧，正确处理分块结束标记与未分隔的尾帧；工具调用补用 `tool_calls` 结束原因。\n- 签到：单账号签到显示领取结果并更新状态；批量签到显示脱敏后的首个失败原因，Qoder 的不可重试拒绝不再安排补领。\n- 安全：本地预览只提供必要的公开资源，拒绝非回环 Host，不再公开仓库内部文件。\n- 面板与文档：调整风险提示与悬停标签对比度，明确两版独立存储和共享凭证的续期限制。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "40e31d839f182ee4e31474d5badf2df687eb555cb0f416345cc58a19c63018d7",
