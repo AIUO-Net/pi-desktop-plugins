@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-04T20:33:13Z",
-  "generatedAt": "2026-11-04T20:33:13Z",
+  "updatedAt": "2026-11-04T20:34:58Z",
+  "generatedAt": "2026-11-04T20:34:58Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1274,7 +1274,8 @@
       "description": "A council of five advisors (Contrarian, First Principles, Expansionist, Outsider, Executor), cast from your own models, answers your question, reviews the answers anonymously, and a chairman delivers the verdict.",
       "author": "Eskwisit",
       "categories": [
-        "Orchestration"
+        "developer-tools",
+        "orchestration"
       ],
       "verified": false,
       "trust": "community",
@@ -1324,14 +1325,11 @@
       "id": "eskwisit.test-warden",
       "name": "Test Warden",
       "description": "Keeps unit tests in step with code, for any test framework: uses the project's own verified test command, finds regressions on old vs new code, builds test suites for files without touching them, keeps only tests that can fail, and reports bugs instead of fixing them.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "测试守卫",
-          "description": "适用于任何测试框架，让单元测试与代码保持同步：使用项目自身经过验证的测试命令，对比新旧代码以发现回归，在不改动目标文件的前提下为其编写测试套件，只保留确实能够失败的测试，发现的缺陷只报告、不修复。"
-        }
-      },
-      "categories": [],
+      "author": "Eskwisit",
+      "categories": [
+        "developer-tools",
+        "orchestration"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "eskwisit",
@@ -1339,7 +1337,7 @@
       "versions": [
         {
           "version": "0.4.0",
-          "publishedAt": "2026-11-04T20:33:13Z",
+          "publishedAt": "2026-11-04T20:34:58Z",
           "changelog": "# Changelog\n\n## 0.4.0\n\n### Features\n\n- **main:** add the profile, check, gate and lessons tools (`3dc4ed9`)\n- **subagents:** add a test writer that never edits the tested code (`5594a97`)\n- **skills:** add the test warden orchestrator skill (`acd4e8e`)\n- **manifest:** declare the tools, skill, settings and permissions (`6b4d928`)\n\n### Documentation\n\n- **readme:** describe the tools, prompts, permissions, limits and tests (`6a302a3`)\n- add the security review notes (`cd78906`)\n\n### Tests\n\n- add a fake pi-desktop host and a test entry point (`251bf9e`)\n- cover classification, globs, commands, scripts and undo (`683ad0a`)\n- cover the warden tools from profile to gate verdict (`e9dd865`)\n- cover writer install, removal and the skill front matter (`f5590e3`)\n- run checks and gates end to end in real git repositories (`437ab6d`)\n\n### CI\n\n- print the changelog section of a version (`712b6a4`)\n- publish a github release when the manifest version changes (`0e121e2`)\n\n### Chores\n\n- ignore build output, piplug files and test warden runs (`c15c925`)\n- license the plugin under apache-2.0 (`3a17a81`)\n- add the changelog (`986b976`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "78d1aa2ba0585afde8049f8516429365f528f7c9ddd8a8b88d32baf7ba97bc5a",
