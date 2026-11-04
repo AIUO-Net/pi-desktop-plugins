@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-04T13:22:25Z",
-  "generatedAt": "2026-11-04T13:22:25Z",
+  "updatedAt": "2026-11-04T18:36:39Z",
+  "generatedAt": "2026-11-04T18:36:39Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-11-04T13:22:25Z",
+          "publishedAt": "2026-11-04T13:24:09Z",
           "changelog": "- 重要规则与业务知识保存为完整主题文档，记忆只保留短摘要、“何时读取”和稳定关联。\n- 文档改名、移动后仍可沿关联读取当前原文；修改正文后停止使用旧摘要，重新确认可更新原关联。\n- 草稿、归档、缺失、无法读取或标识冲突的文档会明确显示状态，避免把旧摘要当成当前规则。\n- 面板新增确认并关联入口，记忆页可读取当前原文；关联失败会保留文档并明确提示，允许重试。\n- 区分新请求识别与已存正文读取，避免因为正文包含“是否”等词而丢失整条记忆；加强上下文保存指令识别。\n- 旧记录按需获得稳定标识，不做破坏性批量迁移；保留现有权限范围与文件命名方式。\n- 文档身份核验不再依赖缓存筛选，明确的 `recordId` 读取避免文件名遮蔽；敏感标题不进入记忆上下文。\n- 摘要草稿在输入时保留，支持同项目刷新和正文自动保存；离开时提醒，跨项目不会复用草稿。\n- 按当前任务的相关性和适用路径选择已确认记忆，核心规则保留有限预算；较早的相关规则不再被最新 8 条限制排除。\n- 统一自动和手动上下文的选择逻辑，完整呈现短记忆，长规则及读取条件不再截断；预算不足只保留全文入口。\n- 候选草稿在确认前不进入上下文，面板可确认或停止使用；新增相对路径范围和普通/核心优先级设置。\n- 修复记忆页新建记录误用知识目录的问题，旧记录无新字段时保持当前项目范围、普通优先级。",
           "minPiDesktop": "\u003e=0.4.22",
           "shasum": "373325d746ef975b646c849a5ed52feb3fcd86dd2d9632ada56986ff39763b9f",
@@ -1283,7 +1283,7 @@
       "versions": [
         {
           "version": "0.14.0",
-          "publishedAt": "2026-11-04T11:09:05Z",
+          "publishedAt": "2026-11-04T13:24:09Z",
           "changelog": "# Changelog\n\n## 0.14.0\n\n### Breaking changes\n\n- **scripts:** score per advisor, hide labels and remember failed models (`b70e5c1`)\n- **skills:** frame the question and deliver a five-part council verdict (`48ce085`)\n- cast council models from the user's catalog, not hard-coded ones (`44defab`)\n- **manifest:** declare the council tools, run file scopes and settings (`2ca8bdb`)\n- **skills:** drive the council through plugin tools, not a script (`7aac450`)\n\n### Features\n\n- **scripts:** add the council helper with verbatim prompts and failover (`0b2b7f4`)\n- **skills:** add the llm council orchestrator skill (`48d58bb`)\n- **manifest:** register the llm council skill pack (`53b8145`)\n- **subagents:** add the council member, chairman and clerk personas (`5b5fa55`)\n- **scripts:** read seat chains from the personas and install them (`9bb3810`)\n- **skills:** run council seats as persona sub-agents with native failover (`ce31a69`)\n- **subagents:** add five thinking-lens advisors and a verdict chairman (`c8aaa24`)\n- **skills:** cast seats per user, confirm once and reuse the cast (`e8f2d42`)\n- **main:** run the council bookkeeping as agent tools (`cc9134d`)\n\n### Documentation\n\n- **readme:** describe the council, its cast, failover and credits (`31a57d1`)\n- **readme:** explain the persona sub-agents, install and failover (`85ae8d9`)\n- **readme:** describe the advisors, anonymity, failover and credits (`2c0812b`)\n- **readme:** explain casting, exclusions and failover chains (`968c53b`)\n- **readme:** document the tools, permissions, limits and tests (`51db9cb`)\n- add the security review notes (`b796e81`)\n\n### Tests\n\n- add a fake pi-desktop host and a test entry point (`e370c42`)\n- cover ranking, casting, prompts and run paths (`e624ac0`)\n- cover the council tools from config to report (`847e27a`)\n- cover persona install, removal and the manifest (`b236581`)\n\n### CI\n\n- print the changelog section of a version (`20ab4b6`)\n- publish a github release when the manifest version changes (`9c6caa8`)\n\n### Chores\n\n- ignore build output, python caches and council runs (`3640f5c`)\n- **manifest:** rename the plugin to eskwisit.llm-council (`52540ce`)\n- **subagents:** remove the identical member personas (`011e6ed`)\n- **manifest:** describe the five-advisor council (`7889119`)\n- **manifest:** describe model casting and the files it keeps (`f9b0638`)\n- license the plugin under apache-2.0 (`f0189a9`)\n- stop ignoring python caches (`5257934`)\n- **scripts:** remove the python helper (`3ce4c2a`)\n- **subagents:** describe the council as modelled on karpathy's (`549e40f`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "9a88ca6a67883fb9c202c25858ce6526554cebfa759f5aa96b9b3e9c93bc0817",
@@ -4828,6 +4828,40 @@
       "readmeMarkdown": "# PI Bot\r\n\r\nPI Bot 是面向 PI Desktop 的 AI Bot 团队协作插件，基于 DeepSeek-Bot 学习、迁移并持续适配。\r\n\r\n## 主要功能\r\n\r\n- 创建多个 Bot，分别配置角色、模型与能力。\r\n- 支持私聊和群聊，由管理员协调成员协作完成任务。\r\n- 支持记忆管理、历史检索与技能导入，可批量分配技能。\r\n- 提供语音输入、语音对话及应用连接功能。\r\n- 支持明暗主题，并提供 GitHub 新版本提醒。\r\n\r\n## 开始使用\r\n\r\n1. 安装插件，按需授权并重启 PI Desktop。\r\n2. 在 PI Desktop 中配置可用的模型。\r\n3. 打开 PI Bot，创建 Bot 或群聊。\r\n4. 语音及第三方应用连接需另行配置对应服务。\r\n\r\n模型及第三方服务可能产生费用，以所选服务商的计费规则为准。\r\n\r\n## 旧版升级提醒\r\n\r\n从 0.3.80 或更早版本升级时，请先停用旧版 PI Bot，暂不要卸载，再安装新版并重启。\r\n\r\n新版插件标识为 local.pi-bot，首次启动会自动迁移旧数据。请等待迁移完成，勿同时启用新旧两个插件。\r\n\r\n## 开源与致谢\r\n\r\n本项目是独立维护的 PI Desktop 适配项目，基于 DeepSeek-Bot，保留上游来源说明与许可声明，使用 Apache-2.0 许可证。\r\n\r\n项目主页：https://github.com/vsd269/PI-Bot\r\n问题反馈：https://github.com/vsd269/PI-Bot/issues\r\n上游项目：https://github.com/Fei2411/DeepSeek-Bot",
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
+        {
+          "version": "0.3.101",
+          "publishedAt": "2026-11-04T18:36:39Z",
+          "changelog": "# PI Bot 0.3.101 更新说明\n\n本次合并发布 0.3.94～0.3.101 的改进，重点优化应用连接、图片与附件、语音交互、聊天阅读以及智能体详情面板。已安装 0.3.93 的用户可直接更新到本版。\n\n## 一、应用连接更稳定，错误提示更清楚\n\n- 修复连接应用后错误反复弹出、错误提示残留在聊天顶部的问题。应用连接的错误现在在应用页面内显示。\n- 授权状态自动检查失败后暂停轮询，避免持续报错；完成授权后可点击“我已授权，检查连接”，也可手动刷新。\n- 区分网络连接失败、请求超时、密钥无效、权限不足、限流和响应格式异常，便于判断问题。\n- 读取连接失败时保留已有账号、项目配置与 Bot 分配。对可能产生外部修改的操作不自动重试，避免重复提交。\n- 左下角连接入口优先展示已连接应用；未连接时的默认图标仅作入口示意，不代表已经获得授权。\n\n## 二、新建智能体有更贴合职责的开场\n\n- 新建 Bot 后立即显示开场问候和任务选项，无需等待模型返回。\n- 本地开场会参考智能体名称、职责与说明，后台再使用该 Bot 所选模型生成更具体的问题和 3～4 个选项；生成失败保留本地开场。\n- 支持点击选项、字母快捷键和自定义输入，保留多选问题的回答方式。\n- 用户尚未回答或主动跳过的开场卡片，切换聊天、进入设置、进行其他工作或重新打开后仍会保留；已回答或主动关闭的卡片不会重新弹出。\n- 用户开始聊天、回答问题、修改名称或删除 Bot 后，迟到的开场生成结果不会覆盖当前内容。\n- 修复新建页面选择共享头像时报错的问题。\n\n## 三、图片和附件发送、预览体验完善\n\n- 修复群聊管理员与规划模式管理员私聊漏传附件的问题，图片和文件通过对应的 PI 原生会话传递。\n- 添加图片时立即显示完整比例缩略图；文档、音频和视频显示类型、大小及添加状态。\n- 上传失败可在附件卡片上重试，也可移除正在添加的文件；切换聊天时不再混入另一段对话的附件。\n- 修复图片发送后只显示文件信息、不显示缩略图的问题。私聊、群聊和历史消息均支持图片预览，点击可放大；读取失败可就地重试。\n- 修复管理员私聊中持续转圈的临时回复，执行过程原位更新，结束后保留最终回复。\n- 加强附件任务提交前的保存检查；提交后如保存失败，会请求停止对应轮次。重启后对状态不确定的任务提示核对，避免自动重复执行。\n\n## 四、聊天阅读与消息操作更顺手\n\n- 优化回复正文、标题、列表、引用及代码块的字号和行距，让长回复更容易阅读。\n- 私聊和群聊的消息操作旁显示发送时间，悬停可查看完整日期；保留回复耗时显示。\n- 放大表情、回复和更多操作三个按钮，调整图标、圆角及间距，减少误点。\n- 选中文字后出现独立“引用”按钮，可把片段带入输入框；也可仅复制选中的一小段。\n- 新增完整文字右键菜单：撤销、重做、剪切、复制、粘贴、粘贴并匹配样式、全选，保留对应快捷键。\n- 右键菜单跟随 PI Desktop 当前界面语言：中文显示中文，英文显示英文；跟随系统时使用宿主解析的语言。只读消息中不可用的编辑操作置灰。\n\n## 五、新消息与工作进度更容易看见\n\n- 在未读回复开始的位置显示“新消息”分隔线；离开对话后再回来，可定位未读内容。\n- 同一条回复边生成边更新时不重复计算新消息；读到分隔线后自动淡出。\n- 智能体工作时显示小头像和简洁状态文字，区分排队、准备、思考、回复、执行工具、等待批准和等待队友等状态。\n- 群聊可区分不同成员的工作状态；任务结束或切换聊天后及时清理，减少过时提示。\n\n## 六、工具记录从原始数据变成可读步骤\n\n- 工具记录默认折叠，展开后按步骤显示工具名称、状态和简短摘要。\n- 自动整理嵌套文本，区分正常输出、错误及退出码，减少成堆转义字符和重复内容。\n- 保留“原始记录”入口，排查问题时仍可查看原始信息。\n- 此项只优化展示，不改变工具权限、审批或执行结果。\n\n## 七、表格回复支持搜索、复制和导出\n\n- 表格使用独立圆角卡片，优化边框、背景、间距和长内容显示。\n- 支持搜索内容、显示筛选行数、按列排序，以及悬停后的复制、CSV 下载和放大查看。\n- 修复超过 100 行的数据被截断，以及表格紧接正文时无法正常识别的问题。\n- 导出时处理可能被电子表格识别为公式的内容，减少误执行风险。\n\n## 八、语音通话更紧凑，输入反馈更及时\n\n- 语音对话改为紧凑通话浮条，聊天区域保持可见；可展开或收起文字记录。\n- 保留暂停／恢复聆听、结束通话和语音设置入口。\n- 使用受支持的实时转写服务时，录音过程中持续发送音频，停止后等待最终文字确认，减少整段录完才上传造成的等待。\n- 其他语音服务沿用文件转写流程，不擅自更换用户选择的服务或模型；取消后迟到的结果不会再写入输入框。\n- 调整语音按钮图案与悬停效果。实际转写速度仍取决于所用服务和网络。\n\n## 九、右侧面板分类更清楚\n\n- 右侧智能体面板分为“详情／资料库／电脑”，减少所有设置挤在同一页的问题。\n- “资料库”集中展示智能体记忆、技能和工作文件夹，进入技能管理时默认定位当前 Bot。\n- 浏览器、工作区和终端入口收纳到“电脑”页；移除聊天顶栏重复的工作区按钮，群聊详情仍保留相关入口。\n- 点击齿轮进入设置后，不再重复显示头像和名字，同时保留顶部分享、设置和关闭三个按钮。\n- 补全右侧分隔线顶部缺口，修复头像背景尺寸、偏位和编辑笔常驻的问题；桌面端悬停或聚焦时显示编辑入口，触屏保留可发现的入口。\n\n## 十、头像和名字可以直接修改\n\n- 在右侧面板直接点击头像即可编辑，点击头像下方名字即可改名；回车或移开焦点保存，Esc 取消。\n- 上传头像保留完整画面范围，并支持 100%～400% 缩放、上下位置调节、拖动取景、滚轮缩放及重置。\n- 支持圆形、圆角和方形显示，保存与备份保留取景参数。\n- 设置 → 通用新增“我的头像”，可修改左下角个人头像或恢复默认。\n- 旧版已经裁掉的图片部分无法自动恢复，需要重新上传原图；上传的 GIF 头像保存为静态图。\n\n## 十一、窗口与侧栏细节优化\n\n- 调整搜索、新建、中间智能体按钮、右侧工具按钮与连接应用入口的尺寸、对齐、顶部留白和间距。\n- 中间按钮的小三角只在悬停、键盘聚焦或详情展开时出现。\n- 修复两侧伸缩边缘悬停时线条过粗的问题，保留拖动调宽、宽度记忆、展开收起过渡和窄窗口适配。\n- 优化窗口最小化、最大化／还原和关闭图标及关闭悬停效果，继续由 PI Desktop 处理窗口操作。\n- 调整顶栏拖窗区域，避开可点击控件；关闭左侧智能体头像的悬停动作。\n- 收窄并优化输入区宽度、阴影和圆角，调整窄窗口下的消息操作，避免内容超出边界。\n\n## 十二、工作经验入口更简洁\n\n- 工作经验与复盘经验收纳进消息“…”菜单，不再长期占据聊天区域。\n- 尚无消息时，可从左侧 Bot 列表右键菜单进入。\n- 保留经验建议审批、待处理状态、失败提示及私密内容共享确认。\n\n## 使用说明\n\n- 图片理解需要所选模型支持视觉；能显示图片预览不等于模型一定能识图。\n- 新建 Bot 的后台个性化开场会调用所选模型，可能产生相应模型费用。\n- 应用授权继续使用用户自己的 Composio 项目和第三方账号；本次更新不提供公共授权服务器。\n- “电脑”页使用 PI Desktop 已有能力，不新增独立浏览器内核；“资料库”整理现有内容，不新增云端知识库存储。\n- 本次检查包含本地回归、模拟界面测试和安装包校验；真实模型、第三方账号、麦克风和原生窗口的表现仍与用户环境有关。\n\n更新后请重载 PI Bot 插件或重启 PI Desktop。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "95b4510c1676fa41f71ac2cb018207a82896354cea2c2eefb4200150934dc642",
+          "url": "packages/local.pi-bot-0.3.101.piplug",
+          "sizeBytes": 8804579,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.101",
+            "sourceCommit": "2cbaf8eb4f54b200e7d323e9474d641d5d8d6cde",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-04T18:36:39Z"
+          }
+        },
         {
           "version": "0.3.93",
           "publishedAt": "2026-11-03T15:21:25Z",
