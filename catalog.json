@@ -1082,6 +1082,158 @@
       ]
     },
     {
+      "id": "demo.hello",
+      "name": "Hello",
+      "description": "Official sample plugin with panel, command, and echo tool.",
+      "author": "PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "Hello",
+          "description": "Official sample plugin with panel, command, and echo tool.",
+          "safetyNotes": "A demo plugin with no network, file or clipboard access beyond its own panel. The echo tool returns whatever text the agent sends."
+        },
+        "zh-CN": {
+          "name": "Hello",
+          "description": "官方示例插件，包含面板、命令和回声工具。",
+          "safetyNotes": "示例插件，不访问网络、文件或剪贴板。echo 工具仅原样返回 Agent 发送的文本。"
+        }
+      },
+      "categories": [
+        "official",
+        "template"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "demo",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/demo.hello",
+      "repository": "https://plugins.aiuo.net/plugins/demo.hello",
+      "readmeMarkdown": "# Hello\n\nOfficial demo plugin for PI-Desktop marketplace.\n",
+      "versions": [
+        {
+          "version": "0.3.3",
+          "publishedAt": "2026-09-12T17:13:25Z",
+          "changelog": "Release 0.3.3: fills the v3 panel surface, improves responsive spacing and focus states, and keeps the host window-control capsule synchronized with theme changes. Release 0.3.2: migrates the panel to v3 paint-through chrome so top-band controls remain clickable while blank space remains draggable. Release 0.3.1: refreshes the panel surface to match PI-Desktop's compact neutral design system.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "6c3d3fcded92d15ab78552671fcac4687e26324d8ac6ed5df5452dffb153ee4b",
+          "url": "packages/demo.hello-0.3.3.piplug",
+          "sizeBytes": 22511,
+          "permissions": [
+            "agent.tool.register",
+            "notify",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "demo.workspace-notes",
+      "name": "Workspace Notes",
+      "description": "Read/write workspace notes and fetch remote snippets with explicit high-risk grants.",
+      "author": "PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "Workspace Notes",
+          "description": "Read/write workspace notes and fetch remote snippets with explicit high-risk grants.",
+          "safetyNotes": "Reads and writes NOTES.md in the current workspace. Fetches remote snippets only when explicitly granted. The save_note agent tool is high-risk and requires explicit approval."
+        },
+        "zh-CN": {
+          "name": "工作区笔记",
+          "description": "读写工作区笔记，并在明确授权后获取远程片段。",
+          "safetyNotes": "读写当前工作区的 NOTES.md 文件。仅在明确授权后获取远程片段。save_note Agent 工具为高风险，需要显式批准。"
+        }
+      },
+      "categories": [
+        "official",
+        "productivity",
+        "template"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "demo",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/demo.workspace-notes",
+      "repository": "https://plugins.aiuo.net/plugins/demo.workspace-notes",
+      "readmeMarkdown": "# Workspace Notes\n\nDemonstrates high-risk plugin capabilities with explicit grants.\n",
+      "versions": [
+        {
+          "version": "0.2.3",
+          "publishedAt": "2026-09-12T17:13:25Z",
+          "changelog": "Release 0.2.3: makes the editor use the full panel height with a stable responsive action row and synchronized host capsule colors. Release 0.2.2: migrates the panel to v3 paint-through chrome so top-band controls remain clickable while blank space remains draggable. Release 0.2.1: refreshes the notes panel controls, editor surface, focus states, and responsive spacing.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "7a094cba0dc998ec4d628b4abfe731b7fd44a9af79f89e5e99ad370832d83a65",
+          "url": "packages/demo.workspace-notes-0.2.3.piplug",
+          "sizeBytes": 24800,
+          "permissions": [
+            "agent.tool.register",
+            "clipboard.read",
+            "clipboard.write",
+            "fs.read.workspace",
+            "fs.write.workspace",
+            "net.fetch",
+            "notify",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "demo.workspace-summary",
+      "name": "Workspace Summary",
+      "description": "Practical template plugin: scan the current workspace, summarize key files, and expose an agent tool plus isolated panel.",
+      "author": "PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "Workspace Summary",
+          "description": "Practical template plugin: scan the current workspace, summarize key files, and expose an agent tool plus isolated panel.",
+          "safetyNotes": "Reads the current project only. No network or write access."
+        },
+        "zh-CN": {
+          "name": "工作区摘要",
+          "description": "实用的插件模板：扫描当前工作区、总结关键文件，并提供 Agent 工具和隔离面板。",
+          "safetyNotes": "只读取当前项目，不访问网络，也不会写入文件。"
+        }
+      },
+      "categories": [
+        "official",
+        "productivity",
+        "template"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "demo",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/demo.workspace-summary",
+      "repository": "https://plugins.aiuo.net/plugins/demo.workspace-summary",
+      "readmeMarkdown": "# Workspace Summary\n\nPractical official template plugin for PI-Desktop.\n\n## What it does\n\n- Opens an isolated panel with a workspace inventory\n- Reads top-level entries and a README excerpt\n- Copies a markdown summary to the clipboard\n- Registers an agent tool: `plugin_demo_workspace_summary_workspace_summary`\n\n## Permissions\n\n- `ui.panel`\n- `fs.read.workspace`\n- `clipboard.write`\n- `notify`\n- `agent.tool.register`\n\n## Why this template\n\nUse this as the starting point for real productivity plugins:\n\n1. Keep a small `manifest.json`\n2. Register commands/tools in `main.js`\n3. Put UI in `renderer/index.html`\n4. Request only the permissions you need\n",
+      "safetyNotes": "Reads the current project only. No network or write access.",
+      "versions": [
+        {
+          "version": "0.2.3",
+          "publishedAt": "2026-09-12T17:13:25Z",
+          "changelog": "Release 0.2.3: lets the summary output fill the remaining panel height, keeps its internal scroll local, and synchronizes the host capsule with theme changes. Release 0.2.2: migrates the panel to v3 paint-through chrome so top-band controls remain clickable while blank space remains draggable. Release 0.2.1: refreshes the summary panel hierarchy, cards, controls, and narrow-window layout. Initial practical template: workspace inventory, README preview, copy summary, agent tool.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "41d951ab4d95ead69f4f9a7d6fb0ba18a560185919fca7ce076c13e8c4d84711",
+          "url": "packages/demo.workspace-summary-0.2.3.piplug",
+          "sizeBytes": 32560,
+          "permissions": [
+            "agent.tool.register",
+            "clipboard.write",
+            "fs.read.workspace",
+            "notify",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
       "id": "hawchou.mumu-player",
       "name": "MuMu Player Toolkit",
       "description": "Locate a MuMu Android emulator installation, drive the whole MuMuManager command surface, and keep the winhttp proxy VIP patch table in sync with the installed build. Detection is automatic with a manual root override as the fallback. The patch engine backs up before every write, skips any point whose original bytes do not match, and can restore the previous file.",
@@ -4924,6 +5076,51 @@
       ]
     },
     {
+      "id": "local.pi-desktop-install-guard",
+      "name": "一次装到位",
+      "description": "给 PI-Desktop 写插件并装到位：先分清 Desktop 和 PI CLI，再按官方模板写 manifest/技能/面板，然后 Scaffold → Check → Pack → 插件页装 .piplug。不是给 Windows 桌面装软件。",
+      "author": "YahooYuan666",
+      "i18n": {
+        "en": {
+          "name": "PI-Desktop Install Guard",
+          "description": "Write and install PI-Desktop plugins in one pass: official templates and marketplace fields, then Scaffold → Check → Pack → install the .piplug. Distinguishes PI-Desktop from PI CLI. Not a Windows desktop-layout installer.",
+          "safetyNotes": "Instruction documents only. Does not edit the plugin registry, click Install, start MCP servers, read secrets, or touch the Windows desktop."
+        },
+        "zh-CN": {
+          "name": "一次装到位",
+          "description": "给 PI-Desktop 写插件并装到位：先分清 Desktop 和 PI CLI，再按官方模板写 manifest/技能/面板，然后 Scaffold → Check → Pack → 插件页装 .piplug。不是给 Windows 桌面装软件。",
+          "safetyNotes": "只注入安装与写作规则。不改 registry、不替用户点安装、不拉起 MCP、不读密钥、不动 Windows 桌面。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/local.pi-desktop-install-guard",
+      "repository": "https://plugins.aiuo.net/plugins/local.pi-desktop-install-guard",
+      "readmeMarkdown": "# 一次装到位 / PI-Desktop Install Guard\n\n**项目用途：** 给 **PI-Desktop** 写插件、装插件、迁技能、修 MCP。让 Agent 按官方模板写好，再一次装到正式路径（`.piplug` → `source:installed`），并且不要和 **PI CLI** 搞混。\n\n**不是：** 不是给 Windows 桌面装应用、快捷方式、文件夹，也不是还原桌面布局。本包不碰桌面图标。\n\nThis is a **PI-Desktop skill pack**. It teaches the agent how to **write** Desktop plugins (official templates + marketplace fields) and how to install them in one pass, without mixing them with PI CLI packages, Codex MCP wrappers, or same-named `SKILL.md` folders.\n\nIt is **not** a Windows desktop installer and does **not** restore desktop shortcuts or layout.\n\n本包只注入规则。不改 `registry.json`、不替你点安装、不拉起 MCP、不读密钥。\n\nThe plugin only injects instructions. It does not edit the registry, click Install, start MCP, or read secrets.\n\n## 你怎么用 / When to use\n\n| 你说 | 它做什么 | English |\n|---|---|---|\n| 做个 Desktop 插件 / 写插件 / 装插件 | 先按官方模板写，再 PluginScaffold → Check → Pack → 请你在插件页装 `.piplug` | Write against official templates, then scaffold, check, pack, install |\n| 插件页还是 0.1.0 / 脚手架名 | 不手改登记；打包后再在插件页装一次 | Do not hand-edit the registry; pack and install again |\n| MCP 连接失败 | 只改 `~/.agents/servers`；stdio 用绝对路径；http 用 HTTPS | Edit Desktop user MCP only; absolute stdio; HTTPS for http |\n| 把 Codex / zcode / PI CLI 的技能搬过来 | 改写成唯一入口文件名，再钉成 `.piplug` | Rewrite unique skill filenames, then nail a `.piplug` |\n| 这是给 PI 命令行用的 | 停，改走 `pi install` / `SKILL.md` | Stop; that is PI CLI, not this plugin |\n\n## 技能文件 / Skills\n\n入口文件名必须互不相同，否则 PI-Desktop 会把技能折成一个。\n\nSkill entry filenames must be unique or PI-Desktop folds them into one runtime id.\n\n| 文件 | 何时用 | When |\n|---|---|---|\n| `skills/pi-desktop-install-guard.md` | 分类 + 钉住插件 | Classify product line and nail the plugin |\n| `skills/desktop-plugin-author.md` | 怎么写插件（模板、manifest、市场上架） | How to write a plugin |\n| `skills/desktop-mcp.md` | Desktop 用户 MCP | Desktop user MCP only |\n| `skills/desktop-migrate.md` | 从其他产品线改写 | Rewrite from zcode / Codex / PI CLI |\n\n例外手改登记：`references/recovery.md`（不当作技能入口）。\n\n## 权限 / Permissions\n\n| 权限 | 用途 |\n|---|---|\n| `agent.prompt.inject` | 把安装与写作规则注入 Agent。不写盘、不联网、不改桌面。 |\n\n## 能力 / 数据流\n\n| 能力 | 数据 | 方向 |\n|---|---|---|\n| `agent.prompt.inject` | 本插件 `skills/*.md` 与 `references/recovery.md` | 注入当前会话；不读聊天记录、不外传 |\n| 文件系统 / 网络 / 剪贴板 / MCP / Windows 桌面 | 无 | 不申请、不使用 |\n\n## 安装本插件 / Install this plugin\n\n开发：插件页已指向本目录时，保存即热更新。`source:dev` 只表示正在做，不等于已安装。\n\n给以后用：插件页安装 `dist/local.pi-desktop-install-guard-1.2.0.piplug`。\n\n不要手改 `registry.json`。不要把本目录登记成 PI CLI package。\n\n## 许可 / License\n\nMIT。规则来自本机已验证的 PI-Desktop 安装/迁移经验，不是官方市场插件。\n",
+      "safetyNotes": "只注入安装与写作规则。不改 registry、不替用户点安装、不拉起 MCP、不读密钥、不动 Windows 桌面。",
+      "versions": [
+        {
+          "version": "1.2.0",
+          "publishedAt": "2026-09-19T06:12:54Z",
+          "changelog": "1.2.0：加上「怎么写 Desktop 插件」技能，对照官方 CONTRIBUTING 与三个 demo。1.1.0：对外说明改成「给 PI-Desktop 装插件」。1.0.0：按已验证经验写成技能包。",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "47f72829229002fbb229ef6f85e8d567ae2f4c114aecea0e5243631b2c0585e0",
+          "url": "packages/local.pi-desktop-install-guard-1.2.0.piplug",
+          "sizeBytes": 27275,
+          "permissions": [
+            "agent.prompt.inject"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
       "id": "local.pi-desktop-workbuddy",
       "name": "pi-desktop-workbuddy",
       "description": "帮你在pi-desktop中使用workbuddy的免费积分，喜欢的可以给我的github点个星星吗",
@@ -5010,6 +5207,51 @@
             "agent.prompt.inject",
             "agent.tool.register",
             "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "local.pi-matt-workflow",
+      "name": "PI Matt Workflow",
+      "description": "把 Matt Pocock 工程技能装进 PI-Desktop：规划、实现、测试、评审。不含记忆、画图或 MCP。",
+      "author": "YahooYuan666",
+      "i18n": {
+        "en": {
+          "name": "PI Matt Workflow",
+          "description": "Matt Pocock engineering skills for PI-Desktop: plan, implement, test, review. No memory, media, or MCP is bundled.",
+          "safetyNotes": "Instruction documents only. Does not write files, start MCP, or register tools. Upstream skills are MIT from mattpocock/skills."
+        },
+        "zh-CN": {
+          "name": "PI Matt 工作流",
+          "description": "把 Matt Pocock 工程技能装进 PI-Desktop：规划、实现、测试、评审。不含记忆、画图或 MCP。",
+          "safetyNotes": "只注入技能说明。不写文件、不拉起 MCP、不注册工具。上游技能来自 mattpocock/skills（MIT）。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/local.pi-matt-workflow",
+      "repository": "https://plugins.aiuo.net/plugins/local.pi-matt-workflow",
+      "readmeMarkdown": "# PI Matt 工作流 / PI Matt Workflow\n\n**项目用途：** 把 [Matt Pocock Skills](https://github.com/mattpocock/skills) 装进 **PI-Desktop**：规划、实现、测试、评审。另有一条 PI 原生门闸，避免把普通问答当成项目执行。\n\n**不是：** 不含 Basic Memory、中转站媒体、画图风格库、MCP。那些要单独装。\n\n**Purpose:** Matt Pocock engineering skills for **PI-Desktop** (plan, implement, test, review), plus one PI-native gate so a general question is not treated as project execution.\n\n**Not included:** Basic Memory, media generation, image styles, or MCP. Install those separately.\n\n本包只注入技能。不写文件、不拉起 MCP、不注册工具。\n\nInstruction documents only. No file writes, MCP, or agent tools.\n\n## 含什么 / Included\n\n- 工程：`ask-matt`、`setup-matt-pocock-skills`、`grill-with-docs`、`to-spec`、`to-tickets`、`implement`、`tdd`、`code-review` 等\n- 生产力：`grill-me`、`handoff`、`writing-for-agents` 等\n- 门闸：`skills/pi-matt-workflow.md`\n\n每个上游 `SKILL.md` 已改成唯一文件名，避免 PI-Desktop 把技能折成一个。\n\nEach upstream `SKILL.md` is renamed to a unique filename so PI-Desktop does not collapse them.\n\n上游来源：`mattpocock/skills` commit `959a8e9f1edc3adbe2f7e3054bb6fbefa6696260`（MIT，见 `THIRD_PARTY_LICENSE_MATT.txt`）。\n\n## 权限 / Permissions\n\n| 权限 | 用途 |\n|---|---|\n| `agent.prompt.inject` | 注入 Matt 技能说明 |\n\n## 安装 / Install\n\n插件页安装 `.piplug`。范围由你在插件页选择（本机可锁到指定项目）。\n\nInstall the `.piplug` from the Plugins page. Scope is whatever you set there.\n",
+      "safetyNotes": "只注入技能说明。不写文件、不拉起 MCP、不注册工具。上游技能来自 mattpocock/skills（MIT）。",
+      "versions": [
+        {
+          "version": "1.1.1",
+          "publishedAt": "2026-09-19T06:12:54Z",
+          "changelog": "1.1.1：入口技能 name 改为 kebab（pi-matt-workflow）。1.1.0：补上中英双语市场说明。1.0.2：26 个唯一技能入口，无 SKILL.md。",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "93b60c9ef568d8f509187bb2c16f960b94111af91e2da83b9597788b1520dfda",
+          "url": "packages/local.pi-matt-workflow-1.1.1.piplug",
+          "sizeBytes": 234620,
+          "permissions": [
+            "agent.prompt.inject"
           ],
           "fs": {},
           "yanked": false
@@ -5716,6 +5958,55 @@
       ]
     },
     {
+      "id": "pi.bianqian",
+      "name": "便签",
+      "description": "Markdown 桌面便签：多便签管理、实时预览、任务列表勾选、荧光笔高亮与回收站。Sticky notes with Markdown preview, task lists, text highlights and recycle bin.",
+      "author": "ZY",
+      "i18n": {
+        "en": {
+          "name": "Sticky Notes",
+          "description": "Markdown desktop sticky notes with multiple-note management, live preview, task checkboxes, text highlights and a recycle bin.",
+          "safetyNotes": "Note data stays in the plugin's own settings. The plugin does not access the workspace or make network requests; external links open in the system browser."
+        },
+        "zh-CN": {
+          "name": "便签",
+          "description": "Markdown 桌面便签：多便签管理、实时预览、任务列表勾选、荧光笔高亮与回收站。",
+          "safetyNotes": "便签数据仅保存在插件自己的 settings 中，不访问工作区或发起网络请求；点击便签内的外部链接会打开系统浏览器。"
+        }
+      },
+      "categories": [
+        "community",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.bianqian",
+      "repository": "https://plugins.aiuo.net/plugins/pi.bianqian",
+      "readmeMarkdown": "# 便签 · Sticky Notes\n\nMarkdown 桌面便签插件：多便签管理、实时预览、任务列表勾选、荧光笔高亮、图片粘贴与回收站。\nSticky notes with live Markdown preview, task checkboxes, text highlights, image paste and a recycle bin.\n\n## 功能\n\n- **多便签管理**：列表卡片（标题/摘要/时间）、搜索、新建、复制\n- **Markdown**：预览为主，双击进入编辑，`Esc` / `Ctrl+E` 切换\n- **任务列表**：GFM `- [ ]` / `- [x]`，预览中可直接勾选\n- **荧光笔高亮**：选中文字右键标记颜色，语法 `==颜色:文本==`，6 色 + 取消\n- **图片**：预览/编辑均可 `Ctrl+V` 或拖入；大图自动压缩后以内联 data URL 保存\n- **回收站**：删除为软删除，可恢复、单条永久清除或清空\n\n## 使用\n\n1. 安装插件后，在命令面板输入「便签」→ **便签：打开面板**\n2. 或直接在 AI 对话中让 Agent 帮你记录：`创建一条便签，内容是……`\n\n## 权限\n\n| 权限 | 用途 |\n|------|------|\n| `ui.panel` | 打开便签面板 |\n| `agent.tool.register` | 向 AI 暴露 8 个便签工具（`plugin_bianqian_*`） |\n| `agent.prompt.inject` | 加载便签使用说明技能 |\n| `shell.openExternal` | 点击便签内链接时用系统浏览器打开 |\n\n数据仅保存在插件自己的 settings 中，不访问工作区，不发起网络请求。\n\n## 快捷键\n\n| 快捷键 | 作用 |\n|--------|------|\n| `Ctrl+E` | 编辑 / 预览切换 |\n| `Esc` | 编辑 → 预览 |\n| `Ctrl+N` | 新建便签 |\n| 双击内容区 | 进入编辑 |\n| 选中文本右键 | 标记荧光笔颜色 |\n| `Ctrl+V` / 拖入 | 插入图片 |\n\n## 开发\n\n```bash\n# 1) 构建面板（Vue3 + Vite → renderer/assets/ 单文件 IIFE 包）\ncd dev \u0026\u0026 npm install \u0026\u0026 npm run build\n\n# 2) 打包 + 重建目录\ncd .. \u0026\u0026 python3 ../scripts/pack_plugin.py plugins/pi.bianqian\npython3 ../scripts/rebuild_catalog.py\n```\n\n\u003e `dev/` 是构建源（含 node_modules 构建依赖），`renderer/assets/` 是提交入库的产物；\n\u003e 打包脚本只排除 `.git/node_modules/.DS_Store`，`dev/` 源码会随包分发但不执行。\n",
+      "safetyNotes": "便签数据仅存于插件自己的 settings 中，不访问工作区或网络；点击便签内的外部链接会打开系统浏览器。",
+      "versions": [
+        {
+          "version": "0.1.6",
+          "publishedAt": "2026-10-06T15:15:25Z",
+          "changelog": "Release 0.1.6: leads every agent-tool description with explicit when-to-use trigger conditions and example phrasings (including Chinese), so the agent picks the right sticky-note tool from the user's goal; purge_note now states it must never serve an ordinary delete request. Release 0.1.5: reserves space for the host window-control capsule so top-right panel actions no longer overlap it. Release 0.1.4: gives the panel an explicit full-height page surface and keeps the host window-control capsule synchronized with live theme changes. Release 0.1.3: migrates the panel to v3 paint-through chrome so top-band controls remain clickable without the legacy 46px blank area. Release 0.1.2: refreshes the sticky-notes panel chrome, controls, focus states, dialogs, and compact responsive spacing. Release 0.1.1: adapts the panel to PI-Desktop's cross-platform 46px host drag band and minimal three-button window-control capsule. First release: multiple notes, Markdown preview/editing, task lists, highlights, image paste, and recycle bin.",
+          "minPiDesktop": "\u003e=0.7.1",
+          "shasum": "7980707fabf25e7427775feb3681f34eb80e82af5df7b349cf0df0ac5560c9e0",
+          "url": "packages/pi.bianqian-0.1.6.piplug",
+          "sizeBytes": 1065975,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "shell.openExternal",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
       "id": "pi.clinepass",
       "name": "Cline Pass For Pi Desktop",
       "description": "非常便宜的Cline Pass接入Pi-Desktop",
@@ -6143,6 +6434,58 @@
       ]
     },
     {
+      "id": "pi.goal-x",
+      "name": "Goal X",
+      "description": "Persistent workspace goals, task evidence, and host-owned completion audits for PI-Desktop.",
+      "author": "Goal X contributors",
+      "i18n": {
+        "en": {
+          "name": "Goal X",
+          "description": "Persistent workspace goals, task evidence, and host-owned completion audits for PI-Desktop.",
+          "safetyNotes": "Goal records stay in this plugin's private settings. Goal X does not read or write workspace files and makes no network requests. The selected completion auditor receives only a bounded goal record and untrusted completion claim through PI-Desktop's host-owned API. Goal X reads bounded session metadata locally only to derive an opaque distinct-turn identifier for blocker reports; it neither stores conversation text nor sends it to the auditor. API keys are never exposed to the plugin."
+        },
+        "zh-CN": {
+          "name": "Goal X 目标管理",
+          "description": "为 PI-Desktop 提供持久化工作区目标、任务证据与宿主完成审计。",
+          "safetyNotes": "目标记录仅保存在本插件的私有设置中。Goal X 不读写工作区文件，也不发起网络请求。完成审计模型只会通过 PI-Desktop 宿主 API 收到受限的目标记录和不可信完成声明。Goal X 仅在本地读取受限会话元数据，用于生成阻塞报告的不透明独立回合标识；不会保存对话文本，也不会把对话发送给审计模型。插件无法获取 API 密钥。"
+        }
+      },
+      "categories": [
+        "community",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.goal-x",
+      "repository": "https://plugins.aiuo.net/plugins/pi.goal-x",
+      "readmeMarkdown": "# Goal X for PI-Desktop\n\nGoal X ports the durable goal-management workflow of\n[`pi-goal-x`](https://github.com/tmonk/pi-goal-x) to PI-Desktop's sandboxed\nplugin API. It keeps a separate goal pool for each workspace, lets the user or\nAgent focus one goal, records a nested task plan and evidence, and can ask a\nseparate host-owned model completion to audit the result before archiving it.\n\nThe port is implemented against PI-Desktop's public plugin surface. It does\nnot load the original Pi extension or its SDK dependencies.\n\n## Features\n\n- Regular goals and Sisyphus mode (order is Agent guidance, not engine-enforced)\n- Up to 32 open goals per workspace, with an explicit focus\n- Nested tasks with stable ids, completion contracts, evidence, skip reasons,\n  and atomic batch updates\n- Active, paused, blocked, budget-limited metadata, complete, and archived\n  lifecycle states\n- Three-distinct-turn confirmation before an Agent can mark a repeated blocker\n- Optimistic revisions so stale panels and audit results cannot overwrite\n  newer goal state\n- A bilingual panel and docked work-panel view with open and archived goals\n- Five Agent tools matching the core `pi-goal-x` tool surface\n- Optional independent completion audit using a signed-in PI-Desktop model\n- Workspace-scoped persistence in the plugin's private settings\n\n## Use\n\nOpen **Goal X** from the work panel or global search. The following exact slash\ncommands are also available:\n\n| Command | Action |\n| --- | --- |\n| `/goal-x.open` | Open the dashboard |\n| `/goal-x.new` | Open a regular-goal draft |\n| `/goal-x.new-sisyphus` | Open an ordered-goal draft (Sisyphus mode) |\n| `/goal-x.unfocus` | Clear the current workspace focus |\n| `/goal-x.pause`, `/goal-x.resume` | Change the focused goal immediately |\n\nPI-Desktop plugin commands currently receive no arguments. Use the panel, or\nask the Agent to create the goal in Agent mode.\n\n### Agent tools\n\nPI-Desktop namespaces plugin tools before exposing them to the model:\n\n- `plugin_pi_goal_x_create_goal`\n- `plugin_pi_goal_x_get_goal`\n- `plugin_pi_goal_x_update_goal`\n- `plugin_pi_goal_x_set_goal_tasks`\n- `plugin_pi_goal_x_update_goal_task`\n\nThe bundled skill teaches the Agent when and how to use them. PI-Desktop hides\nplugin tools and skills in Plan and built-in Goal discussion modes; they become\navailable after the session enters Agent mode.\n\nAgent focus is scoped to the current session, while the dashboard keeps a\nworkspace display focus. An explicit create, focus, unfocus, resume, or restore\naction in the dashboard invalidates older hidden session mappings; an older\nAgent session must then pass `goal_id` explicitly instead of silently mutating\nthe goal it previously focused.\n\n## Completion audits\n\nWhen the completion auditor is enabled, `update_goal` with\n`status: \"complete\"` starts a separate, tool-free model completion. The auditor\nreceives the goal, task statuses, verification contracts, evidence, the\nexecutor's untrusted completion claim. It does not receive the current\nconversation. It must return `\u003capproved/\u003e` before Goal X archives the goal.\n\nThe panel can also run an audit. A panel-started audit receives the saved goal\nrecord and evidence but cannot read an arbitrary conversation. Configure the\nauditor model and reasoning effort in the panel or generated plugin settings.\nLeaving the model blank uses the executor model for Agent-tool audits and the\nfirst authenticated model as a fallback.\n\nAuditing uses `pi.agent.complete`, so it consumes the selected provider's quota.\nPI-Desktop resolves credentials in the host; Goal X never receives API keys.\n\n## Persistence and safety\n\nThe authoritative state is stored under the plugin-private `goalXState` setting\nin PI-Desktop's data directory. Workspace paths are hashed for isolation; the\npath and workspace label stay local in that private record. Goal X requests no\nworkspace file, network, shell, or clipboard permission.\n\n| Permission | Why it is needed |\n| --- | --- |\n| `ui.panel` | Open the standalone dashboard |\n| `ui.view` | Show the same dashboard in the work panel |\n| `agent.tool.register` | Provide the five goal tools in Agent mode |\n| `agent.prompt.inject` | Load the Goal X workflow skill on demand |\n| `models.list` | Populate the auditor model picker and choose a fallback |\n| `session.read` | Locally derive an opaque turn identifier from session/turn metadata so repeated blocker reports must come from distinct Agent turns; conversation text is not stored, hashed, or sent to the auditor |\n| `agent.complete` | Run the independent completion audit |\n\nThe state root, each workspace, and every mutation are normalized before use.\nMutations are serialized, task batches commit atomically, and completion audits\nre-check the goal revision before archiving. Goal X retains at most 32 workspace\nrecords and refuses a write above 8 MiB rather than overwriting existing data;\nonly completely empty old workspace records are reclaimed automatically.\n\n## PI-Desktop API limits\n\nThis migration intentionally does not claim two `pi-goal-x` behaviors that the\ncurrent PI-Desktop plugin API cannot implement:\n\n- **Automatic continuation:** plugins cannot trigger a new Agent turn or hook\n  every turn. Goal X persists progress, but the user starts the next turn.\n- **Automatic token-budget enforcement:** plugin tools receive no cumulative\n  session usage event. `token_budget` is retained as planning metadata, not a\n  hard stop.\n\nPI-Desktop also provides no generic confirmation dialog to plugin commands, so\ndestructive lifecycle actions such as archive remain panel actions rather than\nsingle-keystroke commands.\n\n## Develop and verify\n\nLoad this directory from **Plugins -\u003e Load development plugin**. PI-Desktop\nhot-reloads changes.\n\nRun the portable unit tests:\n\n```bash\nnode --test tests/*.test.mjs\n```\n\nFrom a PI-Desktop source checkout with dependencies installed, validate and\npack the exact artifact:\n\n```bash\npnpm pi-plugin check /path/to/pi.goal-x\npnpm pi-plugin pack /path/to/pi.goal-x\n```\n\nThe package is written to `dist/pi.goal-x-0.1.0.piplug`. Install that package\nonce before release to exercise the same permission review and packaging path\nusers receive.\n\n## Upstream and migration notes\n\nGoal X is inspired by `pi-goal-x` 0.31.2 at commit\n`fe430b251eeaff4ff7c041085fd05458b2776cb9`. The upstream project and this port\nare MIT licensed. Its Pi SDK/TUI integration, filesystem ledger, automatic turn\nlifecycle, recovery hooks, interactive terminal questionnaires, and tool-using\nauditor were replaced with PI-Desktop-native storage, panels, tools, and the\nhost-owned one-shot completion API.\n\nSee [MIGRATION.md](MIGRATION.md) for the capability map.\n\n## License\n\nGoal X is MIT licensed. See [LICENSE](LICENSE). The bundled Lucide icon subset\nis ISC licensed; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).\n",
+      "safetyNotes": "Goal data stays in plugin-private settings. No workspace file, shell, clipboard, or network access. Completion auditing sends only bounded goal data and an untrusted completion claim to a signed-in model. Bounded session metadata is read locally only to derive opaque blocker turn identifiers and is never stored or sent to the auditor. The plugin never receives provider credentials.",
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-09-12T17:13:25Z",
+          "changelog": "0.1.1: docked work-panel chrome, fail-closed storage, namespaced commands, appearance adapter. 0.1.0: workspace-scoped goal pools, focus, regular and Sisyphus modes, task trees, completion evidence, pause/block/resume/archive lifecycle, bilingual dashboard, Agent tools, and host-owned completion audits.",
+          "minPiDesktop": "\u003e=0.13.11",
+          "shasum": "f501107dcd2f444fab737c15ed81c257fd301a3f72318d2911d65c7149580615",
+          "url": "packages/pi.goal-x-0.1.1.piplug",
+          "sizeBytes": 570089,
+          "permissions": [
+            "agent.complete",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "models.list",
+            "session.read",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
       "id": "pi.log-viewer",
       "name": "Log Viewer",
       "description": "大日志文件查看器：GB 级流式分页、虚拟滚动、实时跟随、搜索高亮、文本/等级过滤、钉住对比。Log viewer for huge files: paging, tail, search, filter, pin.",
@@ -6240,6 +6583,100 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-28T08:07:55Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "pi.obsidian-theme",
+      "name": "Obsidian Theme",
+      "description": "A deep blue-teal global theme tuned to a measured reference: surfaces lifted from #0F1B26 to #223648, hierarchy carried by 1px #2A4054 hairlines rather than glow, a solid #1B4F53 selection state, and a four-step text scale that takes body prose from 17:1 down to 11:1. Styling only — no features.",
+      "author": "ily55421",
+      "i18n": {
+        "en": {
+          "name": "Obsidian Theme",
+          "description": "A deep blue-teal global theme tuned to a measured reference: surfaces lifted from #0F1B26 to #223648, hierarchy carried by 1px #2A4054 hairlines rather than glow, a solid #1B4F53 selection state, and a four-step text scale that takes body prose from 17:1 down to 11:1. Styling only — no features.",
+          "safetyNotes": "Pure styling. The plugin contributes one global theme (CSS only) and a small info panel. No network, file, clipboard, shell, or agent access."
+        },
+        "zh-CN": {
+          "name": "黑曜石主题",
+          "description": "深蓝青全局主题，按实测参考图校准：表面由 #0F1B26 分层抬至 #223648，层级用 1px #2A4054 发丝边框而非发光承担，选中态为实心 #1B4F53，四档文字层级把正文对比度从 17:1 降到 11:1。除样式外不提供任何功能。",
+          "safetyNotes": "纯样式插件。仅贡献一个全局主题（只有 CSS）和一个说明面板。无网络、文件、剪贴板、命令执行或智能体权限。"
+        }
+      },
+      "categories": [
+        "community",
+        "theme"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.obsidian-theme",
+      "repository": "https://plugins.aiuo.net/plugins/pi.obsidian-theme",
+      "readmeMarkdown": "# Obsidian Theme / 黑曜石主题\n\nA deep blue-grey global theme for PI-Desktop, tuned for long reading: a layered surface ladder instead of one flat black, hierarchy carried by 1px hairline borders rather than glow, a low-saturation teal accent, and a four-step text scale. Styling only — no features.\n\nPI-Desktop 深蓝灰全局主题，为长时间阅读调校：分层海拔而非一片死黑、用 1px 发丝边框而非发光建立层级、低饱和青绿强调色、四档文字层级。纯样式，无额外功能。\n\n## Palette / 色板\n\n| Role / 用途 | Value | | Role / 用途 | Value |\n|---|---|---|---|---|\n| App base / 应用底色 | `#0F1B26` | | Title text / 标题 | `#F2F7FA` |\n| Rails / 侧栏 | `#12202C` | | Body prose / 正文 | `#C4D2DD` |\n| Reading column / 阅读区 | `#0E1A25` | | Secondary / 次级 | `#8FA3B4` |\n| Card / composer / 卡片 | `#182835` | | Hints / 弱提示 | `#6A7E8F` |\n| Raised / 悬浮 | `#1E3040` | | Accent / 强调 | `#5CD0B8` |\n| Hover | `#223648` | | Border / 边框 | `#2A4054` |\n| Field / 输入框 | `#1B2C3B` | | Inset / 凹陷 | `#091219` |\n| Selected row / 选中态 | `#1B4F53`→`#15414A` | | Info / Warning / Danger | `#7FB4F0` `#E8C878` `#E78282` |\n\nNo pure black, no pure white. / 不使用纯黑，不使用纯白。\n\n## What it does / 功能\n\n- One global theme, selectable in **Settings → Theme → search \"Obsidian\" / 设置 → 主题 → 搜索 \"Obsidian\"**.\n- **Elevation ladder.** Eight distinct surface tones from `#091219` (inset) through `#0F1B26` (app) to `#223648` (hover), so the three columns and the cards inside them stop merging. A card now separates from the canvas it sits on; in the previous build that measured zero.\n- **Hierarchy from borders, not glow.** Every panel, card, field and code block carries a 1px `#2A4054` / `#1C2B3A` edge. All bloom and drop-glow shadows were removed.\n- **Four text steps for reading comfort.** Titles `#F2F7FA`, body prose `#C4D2DD`, secondary `#8FA3B4`, hints `#6A7E8F`. Body prose dropped from 17:1 to 11.3:1 against its background — still AAA, far less glaring — while secondary text went slightly up.\n- **Accent used as a material, sparingly.** `#5CD0B8` on selection, the send button, `.btn-primary`, focus rings and the active session rail; nothing else.\n- **Fields read as fields.** Lighter than the canvas with a hairline edge, so the composer stays visible; selected rows get a solid teal fill (`#1B4F53`) rather than a wash.\n- Code cards and blockquotes sit on `#16242F`; blockquotes carry a `#5CD0B8` rule; tables get a real row seam; meta and path lines are monospace.\n- 海拔阶梯：从 `#091219`（凹陷）到 `#223648`（hover）共八档表面色，三栏与其内部卡片不再糊成一片。\n- 层级靠边框而非发光：所有面板、卡片、输入框、代码块都带 1px 实色发丝边（`#2A4054` / `#1C2B3A`），发光阴影全部移除。\n- 四档文字：标题 / 正文 / 次级 / 弱提示。正文对比度由 17:1 降到 11.3:1（仍是 AAA）不再刺眼，次级文字略有提升。\n- 强调色克制使用：仅选中态、发送按钮、主按钮、聚焦描边与当前会话条目。\n- 输入框比画布更亮并带发丝边，因此输入区不会再\"消失\"；选中行用实心 `#1B4F53` 而非半透明罩色。\n- 代码卡片与引用块底色 `#16242F`，引用块配 `#5CD0B8` 竖条；表格补上行分隔线；元信息与路径行改用等宽字体。\n\n## Reverting / 恢复\n\nPick Light / Dark / System in the theme picker — the plugin can stay installed without effect. Or uninstall the plugin.\n\n在主题选择器中切回浅色 / 深色 / 系统即可；插件保留安装也无副作用，或直接卸载。\n\n## Permissions / 权限\n\n| Permission | Why / 原因 |\n|---|---|\n| `ui.panel` | Bilingual info panel: palette reference and elevation preview / 双语说明面板：色板参考与海拔预览 |\n| `ui.theme` | Contribute the global theme / 贡献全局主题 |\n\n## Safety / 安全\n\nCSS is sanitized by the host on load (256 KiB cap, no `@import`, no markup, no scripts, no external URLs — only `data:` URLs and manifest-declared assets are allowed). This sheet carries exactly one reference: a base64 `data:` SVG noise tile. The plugin makes no network requests, reads no files, and stores no data.\n\nCSS 由宿主在加载时净化（上限 256 KiB，禁止 `@import`、标记、脚本与外部 URL，仅允许 `data:` URL 与清单声明的资源）。本样式表只含一个引用：一个 base64 的 `data:` SVG 噪点贴图。插件不发起网络请求、不读取文件、不存储数据。\n\n## Files / 文件\n\n| File | Purpose / 作用 |\n|---|---|\n| `manifest.json` | Identity, permissions, the `contributes.themes` entry / 标识、权限、主题贡献声明 |\n| `main.js` | Registers the one \"open panel\" command / 注册唯一的打开面板命令 |\n| `themes/obsidian.css` | The theme itself / 主题本体 |\n| `renderer/index.html` | Info panel / 说明面板 |\n| `renderer/panel.js` | Panel copy + locale switching / 面板文案与语言切换 |\n| `renderer/appearance-boot.js` | Shared appearance adapter, pre-paint / 共享外观适配器（首帧） |\n| `renderer/appearance.js` | Shared appearance adapter, live updates / 共享外观适配器（实时更新） |\n| `renderer/capsule-retint.js` | Retints the host window-control capsule / 重染宿主窗口控制胶囊 |\n\n## Notes on the 3.0.0 revision / 3.0.0 改版说明\n\nThe 2.0.0 build was measured against a reference screenshot, and the finding was\nnot about lightness at all — it was **hue**. Blue-minus-red on the 2.0.0 canvas\nwas 7, i.e. grey; the reference sits at 21–24. Every surface now carries a real\nblue lead (measured 23 across the whole rendered frame).\n\nA band scan also **disproved the gradient theory**: the reference panels are\nessentially flat (drift −0.11…−0.23 pts), so hierarchy is carried instead by\nreal 1px borders and by a confident selected fill. 2.0.0 used a 13% accent wash\nfor selection, which measured as nothing; the solid `#1B4F53` gradient now lifts\n+3.6 pts over a plain row, matching the reference's own +2.1.\n\nFluorescent mint was replaced by a lower-chroma teal and confined to selection,\nprimary actions and focus. Bloom shadows gave way to a 3–5% top light, grain was\ncut to 0.035, radius was pulled onto one 8/10/12 ladder, prose line-height was\nraised to 1.72, and the scrollbars — which the host builds out of\n`--ds-text-primary`, now near-white — were pinned back so they stop reading as\nbright bars.\n\n## Notes on the 2.0.0 revision / 2.0.0 改版说明\n\nThe 1.0.0 build was measured against a real screenshot and two of its ideas were wrong:\n\n1. **Semi-transparent white tiles cannot separate dark surfaces.** `--ds-tile` at 3.5% white over a near-black canvas produced a card that was optically identical to the page it sat on. The fix is opaque step values plus solid 1px borders.\n2. **`soft-light` grain is a no-op on near-black.** Its effect scales with `backdrop × (1 − backdrop)`, which is ~0.04 at `#0a0e0c`. Grain is now a faint `overlay` film at 0.05 opacity, kept because it still breaks up large flat fills.\n\nRecessing the composer into a darker well also backfired — it simply disappeared. Fields are lighter than the canvas again.\n\n1.0.0 版本经真实截图测量后，发现两处判断失误：\n\n1. **半透明白色色块无法分隔深色表面**：近黑画布上叠 3.5% 白，卡片与页面在视觉上完全相同。改用不透明分档色值 + 实色 1px 边框。\n2. **`soft-light` 噪点在近黑背景上等于没有**：其强度与 `背景 × (1 − 背景)` 成正比，在 `#0a0e0c` 处仅约 0.04。现改为 0.05 不透明度的 `overlay` 薄膜，保留它是因为仍能打破大面积纯色。\n\n此外把输入框做成比画布更暗的\"凹井\"也适得其反——它直接看不见了，现已改回比画布更亮。\n",
+      "safetyNotes": "Pure styling. The plugin contributes one global theme (CSS only) and a small info panel. No network, file, clipboard, shell, or agent access.",
+      "versions": [
+        {
+          "version": "3.0.0",
+          "publishedAt": "2026-09-20T01:32:20Z",
+          "changelog": "Release 3.0.0: retuned against a measured reference screenshot. The decisive finding was hue, not lightness — the 2.0.0 canvas had a blue-minus-red lead of 7 (grey), while the reference sits at 21-24; every surface is now blue-dominant (measured 23 across the frame). A band scan also disproved the gradient theory: the reference panels are essentially flat (drift -0.11..-0.23 pts), so hierarchy is carried by real 1px borders (#2A4054 / #1C2B3A, which rise 1.0-2.8 pts off their neighbours) and by a solid cyan-teal selection fill (#1B4F53, +3.6 pts over a plain row) instead of the 13% wash 2.0.0 used, which measured as nothing. Ladder: #091219 inset, #0F1B26 app, #12202C rails, #0E1A25 reading column, #182835 cards, #1B2C3B fields, #1E3040 raised, #223648 hover. Text: #F2F7FA titles, #C4D2DD body (11.4:1, down from 17.1:1), #8FA3B4 secondary, #6A7E8F hints. Accent lowered from #65D6BC to #5CD0B8 and reserved for selection, primary actions and focus. All bloom removed in favour of a 3-5% top light; grain cut to 0.035; radius pulled onto one 8/10/12 ladder; prose line-height raised to 1.72; scrollbars retuned. Release 2.0.0: blue-grey rebalance after a screenshot review. Release 1.0.0: first release.",
+          "minPiDesktop": "\u003e=0.15.0",
+          "shasum": "e03fd14aa9b11c984a6d5876477a3898f5ab30123357891962405af5cb7fd32e",
+          "url": "packages/pi.obsidian-theme-3.0.0.piplug",
+          "sizeBytes": 61705,
+          "permissions": [
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.parchment",
+      "name": "Parchment Theme",
+      "description": "A warm parchment global theme: cream paper background with a faint grid, ink-colored user bubbles, paper assistant cards, and monospace meta lines. No features beyond styling.",
+      "author": "pkmcenter",
+      "i18n": {
+        "en": {
+          "name": "Parchment Theme",
+          "description": "A warm parchment global theme: cream paper background with a faint grid, ink-colored user bubbles, paper assistant cards, and monospace meta lines. No features beyond styling.",
+          "safetyNotes": "Pure styling. The plugin contributes one global theme (CSS only) and a small info panel. No network, file, clipboard, or agent access."
+        },
+        "zh-CN": {
+          "name": "羊皮纸主题",
+          "description": "暖色羊皮纸全局主题：米色纸面背景配淡网格，墨色用户气泡，纸色助手卡片，等宽字体元信息行。除样式外不提供任何功能。",
+          "safetyNotes": "纯样式插件。仅贡献一个全局主题（只有 CSS）和一个说明面板。无网络、文件、剪贴板或智能体权限。"
+        }
+      },
+      "categories": [
+        "community",
+        "theme"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.parchment",
+      "repository": "https://plugins.aiuo.net/plugins/pi.parchment",
+      "readmeMarkdown": "# Parchment Theme / 羊皮纸主题\n\nA warm parchment global theme for PI-Desktop: cream paper background with a faint 22px grid, solid ink user bubbles, soft paper assistant cards, and monospace meta lines. Styling only — no features.\n\nPI-Desktop 全局主题插件：米色纸面背景配淡网格、实心墨色用户气泡、纸色助手卡片、等宽字体元信息行。纯样式，无额外功能。\n\n## Screenshots / 截图\n\n![Chat view with the Parchment theme applied / 应用主题后的聊天视图](https://raw.githubusercontent.com/vastsa/pi-desktop-plugins/main/plugins/pi.parchment/docs/screenshots/01-chat-view.png)\n\n*Chat view — ink user bubble, paper assistant card, warm code blocks / 聊天视图 — 墨色用户气泡、纸色助手卡片、暖色代码块*\n\n![Theme picker — search \"Parchment\" / 主题选择器 — 搜索 \"Parchment\"](https://raw.githubusercontent.com/vastsa/pi-desktop-plugins/main/plugins/pi.parchment/docs/screenshots/02-theme-picker.png)\n\n*Theme picker — Settings → Theme → \"Parchment\" / 主题选择器 — 设置 → 主题 → \"Parchment\"*\n\n## What it does / 功能\n\n- One global theme, selectable in **Settings → Theme → search \"Parchment\" / 设置 → 主题 → 搜索 \"Parchment\"**.\n- Built entirely on the host design tokens (`--ds-*`), so it layers cleanly on top of the light base and never touches dark-mode internals.\n- User messages render as solid ink bubbles with paper-colored text; assistant messages as soft paper cards; code blocks, tables and selection tint follow the warm palette.\n- Message cards and the composer are width-aligned in both sidebar layouts (tracks the host `--chat-composer-max-width` variable).\n- 覆盖宿主设计令牌（`--ds-*`）实现，基于浅色基底叠加，不改动暗色内部；用户消息为实心墨色气泡，助手消息为纸色卡片；代码块、表格、选区同步暖色调；消息卡片与底部输入框在两种侧边栏布局下宽度对齐。\n\n## Reverting / 恢复\n\nPick Light / Dark / System in the theme picker — the plugin can stay installed without effect. Or uninstall the plugin.\n\n在主题选择器中切回浅色 / 深色 / 系统即可；插件保留也无副作用，或直接卸载。\n\n## Permissions / 权限\n\n| Permission | Why / 原因 |\n|---|---|\n| `ui.panel` | Small info panel describing the theme / 主题说明面板 |\n| `ui.theme` | Contribute the global theme / 贡献全局主题 |\n\n## Safety / 安全\n\nCSS is sanitized by the host on load (size limit, no `@import`, no markup, no scripts, no external URLs). The plugin makes no network requests and stores no data.\n\nCSS 由宿主在加载时净化（字节上限、禁止 `@import`/标记/脚本/外部 URL）。插件不发起任何网络请求，不存储数据。\n",
+      "safetyNotes": "Pure styling. The plugin contributes one global theme (CSS only) and a small info panel. No network, file, clipboard, or agent access.",
+      "versions": [
+        {
+          "version": "1.0.4",
+          "publishedAt": "2026-09-12T17:13:25Z",
+          "changelog": "Release 1.0.4: fix invisible text inside dark user bubbles — filenames (file chips), image/command chips, text and code links, and inline code/code blocks now render in paper tones on the ink bubble (host 0.14.x class names). Release 1.0.3: add the Theme category tag for marketplace discovery. Release 1.0.2: add README screenshots (chat view and theme picker); force the warm code-block and inline-code palette against the host light-theme cascade (defensive specificity + !important). Release 1.0.1: fix parchment code-block and inline-code overrides against the host light-theme cascade. Release 1.0.0: first release. Warm parchment global theme built on the host design tokens: cream paper background with faint 22px grid, solid ink user bubbles with paper-colored text, soft paper assistant cards, warm code blocks and tables, monospace meta lines, and composer/message width alignment in both sidebar layouts.",
+          "minPiDesktop": "\u003e=0.4.3",
+          "shasum": "11397e2ff5c7c245e8647c13ac8142bc545d9dd3b7922884f3ebd43aca7d0bb5",
+          "url": "packages/pi.parchment-1.0.4.piplug",
+          "sizeBytes": 351052,
+          "permissions": [
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
@@ -6580,6 +7017,54 @@
       ]
     },
     {
+      "id": "pi.ssh-manager",
+      "name": "SSH Manager",
+      "description": "A local-first SSH host manager for PI-Desktop with local OpenSSH config import, identity-file selection, and bounded high-risk commands.",
+      "author": "PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "SSH Manager",
+          "description": "A local-first SSH host manager with local OpenSSH config import, identity-file selection, and bounded high-risk commands.",
+          "safetyNotes": "Uses the system OpenSSH client and the user's existing config, ssh-agent, identity-file path, or a password entered in the panel. Passwords are held in memory for at most 30 minutes and never persisted or passed to AI. The plugin never stores private-key contents, command output, or remote transcripts. AI connect and execute tools are high risk; conservative static filtering blocks mutating or ambiguous commands, and only a one-time approval checkbox in the management panel can release a blocked command."
+        },
+        "zh-CN": {
+          "name": "SSH 在线管理",
+          "description": "本地优先的 SSH 主机管理面板，使用 OpenSSH 执行有超时和输出上限的远程命令，并向 AI 暴露高风险工具。",
+          "safetyNotes": "插件只调用系统 OpenSSH，并复用用户已有的 SSH 配置、ssh-agent、私钥路径或面板输入的密码；密码最多在内存中保留 30 分钟，不写入设置，也不会传给 AI。插件不保存私钥内容、命令输出或远程会话记录。AI 连接和执行工具均为高风险操作，默认拦截删除、覆盖、数据库变更、服务/权限修改、容器删除及不明确的 shell 组合；只有管理面板的一次性勾选才能放行被拦截指令。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "official"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.ssh-manager",
+      "repository": "https://plugins.aiuo.net/plugins/pi.ssh-manager",
+      "readmeMarkdown": "# SSH 在线管理 · SSH Manager\n\n`pi.ssh-manager` 是一个本地优先的 SSH 主机管理插件：面板保存主机连接元数据，\n认证交给本机 OpenSSH、已有的 `~/.ssh/config`、ssh-agent、用户指定的私钥路径，或面板中\n临时输入的密码。添加或编辑主机时，私钥可以手动输入路径，也可以使用「选择文件」；插件只\n使用 Electron 提供的文件路径，从不读取文件内容。\n插件把有限时、有限输出的 SSH 能力提供给 PI-Desktop AI。\n\n## 能做什么\n\n- 管理多台 SSH 主机：名称、主机、端口、用户名、私钥路径和 agent socket。\n- 一键扫描并导入本机 `~/.ssh/config`（含有界的 `Include`），保留 Host 别名以继续使用完整 OpenSSH 配置（包括 ProxyJump）。重复扫描会更新已有导入项，不会重复创建。连接失败会保留 OpenSSH 的传输诊断（包括 Windows 的 banner exchange / connection refused），而不是只显示笼统的 exit 255；Windows 会继承 SYSTEMROOT 等系统环境并查找 `ssh.exe`。\n- 导入自定义配置文件时会在连接中继续使用该配置文件；编辑导入主机的地址、端口、用户名或密钥路径后，插件会自动解除别名绑定并按表单中的显式值连接。\n- 默认 `~/.ssh/config` 仍按普通 OpenSSH 方式加载，因此不会因显式 `-F` 而跳过系统级 SSH 配置；Windows 密码 helper 不经过批处理变量展开，密码中的命令符号会原样交给 OpenSSH。\n- 默认严格校验 `known_hosts`；只有用户显式选择时才使用 `accept-new`。\n- 在面板中测试连接、执行一次性命令、查看 stdout/stderr，并忘记逻辑会话。\n- 向 AI 暴露四个工具：\n  - `plugin_pi_ssh_manager_ssh_list_hosts`\n  - `plugin_pi_ssh_manager_ssh_connect`\n  - `plugin_pi_ssh_manager_ssh_execute`\n  - `plugin_pi_ssh_manager_ssh_disconnect`\n- 默认只放行经过静态校验的命令；递归删除、文件覆盖、磁盘写入、数据库变更、服务/权限修改、容器删除、重启、网络脚本管道以及 shell 链式命令都会被拦截。\n- 被拦截的命令只有在 SSH 管理面板勾选「本次允许执行被拦截的危险指令」后才会放行一次；AI 工具不能传入或伪造这个授权。\n\n## 认证与数据边界\n\n插件不会持久化密码、passphrase、私钥内容、命令输出或远程 transcript。需要密码\n认证时，可以在面板的「密码（不保存）」输入框中录入；密码只在当前插件进程内保存\n最多 30 分钟，通过一次性本地 IPC broker 和 `SSH_ASKPASS` helper 交给 OpenSSH；密码不会进入 `ssh` 进程环境，避免被宽泛的 `SendEnv` 配置发送到远端。插件重启、卸载或\n超时后会自动清除。AI 工具永远不会接收密码参数，但可以复用当前内存中的密码状态。\n请优先在本机配置 OpenSSH：\n\n```sshconfig\nHost production\n  HostName server.example.com\n  User deploy\n  IdentityFile ~/.ssh/id_ed25519\n```\n\n然后在面板中把 `Host` 填为 `production`，或直接填写实际主机名。需要使用\nssh-agent 时，优先让 PI-Desktop 继承正确的 `SSH_AUTH_SOCK`，也可以在主机配置中\n填写 agent socket 路径。带 passphrase 的密钥应由 ssh-agent 或系统 OpenSSH 配置\n负责解锁；插件不会把它们写入设置。\n\n“连接”创建的是插件内的逻辑会话。每次命令仍启动一个有超时和输出上限、不会继承插件标准输入的本机\n`ssh` 进程，不会在插件进程里保留一个可被后台复用的远程 shell。\n\n## Windows OpenSSH startup\n\nPI-Desktop passes a minimal environment to plugins. Windows OpenSSH requires\n`ProgramData` even for `ssh -V`; without it, it can exit 255 with no output before\nconnection diagnostics are initialized. The plugin preserves an inherited\n`ProgramData` (case-insensitive) or `ALLUSERSPROFILE`, and otherwise supplies\n`ProgramData` on the Windows system volume (normally `C:\\ProgramData`). It does\nnot copy unrelated environment variables or change host-key verification.\n\n## AI 使用建议\n\nAI 应先调用 `ssh_list_hosts`，再使用用户确认过的 `profile_id` 连接。连接和执行\n均是高风险工具，会经过 PI-Desktop 的工具权限策略。AI 不应要求用户把密码、私钥\n或 token 粘贴到对话中；新主机密钥和破坏性命令必须先向用户确认。若命令被安全过滤器\n拦截，AI 只能提示用户在 SSH 管理面板中审核并勾选一次性授权，不能自行绕过过滤器。\n\n## 权限\n\n- `ui.panel`：打开 SSH 管理面板。\n- `agent.tool.register`：注册 AI SSH 工具。\n- `agent.prompt.inject`：加载安全 SSH 使用说明。\n\n插件只使用本机 `ssh` 可执行文件，不使用 `net.fetch`，也不把凭据写入插件设置。\n\n## 开发验证\n\n```bash\nnode --test tests/ssh-manager.test.mjs\npython3 scripts/pack_plugin.py plugins/pi.ssh-manager\npython3 scripts/rebuild_catalog.py\n```\n\n本地运行时请在 PI-Desktop 中选择「插件 → 加载开发插件」，再选择本目录。\n",
+      "safetyNotes": "SSH credentials are never persisted by this plugin. Passwords entered in the panel are held in memory for at most 30 minutes and private-key contents stay outside the plugin. Authentication is delegated to the local OpenSSH client. The panel stores only connection metadata in plugin settings; AI tools can connect to configured hosts and execute remote shell commands, so PI-Desktop's high-risk tool policy must remain enabled.",
+      "versions": [
+        {
+          "version": "0.1.6",
+          "publishedAt": "2026-10-06T15:15:25Z",
+          "changelog": "Release 0.1.6: leads every agent-tool description with explicit when-to-use trigger conditions and example phrasings (including Chinese), and states the override boundary — AI cannot authorize a blocked command, only the panel's one-time approval can. Release 0.1.5: restores ProgramData in PI-Desktop's minimal Windows plugin environment so OpenSSH no longer exits 255 silently before connecting; adds a real OpenSSH startup regression test. Release 0.1.4: closes the askpass broker lifecycle boundary so an unload cannot start a new SSH child after the broker has been cleaned up. Release 0.1.3: keeps OpenSSH transport diagnostics visible on Windows instead of suppressing banner-exchange errors behind exit 255, preserves non-default config files for imported aliases without bypassing system config for the default file, detaches an alias when its explicit connection fields are edited, prevents one-shot commands from inheriting plugin stdin, passes special-character passwords through a one-shot local askpass broker without placing them in the ssh process environment, and preserves missing-client diagnostics through the panel bridge. Release 0.1.2: imports concrete hosts from the local OpenSSH config, preserves aliases for complete SSH behavior, adds identity-file selection, surfaces OpenSSH diagnostics instead of a bare exit 255, inherits Windows system environment so ssh.exe can run, and stops leftover ssh processes from throwing on quit. Release 0.1.1: strengthens destructive-command filtering and makes one-time dangerous-command approval available only from the SSH Manager panel. Release 0.1.0: adds local SSH host profiles, strict host-key verification, OpenSSH key/agent and transient password authentication, bounded remote command execution, a focused management panel, and an AI skill describing safe SSH workflows.",
+          "minPiDesktop": "\u003e=0.2.9",
+          "shasum": "3c2eb91e4d295015514aad707cf1020b2eef30d1adfb20e71e2c8b60a15658f6",
+          "url": "packages/pi.ssh-manager-0.1.6.piplug",
+          "sizeBytes": 147655,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        }
+      ]
+    },
+    {
       "id": "pi.super-domain-man",
       "name": "Super Domain Man",
       "description": "A local-first DNS and SSL workspace for Alibaba Cloud, Tencent Cloud, Cloudflare, AWS Route53, Volcano Engine and Huawei Cloud. Credentials stay on this device.",
@@ -6629,6 +7114,56 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-13T15:57:08Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "pi.terminal",
+      "name": "Terminal",
+      "description": "Otty-inspired interactive terminal for PI-Desktop. Docks in the right work panel (no separate window), with tabs, cross-platform shell profiles, and copy/paste.",
+      "author": "PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "Terminal",
+          "description": "Otty-inspired interactive terminal for PI-Desktop. Docks in the right work panel (no separate window), with tabs, cross-platform shell profiles, and copy/paste.",
+          "safetyNotes": "This plugin launches a real login shell as your user through a bundled PTY helper (forkpty on macOS/Linux, ConPTY on Windows). Anything you can run in a system terminal can run here, including destructive commands. It does not persist transcripts, passwords, or shell history beyond an in-memory scrollback that dies with the plugin process. Uninstalling or disabling the plugin kills every session. The AI is not given a tool that writes to the PTY; agent command execution continues to use the host Bash tool."
+        },
+        "zh-CN": {
+          "name": "终端",
+          "description": "受 Otty 启发的 PI-Desktop 交互式终端，只停靠在右侧工作面板（无独立窗口）；支持多标签、跨平台 shell profile 与复制粘贴。",
+          "safetyNotes": "本插件通过自带的 PTY 助手以当前用户身份拉起真正的登录 shell（macOS/Linux 为 forkpty，Windows 为 ConPTY）。系统终端能执行的命令这里都能执行，包括破坏性操作。插件不持久化 transcript、密码或 shell 历史，仅在进程内存中保留有限回滚缓冲，卸载或禁用即杀掉全部会话。AI 没有写入 PTY 的工具；模型执行命令仍走宿主 Bash。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "official"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.terminal",
+      "repository": "https://plugins.aiuo.net/plugins/pi.terminal",
+      "readmeMarkdown": "# Terminal · 终端\n\nOtty-inspired interactive terminal for PI-Desktop. It docks in the right work panel next to the conversation — there is no separate window.\n\n受 Otty 启发的交互式终端，只停靠在右侧工作面板（无独立窗口）。\n\n## What it does\n\n- **Work panel view** — `Terminal` / `终端` in the plugin views menu (icon `terminal`). Open the work panel with **Mod+J**.\n- **Tabs** — new / close / switch. Closing the view does **not** kill the shell; reopening replays a bounded in-memory scrollback. Tabs belong to the **currently open project**; switching projects shows that project's terminals only (other shells stay alive in the background until the plugin is disabled).\n- **Cross-platform shells**\n  - macOS: `$SHELL` → `/bin/zsh` as a real login shell (`argv0` `-zsh`)\n  - Linux: `$SHELL` → `/bin/bash` as a real login shell\n  - Windows: PowerShell → `cmd.exe`; Git Bash is offered when installed\n- **Login PATH** — GUI apps often see a thin PATH. On load the plugin dumps your interactive login environment and injects it into every PTY, then prepends common tool dirs (pnpm, nvm, bun, cargo, Homebrew) if they exist. `node` / `pnpm` / `brew` should resolve the same way they do in Terminal.app.\n- Follows the app language (`en` / `zh-CN`) and color mode, including live light/dark switches while the view stays open (chrome and xterm canvas). Copy/paste: macOS `Cmd+C/V`, Windows/Linux `Ctrl+Shift+C/V`. Find: `Cmd/Ctrl+F`. Font size: `Cmd/Ctrl +` / `-`.\n\nNot in v0.1: pane splits, Recipes, SSH sessions (use **SSH Manager**), or an agent tool that types into the PTY.\n\n## Permissions\n\n| Permission | Why |\n| --- | --- |\n| `ui.view` | Work-panel Terminal view |\n| `background.service` | Keep the plugin process (and live PTYs) resident when the UI is closed |\n| `clipboard.read` / `clipboard.write` | Paste / copy |\n| `agent.prompt.inject` | Skill that tells the AI this PTY is for humans; host Bash stays the command path |\n\nNo `fs.*` permission. The plugin process reads the current workspace path and passes it to the helper as the session cwd.\n\n## How it works\n\nA bundled helper binary (`vendor/pi-pty-\u003cos\u003e-\u003carch\u003e`) owns the real PTY (forkpty / ConPTY). The plugin process speaks a JSON-line protocol with the helper. The sandboxed view has no Node and no push channel, so output is pulled with `pty.drain` long-polls.\n\nOn Windows the helper is a GUI-subsystem binary and attaches PowerShell (or cmd / Git Bash) to ConPTY with `CREATE_NO_WINDOW`, so the shell runs inside the work-panel xterm instead of popping a separate console.\n\nThe zip packer does not preserve unix `+x`. On first spawn the plugin `chmod`s the helper.\n\n## Settings\n\n- `fontSize` — 10–24, default 13\n- `scrollback` — in-memory reconnect buffer in lines, default 5000\n- `maxSessions` — live tab cap, default 8\n- `profiles` — JSON array of `{ id, name, shell, args, cwd, env }`. `cwd` must stay inside the workspace or home directory.\n\n## Development\n\n```bash\n# rebuild helpers (Go 1.22+). Windows binaries use -H windowsgui.\nsh plugins/pi.terminal/helper/build.sh\n\npython3 scripts/pack_plugin.py plugins/pi.terminal\npython3 scripts/rebuild_catalog.py\nnode --test tests/terminal.test.mjs tests/panel-chrome.test.mjs\n```\n\nLoad `plugins/pi.terminal` as a development plugin, then open **Terminal** from the work panel (Mod+J).\n\n## Requirements\n\n- PI-Desktop `\u003e= 0.8.0` (`ui.view` / work-panel plugin views)\n- A helper binary for the current `process.platform` + `process.arch`\n",
+      "safetyNotes": "This plugin launches a real login shell as your user through a bundled PTY helper (forkpty on macOS/Linux, ConPTY on Windows). Anything you can run in a system terminal can run here, including destructive commands. It does not persist transcripts, passwords, or shell history beyond an in-memory scrollback that dies with the plugin process. Uninstalling or disabling the plugin kills every session. The AI is not given a tool that writes to the PTY; agent command execution continues to use the host Bash tool.",
+      "versions": [
+        {
+          "version": "0.1.6",
+          "publishedAt": "2026-09-12T17:13:25Z",
+          "changelog": "Release 0.1.6: on Windows, attach PowerShell to ConPTY inside the work panel instead of opening a separate console window. Release 0.1.5: follow the app color mode only — never snap to the OS palette, which flashed when the two disagreed. Release 0.1.4: follows the app light/dark mode live in the work-panel view, including the xterm canvas. Release 0.1.3: isolates PTY tabs per open project so switching workspaces cannot mix sessions. Release 0.1.2: docks only in the right work panel; the detached window is removed. Release 0.1.1: login-shell environment so GUI-launched sessions inherit PATH (pnpm, nvm, Homebrew, cargo, bun); denser Otty-like chrome with bottom tabs, find, and font-size controls. Release 0.1.0: first release. Multi-tab PTY sessions, cross-platform default shells (zsh / bash / PowerShell / optional Git Bash), theme and language following, and copy/paste.",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "e915e96f6895a3f3881314e29099ae3c59236e8e93e6f805f4ba6d3f14919c22",
+          "url": "packages/pi.terminal-0.1.6.piplug",
+          "sizeBytes": 13952827,
+          "permissions": [
+            "agent.prompt.inject",
+            "background.service",
+            "clipboard.read",
+            "clipboard.write",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
@@ -7114,6 +7649,52 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-18T17:42:43Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "pi.workspace-file-guard",
+      "name": "C盘防垃圾",
+      "description": "防止模型把测试、日志、缓存、临时文件写到系统盘、桌面、下载。垃圾只待在当前项目的 Temp 或 scratch。",
+      "author": "xingleiwu",
+      "i18n": {
+        "en": {
+          "name": "Keep junk off C:",
+          "description": "Keep test, log, cache, and temp files out of the system drive, Desktop, and Downloads. Junk stays in the current project's Temp or scratch.",
+          "safetyNotes": "Behavioral confinement, not a disk lock. The plugin only classifies paths and injects agent rules. It does not change ACLs or use the network."
+        },
+        "zh-CN": {
+          "name": "C盘防垃圾",
+          "description": "防止模型把测试、日志、缓存、临时文件写到系统盘、桌面、下载。垃圾只待在当前项目的 Temp 或 scratch。",
+          "safetyNotes": "这是行为约束，不是磁盘锁。插件只分类路径并注入 Agent 规则，不改 ACL、不联网。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://plugins.aiuo.net/plugins/pi.workspace-file-guard",
+      "repository": "https://plugins.aiuo.net/plugins/pi.workspace-file-guard",
+      "readmeMarkdown": "# C盘防垃圾\n\n防止模型把测试、日志、缓存、临时文件写到系统盘、桌面、下载。垃圾只待在当前项目的 `Temp` 或 scratch。\n\n启用一次即可。路径按当前机器解析，不写死盘符或用户名。这是行为约束，不是磁盘锁。\n\n## 提供什么\n\n- Skill：`skills/workspace-file-guard.md`（插件启用期间注入 Agent）\n- 工具：`project_root` / `check_path` / `temp_env` / `tmp_layout`\n- 拒绝清单：`references/denied-paths.md`\n- 分类器：`guard.js`\n\n## 文件该写到哪\n\n| 类型 | 位置 |\n| --- | --- |\n| 用户要求保留的源码 | 工作区（`src/`、`tests/` 等） |\n| 一次性草稿、转储、日志 | `$PI_SCRATCH_DIR` |\n| 项目本地缓存 / 一次性测试 | `$project/Temp/` |\n\n禁止：桌面、下载、文档、系统临时目录；项目在其他盘时禁止写到系统盘；Program Files、`/usr`、`/Applications`。\n\n## 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `agent.prompt.inject` | 注入护栏规则，让 Agent 默认把垃圾文件关在工作区 / scratch |\n| `agent.tool.register` | 注册路径分类工具，供 Agent 在写文件前查询 |\n\n不申请 `fs.*` 宿主文件系统权限、网络、剪贴板或后台服务权限。为识别 Linux/XDG 自定义用户目录，分类器会只读本机 `~/.config/user-dirs.dirs`（若存在），不会上传或返回该文件原文。插件本身不写盘、不改 ACL、不联网；真正落盘的仍是 Agent 自己的 Write / Bash。\n\n## 安装\n\n1. PI-Desktop → 扩展 → 安装插件包，选择 `packages/pi.workspace-file-guard-0.2.7.piplug`。\n2. 若出现权限确认，勾选 `agent.prompt.inject` 与 `agent.tool.register`（当前宿主对本地 `.piplug` 可能按清单静默全授）。\n3. 新开一个 Agent 会话，skill 才会注入。\n\n也可把本目录当作开发插件加载（保存后热重载）。开发插件扩权后请重新「加载开发插件」，不要只点「重新加载」。\n\n## 开发验证\n\n```bash\nnode tests/workspace-file-guard-guard.test.js\nnode tests/workspace-file-guard-main.test.js\npython scripts/pack_plugin.py plugins/pi.workspace-file-guard\npython scripts/rebuild_catalog.py\npython scripts/security_audit.py --check-packages\n```\n\n## 能力边界\n\n- 不是事后清理磁盘。\n- 不是跨项目访问隔离。\n- 不是操作系统沙箱、BitLocker、SIP 或文件夹 ACL。\n- `root` 覆盖只在用户明确选择项目根时使用；工具无法验证该选择，不能把它当成安全边界。\n- `explicit` 只是模型对用户意图的声明；桌面、下载、文档和系统临时目录即使标记也禁止。\n\n## 能力 / 数据流\n\n| 能力 | 数据 | 方向 |\n| --- | --- | --- |\n| `agent.prompt.inject` | 本插件 `skills/workspace-file-guard.md` 规则文本 | 注入当前会话的系统提示，不读聊天记录 |\n| `agent.tool.register` | 调用参数里的路径字符串；`pi.workspace.get()` 的工作区路径；`PI_SCRATCH_DIR` / 主目录 / 常见系统目录 | 只返回分类结果与环境变量建议，不写盘 |\n| 文件系统 | 本机 `~/.config/user-dirs.dirs`（若存在） | 仅用于识别 XDG 用户目录，不上传、不返回原文 |\n| 网络 / 剪贴板 / 后台服务 | 无 | 不申请、不使用 |\n\n失败路径：没有打开工作区且未传 `root` 时工具返回 `ok: false`，不会回退到插件安装目录或 cwd。桌面、下载、文档、系统临时目录即使 `explicit=true` 也拒绝。\n",
+      "safetyNotes": "这是行为约束，不是磁盘锁。插件只分类路径并注入 Agent 规则，不改 ACL、不联网。",
+      "versions": [
+        {
+          "version": "0.2.7",
+          "publishedAt": "2026-09-14T04:38:39Z",
+          "changelog": "0.2.7：市场名称改为「C盘防垃圾」；项目垃圾改放到 $project/Temp/；拒绝把 Temp 倾倒目录当项目根。 0.2.6：市场名称改为直白中文。 0.2.5: Quote generated bash and PowerShell assignments safely, reject unsafe cmd values, enforce canonical root/scratch and symlink boundaries, include negative-path tests in CI, and sync the package. 0.2.4：说明改为中文。0.2.3：去掉 git/cwd 作为项目根回退；cmd 环境变量拒绝内嵌引号；覆盖工作区 API 失败与 explicit 临时目录拒绝。0.2.2：相对路径相对工作区解析。0.2.1：explicit 目标与 XDG_DOWNLOAD_DIR。0.2.0：跨机器便携。",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "f4fb247dfd66ed63286a774bacbf77cfb42f231fe3ebf380b075534b0bb224d0",
+          "url": "packages/pi.workspace-file-guard-0.2.7.piplug",
+          "sizeBytes": 42134,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     }
