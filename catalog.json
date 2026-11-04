@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-04T20:34:58Z",
-  "generatedAt": "2026-11-04T20:34:58Z",
+  "updatedAt": "2026-11-04T21:22:16Z",
+  "generatedAt": "2026-11-04T21:22:16Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1335,6 +1335,43 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.5.0",
+          "publishedAt": "2026-11-04T21:22:16Z",
+          "changelog": "# Changelog\n\n## 0.5.0\n\n### Features\n\n- **manifest:** add a per-run timeout setting (`c549b2c`)\n\n### Fixes\n\n- **main:** never install packages or hang in check and gate runs (`9466c99`)\n\n### Documentation\n\n- **skills:** explain timed-out runs and install-free test commands (`4716f34`)\n- **readme:** list the run timeout setting (`96aee9f`)\n- describe the no-install and run timeout safeguards (`47d31ad`)\n\n### Tests\n\n- check the no-install env, the run limit and timeout results (`8f42a69`)\n- cover the run timeout setting and its clamping (`5c5eee5`)\n- kill a hanging run and report it as timed out (`088d1c1`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "557e8689ca9e29f977de3ff54dd9248ec914b31027eabc8c61ea4552b53a93fa",
+          "url": "packages/eskwisit.test-warden-0.5.0.piplug",
+          "sizeBytes": 213594,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".test-warden/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-test-warden",
+            "sourceRef": "v0.5.0",
+            "sourceCommit": "ee974d771937844de221bd10db846bf2ec53391f",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-04T21:22:16Z"
+          }
+        },
         {
           "version": "0.4.0",
           "publishedAt": "2026-11-04T20:34:58Z",
