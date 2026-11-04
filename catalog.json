@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-04T11:09:05Z",
-  "generatedAt": "2026-11-04T11:09:05Z",
+  "updatedAt": "2026-11-04T13:22:25Z",
+  "generatedAt": "2026-11-04T13:22:25Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -250,6 +250,53 @@
       "readmeMarkdown": "# 项目知识库（BoneProjectWiki）\n\n适用于 PI-Desktop 的本地优先（Local-first）项目知识库与资产管理插件。包含用户私有的通用项目知识库、Agent 自动协作记忆层、HTML 原型沙箱以及全格式媒体与文档资产管理。\n\n---\n\n## 核心特性\n\n- **类 Obsidian 层级文件树**：左侧树形目录导航，支持文件夹无极层级折叠展开、新建目录、折叠/展开全部、快速刷新。\n- **无感实时笔记编辑器**：右侧实时在线笔记编辑，采用防抖自动保存技术；标题与磁盘物理文件名（`[标题].md`）实时双向联动，纯中文路径与文件名真实落盘，无 UUID 乱码。\n- **全格式文件与多媒体支持**：\n  - **文档**：原生 Markdown（`.md`）、纯文本（`.txt`）、Word 文档（`.docx`, `.doc`）、WPS 文档（`.wps`, `.wpt`）、PDF（`.pdf`）。\n  - **表格**：Excel 电子表格（`.xlsx`, `.xls`, `.csv`）、WPS 表格（`.et`, `.ett`）。\n  - **演示**：PowerPoint（`.pptx`, `.ppt`）、WPS 演示（`.dps`, `.dpt`）、Keynote（`.key`）。\n  - **多媒体**：图片（`.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.svg`）、音频（`.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`）与视频（`.mp4`, `.webm`, `.mov`），内嵌原生播放与大图预览。\n- **外部目录实时同步**：支持直接从操作系统访达（Finder）或文件资源管理器将文件/多层文件夹直接拖入或拷入，窗口聚焦自动静默同步。\n- **扁平化矢量图标**：全套采用精致单色 1px 细线矢量 SVG 图标，自动适配亮色与暗色模式。\n- **Agent 协作记忆层**：在轮次结算后保存用户明确表达的具体偏好与事实；需要结合上文的记忆请求由 Agent 提炼后通过工具保存，下一轮以有篇幅限制的摘要与全文路径提供参考。\n\n---\n\n## 使用指南\n\n1. **初始化知识库**：\n   - 打开项目知识库面板；\n   - 点击“初始化知识库”，即可在当前项目目录下创建标准 `.bone-project-wiki/` 知识库目录结构。\n2. **日常记录与整理**：\n   - 在右侧直接输入标题与内容，系统自动保存并实时在左侧目录树生成对应的 `.md` 文件；\n   - 支持右键点击笔记或文件夹进行：**移动到…**、**在文件管理器中打开**、**删除**；\n   - 拖拽任意多层文件夹或文档进入面板，自动递归解析并创建对应分类目录。\n3. **打开与查看各类资产**：\n   - 笔记直接在右侧实时编辑；\n   - 图片自适应大图查看；音频与视频直接在右侧面板内嵌原生控件播放；\n   - Word、WPS、Excel、PDF 等办公文档提供一键“在系统中打开”与“在访达中定位”。\n\n## 记忆如何生效\n\n- **具体事实**：例如“请记住：本项目布局统一采用 PinLayout”，可在本轮结束后自动保存到当前项目的记忆目录。\n- **结合上文**：例如“记录到记忆中”“把刚才的开发规范记住”，会提示 Agent 从当前对话提炼具体内容、保留来源，并通过 `project_wiki` 保存。工具确认成功前不能声称已记录；缺少上文或工具时需说明未保存。\n- **避免空记忆**：查询句、单独的记录指令、密码与密钥等内容不会自动当成事实保存。旧的空指令记录不会继续进入对话摘要，但原文件不会被自动删除。\n- **可追溯**：有用的记忆应包含适用项目、具体约定和来源文档。摘要会标明省略并提供记忆文件路径，完整规则仍应读取原文核对。\n- **范围与限制**：记忆属于当前项目，作为参考数据使用。自动捕获使用本地规则，不会自动理解所有自然语言或把全部助手回复作为已确认事实保存；超过长度限制的显式请求交给 Agent 提炼，避免截断事实。\n\n---\n\n## 数据格式与便携性\n\n知识库所有数据均保存在当前项目根目录的 `.bone-project-wiki/` 下，具备高度的可移植性：\n\n```text\n.bone-project-wiki/\n├── project.json              # 项目知识库配置与版本元数据\n├── index.json                # 类似 Git index 的轻量派生缓存索引\n├── knowledge/                # 通用知识库\n│   ├── general/              # 默认通用分类（支持任意中文自定义目录）\n│   │   ├── 需求设计方案.md     # 纯中文 Markdown 笔记文件\n│   │   └── 产品原型.png       # 真实图片与多媒体资产\n│   └── 财务资料/              # 用户自定义分类目录\n│       └── 预算报表.xlsx      # 办公文档与表格附件\n└── memory/                   # Agent 自动捕获的项目协作记忆\n    └── index.json\n```\n\n- **索引缓存机制**：知识库通过派生的 `index.json` 记录文件的大小（size）和修改时间（mtime）。只有真正发生变动的文件才会触发重新读取，千条记录扫描秒级完成。如果删除 `index.json`，下一次加载会自动全量重新扫描生成，绝不丢失任何数据。\n- **版本冲突保护**：保存时严格比对内容 Hash 与版本修订号（Revision），防止外部并发修改造成内容覆盖。\n\n---\n\n## Agent 工具契约（API）\n\nAI Agent 可通过 `project_wiki` 工具安全管理与检索当前项目的知识库：\n\n```json\n// 获取知识库快照\n{ \"action\": \"snapshot\" }\n\n// 保存或更新记录（修改标题将同步触发物理重命名）\n{\n  \"action\": \"save\",\n  \"workspacePath\": \"/path/to/project\",\n  \"title\": \"退款规则说明\",\n  \"category\": \"业务规范\",\n  \"kind\": \"document\",\n  \"status\": \"confirmed\",\n  \"content\": \"# 退款规则说明\\n\\n部分退款不能超过实付金额。\"\n}\n\n// 增量获取最近更新的上下文\n{\n  \"action\": \"context\",\n  \"workspacePath\": \"/path/to/project\",\n  \"since\": \"2026-11-01T00:00:00Z\"\n}\n```\n\n支持的操作（Actions）：\n`snapshot`, `init`, `read`, `save`, `import`, `search`, `context`, `export`, `move`, `delete`, `deleteCategory`, `reveal`, `openDefault`, `preferencesGet`, `preferencesSave`, `forget`, `reindex`。\n",
       "safetyNotes": "Operates strictly locally within the project .bone-project-wiki directory. No cloud account or external network calls required.",
       "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-11-04T13:22:25Z",
+          "changelog": "- 重要规则与业务知识保存为完整主题文档，记忆只保留短摘要、“何时读取”和稳定关联。\n- 文档改名、移动后仍可沿关联读取当前原文；修改正文后停止使用旧摘要，重新确认可更新原关联。\n- 草稿、归档、缺失、无法读取或标识冲突的文档会明确显示状态，避免把旧摘要当成当前规则。\n- 面板新增确认并关联入口，记忆页可读取当前原文；关联失败会保留文档并明确提示，允许重试。\n- 区分新请求识别与已存正文读取，避免因为正文包含“是否”等词而丢失整条记忆；加强上下文保存指令识别。\n- 旧记录按需获得稳定标识，不做破坏性批量迁移；保留现有权限范围与文件命名方式。\n- 文档身份核验不再依赖缓存筛选，明确的 `recordId` 读取避免文件名遮蔽；敏感标题不进入记忆上下文。\n- 摘要草稿在输入时保留，支持同项目刷新和正文自动保存；离开时提醒，跨项目不会复用草稿。\n- 按当前任务的相关性和适用路径选择已确认记忆，核心规则保留有限预算；较早的相关规则不再被最新 8 条限制排除。\n- 统一自动和手动上下文的选择逻辑，完整呈现短记忆，长规则及读取条件不再截断；预算不足只保留全文入口。\n- 候选草稿在确认前不进入上下文，面板可确认或停止使用；新增相对路径范围和普通/核心优先级设置。\n- 修复记忆页新建记录误用知识目录的问题，旧记录无新字段时保持当前项目范围、普通优先级。",
+          "minPiDesktop": "\u003e=0.4.22",
+          "shasum": "373325d746ef975b646c849a5ed52feb3fcd86dd2d9632ada56986ff39763b9f",
+          "url": "packages/bone.project-wiki-0.2.0.piplug",
+          "sizeBytes": 268589,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": false,
+              "scope": [
+                ".bone-project-wiki/memory/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".bone-project-wiki/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".bone-project-wiki/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-project-wiki",
+            "sourceRef": "144b62fbc4800fb57e9faad5b43cd5b6f14a1789",
+            "sourceCommit": "144b62fbc4800fb57e9faad5b43cd5b6f14a1789",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-04T13:22:25Z"
+          }
+        },
         {
           "version": "0.1.1",
           "publishedAt": "2026-11-03T15:43:12Z",
@@ -1225,14 +1272,10 @@
       "id": "eskwisit.llm-council",
       "name": "LLM Council",
       "description": "A council of five advisors (Contrarian, First Principles, Expansionist, Outsider, Executor), cast from your own models, answers your question, reviews the answers anonymously, and a chairman delivers the verdict.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "LLM 委员会",
-          "description": "由五位顾问（反对者、第一性原理思考者、扩张者、局外人、执行者）组成的委员会，从你自己的模型中选派，回答你的问题并匿名互评，最后由主席给出裁决。"
-        }
-      },
-      "categories": [],
+      "author": "Eskwisit",
+      "categories": [
+        "Orchestration"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "eskwisit",
