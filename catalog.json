@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-04T08:26:42Z",
-  "generatedAt": "2026-11-04T08:26:42Z",
+  "updatedAt": "2026-11-04T08:29:13Z",
+  "generatedAt": "2026-11-04T08:29:13Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -4279,7 +4279,7 @@
       "versions": [
         {
           "version": "0.2.1",
-          "publishedAt": "2026-11-04T08:26:42Z",
+          "publishedAt": "2026-11-04T08:29:13Z",
           "changelog": "## 0.2.1\n\n**修复**\n- 写回不再每轮覆盖整个会话文档。PI-Desktop 的 `getBranch()` 是空桩，且 `agent_end` 只给本次 run 的消息，旧实现因此每轮 `replace` 服务端文档，丢失前面各轮的记忆并反复触发 consolidation。现在插件按会话累积转录（镜像到 `~/.hindsight/pi-desktop-transcripts/`，仅所有者可读，30 天后清理），上游因此只 `append` 新增部分。\n\n**新增**\n- 面板新增「知识页刷新触发」`pageTriggerType` 与「知识页刷新计划」`pageTriggerCron`，并校验 cron。\n- 知识页刷新默认改为每天一次（`H H * * *`），上游默认是每小时。每次重建约 10 次 LLM 调用，实测每小时重建占一个 bank 约 73% 的 LLM 请求。配置文件里已写的值仍然优先；想要旧行为填 `H * * * *`。\n\n**升级提示**\n- 已有会话在升级后的第一次写回会用完整转录做一次 `replace`，之后才是 `append`。\n- 之前被覆盖的历史记忆不会自动恢复。",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "f2b27f456c801416d3e9f142ee3cc51d0c357d5e59e7c79a1e8e5c7a218641f9",
@@ -4320,15 +4320,9 @@
     },
     {
       "id": "local.igniter",
-      "name": "pi.igniter",
+      "name": "点灯人",
       "description": "按时点灯：每个 5 小时额度窗口一重置，就点亮下一个窗口。",
       "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "点灯人",
-          "description": ""
-        }
-      },
       "categories": [],
       "verified": false,
       "trust": "community",
