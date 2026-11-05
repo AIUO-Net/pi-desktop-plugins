@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T10:26:17Z",
-  "generatedAt": "2026-11-05T10:26:17Z",
+  "updatedAt": "2026-11-05T10:27:59Z",
+  "generatedAt": "2026-11-05T10:27:59Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1419,14 +1419,11 @@
       "id": "eskwisit.llm-superagent",
       "name": "LLM Superagent",
       "description": "An autonomous team for any LLM: your agent routes each request into a ticket and hands it to a worker sub-agent (code, research, analysis, review, docs) on the model from your list best suited to its type of task and requirements.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "LLM 超级智能体",
-          "description": "适用于任何大模型的自主团队：你的智能体把每个请求转为一张工单，交给一个工作子智能体（代码、调研、分析、审查、文档），并从你的模型列表中挑选最适合该任务类型和要求的模型来运行。"
-        }
-      },
-      "categories": [],
+      "author": "Eskwisit",
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "eskwisit",
@@ -1434,7 +1431,7 @@
       "versions": [
         {
           "version": "0.1.5",
-          "publishedAt": "2026-11-05T10:26:17Z",
+          "publishedAt": "2026-11-05T10:27:59Z",
           "changelog": "# Changelog\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "78711fe4a4085a5e0a5dc9414a1ee2e5c5ec4136319d2eba0f4fec6ab09a85e4",
