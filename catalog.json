@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-04T21:23:56Z",
-  "generatedAt": "2026-11-04T21:23:56Z",
+  "updatedAt": "2026-11-05T05:01:39Z",
+  "generatedAt": "2026-11-05T05:01:39Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -5651,6 +5651,45 @@
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-29T20:33:27Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "local.source-code-mgmt",
+      "name": "Source Code Mgmt",
+      "description": "",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "代码管理",
+          "description": "原dsh插件Source Code Mgmt，迁移改造pi desktop可使用，git管理工具，可识别本地仓库，推送/拉取，新建仓库"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.9.1",
+          "publishedAt": "2026-11-05T05:01:39Z",
+          "changelog": "原dsh插件Source Code Mgmt，迁移改造pi desktop可使用，git管理工具，可识别本地仓库，推送/拉取，新建仓库",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "586c7ac6f256b03891f806f4f77d47163296a0e717d8ef6aa7d678a8798819c3",
+          "url": "packages/local.source-code-mgmt-0.9.1.piplug",
+          "sizeBytes": 225004,
+          "permissions": [
+            "agent.tool.register",
+            "fs.read",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "userSelected"
+            }
+          },
+          "yanked": false
         }
       ]
     },
