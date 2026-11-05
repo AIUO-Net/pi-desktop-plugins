@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T16:47:09Z",
-  "generatedAt": "2026-11-05T16:47:09Z",
+  "updatedAt": "2026-11-05T17:36:18Z",
+  "generatedAt": "2026-11-05T17:36:18Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1518,6 +1518,44 @@
             "sourceCommit": "ae0d480e3fbf9eb556637c51a162738f4ab21699",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-11-05T10:26:17Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eskwisit.neural-radar",
+      "name": "Neural radar",
+      "description": "A live neural map of your PI-Desktop agents and their subagents, shown in the session's work panel.",
+      "author": "Eskwisit",
+      "categories": [
+        "productivity",
+        "themes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "eskwisit",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.24.1",
+          "publishedAt": "2026-11-05T17:36:18Z",
+          "changelog": "# Changelog\n\n## 0.24.1\n\n### Breaking changes\n\n- remove pre-fill in session and the composer.suggest permission (`beebe46`)\n\n### Fixes\n\n- **view:** show a lone agent as its own cluster, not merged into you (`be88191`)\n\n### Documentation\n\n- **readme:** remove pre-fill in session and composer.suggest (`007c1b9`)\n- **readme:** say a lone agent keeps its own cluster (`d664d3b`)\n- update the security review for the removed composer.suggest (`0565eaa`)\n\n### Tests\n\n- **tests:** replace the pre-fill tests with a check that prefill is refused (`94f7f73`)\n\n## 0.23.0\n\n### Features\n\n- **view:** always show every agent's tooltip (`225008d`)\n- **view:** remove the session's total tokens from the drawer (`b781001`)\n\n### Refactoring\n\n- **main:** drop model fields the view never reads (`3abf1ff`)\n- **view:** drop unused layouts, background canvas and dead code (`e72ae43`)\n- **main:** stop reading the token usage history (`4af5527`)\n\n### Documentation\n\n- **readme:** describe tooltips shown for every agent (`25ddfcc`)\n- **readme:** drop the total used tokens and usage history read (`a8016ec`)\n- drop the token usage history from the security review (`72b6e73`)\n- **manifest:** drop the token usage history from the safety notes (`91d175e`)\n\n### Tests\n\n- **tests:** read the autoOpen setting from the main process (`58e1490`)\n- **tests:** drop the session token total tests (`ceaff0e`)\n- **tests:** no longer allow the token usage history read (`f8bb5bc`)\n\n## 0.21.0\n\n### Features\n\n- **main:** describe agents by the latest prompt that names a topic (`375fd82`)\n- **main:** record a short target for each tool call (`eb0d041`)\n- **main:** estimate the tokens tool calls add to an agent's context (`e28afab`)\n- **view:** name each tool's target in the activity log (`26e540b`)\n- **view:** show current topic, live detail, tool context and age in tooltips (`871ab09`)\n- **view:** show the session's total tokens used in the drawer (`a605de4`)\n- **view:** drop the no-agents hint under you (`9479576`)\n- **view:** show only the status in your label when you work alone (`b48ac49`)\n\n### Fixes\n\n- **view:** keep the drawer title on one line (`8beba6a`)\n\n### Documentation\n\n- **readme:** replace the demo image with a webp showing every state (`8b3b70d`)\n\n### Tests\n\n- **tests:** cover topic prompts, tool targets and tool token estimates (`38cd628`)\n\n## 0.13.0\n\n### Features\n\n- **main:** count the tokens each subagent's transcript reports (`fb6de28`)\n- **view:** show each subagent's tokens as a lower bound (`128a4f4`)\n\n### Fixes\n\n- **main:** count session tokens from the usage history and the open turn (`0ecd64b`)\n\n### Documentation\n\n- **manifest:** mention the token usage history in the safety notes (`d2d44e7`)\n- list the token usage history read in the security review (`99d9d96`)\n- **readme:** describe session and subagent token counts (`965729c`)\n\n### Tests\n\n- **tests:** cover session tokens from the usage history (`5efb52f`)\n- **tests:** cover per-subagent token counts (`c06fb0b`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "e3d3470adbe32d8630dc32ba1a364a55e1927f88b4780264db0c375092971f5c",
+          "url": "packages/eskwisit.neural-radar-0.24.1.piplug",
+          "sizeBytes": 285370,
+          "permissions": [
+            "desktop.control",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.24.1",
+            "sourceCommit": "d83eecab123d01ec5cf1b2c7dba2f1689dc30fa2",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-05T17:36:18Z"
           }
         }
       ]
@@ -5235,7 +5273,7 @@
       "versions": [
         {
           "version": "0.3.107",
-          "publishedAt": "2026-11-05T16:47:09Z",
+          "publishedAt": "2026-11-05T16:49:04Z",
           "changelog": "本次更新新增侧栏分类与拖动排序，增强记忆检索，并集中优化消息交互、停止操作和界面细节。\n- 侧栏分类：新增“群组聊天”分类和自定义部门，Bot、群聊都能分类整理，支持数量显示、折叠、改名和删除；删除部门保留会话与聊天记录。\n- 拖动排序：支持拖动会话调整顺序、跨部门移动，分类、排序和折叠状态重启后保留，主机器人固定在顶部。\n- 快捷操作：会话行悬停显示三个点，直接打开操作菜单；右键新增“移至部门”，左上角加号可创建空部门，折叠部门中的会话仍可搜索。\n- 记忆检索：先查看简短索引，再按需读取具体内容；历史消息支持前后文回看，保留私密内容的访问限制。\n- 表情响应：添加、切换和移除表情即时反馈，保存不再阻塞界面；修复连续操作时表情跳回的问题，保存失败会恢复并提示重试。\n- 消息按钮：调整表情、回复、更多三个图标的大小与圆形悬停效果，保留菜单、引用和时间显示。\n- 状态与停止：修复执行状态重复显示，补齐私聊任务运行时的停止按钮，空输入框也能停止；点击后立即显示正在停止，保留草稿与已有回复。\n- 聊天顶栏：采用透明渐变，消息可滚到中间 Bot 按钮后方，边缘柔和淡出，适配明暗模式，保留窗口拖动、侧栏调整和聊天查找。\n- 滚动条：左侧滚动条默认隐藏，鼠标进入侧栏后显示细线，悬停滚动条或拖动时加粗；修复分隔线遮挡滚动条的问题。\n- 视觉细节：优化管理员卡片下方和列表底部的渐隐，加深群组聊天与部门标题，确保最后一条会话可完整显示。\n- 其他修复：修复密钥用途保存按钮文字折行、错位，改善分类与表情保存失败时的恢复体验。\n更新后请重载 PI Bot 插件或重启 PI Desktop。",
           "minPiDesktop": "\u003e=0.18.0",
           "shasum": "34ac5f0c6d808c36fb5bafd720a73dd6c49ece2f818b17dc18032c4e71277b4a",
