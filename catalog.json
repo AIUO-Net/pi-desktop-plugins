@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T10:10:56Z",
-  "generatedAt": "2026-11-05T10:10:56Z",
+  "updatedAt": "2026-11-05T10:26:17Z",
+  "generatedAt": "2026-11-05T10:26:17Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1411,6 +1411,63 @@
             "sourceCommit": "7e64868a1531bc46bdfbf00e484962eb9cfdb5de",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-11-04T11:09:05Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eskwisit.llm-superagent",
+      "name": "LLM Superagent",
+      "description": "An autonomous team for any LLM: your agent routes each request into a ticket and hands it to a worker sub-agent (code, research, analysis, review, docs) on the model from your list best suited to its type of task and requirements.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "LLM 超级智能体",
+          "description": "适用于任何大模型的自主团队：你的智能体把每个请求转为一张工单，交给一个工作子智能体（代码、调研、分析、审查、文档），并从你的模型列表中挑选最适合该任务类型和要求的模型来运行。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "eskwisit",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.5",
+          "publishedAt": "2026-11-05T10:26:17Z",
+          "changelog": "# Changelog\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "78711fe4a4085a5e0a5dc9414a1ee2e5c5ec4136319d2eba0f4fec6ab09a85e4",
+          "url": "packages/eskwisit.llm-superagent-0.1.5.piplug",
+          "sizeBytes": 254238,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.1.5",
+            "sourceCommit": "ae0d480e3fbf9eb556637c51a162738f4ab21699",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-05T10:26:17Z"
           }
         }
       ]
@@ -4600,7 +4657,7 @@
       "versions": [
         {
           "version": "0.2.2",
-          "publishedAt": "2026-11-05T10:10:56Z",
+          "publishedAt": "2026-11-05T10:12:37Z",
           "changelog": "## 0.2.2\n\n**新增**\n- 新增「统计」页：按周期查看 Hindsight 服务端的 LLM 调用量与 token，并支持按模型拆分。\n- 按模型的费用估算：价格目录取自 PI-Desktop 自带的 models.dev，也可以在面板里手填并保存，估算结果仅供参考。\n- 按模型的用量在本地增量缓存（只存按模型、按小时的 token 数，不存 prompt 和回答文本），再次打开不必重新拉取全部调用明细。\n\n**调整**\n- 诊断页精简。\n- 诊断页文档类型提示里的占位符不再使用尖括号。\n\n**说明**\n- 新增两个本地文件，都在 `~/.hindsight/` 下：`pi-desktop-llm-usage.json`（用量缓存）和 `pi-desktop-prices.json`（你填写的价格）。\n- 统计页需要 Hindsight 服务端支持 `/llm-requests/stats`；旧版本服务端会给出升级提示。",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "5a8a85e92f4501c6e701a7062ad856815b2945e818dbb02336bb53fc42eeef3f",
