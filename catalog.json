@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T11:02:36Z",
-  "generatedAt": "2026-11-05T11:02:36Z",
+  "updatedAt": "2026-11-05T11:04:25Z",
+  "generatedAt": "2026-11-05T11:04:25Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -235,15 +235,9 @@
     },
     {
       "id": "bone.aimedia.services",
-      "name": "Bone AI Media Services",
+      "name": "AI媒体生成服务",
       "description": "Generate PNG images from configured GPT image models in Agent conversations. Manage encrypted provider credentials and browse local generation records with previews and downloads. Credential persistence currently supports macOS.",
       "author": "taokoplay",
-      "i18n": {
-        "zh-CN": {
-          "name": "AI 媒体服务",
-          "description": "通过 Agent 对话调用已配置的 GPT 图片模型生成 PNG，集中管理加密服务配置、生成记录、图片预览与下载。凭据持久化当前支持 macOS；视频、音频和 ComfyUI 生成尚未接入。"
-        }
-      },
       "categories": [
         "ai",
         "media"
@@ -258,7 +252,7 @@
       "versions": [
         {
           "version": "0.4.3",
-          "publishedAt": "2026-11-05T11:02:36Z",
+          "publishedAt": "2026-11-05T11:04:25Z",
           "changelog": "首次公开发布 0.4.3。\n\n- 支持已配置 GPT 图片模型的 Agent 文生图、持久化任务与原图导出。\n- 凭据使用 AES-256-GCM 与 macOS 钥匙串保存。\n- 统一生成记录，支持生成中、已完成、已失败筛选；渠道在上、模型在下。\n- 详情弹窗支持图片预览和下载，未知结果保留待核对状态，不自动重试。\n\n250 项 Node 测试、7 项记录页浏览器测试通过。凭据持久化当前支持 macOS；图生图、视频/音频执行与 ComfyUI 生成暂未实现。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "ec804406d9e8dcc438ace9e071f35a002891aa3c51e645978ce38281433782ff",
