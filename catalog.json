@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T06:37:36Z",
-  "generatedAt": "2026-11-05T06:37:36Z",
+  "updatedAt": "2026-11-05T07:05:40Z",
+  "generatedAt": "2026-11-05T07:05:40Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.2.1",
-          "publishedAt": "2026-11-05T06:37:36Z",
+          "publishedAt": "2026-11-05T06:39:14Z",
           "changelog": "- Markdown 文档默认以美化后的只读视图打开，支持切换源码编辑并自动保存；新建记录直接进入编辑模式。\n- 完整显示标题、粗体、斜体、嵌套列表、引用、表格、代码块与任务列表，适配亮暗主题和窄窗口。\n- 返回只读前等待最新修改保存，保留保存期间的新输入、失败草稿与版本冲突保护；关联记忆摘要继续保持只读。\n- HTML/HTM 文件及已有 HTML 附件可直接在面板内预览，按需加载目录内的样式、普通脚本和图片。\n- 修复网页交互后切回文件树丢失选择的问题；资源缺失、读取失败或超出上限时提供明确提示。\n- Markdown 完全离线渲染，源 HTML 与危险链接保持不可执行；沿用原有 HTML 沙箱、数据格式与权限范围。",
           "minPiDesktop": "\u003e=0.4.22",
           "shasum": "0482fb6d20a485c663f7e1cfb298af256498909a0d2cac948399b045012fc937",
@@ -1382,6 +1382,43 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.6.0",
+          "publishedAt": "2026-11-05T07:05:40Z",
+          "changelog": "# Changelog\n\n## 0.6.0\n\n### Features\n\n- triage every failure, learn a rule from it and report what was learned (`44550ff`)\n\n### Documentation\n\n- **readme:** show failure triage and per-run lessons in the flow (`2d6c685`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "dca94a69e46b567888f6385fe5213a643902c2f4ecfa37aedc8753c2e6b17f91",
+          "url": "packages/eskwisit.test-warden-0.6.0.piplug",
+          "sizeBytes": 215870,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".test-warden/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-test-warden",
+            "sourceRef": "v0.6.0",
+            "sourceCommit": "2b921b756af9738a89ea1258558e6e8dabaf5fe6",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-05T07:05:40Z"
+          }
+        },
         {
           "version": "0.5.0",
           "publishedAt": "2026-11-04T21:23:56Z",
