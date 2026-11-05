@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T11:20:54Z",
-  "generatedAt": "2026-11-05T11:20:54Z",
+  "updatedAt": "2026-11-05T16:47:09Z",
+  "generatedAt": "2026-11-05T16:47:09Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -5233,6 +5233,40 @@
       "readmeMarkdown": "# PI Bot\r\n\r\nPI Bot 是面向 PI Desktop 的 AI Bot 团队协作插件，基于 DeepSeek-Bot 学习、迁移并持续适配。\r\n\r\n## 主要功能\r\n\r\n- 创建多个 Bot，分别配置角色、模型与能力。\r\n- 支持私聊和群聊，由管理员协调成员协作完成任务。\r\n- 支持记忆管理、历史检索与技能导入，可批量分配技能。\r\n- 提供语音输入、语音对话及应用连接功能。\r\n- 支持明暗主题，并提供 GitHub 新版本提醒。\r\n\r\n## 开始使用\r\n\r\n1. 安装插件，按需授权并重启 PI Desktop。\r\n2. 在 PI Desktop 中配置可用的模型。\r\n3. 打开 PI Bot，创建 Bot 或群聊。\r\n4. 语音及第三方应用连接需另行配置对应服务。\r\n\r\n模型及第三方服务可能产生费用，以所选服务商的计费规则为准。\r\n\r\n## 旧版升级提醒\r\n\r\n从 0.3.80 或更早版本升级时，请先停用旧版 PI Bot，暂不要卸载，再安装新版并重启。\r\n\r\n新版插件标识为 local.pi-bot，首次启动会自动迁移旧数据。请等待迁移完成，勿同时启用新旧两个插件。\r\n\r\n## 开源与致谢\r\n\r\n本项目是独立维护的 PI Desktop 适配项目，基于 DeepSeek-Bot，保留上游来源说明与许可声明，使用 Apache-2.0 许可证。\r\n\r\n项目主页：https://github.com/vsd269/PI-Bot\r\n问题反馈：https://github.com/vsd269/PI-Bot/issues\r\n上游项目：https://github.com/Fei2411/DeepSeek-Bot",
       "safetyNotes": "本插件通过 PI Desktop 接口调用模型、工具和本地资源。根据启用的功能及授权范围，可能读取或写入工作区文件、执行工具、访问网络，以及使用麦克风。\r\n\r\n聊天内容及相关文件可能发送至用户配置的模型或第三方服务；语音功能可能向所选服务商发送音频。请自行确认相关服务的数据政策，避免提交敏感信息。\r\n\r\nBot、聊天记录及配置保存在本地；Windows 下的密钥使用当前用户身份加密保存。安装包不包含开发者的个人聊天、账号或密钥。请仅导入可信技能，并按需授予工具和应用权限。",
       "versions": [
+        {
+          "version": "0.3.107",
+          "publishedAt": "2026-11-05T16:47:09Z",
+          "changelog": "本次更新新增侧栏分类与拖动排序，增强记忆检索，并集中优化消息交互、停止操作和界面细节。\n- 侧栏分类：新增“群组聊天”分类和自定义部门，Bot、群聊都能分类整理，支持数量显示、折叠、改名和删除；删除部门保留会话与聊天记录。\n- 拖动排序：支持拖动会话调整顺序、跨部门移动，分类、排序和折叠状态重启后保留，主机器人固定在顶部。\n- 快捷操作：会话行悬停显示三个点，直接打开操作菜单；右键新增“移至部门”，左上角加号可创建空部门，折叠部门中的会话仍可搜索。\n- 记忆检索：先查看简短索引，再按需读取具体内容；历史消息支持前后文回看，保留私密内容的访问限制。\n- 表情响应：添加、切换和移除表情即时反馈，保存不再阻塞界面；修复连续操作时表情跳回的问题，保存失败会恢复并提示重试。\n- 消息按钮：调整表情、回复、更多三个图标的大小与圆形悬停效果，保留菜单、引用和时间显示。\n- 状态与停止：修复执行状态重复显示，补齐私聊任务运行时的停止按钮，空输入框也能停止；点击后立即显示正在停止，保留草稿与已有回复。\n- 聊天顶栏：采用透明渐变，消息可滚到中间 Bot 按钮后方，边缘柔和淡出，适配明暗模式，保留窗口拖动、侧栏调整和聊天查找。\n- 滚动条：左侧滚动条默认隐藏，鼠标进入侧栏后显示细线，悬停滚动条或拖动时加粗；修复分隔线遮挡滚动条的问题。\n- 视觉细节：优化管理员卡片下方和列表底部的渐隐，加深群组聊天与部门标题，确保最后一条会话可完整显示。\n- 其他修复：修复密钥用途保存按钮文字折行、错位，改善分类与表情保存失败时的恢复体验。\n更新后请重载 PI Bot 插件或重启 PI Desktop。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "34ac5f0c6d808c36fb5bafd720a73dd6c49ece2f818b17dc18032c4e71277b4a",
+          "url": "packages/local.pi-bot-0.3.107.piplug",
+          "sizeBytes": 8845998,
+          "permissions": [
+            "agent.complete",
+            "agent.tool.register",
+            "background.service",
+            "desktop.control",
+            "fs.read",
+            "mcp.server.local",
+            "models.list",
+            "net.fetch",
+            "renderer.extension",
+            "ui.microphone",
+            "ui.panel",
+            "ui.theme",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vsd269/PI-Bot",
+            "sourceRef": "v0.3.107",
+            "sourceCommit": "06bf2adb5517cd814cce2cbba632349e253ad452",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-05T16:47:09Z"
+          }
+        },
         {
           "version": "0.3.101",
           "publishedAt": "2026-11-04T18:38:29Z",
