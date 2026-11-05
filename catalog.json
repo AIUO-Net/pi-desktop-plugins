@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T09:09:34Z",
-  "generatedAt": "2026-11-05T09:09:34Z",
+  "updatedAt": "2026-11-05T10:10:56Z",
+  "generatedAt": "2026-11-05T10:10:56Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.2.2",
-          "publishedAt": "2026-11-05T09:09:34Z",
+          "publishedAt": "2026-11-05T09:11:23Z",
           "changelog": "- HTML、已有 HTML 附件和原型撑满右侧内容区域，去掉重复标题、外层卡片留白、边框和圆角，随窗口调整宽高。\n- 长网页在页面内部滚动，文件打开、文件定位和预览说明收进浮动菜单，资源缺失与读取失败仍明确提示。\n- 修复首次打开知识库时需要点击两次才能选择文件的问题，窗口激活改为后台同步，不再重建并删除正在点击的文件节点。\n- 保留当前选择、编辑内容和未完成的记忆摘要；刷新晚返回时，不会覆盖新的输入、导航或其他项目状态。\n- 保留外部文件同步、Markdown 读写、原有沙箱、数据格式和权限范围。",
           "minPiDesktop": "\u003e=0.4.22",
           "shasum": "b15a8ed9e8d8715fa276c75d5faeb9fcb34580b8b9a8bb4424bf4ba2ff2ab240",
@@ -4598,6 +4598,29 @@
       "publisherId": "local",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.2.2",
+          "publishedAt": "2026-11-05T10:10:56Z",
+          "changelog": "## 0.2.2\n\n**新增**\n- 新增「统计」页：按周期查看 Hindsight 服务端的 LLM 调用量与 token，并支持按模型拆分。\n- 按模型的费用估算：价格目录取自 PI-Desktop 自带的 models.dev，也可以在面板里手填并保存，估算结果仅供参考。\n- 按模型的用量在本地增量缓存（只存按模型、按小时的 token 数，不存 prompt 和回答文本），再次打开不必重新拉取全部调用明细。\n\n**调整**\n- 诊断页精简。\n- 诊断页文档类型提示里的占位符不再使用尖括号。\n\n**说明**\n- 新增两个本地文件，都在 `~/.hindsight/` 下：`pi-desktop-llm-usage.json`（用量缓存）和 `pi-desktop-prices.json`（你填写的价格）。\n- 统计页需要 Hindsight 服务端支持 `/llm-requests/stats`；旧版本服务端会给出升级提示。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "5a8a85e92f4501c6e701a7062ad856815b2945e818dbb02336bb53fc42eeef3f",
+          "url": "packages/local.hindsight.memory-0.2.2.piplug",
+          "sizeBytes": 2409285,
+          "permissions": [
+            "agent.extension",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/zwwangoo/pi-hindsight-memory",
+            "sourceRef": "v0.2.2",
+            "sourceCommit": "b1b0c27031c1fe811b48faf399c512ade010fa08",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-05T10:10:56Z"
+          }
+        },
         {
           "version": "0.2.1",
           "publishedAt": "2026-11-04T08:29:13Z",
