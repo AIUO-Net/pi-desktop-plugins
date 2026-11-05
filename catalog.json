@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-05T11:04:25Z",
-  "generatedAt": "2026-11-05T11:04:25Z",
+  "updatedAt": "2026-11-05T11:19:10Z",
+  "generatedAt": "2026-11-05T11:19:10Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1645,6 +1645,62 @@
             "sourceCommit": "ffb98132de7b6112f1a69f93b751ae7fbc4dbac8",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-11-04T20:33:13Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eskwisit.world-model-hjepa",
+      "name": "World Model (H-JEPA)",
+      "description": "A hierarchical JEPA world model for agents and sub-agents: it learns in latent space what actions and intents do, imagines candidate plans and delegations before you commit, and flags surprising results so the agent replans. Also installs and runs the official H-JEPA world models from Hugging Face, on this computer's GPU or a remote NVIDIA GPU.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "世界模型（H-JEPA）",
+          "description": "面向智能体与子智能体的分层 JEPA 世界模型：在潜在空间中学习动作与意图的效果，在你做出决定前预演候选计划与子智能体分派，并在结果出乎意料时提示智能体重新规划。还可安装并运行 Hugging Face 上官方的 H-JEPA 世界模型，可在本机 GPU 或远程 NVIDIA GPU 上运行。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "eskwisit",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.10.1",
+          "publishedAt": "2026-11-05T11:19:10Z",
+          "changelog": "# Changelog\n\n## 0.10.1\n\n### Fixes\n\n- **main:** pass the store audit by loading the model library statically (`155abb9`)\n\n## 0.10.0\n\n### Features\n\n- **lib:** add a hierarchical jepa world model in plain javascript (`885d0fe`)\n- **subagents:** add a read-only scout that probes before planning (`1262d99`)\n- **scripts:** install the official h-jepa release at pinned versions (`506e0d9`)\n- **scripts:** run h-jepa evaluations on an apple gpu or the cpu (`877ba9e`)\n- **scripts:** run h-jepa evaluations locally or on a remote nvidia gpu (`652acbe`)\n- **main:** register the world model and h-jepa agent tools (`9985691`)\n- **skills:** plan, observe and train with the world model (`960609b`)\n- **skills:** install and run h-jepa world models from the settings (`864c051`)\n- **manifest:** declare tools, skills, settings and workspace file scope (`0506aa1`)\n\n### Documentation\n\n- **readme:** document the world model, h-jepa runs, settings and tests (`d214633`)\n\n### Tests\n\n- **tests:** add shared test helpers with a fake host (`4ef3e95`)\n- **tests:** add the node test entry point (`1d28fd0`)\n- **tests:** cover the h-jepa model math and learning (`82b631b`)\n- **tests:** cover the world model tools (`b44ac87`)\n- **tests:** cover plugin load, unload and the scout sub-agent (`c096ca6`)\n- **tests:** cover the h-jepa installer, plan and status (`c5b3641`)\n- **tests:** cover h-jepa runs locally and over ssh (`32e6e0f`)\n\n### CI\n\n- print the changelog section of a version (`426e190`)\n- publish a github release when the manifest version changes (`4d684df`)\n\n### Chores\n\n- ignore build output, workspace data and python caches (`888c532`)\n- add the apache 2.0 license (`3a4209a`)\n- add the changelog for 0.1.0 (`59ae0e7`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "75ded8b895f640d0ba67666147fe06e9ba85a775ecedd15b9c925955d2b0cb11",
+          "url": "packages/eskwisit.world-model-hjepa-0.10.1.piplug",
+          "sizeBytes": 211838,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".world-model/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".world-model/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-world-model-hjepa",
+            "sourceRef": "v0.10.1",
+            "sourceCommit": "0ff92b753acd0d19f3415c1d6a0afa5ca22b9cb1",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-05T11:19:10Z"
           }
         }
       ]
