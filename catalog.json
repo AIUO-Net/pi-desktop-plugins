@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-06T10:27:37Z",
-  "generatedAt": "2026-11-06T10:27:37Z",
+  "updatedAt": "2026-11-06T10:44:39Z",
+  "generatedAt": "2026-11-06T10:44:39Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1240,6 +1240,47 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-17T08:09:42Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "com.dragonnahs.session-usage-toolbar",
+      "name": "Session Usage Toolbar",
+      "description": "在 PI-Desktop 输入框工具栏放一个用量图标，点开即看当前会话的 Token 消耗。",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "",
+          "description": "在 PI-Desktop 输入框工具栏放一个用量图标，点开即看当前会话的 Token 消耗。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "dragonnahs",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-11-06T10:44:39Z",
+          "changelog": "- **分类统计**：输入 / 缓存命中 / 缓存创建 / 输出 / 思考\n- **总览**：总消耗与缓存命中率环形进度\n- **趋势与模型**：最近 12 次回复的趋势图、按模型分布\n- **回复明细**：独立滚动，每行显示该次请求的分类消耗\n- **跟随会话**：只统计宿主已完成的回合，不读取消息正文",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "c4da8d3b5ebba2ffc87b41c57d06db9ab6b0c0917fbceac6dcc57ff2ca64d736",
+          "url": "packages/com.dragonnahs.session-usage-toolbar-0.3.0.piplug",
+          "sizeBytes": 28477,
+          "permissions": [
+            "renderer.extension",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/dragonnahs/session-usage-toolbar",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "994be4968d597ab1ecb7f261ce109eaeea96fcf8",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-06T10:44:39Z"
           }
         }
       ]
