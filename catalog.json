@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-06T15:35:32Z",
-  "generatedAt": "2026-11-06T15:35:32Z",
+  "updatedAt": "2026-11-06T18:44:01Z",
+  "generatedAt": "2026-11-06T18:44:01Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1720,6 +1720,47 @@
       ]
     },
     {
+      "id": "eskwisit.code-compass",
+      "name": "Code Compass",
+      "description": "The agent reads code as code: structural search and rewrite with ast-grep, and go-to-definition, references, hover, symbols and diagnostics from the language server picked by the file extension, instead of grepping text.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "代码罗盘",
+          "description": "让智能体把代码当作代码来读：用 ast-grep 做结构化搜索与改写，并按文件扩展名选择语言服务器，提供跳转定义、查找引用、悬停信息、符号与诊断，而不是用 grep 搜索文本。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "eskwisit",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.3.2",
+          "publishedAt": "2026-11-06T18:44:01Z",
+          "changelog": "# Changelog\n\n## 0.3.2\n\n### Fixes\n\n- **extension:** share one typescript server across all tsconfigs (`b5cfa50`)\n- **extension:** find references in every tsconfig project of a monorepo (`50e144b`)\n\n### Documentation\n\n- **readme:** show what code compass adds, with measured size and speed (`3a8c1b0`)\n\n### Tests\n\n- cover the outermost workspace root and the files that hold a name (`138bf10`)\n- find references across tsconfig projects with one server (`48e4a89`)\n\n## 0.3.0\n\n### Features\n\n- **extension:** read code with ast-grep and language servers, not grep (`87a058b`)\n- **skills:** add the code compass skill for patterns, rules and lsp traces (`52e77d1`)\n- **manifest:** declare the agent extension, skill and permissions (`f4f3b67`)\n\n### Documentation\n\n- **readme:** describe the tools, platforms, requirements and settings (`230fd02`)\n\n### Tests\n\n- cover language inference, launching, the lsp wire and grep steering (`38af3ea`)\n- run the tools end to end with ast-grep, clangd and typescript (`d6322d5`)\n- cover the manifest texts, license and contributed files (`e0e575c`)\n- add a test entry point for node --test tests/ (`ef66cc0`)\n\n### CI\n\n- add the changelog notes script (`0eb3015`)\n- publish a release when the manifest version changes (`56d2433`)\n- run the tests on linux, macos and windows (`1d48716`)\n\n### Chores\n\n- ignore build output and piplug files (`6183ab7`)\n- license the plugin under apache-2.0 (`d6ac71a`)\n- **manifest:** start the version at 0.0.0 for the first release (`09e278c`)\n\n### Style\n\n- **manifest:** write the short arrays on one line (`a7c38b0`)",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "757916dd8c1a0b706b64ad38388cdad7255f438db873cab11c47e4cb2933e15e",
+          "url": "packages/eskwisit.code-compass-0.3.2.piplug",
+          "sizeBytes": 137996,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-code-compass",
+            "sourceRef": "v0.3.2",
+            "sourceCommit": "bac251562d7512386af02c9587a5b07385836188",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-06T18:44:01Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "eskwisit.llm-council",
       "name": "LLM Council",
       "description": "A council of five advisors (Contrarian, First Principles, Expansionist, Outsider, Executor), cast from your own models, answers your question, reviews the answers anonymously, and a chairman delivers the verdict.",
@@ -2620,7 +2661,7 @@
       "versions": [
         {
           "version": "1.2.3",
-          "publishedAt": "2026-11-06T15:35:32Z",
+          "publishedAt": "2026-11-06T15:37:28Z",
           "changelog": "- WorkBuddy：支持字符串形式的加密登录字段；登录不可读时保留原账号，不再复制同账号的旧快照。\n- 账号并发：登录、续期、删除与归档写入串行执行，避免旧扫描或另一个实例覆盖新登录。\n- 安全：WorkBuddy 安装检测只接受固定本地卷上的签名文件；子进程清理不可信环境；错误与日志不保留上游回显的凭据。\n- 安全：上游以数组形式回显的敏感请求头整体脱敏，数组元素含 `]`、嵌套数组或响应被截断时也不再泄漏剩余凭据。\n- 恢复：设置读取按顺序应用；插件停止或重载时取消旧扫描，网关重启等待旧端口释放并登记实际监听地址。\n- 存储：Windows 短暂占用凭证文件时重试原子替换，避免续期结果写入失败。\n- 流式输出：含工具调用的回合即使上游返回 `stop`，也按 `tool_calls` 完成。\n- 换号：Trae、Qoder 返回 200 而响应体为空时，改用下一个登录。\n- 换号：登录失效、余额耗尽、限流与空回合改用下一个登录；上游 5xx 按原状态返回。\n- Trae：登录失效帧只有一句说明、没有错误码时，按已知措辞识别为登录失效并换号；其余措辞按上游故障返回 502。\n- 签到：Qoder 两个站点的活动列表与领取走各自的接口（`openapi.qoder.sh` 与 `openapi.qoder.com.cn`），面板与自动签到按上游返回的活动进行。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "177153d07e1853433c8c03dfadd1a56350bf9b1906c2a3c36c30523e36f6ce26",
