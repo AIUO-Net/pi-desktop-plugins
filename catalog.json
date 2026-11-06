@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-06T05:38:32Z",
-  "generatedAt": "2026-11-06T05:38:32Z",
+  "updatedAt": "2026-11-06T08:06:10Z",
+  "generatedAt": "2026-11-06T08:06:10Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1298,6 +1298,49 @@
             "sourceCommit": "a815de103f3f28f6bbdbe4824753ad761d393284",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-20T07:46:35Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "community.cloudflare-workers-ai",
+      "name": "Cloudflare Workers AI",
+      "description": "Connect PI-Desktop to Cloudflare Workers AI through a local OpenAI-compatible Chat Completions bridge. Includes dynamic model discovery, streaming, and tool-call forwarding.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Cloudflare Workers AI 接入",
+          "description": "通过本机 OpenAI 兼容桥接，在 PI-Desktop 中使用 Cloudflare Workers AI；支持动态模型目录、流式输出和工具调用转发。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "community",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.2",
+          "publishedAt": "2026-11-06T08:06:10Z",
+          "changelog": "首次公开版本：提供本机 OpenAI 兼容桥接；支持动态文本模型目录、Free 计划 Paid-only 模型过滤、模型目录 UUID 映射、流式响应和工具调用转发。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "2b03c05c592e3729de9d68e04cc0ab24e347c6ffff3bc8dec7678a5666ba688b",
+          "url": "packages/community.cloudflare-workers-ai-0.1.2.piplug",
+          "sizeBytes": 45139,
+          "permissions": [
+            "background.service",
+            "clipboard.write",
+            "net.fetch",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/wxaef/cloudflare-workers-ai-pi-desktop",
+            "sourceRef": "v0.1.2",
+            "sourceCommit": "578226eb96d6d2ac1e032a73d3064268e09ce9fc",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-06T08:06:10Z"
           }
         }
       ]
