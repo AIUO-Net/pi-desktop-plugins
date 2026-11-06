@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-06T05:36:42Z",
-  "generatedAt": "2026-11-06T05:36:42Z",
+  "updatedAt": "2026-11-06T05:38:32Z",
+  "generatedAt": "2026-11-06T05:38:32Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -304,7 +304,7 @@
       "versions": [
         {
           "version": "0.3.4",
-          "publishedAt": "2026-11-06T05:36:42Z",
+          "publishedAt": "2026-11-06T05:38:32Z",
           "changelog": "- 修复 XLSX 拖入、导入和内嵌展示，支持离线只读预览、工作表切换、分页、中文、合并、前导零与基本数字/日期格式；公式仅显示保存结果，不执行或重算，原文件保留。\n- 搜索在单次请求内集中核验关联来源，跳过不需要的媒体/HTML 预览；保持来源新鲜度、评分、摘录、排序及结果上限。工作簿复用有界数字格式器，保持显示值。\n- 保存和完整刷新共用一次串行操作，减少重复正文读取；未变化的派生索引不重复写入。最终修订、目标冲突及写后回读仍核验实际字节，不跨请求缓存事实。\n- 自动保存保留编辑器、选区、焦点、滚动和关联摘要草稿；改名后的菜单使用当前路径与修订，鼠标按住期间保留点击目标。修复外部新增文件被搜索发现后无法点击的问题。\n- 立即取消过期的面板搜索，移除旧排队工作并在读取检查点退出；写入保持原有顺序，客户端、项目及工具检索相互隔离。\n- 保存已完成而刷新失败时保留真实修订号，提示部分成功，后续输入可安全重试；兼容旧能力声明和公共工具结果。\n- 保留版本 1 记录、现有资料、权限、记忆预算和 HTML 沙箱。包含此前仅本地验收的 0.3.2/0.3.3 改动，无数据迁移；232 项自动化测试及真实面板、扩展和隔离升级验收通过。",
           "minPiDesktop": "\u003e=0.4.22",
           "shasum": "5f154e5d5b402bef8cc3cb74947422b7a33640256d58b247cba41b8b7cb373b6",
@@ -590,7 +590,7 @@
       "id": "bone.token.statistics",
       "name": "Token用量统计",
       "description": "跨项目、模型和会话查看 PI-Desktop 的 Token 用量，支持每日趋势、活动热力图、CSV 导出及自定义单价成本估算。只读取已完成轮次计数和项目元数据，不读取对话正文。",
-      "author": "Taokoplay",
+      "author": "taokoplay",
       "categories": [
         "developer-tools",
         "productivity"
