@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-06T10:24:56Z",
-  "generatedAt": "2026-11-06T10:24:56Z",
+  "updatedAt": "2026-11-06T10:27:37Z",
+  "generatedAt": "2026-11-06T10:27:37Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -251,6 +251,46 @@
       "safetyNotes": "服务凭据在本机使用 AES-256-GCM 加密，主密钥保存在 macOS 钥匙串；通过系统 security 命令访问钥匙串，不执行用户提供的 shell。供应商目录查询与生成请求通过宿主网络权限访问用户配置的 HTTP/HTTPS 地址。生成可能收费，未知结果不自动重试。工作区写权限仅用于 bone-media/exports/** 中的图片交接文件，最终 PNG 由 Agent 获准的执行工具解码。配置和旧记录页为插件级共享；新 Agent 任务查询按会话隔离。",
       "versions": [
         {
+          "version": "0.5.1",
+          "publishedAt": "2026-11-06T10:27:37Z",
+          "changelog": "# AI Media Services 0.5.1\n\nCorrect the first marketplace 0.5.0 upload, whose MCP transport changed non-ASCII source text. This release preserves UTF-8 source bytes, including Chinese UI labels and Agent tool descriptions. The original GitHub 0.5.0 package was unaffected.\n\nIncludes the complete MiniMax speech workflow introduced in 0.5.0: explicit voice selection, Agent speech generation, durable audio jobs, unified image/audio records, modal playback/download and original MP3 export. Generation behavior, credentials, stored records and permission scopes are unchanged. Environmental sound effects such as footsteps are still not implemented.\n\nUse 0.5.1 for marketplace installation. If an old plugin view stays visible after upgrade, save edits and wait for active generation to finish, then disable and re-enable the plugin.\n\nValidation includes 281 Node tests, byte-for-byte MCP transport round-trip checks, and final marketplace package comparison against tagged source. No real supplier generation or client update is part of publication.",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "110acc074cbdb08bd6e607e0fc0ec68ccf84a9f86140a01f09da944a66b420c3",
+          "url": "packages/bone.aimedia.services-0.5.1.piplug",
+          "sizeBytes": 773608,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "net.anyHost",
+            "net.fetch",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "bone-media/exports/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                "bone-media/exports/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-aimedia-services",
+            "sourceRef": "v0.5.1",
+            "sourceCommit": "ad03e75f4a1e8e3f5e98e8bdec88280fe38e5419",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-06T10:27:37Z"
+          }
+        },
+        {
           "version": "0.5.0",
           "publishedAt": "2026-11-06T10:10:10Z",
           "changelog": "# AI Media Services 0.5.0\n\nAdd a complete MiniMax text-to-speech workflow without requiring a PI-Desktop client update.\n\n- Generate MP3 speech from explicitly selected models, voice IDs and spoken text.\n- Add Agent voice discovery, speech generation, session-scoped task queries and original audio export.\n- Show image and speech jobs in one generation-record list with status filters, channel above model, and local state refresh.\n- Open audio details in a modal with playback, download, duration, sample rate and channel metadata.\n- Share durable claims, concurrency and export validation while preserving existing image records and interfaces.\n\nThis release supports speech, not environmental sound effects such as footsteps. Music, image editing, video and ComfyUI execution remain unavailable. Credential persistence currently supports macOS. No live MiniMax generation was used for development validation.\n\nValidation: 281 Node tests and 70 browser tests passed during implementation. Release-candidate speech and records user paths are rechecked against the committed source. Existing host permission scopes are unchanged.\n\nIf PI-Desktop 0.21.0 retains an old plugin page after upgrade, save edits and wait for active generation to finish, then disable and re-enable this plugin to rebuild its cached view.\n\nPackage: `bone.aimedia.services-0.5.0.piplug` (772521 bytes).\nSHA-256: `0892e99247612629f498b461edd68721c4d3bb572e904f2d4eb39d5daa2b6011`.",
@@ -344,7 +384,7 @@
       "versions": [
         {
           "version": "0.3.5",
-          "publishedAt": "2026-11-06T10:24:56Z",
+          "publishedAt": "2026-11-06T10:26:40Z",
           "changelog": "- 修复 0.3.4 中知识库首次快照因空或旧 workspacePath 误报 WORKSPACE_CHANGED、阻止初始化和保存的问题。\n- 恢复快照从实际宿主发现当前项目；调用参数中的路径提示不再提前绑定，实际 I/O 期间切换项目仍会拒绝旧结果。\n- 初始化、保存、读取、搜索和私有面板通道继续严格核对项目路径，保留修订冲突、写后回读、记忆字段校验及原权限，不迁移或删除原数据。\n- 新增 6 项回归，包含注册工具的发现→初始化→保存→回读、初始化前后空/旧参数、排队恢复、项目变化和卸载；完整 238 项测试、实际面板保存及隔离升级检查通过。",
           "minPiDesktop": "\u003e=0.4.22",
           "shasum": "6c68ebaeb85fdd719f94ac651873a509acf7b892d047f31884cdc66aec996de4",
