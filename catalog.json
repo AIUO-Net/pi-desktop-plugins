@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T13:50:27Z",
-  "generatedAt": "2026-11-07T13:50:27Z",
+  "updatedAt": "2026-11-07T14:14:33Z",
+  "generatedAt": "2026-11-07T14:14:33Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -382,6 +382,53 @@
       "readmeMarkdown": "# 项目知识库（BoneProjectWiki）\n\n适用于 PI-Desktop 的本地优先（Local-first）项目知识库与资产管理插件。包含用户私有的通用项目知识库、Agent 自动协作记忆层、HTML 原型沙箱以及全格式媒体与文档资产管理。\n\n---\n\n## 核心特性\n\n- **类 Obsidian 层级文件树**：左侧树形目录导航，支持文件夹无极层级折叠展开、新建目录、折叠/展开全部、快速刷新。\n- **无感实时笔记编辑器**：右侧实时在线笔记编辑，采用防抖自动保存技术；标题与磁盘物理文件名（`[标题].md`）实时双向联动，纯中文路径与文件名真实落盘，无 UUID 乱码。\n- **全格式文件与多媒体支持**：\n  - **文档**：原生 Markdown（`.md`）、纯文本（`.txt`）、Word 文档（`.docx`, `.doc`）、WPS 文档（`.wps`, `.wpt`）、PDF（`.pdf`）。\n  - **表格**：Excel 电子表格（`.xlsx`, `.xls`, `.csv`）、WPS 表格（`.et`, `.ett`）。\n  - **演示**：PowerPoint（`.pptx`, `.ppt`）、WPS 演示（`.dps`, `.dpt`）、Keynote（`.key`）。\n  - **多媒体**：图片（`.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`, `.svg`）、音频（`.mp3`, `.wav`, `.m4a`, `.ogg`, `.flac`）与视频（`.mp4`, `.webm`, `.mov`），内嵌原生播放与大图预览。\n- **外部目录实时同步**：支持直接从操作系统访达（Finder）或文件资源管理器将文件/多层文件夹直接拖入或拷入，窗口聚焦自动静默同步。\n- **扁平化矢量图标**：全套采用精致单色 1px 细线矢量 SVG 图标，自动适配亮色与暗色模式。\n- **Agent 协作记忆层**：在轮次结算后保存用户明确表达的具体偏好与事实；需要结合上文的记忆请求由 Agent 提炼后通过工具保存，下一轮以有篇幅限制的摘要与全文路径提供参考。\n\n---\n\n## 使用指南\n\n1. **初始化知识库**：\n   - 打开项目知识库面板；\n   - 点击“初始化知识库”，即可在当前项目目录下创建标准 `.bone-project-wiki/` 知识库目录结构。\n2. **日常记录与整理**：\n   - 在右侧直接输入标题与内容，系统自动保存并实时在左侧目录树生成对应的 `.md` 文件；\n   - 支持右键点击笔记或文件夹进行：**移动到…**、**在文件管理器中打开**、**删除**；\n   - 拖拽任意多层文件夹或文档进入面板，自动递归解析并创建对应分类目录。\n3. **打开与查看各类资产**：\n   - 笔记直接在右侧实时编辑；\n   - 图片自适应大图查看；音频与视频直接在右侧面板内嵌原生控件播放；\n   - Word、WPS、Excel、PDF 等办公文档提供一键“在系统中打开”与“在访达中定位”。\n\n## 记忆如何生效\n\n- **具体事实**：例如“请记住：本项目布局统一采用 PinLayout”，可在本轮结束后自动保存到当前项目的记忆目录。\n- **结合上文**：例如“记录到记忆中”“把刚才的开发规范记住”，会提示 Agent 从当前对话提炼具体内容、保留来源，并通过 `project_wiki` 保存。工具确认成功前不能声称已记录；缺少上文或工具时需说明未保存。\n- **避免空记忆**：查询句、单独的记录指令、密码与密钥等内容不会自动当成事实保存。旧的空指令记录不会继续进入对话摘要，但原文件不会被自动删除。\n- **可追溯**：有用的记忆应包含适用项目、具体约定和来源文档。摘要会标明省略并提供记忆文件路径，完整规则仍应读取原文核对。\n- **范围与限制**：记忆属于当前项目，作为参考数据使用。自动捕获使用本地规则，不会自动理解所有自然语言或把全部助手回复作为已确认事实保存；超过长度限制的显式请求交给 Agent 提炼，避免截断事实。\n\n---\n\n## 数据格式与便携性\n\n知识库所有数据均保存在当前项目根目录的 `.bone-project-wiki/` 下，具备高度的可移植性：\n\n```text\n.bone-project-wiki/\n├── project.json              # 项目知识库配置与版本元数据\n├── index.json                # 类似 Git index 的轻量派生缓存索引\n├── knowledge/                # 通用知识库\n│   ├── general/              # 默认通用分类（支持任意中文自定义目录）\n│   │   ├── 需求设计方案.md     # 纯中文 Markdown 笔记文件\n│   │   └── 产品原型.png       # 真实图片与多媒体资产\n│   └── 财务资料/              # 用户自定义分类目录\n│       └── 预算报表.xlsx      # 办公文档与表格附件\n└── memory/                   # Agent 自动捕获的项目协作记忆\n    └── index.json\n```\n\n- **索引缓存机制**：知识库通过派生的 `index.json` 记录文件的大小（size）和修改时间（mtime）。只有真正发生变动的文件才会触发重新读取，千条记录扫描秒级完成。如果删除 `index.json`，下一次加载会自动全量重新扫描生成，绝不丢失任何数据。\n- **版本冲突保护**：保存时严格比对内容 Hash 与版本修订号（Revision），防止外部并发修改造成内容覆盖。\n\n---\n\n## Agent 工具契约（API）\n\nAI Agent 可通过 `project_wiki` 工具安全管理与检索当前项目的知识库：\n\n```json\n// 获取知识库快照\n{ \"action\": \"snapshot\" }\n\n// 保存或更新记录（修改标题将同步触发物理重命名）\n{\n  \"action\": \"save\",\n  \"workspacePath\": \"/path/to/project\",\n  \"title\": \"退款规则说明\",\n  \"category\": \"业务规范\",\n  \"kind\": \"document\",\n  \"status\": \"confirmed\",\n  \"content\": \"# 退款规则说明\\n\\n部分退款不能超过实付金额。\"\n}\n\n// 增量获取最近更新的上下文\n{\n  \"action\": \"context\",\n  \"workspacePath\": \"/path/to/project\",\n  \"since\": \"2026-11-01T00:00:00Z\"\n}\n```\n\n支持的操作（Actions）：\n`snapshot`, `init`, `read`, `save`, `import`, `search`, `context`, `export`, `move`, `delete`, `deleteCategory`, `reveal`, `openDefault`, `preferencesGet`, `preferencesSave`, `forget`, `reindex`。\n",
       "safetyNotes": "Operates strictly locally within the project .bone-project-wiki directory. No cloud account or external network calls required.",
       "versions": [
+        {
+          "version": "0.4.1",
+          "publishedAt": "2026-11-07T14:14:33Z",
+          "changelog": "- 记忆收录改为先评估长期价值、稳定性、新颖性、具体未来用途和依据；低价值、临时及重复候选跳过，不创建空记忆或主文件。\n- 当前 Agent 必须通过 maintainMemory 收录，不能用普通保存或省略类型的更新绕过评估。中文主题标题与归纳摘要独立于原文标题，保留完整来源、条件和例外。\n- 自动生成 .bone-project-wiki/memory/MEMORY.md 主题索引，提供原始记忆和来源文档入口；保留用户已有或手工修改的同名文件，主索引失败明确返回部分成功。\n- 保留原版双页签、文件树与自动保存；标题旁只显示当前客户端插件版本。修复草稿保护、菜单生命周期、来源变化核验和受限诊断清理。\n- 提供独立 DeepSeek Harness 适配源码与本地安装包，使用会话所属项目和文件提供器的版本保护；PI 安装包不安装 DSH 运行时。\n- 沿用当前会话模型，不单独请求模型或扫描历史；重要性与语义归纳仍属当前模型自评，程序校验不等于独立事实核验。保留记录格式、权限与已有数据。\n- 完整多项目后台隔离仍需客户端包含此前 workspace.get 会话路由宿主修复（PI-Desktop #2165）；单独更新插件不能修正旧宿主的前台项目元数据路由。\n- 291 项共享回归、47 项 DSH 文件提供器及构建后工具测试、10 项界面测试通过；最终包原生流程、扩展加载和官方 0.3.6→0.4.1 隔离升级通过，无权限增加。",
+          "minPiDesktop": "\u003e=0.4.22",
+          "shasum": "60a7f29582b293b3cfe6fa9d3b2094ff4238d1262a1b524e4ac10344bfc0cc6c",
+          "url": "packages/bone.project-wiki-0.4.1.piplug",
+          "sizeBytes": 619244,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": false,
+              "scope": [
+                ".bone-project-wiki/memory/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".bone-project-wiki/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".bone-project-wiki/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-project-wiki",
+            "sourceRef": "0118e33e74d252ba89abd6ed470b0bf8a1fd2667",
+            "sourceCommit": "0118e33e74d252ba89abd6ed470b0bf8a1fd2667",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T14:14:33Z"
+          }
+        },
         {
           "version": "0.3.6",
           "publishedAt": "2026-11-07T02:17:51Z",
@@ -1874,7 +1921,7 @@
       "versions": [
         {
           "version": "0.8.0",
-          "publishedAt": "2026-11-07T13:50:27Z",
+          "publishedAt": "2026-11-07T13:52:13Z",
           "changelog": "# Changelog\n\n## 0.8.0\n\n### Features\n\n- **main:** exclude thinking levels, at most medium by default (`76a3095`)\n\n### Documentation\n\n- **skills:** never raise thinking above the suggested level (`23b8a28`)\n- **readme:** explain the excludeThinking setting (`9f42e1b`)\n\n### Tests\n\n- cover excluded thinking levels (`84b63f3`)\n\n## 0.7.0\n\n### Features\n\n- **main:** start a split ticket after the tickets whose results it needs (`15dcb0e`)\n- **skills:** split parallel parts and a step that needs their results (`be9509a`)\n\n### Documentation\n\n- **readme:** explain tickets that start after others end (`591a906`)\n\n### Tests\n\n- cover tickets that wait for the results of others (`487edd4`)\n\n## 0.5.0\n\n### Features\n\n- **main:** split a message into tickets kept apart by git worktrees (`c2e36fd`)\n- **prompts:** allow commits on ticket branches and merge-ticket merges (`ff87e20`)\n- **subagents:** set up worktrees and land the branches of merge tickets (`1c5f92b`)\n- **skills:** accept split requests and launch merge tickets (`96febee`)\n\n### Documentation\n\n- **readme:** explain parallel tickets, worktrees and merges (`a1eaf87`)\n\n### Tests\n\n- run the lifecycle tests with serial isolation (`eb527a2`)\n- cover split tickets, worktree isolation and merge tickets (`c7b2c1e`)\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "cc0696dcd7d6178aedd1c7b6d23e1943272ebc3cb2722208530d1c0e7b8c2671",
