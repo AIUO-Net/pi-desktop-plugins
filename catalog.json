@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T09:27:48Z",
-  "generatedAt": "2026-11-07T09:27:48Z",
+  "updatedAt": "2026-11-07T10:54:06Z",
+  "generatedAt": "2026-11-07T10:54:06Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1873,6 +1873,44 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.5.0",
+          "publishedAt": "2026-11-07T10:54:06Z",
+          "changelog": "# Changelog\n\n## 0.5.0\n\n### Features\n\n- **main:** split a message into tickets kept apart by git worktrees (`c2e36fd`)\n- **prompts:** allow commits on ticket branches and merge-ticket merges (`ff87e20`)\n- **subagents:** set up worktrees and land the branches of merge tickets (`1c5f92b`)\n- **skills:** accept split requests and launch merge tickets (`96febee`)\n\n### Documentation\n\n- **readme:** explain parallel tickets, worktrees and merges (`a1eaf87`)\n\n### Tests\n\n- run the lifecycle tests with serial isolation (`eb527a2`)\n- cover split tickets, worktree isolation and merge tickets (`c7b2c1e`)\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "3b2cae561ee527c613c4230fb71cceceb2a517ff8e7dee2706f05d8c7ae2ad59",
+          "url": "packages/eskwisit.llm-superagent-0.5.0.piplug",
+          "sizeBytes": 301058,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.5.0",
+            "sourceCommit": "4f99cd9e4208ee8502cfc0318fb463be4961b844",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T10:54:06Z"
+          }
+        },
+        {
           "version": "0.1.5",
           "publishedAt": "2026-11-05T10:27:59Z",
           "changelog": "# Changelog\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
@@ -1928,7 +1966,7 @@
       "versions": [
         {
           "version": "0.27.0",
-          "publishedAt": "2026-11-07T09:27:48Z",
+          "publishedAt": "2026-11-07T09:29:31Z",
           "changelog": "# Changelog\n\n## 0.27.0\n\n### Features\n\n- notify when an agent needs you (`ca9f270`)\n\n### Documentation\n\n- **readme:** describe notifications and the notify permission (`d861f2c`)\n- **readme:** explain why command approvals are not visible (`005c5a9`)\n\n### Tests\n\n- **tests:** add notification calls to the fake host (`742642b`)\n- **tests:** cover notifications when an agent needs you (`099ed42`)\n\n## 0.26.0\n\n### Features\n\n- give each main agent of a session its own cluster with its subagents (`46558a4`)\n\n### Documentation\n\n- **readme:** describe a cluster for each main agent (`df18ce5`)\n\n### Tests\n\n- **tests:** cover a cluster for each main agent of a session (`8875d24`)\n\n## 0.25.1\n\n### Features\n\n- give every agent a session starts its own cluster (`7abbdcf`)\n\n### Fixes\n\n- **view:** say tokens instead of tool ctx in the agent tooltip (`a6f5eeb`)\n\n### Documentation\n\n- **readme:** describe a cluster for each started agent (`8d01f1f`)\n- **readme:** show tokens in the tooltip example (`bb5ba83`)\n\n### Tests\n\n- **tests:** cover a cluster for each started agent (`bd72ce4`)\n\n## 0.24.1\n\n### Breaking changes\n\n- remove pre-fill in session and the composer.suggest permission (`beebe46`)\n\n### Fixes\n\n- **view:** show a lone agent as its own cluster, not merged into you (`be88191`)\n\n### Documentation\n\n- **readme:** remove pre-fill in session and composer.suggest (`007c1b9`)\n- **readme:** say a lone agent keeps its own cluster (`d664d3b`)\n- update the security review for the removed composer.suggest (`0565eaa`)\n\n### Tests\n\n- **tests:** replace the pre-fill tests with a check that prefill is refused (`94f7f73`)\n\n## 0.23.0\n\n### Features\n\n- **view:** always show every agent's tooltip (`225008d`)\n- **view:** remove the session's total tokens from the drawer (`b781001`)\n\n### Refactoring\n\n- **main:** drop model fields the view never reads (`3abf1ff`)\n- **view:** drop unused layouts, background canvas and dead code (`e72ae43`)\n- **main:** stop reading the token usage history (`4af5527`)\n\n### Documentation\n\n- **readme:** describe tooltips shown for every agent (`25ddfcc`)\n- **readme:** drop the total used tokens and usage history read (`a8016ec`)\n- drop the token usage history from the security review (`72b6e73`)\n- **manifest:** drop the token usage history from the safety notes (`91d175e`)\n\n### Tests\n\n- **tests:** read the autoOpen setting from the main process (`58e1490`)\n- **tests:** drop the session token total tests (`ceaff0e`)\n- **tests:** no longer allow the token usage history read (`f8bb5bc`)\n\n## 0.21.0\n\n### Features\n\n- **main:** describe agents by the latest prompt that names a topic (`375fd82`)\n- **main:** record a short target for each tool call (`eb0d041`)\n- **main:** estimate the tokens tool calls add to an agent's context (`e28afab`)\n- **view:** name each tool's target in the activity log (`26e540b`)\n- **view:** show current topic, live detail, tool context and age in tooltips (`871ab09`)\n- **view:** show the session's total tokens used in the drawer (`a605de4`)\n- **view:** drop the no-agents hint under you (`9479576`)\n- **view:** show only the status in your label when you work alone (`b48ac49`)\n\n### Fixes\n\n- **view:** keep the drawer title on one line (`8beba6a`)\n\n### Documentation\n\n- **readme:** replace the demo image with a webp showing every state (`8b3b70d`)\n\n### Tests\n\n- **tests:** cover topic prompts, tool targets and tool token estimates (`38cd628`)\n\n## 0.13.0\n\n### Features\n\n- **main:** count the tokens each subagent's transcript reports (`fb6de28`)\n- **view:** show each subagent's tokens as a lower bound (`128a4f4`)\n\n### Fixes\n\n- **main:** count session tokens from the usage history and the open turn (`0ecd64b`)\n\n### Documentation\n\n- **manifest:** mention the token usage history in the safety notes (`d2d44e7`)\n- list the token usage history read in the security review (`99d9d96`)\n- **readme:** describe session and subagent token counts (`965729c`)\n\n### Tests\n\n- **tests:** cover session tokens from the usage history (`5efb52f`)\n- **tests:** cover per-subagent token counts (`c06fb0b`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "25946a882f30ecfaa50ad3716b51237a6f7681ee7e279dccbe5feeaf2d159088",
