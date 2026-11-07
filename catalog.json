@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T14:14:33Z",
-  "generatedAt": "2026-11-07T14:14:33Z",
+  "updatedAt": "2026-11-07T14:52:53Z",
+  "generatedAt": "2026-11-07T14:52:53Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -384,7 +384,7 @@
       "versions": [
         {
           "version": "0.4.1",
-          "publishedAt": "2026-11-07T14:14:33Z",
+          "publishedAt": "2026-11-07T14:16:25Z",
           "changelog": "- 记忆收录改为先评估长期价值、稳定性、新颖性、具体未来用途和依据；低价值、临时及重复候选跳过，不创建空记忆或主文件。\n- 当前 Agent 必须通过 maintainMemory 收录，不能用普通保存或省略类型的更新绕过评估。中文主题标题与归纳摘要独立于原文标题，保留完整来源、条件和例外。\n- 自动生成 .bone-project-wiki/memory/MEMORY.md 主题索引，提供原始记忆和来源文档入口；保留用户已有或手工修改的同名文件，主索引失败明确返回部分成功。\n- 保留原版双页签、文件树与自动保存；标题旁只显示当前客户端插件版本。修复草稿保护、菜单生命周期、来源变化核验和受限诊断清理。\n- 提供独立 DeepSeek Harness 适配源码与本地安装包，使用会话所属项目和文件提供器的版本保护；PI 安装包不安装 DSH 运行时。\n- 沿用当前会话模型，不单独请求模型或扫描历史；重要性与语义归纳仍属当前模型自评，程序校验不等于独立事实核验。保留记录格式、权限与已有数据。\n- 完整多项目后台隔离仍需客户端包含此前 workspace.get 会话路由宿主修复（PI-Desktop #2165）；单独更新插件不能修正旧宿主的前台项目元数据路由。\n- 291 项共享回归、47 项 DSH 文件提供器及构建后工具测试、10 项界面测试通过；最终包原生流程、扩展加载和官方 0.3.6→0.4.1 隔离升级通过，无权限增加。",
           "minPiDesktop": "\u003e=0.4.22",
           "shasum": "60a7f29582b293b3cfe6fa9d3b2094ff4238d1262a1b524e4ac10344bfc0cc6c",
@@ -2069,6 +2069,46 @@
             "sourceCommit": "ae0d480e3fbf9eb556637c51a162738f4ab21699",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-11-05T10:26:17Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "eskwisit.mumble",
+      "name": "Mumble",
+      "description": "Mumble for PI-Desktop cuts the talk, not the facts. Code and errors stay exact. Each original is one call away.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Mumble",
+          "description": "PI-Desktop 版 Mumble 删减废话，不删事实。代码和错误信息保持原样。每份原文一次调用即可取回。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "eskwisit",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.5.2",
+          "publishedAt": "2026-11-07T14:52:53Z",
+          "changelog": "# Changelog\n\n## 0.5.2\n\n### Fixes\n\n- **manifest:** rewrite the description in a short, clear form (`f7845e2`)\n\n### Documentation\n\n- **readme:** add the tagline under the title (`04c74dc`)\n\n## 0.5.1\n\n### Fixes\n\n- **manifest:** add english and chinese texts like the other plugins (`7e3720c`)\n\n### Documentation\n\n- **readme:** add the benchmark against the upstream project (`c73bf88`)\n- **readme:** explain why the cost goes down and why it starts itself (`8232c6b`)\n\n### Tests\n\n- check manifest translations and the chinese credit (`bca5626`)\n\n## 0.5.0\n\n### Features\n\n- **extension:** shrink large tool output by content type (`30ed4ad`)\n- **extension:** keep exact originals for recovery (`f549ea2`)\n- **extension:** add ste, mumble and ultra voices with switch phrases (`efa16f7`)\n- **extension:** load mumble in each session with retrieve tool and cost counter (`dde7508`)\n\n### Documentation\n\n- **readme:** describe voices, shrinking, commands and limits (`81943da`)\n\n### Tests\n\n- cover compressors, store, voices, hooks and manifest (`81f8226`)\n\n### Chores\n\n- ignore build output and system files (`5349fb6`)\n- add apache-2.0 license and notice with credit (`84d1c01`)\n- add changelog (`8faa168`)",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "60c78eb4a1c8b6e403fca46ea698d46d055a86ae29f69b2e4983380aa7381265",
+          "url": "packages/eskwisit.mumble-0.5.2.piplug",
+          "sizeBytes": 90394,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-mumble",
+            "sourceRef": "v0.5.2",
+            "sourceCommit": "a9151d409f8555c8cfaa7a50ff94fd6dd8c887a1",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T14:52:53Z"
           }
         }
       ]
