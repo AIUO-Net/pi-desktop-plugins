@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T14:52:53Z",
-  "generatedAt": "2026-11-07T14:52:53Z",
+  "updatedAt": "2026-11-07T14:54:43Z",
+  "generatedAt": "2026-11-07T14:54:43Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2077,14 +2077,10 @@
       "id": "eskwisit.mumble",
       "name": "Mumble",
       "description": "Mumble for PI-Desktop cuts the talk, not the facts. Code and errors stay exact. Each original is one call away.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "Mumble",
-          "description": "PI-Desktop 版 Mumble 删减废话，不删事实。代码和错误信息保持原样。每份原文一次调用即可取回。"
-        }
-      },
-      "categories": [],
+      "author": "Eskwisit",
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "eskwisit",
@@ -2092,7 +2088,7 @@
       "versions": [
         {
           "version": "0.5.2",
-          "publishedAt": "2026-11-07T14:52:53Z",
+          "publishedAt": "2026-11-07T14:54:43Z",
           "changelog": "# Changelog\n\n## 0.5.2\n\n### Fixes\n\n- **manifest:** rewrite the description in a short, clear form (`f7845e2`)\n\n### Documentation\n\n- **readme:** add the tagline under the title (`04c74dc`)\n\n## 0.5.1\n\n### Fixes\n\n- **manifest:** add english and chinese texts like the other plugins (`7e3720c`)\n\n### Documentation\n\n- **readme:** add the benchmark against the upstream project (`c73bf88`)\n- **readme:** explain why the cost goes down and why it starts itself (`8232c6b`)\n\n### Tests\n\n- check manifest translations and the chinese credit (`bca5626`)\n\n## 0.5.0\n\n### Features\n\n- **extension:** shrink large tool output by content type (`30ed4ad`)\n- **extension:** keep exact originals for recovery (`f549ea2`)\n- **extension:** add ste, mumble and ultra voices with switch phrases (`efa16f7`)\n- **extension:** load mumble in each session with retrieve tool and cost counter (`dde7508`)\n\n### Documentation\n\n- **readme:** describe voices, shrinking, commands and limits (`81943da`)\n\n### Tests\n\n- cover compressors, store, voices, hooks and manifest (`81f8226`)\n\n### Chores\n\n- ignore build output and system files (`5349fb6`)\n- add apache-2.0 license and notice with credit (`84d1c01`)\n- add changelog (`8faa168`)",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "60c78eb4a1c8b6e403fca46ea698d46d055a86ae29f69b2e4983380aa7381265",
