@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T10:54:06Z",
-  "generatedAt": "2026-11-07T10:54:06Z",
+  "updatedAt": "2026-11-07T12:57:55Z",
+  "generatedAt": "2026-11-07T12:57:55Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1873,8 +1873,46 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.7.0",
+          "publishedAt": "2026-11-07T12:57:55Z",
+          "changelog": "# Changelog\n\n## 0.7.0\n\n### Features\n\n- **main:** start a split ticket after the tickets whose results it needs (`15dcb0e`)\n- **skills:** split parallel parts and a step that needs their results (`be9509a`)\n\n### Documentation\n\n- **readme:** explain tickets that start after others end (`591a906`)\n\n### Tests\n\n- cover tickets that wait for the results of others (`487edd4`)\n\n## 0.5.0\n\n### Features\n\n- **main:** split a message into tickets kept apart by git worktrees (`c2e36fd`)\n- **prompts:** allow commits on ticket branches and merge-ticket merges (`ff87e20`)\n- **subagents:** set up worktrees and land the branches of merge tickets (`1c5f92b`)\n- **skills:** accept split requests and launch merge tickets (`96febee`)\n\n### Documentation\n\n- **readme:** explain parallel tickets, worktrees and merges (`a1eaf87`)\n\n### Tests\n\n- run the lifecycle tests with serial isolation (`eb527a2`)\n- cover split tickets, worktree isolation and merge tickets (`c7b2c1e`)\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "e52baaeb1b0eb4e3b15b2f1ed10bda36cdc9d552dbd860a91cc865f418e91e8a",
+          "url": "packages/eskwisit.llm-superagent-0.7.0.piplug",
+          "sizeBytes": 312911,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.7.0",
+            "sourceCommit": "240527c9d1f533ee96c0b2aa9591b201392d9c18",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T12:57:55Z"
+          }
+        },
+        {
           "version": "0.5.0",
-          "publishedAt": "2026-11-07T10:54:06Z",
+          "publishedAt": "2026-11-07T10:55:53Z",
           "changelog": "# Changelog\n\n## 0.5.0\n\n### Features\n\n- **main:** split a message into tickets kept apart by git worktrees (`c2e36fd`)\n- **prompts:** allow commits on ticket branches and merge-ticket merges (`ff87e20`)\n- **subagents:** set up worktrees and land the branches of merge tickets (`1c5f92b`)\n- **skills:** accept split requests and launch merge tickets (`96febee`)\n\n### Documentation\n\n- **readme:** explain parallel tickets, worktrees and merges (`a1eaf87`)\n\n### Tests\n\n- run the lifecycle tests with serial isolation (`eb527a2`)\n- cover split tickets, worktree isolation and merge tickets (`c7b2c1e`)\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "3b2cae561ee527c613c4230fb71cceceb2a517ff8e7dee2706f05d8c7ae2ad59",
