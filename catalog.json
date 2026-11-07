@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T08:10:40Z",
-  "generatedAt": "2026-11-07T08:10:40Z",
+  "updatedAt": "2026-11-07T08:25:40Z",
+  "generatedAt": "2026-11-07T08:25:40Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1782,7 +1782,7 @@
       "versions": [
         {
           "version": "0.7.0",
-          "publishedAt": "2026-11-07T08:10:40Z",
+          "publishedAt": "2026-11-07T08:14:56Z",
           "changelog": "# Changelog\n\n## 0.7.0\n\n### Breaking changes\n\n- rename the plugin to ast lens (`25ca35b`)\n- **extension:** ast index, tsgo and rename; drop strict mode (`6acdf45`)\n\n### Features\n\n- **extension:** add a debug tool: stack and values at a breakpoint (`eddd1a3`)\n- **skills:** teach rename, folder outlines and the debug tool (`9a079c5`)\n\n### Documentation\n\n- **manifest:** describe rename, the debug tool and the ast index (`f936729`)\n- **readme:** show what ast lens saves, in tokens and time (`78aa878`)\n\n### Tests\n\n- cover the ast index, rename edits, imports and debug snapshots (`30d8c61`)\n- run rename, the ast index and debug probes end to end (`43090f3`)\n- add a scripted benchmark with ground truth and a gate (`545322f`)\n- compare the benchmark with releases from before the rename (`1a0ed95`)\n\n### CI\n\n- gate on the scripted benchmark on linux (`4409af7`)\n\n### Chores\n\n- rename the plugin to ast lens in the changelog (`17f179e`)\n\n## 0.3.2\n\n### Fixes\n\n- **extension:** share one typescript server across all tsconfigs (`b5cfa50`)\n- **extension:** find references in every tsconfig project of a monorepo (`50e144b`)\n\n### Documentation\n\n- **readme:** show what AST Lens adds, with measured size and speed (`3a8c1b0`)\n\n### Tests\n\n- cover the outermost workspace root and the files that hold a name (`138bf10`)\n- find references across tsconfig projects with one server (`48e4a89`)\n\n## 0.3.0\n\n### Features\n\n- **extension:** read code with ast-grep and language servers, not grep (`87a058b`)\n- **skills:** add the AST Lens skill for patterns, rules and lsp traces (`52e77d1`)\n- **manifest:** declare the agent extension, skill and permissions (`f4f3b67`)\n\n### Documentation\n\n- **readme:** describe the tools, platforms, requirements and settings (`230fd02`)\n\n### Tests\n\n- cover language inference, launching, the lsp wire and grep steering (`38af3ea`)\n- run the tools end to end with ast-grep, clangd and typescript (`d6322d5`)\n- cover the manifest texts, license and contributed files (`e0e575c`)\n- add a test entry point for node --test tests/ (`ef66cc0`)\n\n### CI\n\n- add the changelog notes script (`0eb3015`)\n- publish a release when the manifest version changes (`56d2433`)\n- run the tests on linux, macos and windows (`1d48716`)\n\n### Chores\n\n- ignore build output and piplug files (`6183ab7`)\n- license the plugin under apache-2.0 (`d6ac71a`)\n- **manifest:** start the version at 0.0.0 for the first release (`09e278c`)\n\n### Style\n\n- **manifest:** write the short arrays on one line (`a7c38b0`)",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "e4895d67821a25478efe7a746188076c75ebc8652d36c9560ec22a2b353a604a",
@@ -1926,6 +1926,28 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.25.1",
+          "publishedAt": "2026-11-07T08:25:40Z",
+          "changelog": "# Changelog\n\n## 0.25.1\n\n### Features\n\n- give every agent a session starts its own cluster (`7abbdcf`)\n\n### Fixes\n\n- **view:** say tokens instead of tool ctx in the agent tooltip (`a6f5eeb`)\n\n### Documentation\n\n- **readme:** describe a cluster for each started agent (`8d01f1f`)\n- **readme:** show tokens in the tooltip example (`bb5ba83`)\n\n### Tests\n\n- **tests:** cover a cluster for each started agent (`bd72ce4`)\n\n## 0.24.1\n\n### Breaking changes\n\n- remove pre-fill in session and the composer.suggest permission (`beebe46`)\n\n### Fixes\n\n- **view:** show a lone agent as its own cluster, not merged into you (`be88191`)\n\n### Documentation\n\n- **readme:** remove pre-fill in session and composer.suggest (`007c1b9`)\n- **readme:** say a lone agent keeps its own cluster (`d664d3b`)\n- update the security review for the removed composer.suggest (`0565eaa`)\n\n### Tests\n\n- **tests:** replace the pre-fill tests with a check that prefill is refused (`94f7f73`)\n\n## 0.23.0\n\n### Features\n\n- **view:** always show every agent's tooltip (`225008d`)\n- **view:** remove the session's total tokens from the drawer (`b781001`)\n\n### Refactoring\n\n- **main:** drop model fields the view never reads (`3abf1ff`)\n- **view:** drop unused layouts, background canvas and dead code (`e72ae43`)\n- **main:** stop reading the token usage history (`4af5527`)\n\n### Documentation\n\n- **readme:** describe tooltips shown for every agent (`25ddfcc`)\n- **readme:** drop the total used tokens and usage history read (`a8016ec`)\n- drop the token usage history from the security review (`72b6e73`)\n- **manifest:** drop the token usage history from the safety notes (`91d175e`)\n\n### Tests\n\n- **tests:** read the autoOpen setting from the main process (`58e1490`)\n- **tests:** drop the session token total tests (`ceaff0e`)\n- **tests:** no longer allow the token usage history read (`f8bb5bc`)\n\n## 0.21.0\n\n### Features\n\n- **main:** describe agents by the latest prompt that names a topic (`375fd82`)\n- **main:** record a short target for each tool call (`eb0d041`)\n- **main:** estimate the tokens tool calls add to an agent's context (`e28afab`)\n- **view:** name each tool's target in the activity log (`26e540b`)\n- **view:** show current topic, live detail, tool context and age in tooltips (`871ab09`)\n- **view:** show the session's total tokens used in the drawer (`a605de4`)\n- **view:** drop the no-agents hint under you (`9479576`)\n- **view:** show only the status in your label when you work alone (`b48ac49`)\n\n### Fixes\n\n- **view:** keep the drawer title on one line (`8beba6a`)\n\n### Documentation\n\n- **readme:** replace the demo image with a webp showing every state (`8b3b70d`)\n\n### Tests\n\n- **tests:** cover topic prompts, tool targets and tool token estimates (`38cd628`)\n\n## 0.13.0\n\n### Features\n\n- **main:** count the tokens each subagent's transcript reports (`fb6de28`)\n- **view:** show each subagent's tokens as a lower bound (`128a4f4`)\n\n### Fixes\n\n- **main:** count session tokens from the usage history and the open turn (`0ecd64b`)\n\n### Documentation\n\n- **manifest:** mention the token usage history in the safety notes (`d2d44e7`)\n- list the token usage history read in the security review (`99d9d96`)\n- **readme:** describe session and subagent token counts (`965729c`)\n\n### Tests\n\n- **tests:** cover session tokens from the usage history (`5efb52f`)\n- **tests:** cover per-subagent token counts (`c06fb0b`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "53af36c231c98b38ba4d47431b3e72c6f16ed29d7d8ac922fbb30157cfbdfd37",
+          "url": "packages/eskwisit.neural-radar-0.25.1.piplug",
+          "sizeBytes": 284003,
+          "permissions": [
+            "desktop.control",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.25.1",
+            "sourceCommit": "9d306cf791d8259145c2010566ea00e242e1b9f0",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T08:25:40Z"
+          }
+        },
         {
           "version": "0.24.1",
           "publishedAt": "2026-11-05T17:38:12Z",
