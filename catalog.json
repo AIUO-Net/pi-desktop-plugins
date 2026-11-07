@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T02:17:51Z",
-  "generatedAt": "2026-11-07T02:17:51Z",
+  "updatedAt": "2026-11-07T08:10:40Z",
+  "generatedAt": "2026-11-07T08:10:40Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1763,6 +1763,47 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "eskwisit.ast-lens",
+      "name": "AST Lens",
+      "description": "The agent reads code as code: structural search and rewrite with ast-grep, and go-to-definition, references, rename, hover, symbols and diagnostics from the language server picked by the file extension, and a debugger that shows the stack and values at a breakpoint, instead of grepping text.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "AST Lens",
+          "description": "让智能体把代码当作代码来读：用 ast-grep 做结构化搜索与改写，并按文件扩展名选择语言服务器，提供跳转定义、查找引用、重命名、悬停信息、符号与诊断，并提供能在断点处显示调用栈和变量值的调试器，而不是用 grep 搜索文本。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "eskwisit",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.7.0",
+          "publishedAt": "2026-11-07T08:10:40Z",
+          "changelog": "# Changelog\n\n## 0.7.0\n\n### Breaking changes\n\n- rename the plugin to ast lens (`25ca35b`)\n- **extension:** ast index, tsgo and rename; drop strict mode (`6acdf45`)\n\n### Features\n\n- **extension:** add a debug tool: stack and values at a breakpoint (`eddd1a3`)\n- **skills:** teach rename, folder outlines and the debug tool (`9a079c5`)\n\n### Documentation\n\n- **manifest:** describe rename, the debug tool and the ast index (`f936729`)\n- **readme:** show what ast lens saves, in tokens and time (`78aa878`)\n\n### Tests\n\n- cover the ast index, rename edits, imports and debug snapshots (`30d8c61`)\n- run rename, the ast index and debug probes end to end (`43090f3`)\n- add a scripted benchmark with ground truth and a gate (`545322f`)\n- compare the benchmark with releases from before the rename (`1a0ed95`)\n\n### CI\n\n- gate on the scripted benchmark on linux (`4409af7`)\n\n### Chores\n\n- rename the plugin to ast lens in the changelog (`17f179e`)\n\n## 0.3.2\n\n### Fixes\n\n- **extension:** share one typescript server across all tsconfigs (`b5cfa50`)\n- **extension:** find references in every tsconfig project of a monorepo (`50e144b`)\n\n### Documentation\n\n- **readme:** show what AST Lens adds, with measured size and speed (`3a8c1b0`)\n\n### Tests\n\n- cover the outermost workspace root and the files that hold a name (`138bf10`)\n- find references across tsconfig projects with one server (`48e4a89`)\n\n## 0.3.0\n\n### Features\n\n- **extension:** read code with ast-grep and language servers, not grep (`87a058b`)\n- **skills:** add the AST Lens skill for patterns, rules and lsp traces (`52e77d1`)\n- **manifest:** declare the agent extension, skill and permissions (`f4f3b67`)\n\n### Documentation\n\n- **readme:** describe the tools, platforms, requirements and settings (`230fd02`)\n\n### Tests\n\n- cover language inference, launching, the lsp wire and grep steering (`38af3ea`)\n- run the tools end to end with ast-grep, clangd and typescript (`d6322d5`)\n- cover the manifest texts, license and contributed files (`e0e575c`)\n- add a test entry point for node --test tests/ (`ef66cc0`)\n\n### CI\n\n- add the changelog notes script (`0eb3015`)\n- publish a release when the manifest version changes (`56d2433`)\n- run the tests on linux, macos and windows (`1d48716`)\n\n### Chores\n\n- ignore build output and piplug files (`6183ab7`)\n- license the plugin under apache-2.0 (`d6ac71a`)\n- **manifest:** start the version at 0.0.0 for the first release (`09e278c`)\n\n### Style\n\n- **manifest:** write the short arrays on one line (`a7c38b0`)",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "e4895d67821a25478efe7a746188076c75ebc8652d36c9560ec22a2b353a604a",
+          "url": "packages/eskwisit.ast-lens-0.7.0.piplug",
+          "sizeBytes": 285757,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-ast-lens",
+            "sourceRef": "v0.7.0",
+            "sourceCommit": "81d4f7a037d3861e67644f0e39c0b305bfc01ae1",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T08:10:40Z"
+          }
         }
       ]
     },
