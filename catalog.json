@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-07T16:35:38Z",
-  "generatedAt": "2026-11-07T16:35:38Z",
+  "updatedAt": "2026-11-07T16:36:10Z",
+  "generatedAt": "2026-11-07T16:36:10Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2108,6 +2108,27 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.5.3",
+          "publishedAt": "2026-11-07T16:36:10Z",
+          "changelog": "# Changelog\n\n## 0.5.3\n\n### Fixes\n\n- **extension:** add the prompt section to each request, not to the stored prompt (`0c8f12d`)\n\n### Tests\n\n- cover the request payload shapes and the unchanged stored prompt (`e7558b8`)\n\n## 0.5.2\n\n### Fixes\n\n- **manifest:** rewrite the description in a short, clear form (`f7845e2`)\n\n### Documentation\n\n- **readme:** add the tagline under the title (`04c74dc`)\n\n## 0.5.1\n\n### Fixes\n\n- **manifest:** add english and chinese texts like the other plugins (`7e3720c`)\n\n### Documentation\n\n- **readme:** add the benchmark against the upstream project (`c73bf88`)\n- **readme:** explain why the cost goes down and why it starts itself (`8232c6b`)\n\n### Tests\n\n- check manifest translations and the chinese credit (`bca5626`)\n\n## 0.5.0\n\n### Features\n\n- **extension:** shrink large tool output by content type (`30ed4ad`)\n- **extension:** keep exact originals for recovery (`f549ea2`)\n- **extension:** add ste, mumble and ultra voices with switch phrases (`efa16f7`)\n- **extension:** load mumble in each session with retrieve tool and cost counter (`dde7508`)\n\n### Documentation\n\n- **readme:** describe voices, shrinking, commands and limits (`81943da`)\n\n### Tests\n\n- cover compressors, store, voices, hooks and manifest (`81f8226`)\n\n### Chores\n\n- ignore build output and system files (`5349fb6`)\n- add apache-2.0 license and notice with credit (`84d1c01`)\n- add changelog (`8faa168`)",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "941586eafdde876cd5cb20234305d56f8afa82496d1be90e548d943d7e97cb42",
+          "url": "packages/eskwisit.mumble-0.5.3.piplug",
+          "sizeBytes": 97296,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-mumble",
+            "sourceRef": "v0.5.3",
+            "sourceCommit": "31732923f7c2bbd3485c688fa324e47e78c1c412",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-07T16:36:10Z"
+          }
+        },
         {
           "version": "0.5.2",
           "publishedAt": "2026-11-07T14:54:43Z",
