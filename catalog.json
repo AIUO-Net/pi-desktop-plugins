@@ -1770,14 +1770,11 @@
       "id": "eskwisit.ast-lens",
       "name": "AST Lens",
       "description": "The agent reads code as code: structural search and rewrite with ast-grep, and go-to-definition, references, rename, hover, symbols and diagnostics from the language server picked by the file extension, and a debugger that shows the stack and values at a breakpoint, instead of grepping text.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "AST Lens",
-          "description": "让智能体把代码当作代码来读：用 ast-grep 做结构化搜索与改写，并按文件扩展名选择语言服务器，提供跳转定义、查找引用、重命名、悬停信息、符号与诊断，并提供能在断点处显示调用栈和变量值的调试器，而不是用 grep 搜索文本。"
-        }
-      },
-      "categories": [],
+      "author": "Eskwisit",
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "eskwisit",
