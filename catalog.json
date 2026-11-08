@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-08T15:50:28Z",
-  "generatedAt": "2026-11-08T15:50:28Z",
+  "updatedAt": "2026-11-08T16:44:59Z",
+  "generatedAt": "2026-11-08T16:44:59Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2242,6 +2242,29 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.37.0",
+          "publishedAt": "2026-11-08T16:44:59Z",
+          "changelog": "# Changelog\n\n## 0.37.0\n\n### Features\n\n- reload an open radar view when the plugin is updated (`be80f64`)\n- **view:** fade the tooltip of an agent that needs you to fully opaque (`f847df6`)\n- pick your picture by clicking your circle instead of in the settings (`7b76cbe`)\n\n### Documentation\n\n- **manifest:** state that the plugin no longer uses the network (`139605b`)\n- **readme:** describe the picture click, the tooltip fade and updates (`eca1859`)\n- update the security review for the picture picker and the reload (`9eaf90f`)\n- name 0.37.0 as the first release without network and with reload (`ae61201`)\n\n### Tests\n\n- **tests:** cover the picked picture, its removal and the version in the state (`be983cd`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "fed998d2b8c1893dca6b688851c34f4154c653452764c93b57898ca540c30764",
+          "url": "packages/eskwisit.neural-radar-0.37.0.piplug",
+          "sizeBytes": 321275,
+          "permissions": [
+            "desktop.control",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.37.0",
+            "sourceCommit": "ffe429db426445fbd05563b155737d8dbde44daf",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-08T16:44:59Z"
+          }
+        },
         {
           "version": "0.31.1",
           "publishedAt": "2026-11-08T12:43:57Z",
@@ -9134,7 +9157,7 @@
       "versions": [
         {
           "version": "0.2.1",
-          "publishedAt": "2026-11-08T15:50:28Z",
+          "publishedAt": "2026-11-08T15:52:25Z",
           "changelog": "## 联网访问 0.2.1\n\n把 `nicobailon/pi-web-access`（v0.47.0）移植为 PI-Desktop 插件，向 Agent 提供四个工具：\n\n- `web_search`：多查询并发搜索，结果存放在可按 `responseId` 回读的存储里\n- `fetch_content`：抓网页、PDF、GitHub 仓库、图片，支持 `readable` / `raw` / `answer` / `extract` 四种模式\n- `get_search_content`：按 `responseId` 翻页或按关键词定位已存内容\n- `source_check`：就一条主张收集带出处的网页片段，供人工核对\n\n同时提供中文「联网访问」面板：已存结果浏览、活动记录、各搜索供应商的连接状态与密钥填写入口、抓取模式与代理设置。\n\n### 0.2.1 修复\n\n- **路径穿越**：`results:drop` / `results:peek` 曾能读写插件数据目录外的文件，现按上游 `CACHE_ID_PATTERN` 校验 id，并在 `resolve` 层做前缀兜底\n- **配置自锁**：`fetch.defaultMode` 缺省时未按其缺省值校验，坏值写入后会令插件每次启动失败；现先校验后写宿主设置\n- **字段抽取**：`extract` 模式读的是嵌套形状的凭据，扁平形状会抛 `TypeError`；现由适配层归一化\n- **PNG 缩放**：解压前按像素上限拦截，并给 `inflateSync` 设输出上限；RGBA 按 alpha 预乘；编码超限则放弃缩放返回原图\n- **已存内容过期**：`fetch` 结果超过 1 小时读不出正文的问题已修正\n- **索引原子性**：临时文件名加入进程号与随机串，索引损坏时从结果文件重建\n- **配额**：页面问答按 6 次/60 秒滑窗限流，与宿主的 8 次/60 秒上限留出余量\n\n### 能力状态\n\n- 完全可用：搜索、抓取、已存内容检索、来源核查、页面问答、图片缩放（PNG）、代理、自定义面板、快捷键、中文设置\n- 需自备凭据：`extract` 字段抽取需 Cloudflare 账号；`auth` 带浏览器登录态抓取默认关闭，需显式开启\n- 受宿主 API 限制：视频帧分析当前不可用，`pi.agent.complete` 只接受文本\n- 本构建不含 MCP 客户端传输：`baizhi` 与 `zai` 两个供应商会返回明确的不可用提示，其余 44 个不受影响\n\n### 隐私\n\n无遥测。搜索供应商密钥只写入本插件私有数据目录，不写日志、不进打包产物。各项权限用途写在 manifest 的 `safetyNotes` 里。\n\n---\n\n### English\n\nPI-Desktop port of the `pi-web-access` Pi extension (v0.47.0): four agent tools — `web_search`, `fetch_content`, `get_search_content`, `source_check` — plus a Chinese work-panel view for stored results, provider credentials, fetch modes and proxy settings.\n\n0.2.1 fixes path traversal in the stored-result channels, a settings lock-out caused by validating `fetch.defaultMode` only when present, the credential shape expected by `extract`, PNG decompression limits and alpha handling, the one-hour expiry of stored fetches, index atomicity, and adds a 6-per-minute budget for page answers.\n\nFully usable: search, fetch, stored-content retrieval, source checks, page answers, PNG resizing, proxy, panel, shortcut, Chinese settings. Needs your own credentials: `extract` (Cloudflare), `auth` (off by default). Video frame analysis is unavailable because `pi.agent.complete` only accepts text, and the `baizhi` and `zai` providers report unavailable because this package carries no MCP client transport; the other 44 providers are unaffected.\n\nNo telemetry. Provider keys stay in the plugin's private data directory and are never logged or packaged.",
           "minPiDesktop": "\u003e=0.20.1",
           "shasum": "09009c2ef122548b3a13fbee3f13fbab26f10f2c92cc68e375d35ecfd45b2c64",
