@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-08T12:24:14Z",
-  "generatedAt": "2026-11-08T12:24:14Z",
+  "updatedAt": "2026-11-08T12:42:07Z",
+  "generatedAt": "2026-11-08T12:42:07Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1943,7 +1943,7 @@
       "versions": [
         {
           "version": "0.12.0",
-          "publishedAt": "2026-11-08T12:24:14Z",
+          "publishedAt": "2026-11-08T12:26:06Z",
           "changelog": "# Changelog\n\n## 0.12.0\n\n### Features\n\n- **main:** run writers in parallel per repo, fail over on limits, prove work (`35f050b`)\n- **subagents:** let the review worker build a proof's scratch worktree (`cd7d84e`)\n\n### Documentation\n\n- **skills:** explain repo, limit failover and checked tickets (`5319ed8`)\n- **readme:** describe repo folders, model limits and checked work (`6c29cbf`)\n\n### Tests\n\n- **tests:** turn proof checks off by default in the test host (`bc005df`)\n- **tests:** cover git probing and per-repo worktrees and merges (`ff0f179`)\n- **tests:** cover the shared limit cooldown and worker fallbacks (`c45b51b`)\n- **tests:** cover acceptance tests, proofs and fix rounds (`ca89fb9`)\n\n## 0.10.0\n\n### Features\n\n- **main:** let a worker split a broad ticket into parallel tickets (`d7d20f5`)\n- **skills:** launch the tickets a worker split off, without a message (`a1e1ad1`)\n\n### Fixes\n\n- **main:** run workers at a thinking level excludeThinking allows (`117a9a7`)\n\n### Documentation\n\n- **manifest:** say the worker files carry the allowed thinking level (`147e882`)\n- **skills:** explain that workers run at their definition's thinking level (`7479ccb`)\n- **subagents:** name split tickets started by an earlier worker (`f5c16bd`)\n- **readme:** explain how the worker definitions get the thinking level (`4370b28`)\n- **readme:** explain how workers split broad requests (`53fa549`)\n\n### Tests\n\n- cover the thinking level of installed workers (`8dca884`)\n- cover tickets a worker splits into parallel parts (`e22d8e0`)\n\n## 0.8.0\n\n### Features\n\n- **main:** exclude thinking levels, at most medium by default (`76a3095`)\n\n### Documentation\n\n- **skills:** never raise thinking above the suggested level (`23b8a28`)\n- **readme:** explain the excludeThinking setting (`9f42e1b`)\n\n### Tests\n\n- cover excluded thinking levels (`84b63f3`)\n\n## 0.7.0\n\n### Features\n\n- **main:** start a split ticket after the tickets whose results it needs (`15dcb0e`)\n- **skills:** split parallel parts and a step that needs their results (`be9509a`)\n\n### Documentation\n\n- **readme:** explain tickets that start after others end (`591a906`)\n\n### Tests\n\n- cover tickets that wait for the results of others (`487edd4`)\n\n## 0.5.0\n\n### Features\n\n- **main:** split a message into tickets kept apart by git worktrees (`c2e36fd`)\n- **prompts:** allow commits on ticket branches and merge-ticket merges (`ff87e20`)\n- **subagents:** set up worktrees and land the branches of merge tickets (`1c5f92b`)\n- **skills:** accept split requests and launch merge tickets (`96febee`)\n\n### Documentation\n\n- **readme:** explain parallel tickets, worktrees and merges (`a1eaf87`)\n\n### Tests\n\n- run the lifecycle tests with serial isolation (`eb527a2`)\n- cover split tickets, worktree isolation and merge tickets (`c7b2c1e`)\n\n## 0.1.5\n\n### Fixes\n\n- **manifest:** add the chinese name, description and safety notes (`0fbf1fd`)\n\n### Tests\n\n- cover the chinese texts and the apache-2.0 license (`67468c6`)\n\n### Chores\n\n- license the plugin under apache-2.0 (`e068051`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "39b0a601db2bbf0c1c6dc2b2358da07b1ce4dd09629453b9d11884402211dd49",
@@ -2242,6 +2242,29 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.31.1",
+          "publishedAt": "2026-11-08T12:42:07Z",
+          "changelog": "# Changelog\n\n## 0.31.1\n\n### Fixes\n\n- **view:** show only state, running subagents, tokens and age in tooltips (`93d398a`)\n\n### Documentation\n\n- **readme:** describe the shorter agent tooltip line (`3893e74`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "c96ccea547a674f88319a0a55de0e96010cb67cf3b9baf0903c9be58b0967f0d",
+          "url": "packages/eskwisit.neural-radar-0.31.1.piplug",
+          "sizeBytes": 293189,
+          "permissions": [
+            "desktop.control",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.31.1",
+            "sourceCommit": "88bae2fd7ca17600438fdd6c5b041e094732d693",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-08T12:42:07Z"
+          }
+        },
         {
           "version": "0.31.0",
           "publishedAt": "2026-11-08T09:05:22Z",
