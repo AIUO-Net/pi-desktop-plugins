@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-08T12:42:07Z",
-  "generatedAt": "2026-11-08T12:42:07Z",
+  "updatedAt": "2026-11-08T15:50:28Z",
+  "generatedAt": "2026-11-08T15:50:28Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2244,7 +2244,7 @@
       "versions": [
         {
           "version": "0.31.1",
-          "publishedAt": "2026-11-08T12:42:07Z",
+          "publishedAt": "2026-11-08T12:43:57Z",
           "changelog": "# Changelog\n\n## 0.31.1\n\n### Fixes\n\n- **view:** show only state, running subagents, tokens and age in tooltips (`93d398a`)\n\n### Documentation\n\n- **readme:** describe the shorter agent tooltip line (`3893e74`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "c96ccea547a674f88319a0a55de0e96010cb67cf3b9baf0903c9be58b0967f0d",
@@ -9098,6 +9098,65 @@
             "sourceCommit": "7d01df699ec527aeceb18a5f38dac3d33b3e5010",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-09-18T17:42:43Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pi.web-access",
+      "name": "Web Access",
+      "description": "Web search, page and image fetching, stored-content retrieval, source checks, page answers, field extraction, and authenticated fetches for the agent, ported from the pi-web-access extension.",
+      "author": "PI-Desktop port of nicobailon/pi-web-access",
+      "i18n": {
+        "en": {
+          "name": "Web Access",
+          "description": "Web search, page and image fetching, stored-content retrieval, source checks, page answers, field extraction, and authenticated fetches for the agent, ported from the pi-web-access extension.",
+          "safetyNotes": "Runs the upstream pi-web-access modules unchanged inside the plugin process and calls the open web on the agent's behalf. net.anyHost is declared because a web-access tool must reach whatever host a search provider or a user-supplied URL resolves to. agent.prompt.inject ships one skill that tells the model how to use the tools; it is instructions, not code. agent.complete spends your model quota for fetch_content mode answer, only when you ask for that mode. keyboard.globalShortcut binds Ctrl/Cmd+Shift+Y to open this plugin's own panel command. shell.openExternal opens a stored result link you click. Provider credentials are written only to this plugin's private data directory and never logged. No telemetry."
+        },
+        "zh-CN": {
+          "name": "联网访问",
+          "description": "把 pi-web-access 扩展的联网搜索、网页与图片抓取、结果检索、来源核查、页面问答、字段提取与带登录态抓取能力搬给 Agent。",
+          "safetyNotes": "在插件进程内运行未改动的上游 pi-web-access 模块，并代表 Agent 访问公网。声明 net.anyHost 是因为联网工具必须能访问搜索供应商或用户给出 URL 所在的任意主机。agent.prompt.inject 只提供一份说明如何选用工具的技能文档，是指令不是代码。agent.complete 会在你主动使用 fetch_content 的 answer 模式时消耗你的模型额度。keyboard.globalShortcut 把 Ctrl/Cmd+Shift+Y 绑定到本插件自己的面板命令。shell.openExternal 用于打开你点击的已存结果链接。供应商密钥只写入本插件私有数据目录，从不写日志。无遥测。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity",
+        "web"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/nicobailon/pi-web-access",
+      "readmeMarkdown": "# Web Access for PI-Desktop\n\n\u003e 把 [`nicobailon/pi-web-access`](https://github.com/nicobailon/pi-web-access) 的联网搜索、网页与图片抓取、结果检索、来源核查、页面问答与字段抽取搬进 PI-Desktop。上游源码逐字节复用，只替换 pi 专属外壳。\n\n\u003cp align=\"left\"\u003e\n  \u003cimg alt=\"PI-Desktop\" src=\"https://img.shields.io/badge/PI--Desktop-%E2%89%A50.20.1-0485f7\" /\u003e\n  \u003cimg alt=\"upstream\" src=\"https://img.shields.io/badge/upstream-v0.47.0-6f42c1\" /\u003e\n  \u003cimg alt=\"patched files\" src=\"https://img.shields.io/badge/upstream%20patches-0-4fbd91\" /\u003e\n  \u003cimg alt=\"license\" src=\"https://img.shields.io/badge/license-MIT-4fbd91\" /\u003e\n\u003c/p\u003e\n\nPi coding agent 的扩展与 PI-Desktop 的插件是两套互不兼容的体系：扩展跑在 agent 进程里、拿 `ExtensionAPI` 和 `pi-tui`；插件跑在宿主进程里、拿 `globalThis.pi` 和面板桥。上游 `web-tool-core.ts` 本身与宿主无关，并自带两个宿主实现：`createWebToolCore(host)`（pi 用）和 `createStandaloneWebToolCore()`（官方 MCP server 用）。\n\n本移植调 **`createWebToolCore(host)`**，把宿主换成桌面能提供的那个：图片走本地 `resizeImage` shim，页面问答走 `pi.agent.complete`，结果落盘到插件数据目录。`index.ts` 那层 pi 界面换成 PI-Desktop 的工具注册、命令、快捷键与面板。\n\n## 四个工具\n\n| 工具 | 风险 | 作用 |\n| --- | --- | --- |\n| `web_search` | medium | 搜索来源或答案；结果按 `responseId` 存起来供检索 |\n| `fetch_content` | medium | 抓网页、PDF、GitHub 仓库、图片；支持 `answer` / `extract` / 认证抓取 / 视频参数 |\n| `get_search_content` | low | 按 `responseId` 翻页或检索已存内容（跨重启有效） |\n| `source_check` | medium | 针对某个断言收集带引用的网页片段 |\n\n`web_search`、`get_search_content`、`source_check` 的参数面与上游 MCP 定义（`mcp-tool-definitions.ts`）完全一致。`fetch_content` 在此基础上补回了上游只给 pi 用的参数：\n\n| 参数 | 作用 |\n| --- | --- |\n| `mode` | `readable`（默认）/ `raw` / `answer` / `extract` |\n| `prompt` | `answer` 的问题；视频分析的指令 |\n| `answerModel` | `answer` 用的模型（`provider/model-id`），默认取当前会话模型 |\n| `fields` | `extract` 要抽的字段名与类型（text / number / date / time / datetime / duration） |\n| `auth` | 用本机浏览器 cookie 抓登录墙页面（与 `answer`/`extract` 互斥） |\n| `redirects` | `same-origin`：拒绝跨源重定向 |\n| `timestamp` / `frames` / `model` | 视频定位、抽帧数与分析模型 |\n\n## 安装\n\n### 本地开发加载\n\n1. **插件 → 加载开发插件**，选本仓库目录\n2. 宿主会逐个列出声明的权限并等你确认（见下方「权限」）\n3. 工作面板视图菜单 → **联网访问**；也可从全局搜索用 `Web Access: …` 三条命令打开，或按 `Ctrl/Cmd+Shift+Y`\n\n### 一条命令装进本机\n\n不点 GUI 也能装：\n\n```bash\nnpm run install:local\n```\n\n它把 `dist/*.piplug` 解包到 `%USERPROFILE%\\.pi-desktop\\plugins\\installed\\pi.web-access\\`，并在\n`plugins/registry.json` 里 upsert 一条 `enabled: true` 的记录（首次运行先备份原 registry，可回滚）。\n重启 PI-Desktop 后生效；高风险权限仍需你在插件页确认一次——脚本不会替你签这份同意。\n\n### 打包安装\n\n```bash\nnpm install\nnpm run pack      # dist/pi.web-access-0.2.1.piplug\nnpm run verify:pack\n```\n\n把 `.piplug` 拖进 **插件 → 安装插件包**。`build/agent.cjs` 已内置全部依赖，包内不含 `node_modules`。\n\n包内只有运行时要用的文件：`manifest.json`、`main.js`、`build/agent.cjs`、`views/`、`skills/`、`docs/PORT-NOTES.md`、`upstream.lock.json`、`README.md`、`LICENSE`。`upstream/` 与 `src/` 留在仓库里，由 `upstream.lock.json` 与发布标签固定；宿主执行的是 `build/agent.cjs`，源码不需要随包。`build/agent.cjs` 已内置全部依赖，包内不含 `node_modules`。\n\n## 配置与密钥\n\n配置优先级（高到低）：\n\n1. **插件凭据存储** —— 面板里填的密钥，写在插件私有数据目录的 `secrets.json`（`0600`）\n2. **插件设置表单** —— 默认供应商、抓取模式、字符上限、代理、四个工具开关\n3. **旧 `~/.pi/web-search.json`** —— 直接沿用 Pi 那边的配置；存在即合并\n4. **上游内置默认值**\n\n插件会把三者合并后写进数据目录的 `web-search.json`，再让上游照它读。所以上游任何配置键都能用：\n\n```json\n{\n  \"braveApiKey\": \"…\",\n  \"searchProvider\": \"exa\",\n  \"fetch\": { \"defaultMode\": \"readable\", \"allowedModes\": [\"readable\", \"raw\", \"answer\"] },\n  \"ssrf\": { \"allowRanges\": [\"198.18.0.0/15\"] },\n  \"proxy\": \"http://127.0.0.1:7892\"\n}\n```\n\n面板的「密钥与高级配置（JSON）」就是把这种对象合并进凭据存储；已保存的密钥只显示「已配置 / 未配置」，值不会回显到面板。\n\n`PI_WEB_ACCESS_LEGACY_CONFIG` 可指定旧配置文件路径（空值表示不读旧文件），`PI_CODING_AGENT_DIR` 仍被上游用于定位缓存。\n\n### 两种模式的额外凭据\n\n| 能力 | 需要什么 | 从哪读 |\n| --- | --- | --- |\n| `fetch_content` 的 `answer` | 一个会话模型 | 当前会话模型，或 `answerModel`；走宿主的 `agent.complete` |\n| `fetch_content` 的 `extract` | Cloudflare Workers AI 凭据 | 面板的 `cloudflareApiKey` / `cloudflareAccountId`，或环境变量 `CLOUDFLARE_API_KEY` + `CLOUDFLARE_ACCOUNT_ID`；可选 `CLOUDFLARE_GATEWAY_ID` |\n\n`extract` 默认**不在** `fetch.allowedModes` 里——这是上游的隐私默认，因为该模式会把页面正文发给 Cloudflare。要用请在面板勾选。\n\n### 浏览器 cookie（可选，默认关闭）\n\n`auth` 认证抓取与 gemini 登录态探测都要读本机 Chromium（Chrome / Edge）的 cookie。上游把这件事放在 `allowBrowserCookies` 开关后面，默认关闭：关闭时 `isGeminiWebAvailable()` 直接返回 null，**一个 cookie 都不读**。\n\n开启方式二选一：\n\n- 面板「密钥与高级配置（JSON）」里写入 `{ \"allowBrowserCookies\": true }`\n- 或设环境变量 `PI_ALLOW_BROWSER_COOKIES=1`\n\n开启后可用 `browserCookies.profile` 指定 Chromium 配置目录名（`Default`、`Profile 1` 等）；Windows 上由上游做 DPAPI 解密，插件本身不接触明文密钥。\n\n## 供应商支持面\n\n上游的 46 个供应商名字都保留在配置与选择列表里，其中 44 个在本构建中可直接使用：\n\n`openai` · `brave` · `parallel` · `parallel-mcp` · `tinyfish` · `search1api` · `searchinfinity` · `querit` · `tavily` · `you` · `firecrawl` · `jina` · `searxng` · `degoog` · `duckduckgo` · `perplexity` · `gemini` · `kimi` · `exa` · `serpdive` · `kagi` · `ollama` · `anysearch` · `xai` · `mistral` · `brightdata` · `serpbase` · `serpapi` · `serper` · `serply` · `valyu` · `bocha` · `xcrawl` · `keenable` · `ceramic` · `deepseek` · `linkup` · `ninerouter` · `cloudflare` · `searchapi` · `outcrawl` · `sofya` · `cloro` · `tabstack`\n\n免密钥即可用的是 `degoog`、`duckduckgo`、`exa`、`anysearch`、`keenable`、`parallel-mcp`（以本机实测为准，面板会逐个标出可用性）。其余需要在面板里填对应凭据。\n\n两个例外：`kimi` 只走 Pi 的登录态（上游 MCP 宿主也把它剔除了，桌面端选它会得到 \"unknown provider\"）；`gemini` 可用 API key，或在本机 Chrome/Edge 登录后开启 `allowBrowserCookies`。\n\n`baizhi` 与 `zai` 走 MCP 客户端传输。插件中心的打包审计拒绝任何携带 `new Function` 的包，而那条客户端会带进 `ajv`、`function-bind`、`get-intrinsic`，所以本构建把该传输指向本地占位实现：选这两个供应商会立刻拿到明确的「不可用」提示，不会静默返回空结果。其余 44 个供应商不受影响。\n\n## 安全边界\n\n插件在三处直接接触不可信输入，各自有明确防线：\n\n- **结果 id 只能是文件名。** `responseId` 与面板的 `results:*` 通道都会把 id 拼进文件路径，而 `path.join` 会解析 `..` —— 实测 `results:drop` 传 `../secrets` 能删掉数据目录里的密钥文件。插件沿用上游 `CACHE_ID_PATTERN`（`[A-Za-z0-9_-]{1,64}`）在存储层四个入口统一校验，通道层对非法 id 直接返回 `INVALID_ARGUMENT`；长度上限同时挡住 1 MB `responseId` 的整串回显。\n- **外链只开 http(s)。** 「打开来源」用全锚定正则 `/^https?:\\/\\//i` 校验，`javascript:`、`file://`、前导空白与大小写变体全部拒绝。渲染层没有任何 `innerHTML`／`insertAdjacentHTML`，任意网页的标题、摘要、正文、错误文案都只经过 `textContent`。\n- **模型补全自己限流。** 宿主允许 8 次 `pi.agent.complete`／60 秒，而上游对 answer 模式是按 URL 并发（`Promise.all`），一次多 URL 抓取就能打光整分钟额度并连带拖垮自动总结。插件侧改成 6 次／60 秒滑窗，超额返回明确的「N 秒后重试」，并由 `signal` 感知取消。\n\n## 权限\n\n| 权限 | 风险 | 用途 |\n| --- | --- | --- |\n| `agent.tool.register` | high | 注册上面四个 agent 工具 |\n| `net.anyHost` | high | 联网工具必须能访问搜索供应商与用户给出的任意 URL；这是开放世界的抓取，无法预先列域名 |\n| `agent.prompt.inject` | high | 提供一份说明如何选用这些工具的技能文档（`skills/web-search.md`） |\n| `agent.complete` | high | `fetch_content` 的 `answer` 模式用你的模型回答页面问题；只在显式要求时调用 |\n| `ui.view` | low | 在工作面板里提供「联网访问」视图 |\n| `keyboard.globalShortcut` | medium | 把 `Ctrl/Cmd+Shift+Y` 绑到本插件自己的打开面板命令 |\n| `shell.openExternal` | medium | 在「已存结果」里打开你点的那条来源链接（只接受 http(s)） |\n\n不读会话、不读写剪贴板以外的内容、不启动子进程、无遥测。密钥只落插件私有数据目录，不写日志、不进打包产物（`npm run test:config` 与 `npm run verify:pack` 都在验证这一点）。\n\n## 与上游的差异\n\n完整对照见 [docs/PORT-NOTES.md](docs/PORT-NOTES.md)。要点：\n\n- **换了一个宿主实现**：不经过 `createStandaloneWebToolCore()` 的收窄，直接用 `createWebToolCore(host)`，因此图片、页面问答、磁盘结果都能工作。\n- **pi 界面换成桌面面**：`/curator` → 面板「已存结果」；活动小部件 → 面板「活动」卡；`Ctrl+` → `Ctrl/Cmd+Shift+Y`；`sendMessage`/`appendEntry` → 落盘 `results/`；`promptSnippet` → `skills/web-search.md`。\n- **命令只做导航**：三条桌面命令从全局搜索打开面板分区；`pi.commands.register` 的 `run()` 无参数，不能像斜杠命令那样内联 query。\n- **自动摘要默认关闭**：`autoSummary` 打开后，`web_search` 会先让会话模型把结果总结成一段带链接的说明；关闭时保持原始结果表。摘要失败会回落到原始结果，不会让搜索失败。\n- **gemini 可用性与上游一致**：API key 或本机浏览器登录态都算可用；`isGeminiWebAvailable()` 在 `allowBrowserCookies` 关闭时直接返回 null，默认不读任何浏览器数据。\n- **搜索 `model` 覆盖可用**：`web_search` 接受 `model`（`provider/id`），只对支持覆盖的 provider 生效；不传则用配置里的 `*SearchModel`。\n\n## 开发\n\n```bash\nnpm install\nnpm run build              # build/agent.cjs（esbuild，把上游与依赖一起打进去）\nnpm test                   # 适配层 + 配置 + 视图 + 持久化\nnpm run test:adapter       # 验收 1：四工具注册 / 清单一致 / 反注册 / 命令 / 快捷键\nnpm run verify:upstream    # 验收 2：上游逐字节比对\nnpm run test:upstream      # 验收 3：上游用例子集，要求 0 失败\nnpm run smoke              # 验收 4：真实搜索 + 抓取 + 按 id 取回（无需任何 key）\nnpm run test:config        # 验收 5：配置优先级与密钥不外泄\nnpm run pack               # 验收 6：产出 .piplug\nnpm run verify:pack        # 验收 6：包规则 + 解包加载\nnpm run test:view          # 验收 7：面板纯函数 + DOM\nnpm run verify:docs        # 验收 8：文档齐备\nnpm run devkit:check       # 用官方 devkit 的 pi-plugin check 校验清单\n```\n\n面板可以脱离宿主预览：浏览器打开 `test/harness.html`（内置假宿主与示例数据）。\n\n## 已知限制\n\n- **`answer` 只处理文本页面。** `pi.agent.complete` 的入参只有 `system` 与 `messages`（文本），没有图片通道；对图片或视频帧调用 `answer` 会返回明确错误，需要单独的抓取或视频能力。\n- **自动摘要会多花一次补全**：`autoSummary` 默认关闭，打开后每次 `web_search` 都会先跑一次会话模型。\n- **`extract` 需要 Cloudflare Workers AI 凭据**，且默认不在 `fetch.allowedModes` 内（隐私默认，正文会发给 Cloudflare）。\n- **视频分析不可用**：宿主 `pi.agent.complete` 只收文本，抽取的视频帧没有输入通道，对视频帧调用 `answer` 会明确报错而不是只答文字。\n- **`auth` 认证抓取未验证**：参数与代码路径已接通，本机没有可用的认证配置，无法证明产出质量；`redirects: \"same-origin\"` 是纯 HTTP 行为，随抓取直接生效。\n- **`responseId` 跨重启有效，最多保留最近 120 条**（`src/store.ts` 的 `MAX_PERSISTED`）；内存工作集仍是上游的 50 条，超出后最早的条目会被删除。\n- 面板停用某个工具后，当前会话的注册不会变化，需要重新加载插件才生效（面板里已标注）。\n- `web_search` 的 `includeContent: true` 是**同步**的：返回前抓完所有页面，多 URL 或慢站容易接近宿主的 110 秒工具上限；上游部分内部超时（抓取 150 s、搜索路由 600 s）比这个上限更长，因此超时由宿主先触发，插件不返回部分结果。\n- 改配置会重建执行核心并清空内存工作集；磁盘结果保留，下一次 `get_search_content` 会重新 hydrate。\n- Plan/Goal 模式下宿主不提供插件工具（没有 `planSafeActions` 声明），这是宿主策略。\n- 图片缩放只覆盖 PNG：8 位 RGB/RGBA 且超过 2000px 才缩（`node:zlib` 自解码/编码）；JPEG、WebP、GIF 与 16 位/调色板/交织 PNG 原样返回，超过 8 MiB 直接拒绝。\n- 上游包的首次加载会把 9 MB 的 bundle 读进内存，之后常驻。\n- `degoog`/`duckduckgo` 等免密钥通道在部分网络下需要代理，可在面板里填 `proxy`。\n\n## 许可\n\nMIT。`upstream/` 下的文件来自 [`nicobailon/pi-web-access`](https://github.com/nicobailon/pi-web-access)（MIT，© 2025 Nico Bailon），保持原样。\n",
+      "safetyNotes": "Runs the upstream pi-web-access modules unchanged and calls the open web on the agent's behalf. net.anyHost is required because provider endpoints and user-supplied URLs are open-world. agent.prompt.inject contributes one instruction skill, agent.complete backs fetch_content mode answer, keyboard.globalShortcut binds one panel command, and shell.openExternal opens a result link the user clicks. Credentials stay in the plugin data directory and are never logged.",
+      "versions": [
+        {
+          "version": "0.2.1",
+          "publishedAt": "2026-11-08T15:50:28Z",
+          "changelog": "## 联网访问 0.2.1\n\n把 `nicobailon/pi-web-access`（v0.47.0）移植为 PI-Desktop 插件，向 Agent 提供四个工具：\n\n- `web_search`：多查询并发搜索，结果存放在可按 `responseId` 回读的存储里\n- `fetch_content`：抓网页、PDF、GitHub 仓库、图片，支持 `readable` / `raw` / `answer` / `extract` 四种模式\n- `get_search_content`：按 `responseId` 翻页或按关键词定位已存内容\n- `source_check`：就一条主张收集带出处的网页片段，供人工核对\n\n同时提供中文「联网访问」面板：已存结果浏览、活动记录、各搜索供应商的连接状态与密钥填写入口、抓取模式与代理设置。\n\n### 0.2.1 修复\n\n- **路径穿越**：`results:drop` / `results:peek` 曾能读写插件数据目录外的文件，现按上游 `CACHE_ID_PATTERN` 校验 id，并在 `resolve` 层做前缀兜底\n- **配置自锁**：`fetch.defaultMode` 缺省时未按其缺省值校验，坏值写入后会令插件每次启动失败；现先校验后写宿主设置\n- **字段抽取**：`extract` 模式读的是嵌套形状的凭据，扁平形状会抛 `TypeError`；现由适配层归一化\n- **PNG 缩放**：解压前按像素上限拦截，并给 `inflateSync` 设输出上限；RGBA 按 alpha 预乘；编码超限则放弃缩放返回原图\n- **已存内容过期**：`fetch` 结果超过 1 小时读不出正文的问题已修正\n- **索引原子性**：临时文件名加入进程号与随机串，索引损坏时从结果文件重建\n- **配额**：页面问答按 6 次/60 秒滑窗限流，与宿主的 8 次/60 秒上限留出余量\n\n### 能力状态\n\n- 完全可用：搜索、抓取、已存内容检索、来源核查、页面问答、图片缩放（PNG）、代理、自定义面板、快捷键、中文设置\n- 需自备凭据：`extract` 字段抽取需 Cloudflare 账号；`auth` 带浏览器登录态抓取默认关闭，需显式开启\n- 受宿主 API 限制：视频帧分析当前不可用，`pi.agent.complete` 只接受文本\n- 本构建不含 MCP 客户端传输：`baizhi` 与 `zai` 两个供应商会返回明确的不可用提示，其余 44 个不受影响\n\n### 隐私\n\n无遥测。搜索供应商密钥只写入本插件私有数据目录，不写日志、不进打包产物。各项权限用途写在 manifest 的 `safetyNotes` 里。\n\n---\n\n### English\n\nPI-Desktop port of the `pi-web-access` Pi extension (v0.47.0): four agent tools — `web_search`, `fetch_content`, `get_search_content`, `source_check` — plus a Chinese work-panel view for stored results, provider credentials, fetch modes and proxy settings.\n\n0.2.1 fixes path traversal in the stored-result channels, a settings lock-out caused by validating `fetch.defaultMode` only when present, the credential shape expected by `extract`, PNG decompression limits and alpha handling, the one-hour expiry of stored fetches, index atomicity, and adds a 6-per-minute budget for page answers.\n\nFully usable: search, fetch, stored-content retrieval, source checks, page answers, PNG resizing, proxy, panel, shortcut, Chinese settings. Needs your own credentials: `extract` (Cloudflare), `auth` (off by default). Video frame analysis is unavailable because `pi.agent.complete` only accepts text, and the `baizhi` and `zai` providers report unavailable because this package carries no MCP client transport; the other 44 providers are unaffected.\n\nNo telemetry. Provider keys stay in the plugin's private data directory and are never logged or packaged.",
+          "minPiDesktop": "\u003e=0.20.1",
+          "shasum": "09009c2ef122548b3a13fbee3f13fbab26f10f2c92cc68e375d35ecfd45b2c64",
+          "url": "packages/pi.web-access-0.2.1.piplug",
+          "sizeBytes": 8896425,
+          "permissions": [
+            "agent.complete",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "keyboard.globalShortcut",
+            "net.anyHost",
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Techd81/pi-desktop-web-access",
+            "sourceRef": "v0.2.1",
+            "sourceCommit": "23c6436bf40b7e0c17433a2fbfd1195bfe41f04a",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-08T15:50:28Z"
           }
         }
       ]
