@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-09T02:33:14Z",
-  "generatedAt": "2026-11-09T02:33:14Z",
+  "updatedAt": "2026-11-09T06:33:04Z",
+  "generatedAt": "2026-11-09T06:33:04Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.5.4",
-          "publishedAt": "2026-11-09T02:33:14Z",
+          "publishedAt": "2026-11-09T02:35:14Z",
           "changelog": "# AI媒体生成服务 0.5.4\n\n- 插件页面精简为「配置」和「生成记录」，通过 Agent 对话生成 GPT 图片与 MiniMax 语音。\n- 图片与语音任务下显示创建时的项目名称标签；旧任务和无法确认归属的任务明确标识，不追溯猜测项目。\n- 渠道在上、模型在下，调整状态与时间列间距，并修复 320px 配置搜索栏溢出。\n- 保留预览、试听、原始 PNG/MP3 下载、16 个 Agent 工具及原有兼容接口。\n- 补齐市场信息与插件页面的中英文文案，保留旧客户端兼容行为。\n\n凭据、任务与结果数据无需迁移。音频当前支持 MiniMax 文本朗读，不支持脚步声等环境音效、音乐或视频；不会替换为本地合成。生成使用已配置供应商，可能产生供应商费用，结果未知时不会自动重试。\n\n如 PI-Desktop 0.21.0 更新后仍保留旧插件页面，请保存编辑并等生成任务结束，再禁用、启用本插件以重建页面，无需更新客户端。\n\n## English\n\nThe panel now contains Configuration and Generation Records. Generate GPT images and MiniMax speech in Agent conversations, inspect project labels and compact channel/model columns, and preview, play or download original results. All sixteen Agent tools and compatible backend routes remain available. This release includes English and Simplified Chinese panel and marketplace copy, preserving compatibility with older clients.\n\nCredentials and saved tasks require no migration. MiniMax support is text-to-speech only; environmental sound effects, music and video are not implemented. Provider charges may apply; uncertain jobs are never automatically resubmitted.\n\nValidation: 301 Node tests and 70 isolated browser tests passed, including English and Chinese user paths. The official localization gate reports zero failures. No live provider generation, installed-client update or task-data migration is included in publication.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "e89b9300c98babe9afe57fb48ca694be173de0820eb755161d682cbe2cb09491",
@@ -2282,6 +2282,29 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.39.1",
+          "publishedAt": "2026-11-09T06:33:04Z",
+          "changelog": "# Changelog\n\n## 0.39.1\n\n### Features\n\n- **view:** fade finished subagents off the radar (`8f367fa`)\n- **view:** close the drawer once a message is sent or queued (`be9a0ce`)\n\n### Fixes\n\n- **main:** keep new empty sessions off the radar (`b40e01c`)\n\n### Documentation\n\n- **readme:** refresh the demo image with your picture and opaque tooltips (`4ac02a4`)\n- **readme:** describe finished subagents fading away (`6291502`)\n\n### Tests\n\n- **tests:** cover empty sessions staying off the radar (`4b9f1d4`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "df0fe4bb784fb2d0c5c3e0481b918ca314f0bb128162e0645ab05eef7da0bff9",
+          "url": "packages/eskwisit.neural-radar-0.39.1.piplug",
+          "sizeBytes": 269296,
+          "permissions": [
+            "desktop.control",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.39.1",
+            "sourceCommit": "b9afb7cacf50ec326926a355306eb7fb947fbb0e",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-09T06:33:04Z"
+          }
+        },
         {
           "version": "0.37.0",
           "publishedAt": "2026-11-08T16:47:02Z",
