@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-09T09:13:30Z",
-  "generatedAt": "2026-11-09T09:13:30Z",
+  "updatedAt": "2026-11-09T10:36:57Z",
+  "generatedAt": "2026-11-09T10:36:57Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1576,6 +1576,35 @@
       "readmeMarkdown": "# Side Chat\n\nPI-Desktop plugin: a chat docked in the right work panel.\n\n- Independent multi-turn history (stored in the plugin data directory)\n- Completions go through the host (`agent.complete`) using models you already signed in\n- Optional: attach the current session transcript as context\n- Optional: send the last reply back into that session (`agent/prompt`)\n\nRequires PI-Desktop ≥ 0.14.0.\n\n## Install\n\n1. Open PI-Desktop → Plugins → **Load development plugin**\n2. Choose this directory\n3. Open the right work panel and pick **Side Chat**\n\nCommand palette: `Side Chat: Open` (detached window).\n\n## Permissions\n\n| Permission | Why |\n|---|---|\n| `ui.view` / `ui.panel` | Docked view and optional window |\n| `models.list` | List signed-in models |\n| `agent.complete` | Side completion (host holds the keys) |\n| `desktop.control` | List/read sessions, send a prompt back |\n| `clipboard.write` | Copy a reply |\n\nNo plugin-owned network. Completions are capped by the host: 8 calls / 60s, 90s timeout.\n\n## Repo\n\nhttps://github.com/vastsa/pi-desktop-side-chat\n",
       "safetyNotes": "Uses your already signed-in models through the host (agent.complete); the plugin never sees API keys. desktop.control lets it list sessions, read a transcript, and send a prompt into a session. Conversations are stored only in this plugin's local data directory. No network of its own.",
       "versions": [
+        {
+          "version": "0.1.15",
+          "publishedAt": "2026-11-09T10:36:57Z",
+          "changelog": "Release 0.1.15: hide inactive automatically empty history buckets and distinguish same-name nonempty project histories without merging, deleting or changing their keys. Preserve attachments, permissions and main/side isolation.",
+          "minPiDesktop": "\u003e=0.21.1-0",
+          "shasum": "badea3e9cee2742884ce007e2a1ad107c52c83de2d6f3bfafaec99c6a6f76b64",
+          "url": "packages/com.vastsa.side-chat-0.1.15.piplug",
+          "sizeBytes": 1011236,
+          "permissions": [
+            "agent.complete",
+            "agent.extension",
+            "clipboard.write",
+            "desktop.control",
+            "models.list",
+            "renderer.extension",
+            "shell.openExternal",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/vastsa/pi-desktop-side-chat",
+            "sourceRef": "cdceac39fda13710f980c8b793966709b1fe0e07",
+            "sourceCommit": "cdceac39fda13710f980c8b793966709b1fe0e07",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-09T10:36:57Z"
+          }
+        },
         {
           "version": "0.1.0",
           "publishedAt": "2026-09-20T07:46:49Z",
