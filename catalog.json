@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-09T06:33:04Z",
-  "generatedAt": "2026-11-09T06:33:04Z",
+  "updatedAt": "2026-11-09T08:01:24Z",
+  "generatedAt": "2026-11-09T08:01:24Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2284,7 +2284,7 @@
       "versions": [
         {
           "version": "0.39.1",
-          "publishedAt": "2026-11-09T06:33:04Z",
+          "publishedAt": "2026-11-09T06:35:05Z",
           "changelog": "# Changelog\n\n## 0.39.1\n\n### Features\n\n- **view:** fade finished subagents off the radar (`8f367fa`)\n- **view:** close the drawer once a message is sent or queued (`be9a0ce`)\n\n### Fixes\n\n- **main:** keep new empty sessions off the radar (`b40e01c`)\n\n### Documentation\n\n- **readme:** refresh the demo image with your picture and opaque tooltips (`4ac02a4`)\n- **readme:** describe finished subagents fading away (`6291502`)\n\n### Tests\n\n- **tests:** cover empty sessions staying off the radar (`4b9f1d4`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "df0fe4bb784fb2d0c5c3e0481b918ca314f0bb128162e0645ab05eef7da0bff9",
@@ -8918,6 +8918,41 @@
       "publisherId": "pi",
       "downloads": 0,
       "versions": [
+        {
+          "version": "1.7.1",
+          "publishedAt": "2026-11-09T08:01:24Z",
+          "changelog": "1.6.0 — 首次会话 onboarding 从\"建议\"变成\"强制\"\n光有提示段落没用：agent 可以读完提示照样直接改代码。这一版加了真正的闸门——扩展监听宿主的 tool_call，返回 { block: true, reason } 时那个调用根本不会执行，模型绕不过去。\n规则 1：本会话还没跑过 spec_validate → 所有干活工具（bash/edit/write/task/browser/spec_create|update|delete 等）被拒，拒绝文案点名下一步就是 spec_validate。\n规则 2：spec_validate 报 0 个 durable spec → 继续拒，直到加载 setting-up-a-project 技能。onboarding 优先于用户那句请求。\nspec_validate 输出首行改成机器可读的 [thinkrail-state] specs=N（不含 .thinkrail/context/ 草稿），规则块把记录到的状态带进下一轮。\n设计上的 fail-open：只读工具、Skill、提问、待办、spec 只读工具永远放行；未知工具名放行；spec 工具自身报错或连续 16 次被拒 → 本会话永久放行。\"宁可漏一次，不能把会话焊死。\"\n1.7.0 — 补上\"部分图 → 完整图\"这条缺掉的路径\n新 worker extending-a-spec-graph：审计缺口（带证据）→ 提出一份 task-spec 修复方案 → 批准一次 → 按 root → architecture → modules 修完并验证。它描述系统是什么；一旦发现需要设计新行为，交回 brainstorming 并说明原因。\n缺口表的自我约束：specs=N 不是分数（把两个错节点合成一个对的，数字下降也是进步）；目录里没有 SPEC.md 不等于缺口。\n重复 id 按文件重命名（spec_update 拒绝改 id），每个入向引用逐一核对目标；指向保留 id 的链接不动，能确认的移到重命名后的节点，含糊的报告为未解决。\nspec-graph 与 writing-specs 停止互相复述：前者只管图（节点、frontmatter、链接类型、状态值、7 个工具），后者成为 spec 内容与\"什么证据允许改状态\"的唯一出处。\n元规则 16 取代命中计数：一个候选技能要靠\"它修哪条流程、它独有的步骤或关卡、它对外的触达、它的收尾、它消除的重复\"来赢得位置，出现频率只是证据、不是门槛。\n工程性修复一批：闸门证据只认成功 validate 的严格首行（并识别宿主加的 plugin_pi_thinkrail_ 前缀）；id 查找覆盖草稿且 get/update/delete 口径一致；YAML 别名保留既有列表成员、普通对象数组不再崩索引；面板状态按项目隔离；PR 复合请求跟踪剩余阶段。测试基线：85 passed / 0 skipped。\n1.7.1 — 修掉闸门在没有工作区时的死锁（本次）\n问题：1.6.0 的 fail-open 只认宿主给的 isError。但 PI-Desktop 把插件工具返回的 { error } 当作成功结果（会话记录 status: success、isError: false，plugin.log ok: true）。于是 spec_validate 回答 No workspace is open 时既没有状态行、也没有 isError，state.checked 永远为 false——Bash/Write/Task 一直被拒，直到 16 次熔断。这不是 0.22.0 的回归，2026-11-05 的历史会话里就有同样的映射。\n改法：spec_validate 只认自己的证据——首行严格匹配 [thinkrail-state] specs=N 才记图解锁；其它任何结果（报错、无工作区、工具没注册、参数被拒、缺状态行）→ 本会话永久放行。报错的结果即使正文里恰好有状态行也不记图。\n熔断保持 16 不动：同一轮并行发多个工具时不该被误触发，恢复靠上面的证据规则。\n其余闸门行为不变：只读工具、Skill、提问、待办、spec 只读工具放行；未知工具名放行；0 个 durable spec 仍需先 onboarding 再改项目。",
+          "minPiDesktop": "\u003e=0.15.6",
+          "shasum": "39fd03cc3a9de76151e54a9e84c6dbaf1a3699827e83f8c6352e146563fa7f5c",
+          "url": "packages/pi.thinkrail-1.7.1.piplug",
+          "sizeBytes": 625051,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "ui.view"
+          ],
+          "fs": {
+            "delete": {
+              "own": true
+            },
+            "read": {
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "scope": [
+                "**/*.md",
+                ".thinkrail/**"
+              ]
+            }
+          },
+          "yanked": false
+        },
         {
           "version": "1.5.2",
           "publishedAt": "2026-10-22T07:14:32Z",
