@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-09T08:13:16Z",
-  "generatedAt": "2026-11-09T08:13:16Z",
+  "updatedAt": "2026-11-09T09:13:30Z",
+  "generatedAt": "2026-11-09T09:13:30Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -5656,7 +5656,7 @@
       "versions": [
         {
           "version": "0.2.3",
-          "publishedAt": "2026-11-09T08:13:16Z",
+          "publishedAt": "2026-11-09T08:15:15Z",
           "changelog": "## 0.2.3\n\n- 修复：统计页用量改用本机累计数据，1/7/30 天范围可正确切换，按天分布覆盖多日\n- 文档：安全说明补充统计页的本地缓存文件（~/.hindsight/pi-desktop-llm-usage.json）",
           "minPiDesktop": "\u003e=0.17.0",
           "shasum": "ec9e81c83bcabb8dc4991f2c95e1ba6f55f1aec01490fd6eabe16ebb60682e4b",
@@ -7072,6 +7072,30 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.4.0",
+          "publishedAt": "2026-11-09T09:13:30Z",
+          "changelog": "## 0.4.0\n\n**调整**\n- 终端按对话会话绑定：会话 ID 取自宿主的 `session.getActive`，面板只显示当前会话的终端，切换会话时面板即时跟随（通常几十毫秒内完成）。\n- 最近用过的 6 个会话的终端保留在面板里，切回来不重建、不回放；更早的会话释放 xterm，切回时重新接入并回放。新会话第一次打开面板会新开一个终端。\n- 取不到会话（宿主不支持，或没有选中会话）时退回按项目隔离。\n- 后台 shell 总数上限 32，超出后回收最久没人碰过的那个（tmux 会话不受此上限回收）。\n\n**升级提示**\n- tmux 会话的归属标记改为对话会话 ID。0.3.0 按项目建的 tmux 会话升级后只在取不到会话时可见，也不会被自动结束，可用命令面板里的「结束所有 tmux 后台会话」清理。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "06abc19bbee08efd310e6be1b0315bda06fd92d097337dbf60a4c8471c1858f2",
+          "url": "packages/local.terminal-0.4.0.piplug",
+          "sizeBytes": 609881,
+          "permissions": [
+            "clipboard.read",
+            "clipboard.write",
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/zwwangoo/pi-terminal",
+            "sourceRef": "v0.4.0",
+            "sourceCommit": "29babdc62cc363eb2e73341757848eab9f082484",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-09T09:13:30Z"
+          }
+        },
         {
           "version": "0.3.0",
           "publishedAt": "2026-10-29T15:47:59Z",
