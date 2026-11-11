@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-11T08:02:52Z",
-  "generatedAt": "2026-11-11T08:02:52Z",
+  "updatedAt": "2026-11-11T09:46:48Z",
+  "generatedAt": "2026-11-11T09:46:48Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2012,7 +2012,7 @@
       "versions": [
         {
           "version": "0.14.0",
-          "publishedAt": "2026-11-11T08:02:52Z",
+          "publishedAt": "2026-11-11T09:46:48Z",
           "changelog": "# Changelog\n\n## 0.14.0\n\n### Features\n\n- **main:** rate models by the thinking levels and label the host reports (`58d87ac`)\n- **main:** let parts split once more and carry their own requirements (`97b4f48`)\n\n### Documentation\n\n- **subagents:** tell the code worker to prefer parallel parts (`42c10fe`)\n- **skills:** start one ticket per part the message names (`866fca0`)\n- **readme:** describe typed parts, their requirements and nested splits (`7f0380a`)\n\n### Tests\n\n- **tests:** cover profiles read from host thinking levels (`b6a56b0`)\n- **tests:** cover nested splits and per-part requirement flags (`3540a15`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "5d18b58a1600a10660741a4a4cdde1f510f3af5884f28212ba8948e688f5e062",
@@ -7035,6 +7035,46 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-29T20:33:27Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.sidebar-labels",
+      "name": "Sidebar Labels",
+      "description": "Choose symbols and colors for conversations, and color existing project folder icons. Labels stay on your device.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "侧边栏标记",
+          "description": "为会话选择标记符号和颜色，为项目原有文件夹图标选择颜色。支持预设色、自定义颜色与清除标记，设置保存在本机。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-11-11T09:46:41Z",
+          "changelog": "Initial release. Conversation symbols, preset and custom colors, project folder colors, keyboard access and local persistence. Tested with PI Desktop 0.21.0 on macOS.",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "6446ee3ba77677dda8952b16f7fdd94cc69d9d90201613ec2784561054e2674c",
+          "url": "packages/local.sidebar-labels-0.1.1.piplug",
+          "sizeBytes": 13019,
+          "permissions": [
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/RugkeyPro/pi-desktop-sidebar-labels",
+            "sourceRef": "v0.1.1",
+            "sourceCommit": "4613a8ff596f2280c6efb98e86bc7e3ad6715f4d",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-11T09:46:41Z"
           }
         }
       ]
