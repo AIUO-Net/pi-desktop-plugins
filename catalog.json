@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-12T19:25:20Z",
-  "generatedAt": "2026-11-12T19:25:20Z",
+  "updatedAt": "2026-11-12T19:45:16Z",
+  "generatedAt": "2026-11-12T19:45:16Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2011,8 +2011,53 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.24.0",
+          "publishedAt": "2026-11-12T19:45:16Z",
+          "changelog": "# Changelog\n\n## 0.24.0\n\n### Features\n\n- cleanupTickets setting trashes a ticket's briefs and reports when it ends (`8ef2ac4`)\n\n### Documentation\n\n- **readme:** document the cleanupTickets setting and the delete scope (`11e60c6`)\n- note the host json-settings save bug and the fs.remove limits (`c83f542`)\n\n### Tests\n\n- **tests:** cover ticket cleanup and a trash-like fs.remove in the fake host (`eba630a`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "854e000f064dbe1cb69dd6da62cab49a5575ca509105d2a6bad3e31c51aae2d8",
+          "url": "packages/eskwisit.llm-superagent-0.24.0.piplug",
+          "sizeBytes": 388064,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "delete": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/tickets/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.24.0",
+            "sourceCommit": "9fc9c06132d8b7c6fb88b38576a56512171a09d1",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-12T19:45:16Z"
+          }
+        },
+        {
           "version": "0.23.0",
-          "publishedAt": "2026-11-12T19:25:20Z",
+          "publishedAt": "2026-11-12T19:27:23Z",
           "changelog": "# Changelog\n\n## 0.23.0\n\n### Features\n\n- two workers, writer and reader, with the role rules in each brief (`325277e`)\n- one superagent tool with operation keys replaces the eight tools (`d964ab2`)\n\n### Fixes\n\n- register all eight tools at load so ToolSearch finds them (`970c0d7`)\n\n### Performance\n\n- **subagents:** shorten the worker personas by a quarter (`ea6bd8e`)\n- **prompts:** shorten the default team sections (`3e8dfea`)\n\n### Documentation\n\n- **readme:** describe the eight tools registered at load (`3d5fb79`)\n- **readme:** describe the one tool and the two workers (`0a3f779`)\n- add project memory (`9a37d50`)\n\n### Tests\n\n- **lifecycle:** cover the eight tools at load and the activation queries (`3c9a3dc`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "d48597594645536af5edfa9c6e7aaa4f28748f6e66b848a97ecb24c68df63c03",
