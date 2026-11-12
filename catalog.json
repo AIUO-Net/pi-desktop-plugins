@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-12T19:45:16Z",
-  "generatedAt": "2026-11-12T19:45:16Z",
+  "updatedAt": "2026-11-12T19:57:26Z",
+  "generatedAt": "2026-11-12T19:57:26Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2011,8 +2011,53 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.24.1",
+          "publishedAt": "2026-11-12T19:57:26Z",
+          "changelog": "# Changelog\n\n## 0.24.1\n\n### Fixes\n\n- **skills:** pin roleModels only when the person names a model, never to spread load (`4377a07`)\n\n### Documentation\n\n- **manifest:** order settings by control type and rewrite the hints in simplified english (`0b31aa4`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "97e33b4828bfe219e89278ca95dc173506440fce8770f3b4acba4971d75dbc49",
+          "url": "packages/eskwisit.llm-superagent-0.24.1.piplug",
+          "sizeBytes": 388289,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "delete": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/tickets/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.24.1",
+            "sourceCommit": "5778601d4af6919fc75f470946503795d276af7e",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-12T19:57:26Z"
+          }
+        },
+        {
           "version": "0.24.0",
-          "publishedAt": "2026-11-12T19:45:16Z",
+          "publishedAt": "2026-11-12T19:47:28Z",
           "changelog": "# Changelog\n\n## 0.24.0\n\n### Features\n\n- cleanupTickets setting trashes a ticket's briefs and reports when it ends (`8ef2ac4`)\n\n### Documentation\n\n- **readme:** document the cleanupTickets setting and the delete scope (`11e60c6`)\n- note the host json-settings save bug and the fs.remove limits (`c83f542`)\n\n### Tests\n\n- **tests:** cover ticket cleanup and a trash-like fs.remove in the fake host (`eba630a`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "854e000f064dbe1cb69dd6da62cab49a5575ca509105d2a6bad3e31c51aae2d8",
