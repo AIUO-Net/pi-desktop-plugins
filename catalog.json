@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-12T20:04:58Z",
-  "generatedAt": "2026-11-12T20:04:58Z",
+  "updatedAt": "2026-11-12T20:17:57Z",
+  "generatedAt": "2026-11-12T20:17:57Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1957,6 +1957,43 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.16.2",
+          "publishedAt": "2026-11-12T20:17:57Z",
+          "changelog": "# Changelog\n\n## 0.16.2\n\n### Breaking changes\n\n- **main:** drop the clerk seat; the title comes with the report call (`ff464e5`)\n- **main:** one council tool with an action instead of four tools (`f1044ce`)\n\n### Performance\n\n- **subagents:** shorter persona prompts and descriptions (`f77f80c`)\n- **skills:** drop the design notes, name the council tool and its actions (`863cd73`)\n\n### Documentation\n\n- keep the design notes in docs/design-notes.md (`1c65118`)\n- **docs:** review the single council tool and six personas (`fd562de`)\n- **readme:** one council tool, six seats, link to the design notes (`418fdf8`)\n\n### Tests\n\n- call the single council tool and cast six seats (`5aeb110`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "5664cbddb12b2391cf4541b58e14e34518e97d138931480c9d68cd3535cafda9",
+          "url": "packages/eskwisit.llm-council-0.16.2.piplug",
+          "sizeBytes": 133672,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".llm-council/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".llm-council/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-council",
+            "sourceRef": "v0.16.2",
+            "sourceCommit": "7df7c4805d3176893f14435a27a14d40f7610da1",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-12T20:17:57Z"
+          }
+        },
+        {
           "version": "0.14.0",
           "publishedAt": "2026-11-04T13:24:09Z",
           "changelog": "# Changelog\n\n## 0.14.0\n\n### Breaking changes\n\n- **scripts:** score per advisor, hide labels and remember failed models (`b70e5c1`)\n- **skills:** frame the question and deliver a five-part council verdict (`48ce085`)\n- cast council models from the user's catalog, not hard-coded ones (`44defab`)\n- **manifest:** declare the council tools, run file scopes and settings (`2ca8bdb`)\n- **skills:** drive the council through plugin tools, not a script (`7aac450`)\n\n### Features\n\n- **scripts:** add the council helper with verbatim prompts and failover (`0b2b7f4`)\n- **skills:** add the llm council orchestrator skill (`48d58bb`)\n- **manifest:** register the llm council skill pack (`53b8145`)\n- **subagents:** add the council member, chairman and clerk personas (`5b5fa55`)\n- **scripts:** read seat chains from the personas and install them (`9bb3810`)\n- **skills:** run council seats as persona sub-agents with native failover (`ce31a69`)\n- **subagents:** add five thinking-lens advisors and a verdict chairman (`c8aaa24`)\n- **skills:** cast seats per user, confirm once and reuse the cast (`e8f2d42`)\n- **main:** run the council bookkeeping as agent tools (`cc9134d`)\n\n### Documentation\n\n- **readme:** describe the council, its cast, failover and credits (`31a57d1`)\n- **readme:** explain the persona sub-agents, install and failover (`85ae8d9`)\n- **readme:** describe the advisors, anonymity, failover and credits (`2c0812b`)\n- **readme:** explain casting, exclusions and failover chains (`968c53b`)\n- **readme:** document the tools, permissions, limits and tests (`51db9cb`)\n- add the security review notes (`b796e81`)\n\n### Tests\n\n- add a fake pi-desktop host and a test entry point (`e370c42`)\n- cover ranking, casting, prompts and run paths (`e624ac0`)\n- cover the council tools from config to report (`847e27a`)\n- cover persona install, removal and the manifest (`b236581`)\n\n### CI\n\n- print the changelog section of a version (`20ab4b6`)\n- publish a github release when the manifest version changes (`9c6caa8`)\n\n### Chores\n\n- ignore build output, python caches and council runs (`3640f5c`)\n- **manifest:** rename the plugin to eskwisit.llm-council (`52540ce`)\n- **subagents:** remove the identical member personas (`011e6ed`)\n- **manifest:** describe the five-advisor council (`7889119`)\n- **manifest:** describe model casting and the files it keeps (`f9b0638`)\n- license the plugin under apache-2.0 (`f0189a9`)\n- stop ignoring python caches (`5257934`)\n- **scripts:** remove the python helper (`3ce4c2a`)\n- **subagents:** describe the council as modelled on karpathy's (`549e40f`)",
@@ -2497,7 +2534,7 @@
       "versions": [
         {
           "version": "0.5.4",
-          "publishedAt": "2026-11-12T20:04:58Z",
+          "publishedAt": "2026-11-12T20:07:08Z",
           "changelog": "# Changelog\n\n## 0.5.4\n\n### Performance\n\n- **extension:** shorter voice sections, shrink note and footer (`792cd88`)\n\n### Documentation\n\n- **readme:** update the token cost of each voice (`5e13019`)",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "97b2f3b3d7cf914b45d9381a127d8bf3701e6e3f571bb712e92c96d94d981dcc",
