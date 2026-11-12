@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-12T14:14:59Z",
-  "generatedAt": "2026-11-12T14:14:59Z",
+  "updatedAt": "2026-11-12T15:05:59Z",
+  "generatedAt": "2026-11-12T15:05:59Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2012,7 +2012,7 @@
       "versions": [
         {
           "version": "0.14.1",
-          "publishedAt": "2026-11-12T14:14:59Z",
+          "publishedAt": "2026-11-12T14:17:03Z",
           "changelog": "# Changelog\n\n## 0.14.1\n\n### Bug Fixes\n\n- **main:** link the main checkout dependencies into a worktree (`de619bf`)\n\n## 0.14.0\n\n### Features\n\n- **main:** rate models by the thinking levels and label the host reports (`58d87ac`)\n- **main:** let parts split once more and carry their own requirements (`97b4f48`)\n\n### Documentation\n\n- **subagents:** tell the code worker to prefer parallel parts (`42c10fe`)\n- **skills:** start one ticket per part the message names (`866fca0`)\n- **readme:** describe typed parts, their requirements and nested splits (`7f0380a`)\n\n### Tests\n\n- **tests:** cover profiles read from host thinking levels (`b6a56b0`)\n- **tests:** cover nested splits and per-part requirement flags (`3540a15`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "906398c6701ff12060c558af3062c2205bc8a3897f1d5315300ea30e914d3d64",
@@ -5930,6 +5930,58 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "local.image-budget",
+      "name": "Image Budget",
+      "description": "Budget-aware image previews and original-coordinate crops. Auto 2048px/512KiB; high detail 4096px/1MiB. Preserves source files; no network permissions. Does not rewrite pasted attachments or existing history.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "图片预算与局部查看",
+          "description": "给模型发送有大小预算的图片预览，支持原图坐标裁剪与高精度查看。默认2048px/512KiB，高精度4096px/1MiB；保留原文件，无网络权限。不改写粘贴附件或已有历史。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-12T15:05:59Z",
+          "changelog": "Initial release: bounded previews, high-detail crops, PNG/JPEG/WebP/GIF first-frame support. Derived from MIT-licensed Vision Kit helpers with attribution. 32-image replay reduced image payload by 76.9%; image recognition verified. Scope is this plugin's tools only.",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "90e9ae5377e88a208d63fedf776a172a41840db093dfcf0e181a79611aca574a",
+          "url": "packages/local.image-budget-0.1.0.piplug",
+          "sizeBytes": 1866623,
+          "permissions": [
+            "agent.tool.register",
+            "fs.read"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*.png",
+                "**/*.jpg",
+                "**/*.jpeg",
+                "**/*.webp",
+                "**/*.gif"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/RugkeyPro/pi-desktop-image-budget",
+            "sourceRef": "main",
+            "sourceCommit": "9a703978225d0ca5460ead0ff3b147e8a6ee8d28",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-12T15:05:59Z"
+          }
         }
       ]
     },
