@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-12T15:05:59Z",
-  "generatedAt": "2026-11-12T15:05:59Z",
+  "updatedAt": "2026-11-12T17:01:23Z",
+  "generatedAt": "2026-11-12T17:01:23Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2010,6 +2010,44 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.19.0",
+          "publishedAt": "2026-11-12T17:01:23Z",
+          "changelog": "# Changelog\n\n## 0.19.0\n\n### Features\n\n- **main:** shorten tool descriptions and schemas to cut prompt tokens (`d381c7d`)\n- **main:** refuse a generic acknowledgement (`a7b293c`)\n- **main:** register the team tools and workers on the first gateway call (`b32ed80`)\n- **subagents:** rename the workers from superagent-worker-* to worker-* (`39c44c6`)\n- **skills:** shrink the orchestrator skill to the workflow and the gateway (`1a2eb05`)\n\n### Refactoring\n\n- **subagents:** condense the shared worker instructions (`a0892e2`)\n\n### Documentation\n\n- **readme:** describe the gateway and the worker-* names (`b0dd0bf`)\n\n### Tests\n\n- **lifecycle:** cover the gateway, lazy workers and renamed personas (`4c68e0a`)\n- **domain:** refuse a generic acknowledgement (`cedf457`)\n- activate the team through the gateway in every setup (`ae25535`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "b3e94ca676b34adad73f4e1a00cb51c4bf20f2abe6479f8b4bf0d3f936ad1a8a",
+          "url": "packages/eskwisit.llm-superagent-0.19.0.piplug",
+          "sizeBytes": 384492,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.19.0",
+            "sourceCommit": "42f5678fc5814c42f81be21f4e50b8fcc6333e2d",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-12T17:01:23Z"
+          }
+        },
         {
           "version": "0.14.1",
           "publishedAt": "2026-11-12T14:17:03Z",
@@ -5952,7 +5990,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-11-12T15:05:59Z",
+          "publishedAt": "2026-11-12T15:08:11Z",
           "changelog": "Initial release: bounded previews, high-detail crops, PNG/JPEG/WebP/GIF first-frame support. Derived from MIT-licensed Vision Kit helpers with attribution. 32-image replay reduced image payload by 76.9%; image recognition verified. Scope is this plugin's tools only.",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "90e9ae5377e88a208d63fedf776a172a41840db093dfcf0e181a79611aca574a",
