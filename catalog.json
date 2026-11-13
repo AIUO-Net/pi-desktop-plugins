@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-12T20:17:57Z",
-  "generatedAt": "2026-11-12T20:17:57Z",
+  "updatedAt": "2026-11-13T14:34:36Z",
+  "generatedAt": "2026-11-13T14:34:36Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1958,7 +1958,7 @@
       "versions": [
         {
           "version": "0.16.2",
-          "publishedAt": "2026-11-12T20:17:57Z",
+          "publishedAt": "2026-11-12T20:20:12Z",
           "changelog": "# Changelog\n\n## 0.16.2\n\n### Breaking changes\n\n- **main:** drop the clerk seat; the title comes with the report call (`ff464e5`)\n- **main:** one council tool with an action instead of four tools (`f1044ce`)\n\n### Performance\n\n- **subagents:** shorter persona prompts and descriptions (`f77f80c`)\n- **skills:** drop the design notes, name the council tool and its actions (`863cd73`)\n\n### Documentation\n\n- keep the design notes in docs/design-notes.md (`1c65118`)\n- **docs:** review the single council tool and six personas (`fd562de`)\n- **readme:** one council tool, six seats, link to the design notes (`418fdf8`)\n\n### Tests\n\n- call the single council tool and cast six seats (`5aeb110`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "5664cbddb12b2391cf4541b58e14e34518e97d138931480c9d68cd3535cafda9",
@@ -2611,6 +2611,29 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.41.0",
+          "publishedAt": "2026-11-13T14:34:36Z",
+          "changelog": "# Changelog\n\n## 0.41.0\n\n### Features\n\n- **view:** keep the message field for finished sessions to continue them (`faf4d23`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "569d4adfa1fda894528ccb2e5370bc9765ccde22933352f3532de653282fd8bb",
+          "url": "packages/eskwisit.neural-radar-0.41.0.piplug",
+          "sizeBytes": 270357,
+          "permissions": [
+            "desktop.control",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.41.0",
+            "sourceCommit": "3c533316098ac8d201cec0c9d3814ec1f2ed0d24",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-13T14:34:36Z"
+          }
+        },
         {
           "version": "0.39.1",
           "publishedAt": "2026-11-09T06:35:05Z",
