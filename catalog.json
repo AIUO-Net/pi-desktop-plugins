@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-13T14:34:36Z",
-  "generatedAt": "2026-11-13T14:34:36Z",
+  "updatedAt": "2026-11-14T05:07:00Z",
+  "generatedAt": "2026-11-14T05:07:00Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -2613,7 +2613,7 @@
       "versions": [
         {
           "version": "0.41.0",
-          "publishedAt": "2026-11-13T14:34:36Z",
+          "publishedAt": "2026-11-13T14:37:01Z",
           "changelog": "# Changelog\n\n## 0.41.0\n\n### Features\n\n- **view:** keep the message field for finished sessions to continue them (`faf4d23`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "569d4adfa1fda894528ccb2e5370bc9765ccde22933352f3532de653282fd8bb",
@@ -6039,6 +6039,46 @@
             "risk": "medium",
             "policyVersion": "2026.10.1",
             "reviewedAt": "2026-10-11T05:55:19Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.context-guard",
+      "name": "Context Guard",
+      "description": "Early native compaction and recoverable batched folding of old tool outputs. Preserves user messages, assistant conclusions and complete local history.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "上下文管家",
+          "description": "双阈值提前请求原生压缩，分批折叠旧工具输出与未签名思考；保留用户消息、助手结论和完整历史，支持按需找回原文。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-14T05:07:00Z",
+          "changelog": "首次发布：提前压缩、可恢复批量折叠、同会话分页检索；保护近期内容及签名思考。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "117372a4d95bd84e31c8bc324aa133f2923b3fbed8c3978d46cadbaa65eacf45",
+          "url": "packages/local.context-guard-0.1.0.piplug",
+          "sizeBytes": 20697,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/RugkeyPro/pi-desktop-context-guard",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "a12b3c0b0842d6e6c556d46d1547987922aee4c5",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-14T05:07:00Z"
           }
         }
       ]
