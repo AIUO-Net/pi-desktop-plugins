@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-14T07:22:19Z",
-  "generatedAt": "2026-11-14T07:22:19Z",
+  "updatedAt": "2026-11-14T08:13:11Z",
+  "generatedAt": "2026-11-14T08:13:11Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.6.0",
-          "publishedAt": "2026-11-14T07:22:19Z",
+          "publishedAt": "2026-11-14T07:24:21Z",
           "changelog": "## 0.6.0\n\n- 新增 GPT 参考图生图：按顺序提交 1–16 张本地 PNG、JPEG 或 WebP，单张最多 4 MiB、合计最多 12 MiB，校验文件哈希及工作区。\n- 统一返回宿主能力缺口和上传容量；可选能力查询失败时，文生图和 MiniMax 语音仍可使用。\n- 保留 0.5.4 的项目标签、中英文界面、Agent 创建流程、生成记录、图片预览和语音播放导出。\n- 参考图功能需要宿主支持二进制 HTTP 上传与授权图片读取。仅更新插件不会为旧宿主增加该能力；供应商也须实际支持 /images/edits。\n- 原有文本和语音任务格式保持兼容；仅参考图任务使用新格式，创建参考图任务后不支持降级到旧插件。结果未知的任务不会自动重试。\n- 验证通过：323 项 Node 回归、70 项浏览器测试、官方国际化门禁和安装包校验。未调用真实生图供应商。\n\n## English\n\n- Add ordered GPT reference-image generation with 1–16 local PNG/JPEG/WebP files, SHA-256 verification and workspace checks; up to 4 MiB each and 12 MiB combined.\n- Share Host capability diagnostics and upload limits. Optional capability-query failures keep existing text-to-image and MiniMax speech tools available.\n- Preserve the published project labels, English/Chinese Agent panel, records, previews, playback and original exports.\n- Reference input requires Host binary HTTP upload and scoped image reads, plus actual provider support for /images/edits. Updating the plugin alone does not add those Host APIs.\n- Existing text/speech record formats stay compatible. Only reference jobs use the new format; downgrading after creating them is unsupported. Unknown jobs are never automatically resubmitted.\n- Verified with 323 Node cases, 70 browser cases, the official i18n gate and installer package validation. No real image-provider request was made.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "cf8b686818504b2209a197f1745299cfdb41f9639f8cb1996b4507442cf5fc5d",
@@ -8050,6 +8050,54 @@
             "risk": "medium",
             "policyVersion": "2026.10.1",
             "reviewedAt": "2026-10-08T11:22:12Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "net.stronghe.session-title-ubuntu",
+      "name": "Ubuntu Session Titles",
+      "description": "Ubuntu-focused PI-Desktop session titles with Simplified Chinese defaults, configurable prompts and models, and protection for manual renames. An independent StrongHE fork of Lan’s Session Titles.",
+      "author": "StrongHE; upstream by Lan",
+      "i18n": {
+        "zh-CN": {
+          "name": "Ubuntu 会话标题",
+          "description": "面向 Ubuntu 上的 PI-Desktop，默认生成便于检索的简体中文会话标题，支持自定义提示词、模型和思考级别，保留手动改名。StrongHE 基于 Lan 原版维护的独立分支。"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "stronghe",
+      "downloads": 0,
+      "homepage": "https://github.com/strongxp/pi-session-title-ubuntu",
+      "readmeMarkdown": "# Ubuntu 会话标题 / Ubuntu Session Titles\r\n\r\n面向 Ubuntu 上的 PI-Desktop，首轮有效对话完成后，把默认截取的会话标题改为简洁、便于检索的简体中文标题。支持自定义提示词、模型及思考级别。\r\n\r\n这是 StrongHE 维护的独立分支，基于 Lan 的 [PI-Desktop Session Titles](https://github.com/vastsa/pi-session-title-plugin)，上游提交为 `b4275d4a00e304cb6bc5a8bb1596549fa9546062`（`v0.1.0`）。原插件 ID 为 `net.aiuo.session-title`；本分支 ID 为 `net.stronghe.session-title-ubuntu`。\r\n\r\n## 本分支的变化\r\n\r\n- 默认使用简体中文标题提示词，优先表达“具体对象＋核心动作或目标”，建议 12～24 个汉字，保留必要的英文技术名。\r\n- 使用独立插件 ID、配置命令和界面名称，明确区分上游与本分支。\r\n- 提供面向 Ubuntu 的安装、配置和验收说明，保留上游作者及 LGPL 许可证。\r\n\r\n标题由所选模型生成，语言、长度及质量受模型输出影响；12～24 个汉字是提示词要求，不是截断规则。\r\n\r\n## 适用范围\r\n\r\n- 要求 PI-Desktop **0.18.0 或更新版本**，并支持 `session.autoTitle` API。\r\n- 作用于普通本地 Desktop 会话。已手动改名或已生成标题的会话由宿主保护；远程会话与原生 Pi 会话不在本插件承诺的范围内。\r\n- 本分支面向 Ubuntu 使用。它使用宿主提供的 API，不包含 Ubuntu 专有二进制或强制操作系统拦截；本次发布工作不包括 macOS 安装与适配验收。\r\n- 本分支已通过 Node 自动化测试和 PI 官方打包校验；当前构建主机为 macOS，尚未在 Ubuntu 上对本分支执行新的真实模型端到端复测。上游教程的历史验证不能代替本分支的运行验证。\r\n\r\n## 在 Ubuntu 安装\r\n\r\n1. 在 PI 的「设置 → 插件 → 插件市场」搜索 **Ubuntu 会话标题**或 `net.stronghe.session-title-ubuntu`。市场可用性以本分支完成上架审核为准。\r\n2. 如果已启用原版「会话标题」（`net.aiuo.session-title`），先停用原版，再启用本分支，避免两个插件对同一会话发起重复模型请求。独立配置不会自动继承原版设置。\r\n3. 安装并授予 `ui.panel`、`models.list`、`agent.complete`、`session.autoTitle` 权限。\r\n4. 打开命令面板，运行 **Ubuntu 会话标题：配置** / **Ubuntu Session Titles: Configure**。\r\n5. 模型留空时优先跟随会话模型，再回退到默认可用模型；默认思考级别为 `off`。可以直接使用内置中文提示词。\r\n\r\n离线安装时，在「设置 → 插件 → 从文件安装插件」选择 `net.stronghe.session-title-ubuntu-0.1.0.piplug`。开发加载可以选择此源码目录。\r\n\r\n## 验收方法\r\n\r\n1. 新建普通本地会话，输入具体需求，例如“定位 Ubuntu 上 PI 启动后会话列表为空的原因”。\r\n2. 等助手回合完整结束以及标题模型请求完成，观察标题是否变为简洁中文标题。\r\n3. 手动重命名测试会话，再继续一轮，确认手动标题保留。\r\n4. 如果标题没有变化，检查插件启用状态、权限、可用模型及会话是否仍满足宿主的自动标题条件。\r\n\r\n这些步骤是用户可执行的验收流程，不表示本分支已在 Ubuntu 上完成上述测试。\r\n\r\n## 数据与模型调用\r\n\r\n插件仅通过宿主取得首条需求、首条回复的有限摘录，并通过 PI 的补全 API 发给所选模型。每次符合条件的生成会消耗一次模型补全，可能计入已有模型额度或费用。失败后可在后续符合条件的回合重试。插件不直接读取完整对话、服务商凭据、任意文件或外部网络。\r\n\r\n自定义模板必须保留 `{{userPrompt}}`；可用 `{{assistantReply}}` 引入首条回复作为参考。会话文本在系统提示中被指定为不可信数据。\r\n\r\n## 测试与打包\r\n\r\n本仓库没有运行时依赖。\r\n\r\n```bash\r\nnpm test\r\n```\r\n\r\n使用 PI 官方 `PluginCheck` 验证源码目录，再使用 `PluginPack` 生成可安装的 `.piplug`。不要用普通压缩工具替代官方打包器。\r\n\r\n## 来源与许可证\r\n\r\n- 上游作者：Lan；上游仓库：\u003chttps://github.com/vastsa/pi-session-title-plugin\u003e。\r\n- 本分支维护：StrongHE。\r\n- 变更：中文默认提示词、独立身份与配置命令、Ubuntu 使用和发布说明；标题引擎与宿主 API 调用流程沿用上游。\r\n- 许可证：**LGPL-3.0-or-later**，见 [LICENSE](LICENSE)。分发时保留许可证、作者及源码来源；本分支源码应与发布 tag 一并公开提供。\r\n",
+      "safetyNotes": "符合条件的回合完成后，通过 PI-Desktop 补全 API 将首条需求和首条回复的有限摘录发送给所选模型，每次生成可能消耗一次模型调用。需要 agent.complete 和 session.autoTitle 权限，保留手动改名。启用前请停用原版「会话标题」，避免重复请求。",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-14T08:13:11Z",
+          "changelog": "# Ubuntu 会话标题 v0.1.0\n\nStrongHE 维护的独立 Ubuntu 分支，基于 Lan 的 Session Titles（上游提交 b4275d4a00e304cb6bc5a8bb1596549fa9546062），保留 LGPL-3.0-or-later 与原作者署名。\n\n- 插件 ID：net.stronghe.session-title-ubuntu。\n- 默认采用简体中文标题模板，优先表达具体对象与核心目标，建议 12～24 个汉字。\n- 支持自定义提示词、模型和思考级别；保留手动改名保护。\n- 配置命令：Ubuntu 会话标题：配置 / Ubuntu Session Titles: Configure。\n- 最低 PI-Desktop 版本：0.18.0，需支持 session.autoTitle。\n\n启用前请停用原版 net.aiuo.session-title，避免重复模型请求。独立分支不会自动继承原版配置。\n\n验证：11 项自动化测试、官方 PluginCheck 与 PluginPack 通过；公开源码 11 个文件已与本地逐字节比对一致。本轮构建主机为 macOS，尚未在 Ubuntu 上对本分支执行新的真实模型端到端复测。",
+          "minPiDesktop": "\u003e=0.18.0",
+          "shasum": "1a58fef548f6a2e6d9c764638ae4faba7dbc11b066d230e45a14f8dbb6cde812",
+          "url": "packages/net.stronghe.session-title-ubuntu-0.1.0.piplug",
+          "sizeBytes": 48267,
+          "permissions": [
+            "agent.complete",
+            "models.list",
+            "session.autoTitle",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/strongxp/pi-session-title-ubuntu",
+            "sourceRef": "ubuntu-v0.1.0",
+            "sourceCommit": "a1dfef76528383ce4209f03da73f7933b8a20a64",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-14T08:13:11Z"
           }
         }
       ]
