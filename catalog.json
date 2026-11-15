@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-15T01:21:39Z",
-  "generatedAt": "2026-11-15T01:21:39Z",
+  "updatedAt": "2026-11-15T08:48:22Z",
+  "generatedAt": "2026-11-15T08:48:22Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -251,8 +251,49 @@
       "safetyNotes": "服务凭据在本机使用 AES-256-GCM 加密，主密钥保存在 macOS 钥匙串；通过系统 security 命令访问钥匙串，不执行用户提供的 shell。供应商目录查询与生成请求通过宿主网络权限访问用户配置的 HTTP/HTTPS 地址。生成可能收费，未知结果不自动重试。工作区写权限仅用于 bone-media/exports/** 中的图片交接文件，最终 PNG 由 Agent 获准的执行工具解码。配置和旧记录页为插件级共享；新 Agent 任务查询按会话隔离。",
       "versions": [
         {
+          "version": "0.6.2",
+          "publishedAt": "2026-11-15T08:48:22Z",
+          "changelog": "## 0.6.2\n\n- Fixed reference-image edits being unavailable on Hosts whose HTTP API accepts text request bodies. The plugin now sends OpenAI-compatible JSON image-edit requests with internally constructed, ordered data URLs when binary uploads are unavailable. Explicitly capable Hosts retain multipart uploads.\n- Preserved scoped local-image reads, SHA-256 checks, reference ordering, cancellation, existing records and stable request identity. Both transports require advertised error-redirect support. Failed or uncertain edits never automatically retry with another format, model or request key.\n- Existing text-to-image generation, MiniMax speech, project labels, bilingual records, original exports and runtime version labels remain compatible. No additional permissions are requested.\n- Verified 332 Node and 72 browser cases, manifest synchronization and localization (0 failures; existing command-title compatibility exception retained). The actual plugin was also tested with unmodified text-only Host code using two original reference files, exact order/hash checks, deduplication and reload recovery.\n- Validation used synthetic credentials and loopback HTTP only. No real supplier generation was performed. The selected provider/gateway must support JSON `/images/edits`; live entitlement and artistic results remain unverified.\n\n## 中文说明\n\n- 修复仅支持文本 HTTP 请求体的宿主无法使用参考图编辑的问题：插件可在内部构造有序图片 Data URL，通过 OpenAI 兼容的 JSON 图片编辑接口提交；明确支持二进制上传的宿主继续使用 multipart。\n- 保留工作区受限读取、SHA-256 校验、参考图顺序、取消、已有记录与请求去重。两种传输都要求宿主明确支持拒绝重定向；失败或结果未知时，不会自动更换格式、模型或请求键重试。\n- 文生图、MiniMax 语音、项目标签、中英文记录、原始文件导出和运行时版本显示保持兼容，无新增权限。\n- 已通过 332 项 Node、72 项浏览器回归、工具声明同步及国际化检查（0 失败，保留现有命令标题兼容例外），并以真实插件和未修改的文本 HTTP 宿主完成参考图原始字节、顺序、哈希、去重及重载恢复测试。\n- 验证仅使用模拟凭据和本地 HTTP，没有调用真实供应商生成。所选网关需要支持 JSON `/images/edits`；实际生成权限及画面效果尚未实测。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "ea648de90ae74b0281c26936df2bbd7a779dc5fb5509aad46bbf45bca0e5edb6",
+          "url": "packages/bone.aimedia.services-0.6.2.piplug",
+          "sizeBytes": 875748,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "net.anyHost",
+            "net.fetch",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "bone-media/exports/**",
+                "bone-media/references/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                "bone-media/exports/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-aimedia-services",
+            "sourceRef": "173bc4eab91ef1d0674c5c435d22dac8fe9edddc",
+            "sourceCommit": "173bc4eab91ef1d0674c5c435d22dac8fe9edddc",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-15T08:48:22Z"
+          }
+        },
+        {
           "version": "0.6.1",
-          "publishedAt": "2026-11-15T01:21:39Z",
+          "publishedAt": "2026-11-15T01:23:41Z",
           "changelog": "## 0.6.1\n\n- 修复插件升级成功后，页面版本号和窗口标题仍固定显示 0.5.4 的问题。两处现在读取正在运行的插件版本。\n- 清除启动阶段的过期静态标题；版本信息不可用时隐藏版本标记，避免误报旧版本。\n- 刷新配置会重新读取实际版本；异步版本更新保留正在编辑的内容与焦点，关闭页面后不再更新。\n- 原有配置、凭据、生成记录、16 个 Agent 工具及权限保持兼容，无需迁移。\n- 验证：327 项 Node 回归、72 项浏览器回归、官方国际化检查和安装包校验通过；未调用真实供应商生成。\n\n此补丁修正版本显示。参考图生成仍需要 PI 宿主提供二进制 HTTP 上传能力，并要求所选供应商实际支持 /images/edits。\n\n## English\n\n- Fix the stale 0.5.4 panel badge and window title after successful upgrades. Both displays now use the running plugin's version.\n- Remove the outdated static startup title and hide unavailable version metadata.\n- Refresh version metadata on configuration reload, preserve editor contents and focus, and ignore callbacks after disposal.\n- Preserve existing configuration, credentials, records, all sixteen Agent tools and permission scopes without migration.\n- Validation: 327 Node cases, 72 browser cases, the official i18n gate and installer checks. No real provider generation was used.\n\nReference-image generation still requires Host binary HTTP upload and actual provider support for /images/edits.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "61b80c34dc77f6d0e6480473dd209dd469953ef9d442a003186d76f86b41b3f4",
