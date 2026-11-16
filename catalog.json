@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-15T08:48:22Z",
-  "generatedAt": "2026-11-15T08:48:22Z",
+  "updatedAt": "2026-11-16T06:31:03Z",
+  "generatedAt": "2026-11-16T06:31:03Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -252,7 +252,7 @@
       "versions": [
         {
           "version": "0.6.2",
-          "publishedAt": "2026-11-15T08:48:22Z",
+          "publishedAt": "2026-11-15T08:50:31Z",
           "changelog": "## 0.6.2\n\n- Fixed reference-image edits being unavailable on Hosts whose HTTP API accepts text request bodies. The plugin now sends OpenAI-compatible JSON image-edit requests with internally constructed, ordered data URLs when binary uploads are unavailable. Explicitly capable Hosts retain multipart uploads.\n- Preserved scoped local-image reads, SHA-256 checks, reference ordering, cancellation, existing records and stable request identity. Both transports require advertised error-redirect support. Failed or uncertain edits never automatically retry with another format, model or request key.\n- Existing text-to-image generation, MiniMax speech, project labels, bilingual records, original exports and runtime version labels remain compatible. No additional permissions are requested.\n- Verified 332 Node and 72 browser cases, manifest synchronization and localization (0 failures; existing command-title compatibility exception retained). The actual plugin was also tested with unmodified text-only Host code using two original reference files, exact order/hash checks, deduplication and reload recovery.\n- Validation used synthetic credentials and loopback HTTP only. No real supplier generation was performed. The selected provider/gateway must support JSON `/images/edits`; live entitlement and artistic results remain unverified.\n\n## 中文说明\n\n- 修复仅支持文本 HTTP 请求体的宿主无法使用参考图编辑的问题：插件可在内部构造有序图片 Data URL，通过 OpenAI 兼容的 JSON 图片编辑接口提交；明确支持二进制上传的宿主继续使用 multipart。\n- 保留工作区受限读取、SHA-256 校验、参考图顺序、取消、已有记录与请求去重。两种传输都要求宿主明确支持拒绝重定向；失败或结果未知时，不会自动更换格式、模型或请求键重试。\n- 文生图、MiniMax 语音、项目标签、中英文记录、原始文件导出和运行时版本显示保持兼容，无新增权限。\n- 已通过 332 项 Node、72 项浏览器回归、工具声明同步及国际化检查（0 失败，保留现有命令标题兼容例外），并以真实插件和未修改的文本 HTTP 宿主完成参考图原始字节、顺序、哈希、去重及重载恢复测试。\n- 验证仅使用模拟凭据和本地 HTTP，没有调用真实供应商生成。所选网关需要支持 JSON `/images/edits`；实际生成权限及画面效果尚未实测。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "ea648de90ae74b0281c26936df2bbd7a779dc5fb5509aad46bbf45bca0e5edb6",
@@ -5533,6 +5533,54 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-22T13:18:03Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "io.github.techd81.stop-that-shit",
+      "name": "Stop That Shit",
+      "description": "Task-boundary Guard and Skill for PI-Desktop: explicit read-only or change contracts, checked before every tool call, with a local audit panel.",
+      "author": "Techd81 (PI-Desktop port) / lennney (upstream)",
+      "i18n": {
+        "en": {
+          "name": "Stop That Shit",
+          "description": "Task-boundary Guard and Skill for PI-Desktop: explicit read-only or change contracts, checked before every tool call, with a local audit panel.",
+          "safetyNotes": "Declares agent.extension to check tool calls before they run and to block the ones the active task contract forbids; a block is a denial returned to the agent, and the host's final effect is not observed. Contract and audit records are metadata only (no code, no conversation text) and are written with Node's filesystem API inside this plugin's own data directory (~/.pi-desktop/plugins/data/io.github.techd81.stop-that-shit); nothing else is read or written. Declares agent.prompt.inject only so the two bundled Skills are indexed by the host. The panel reads the same data directory and calls no host write API. No network access, no telemetry, no clipboard, no shell commands."
+        },
+        "zh-CN": {
+          "name": "别再造史了",
+          "description": "面向 PI-Desktop 的任务边界护栏与技能：显式的只读／改动契约，在每次工具调用前检查，并自带本地审计面板。",
+          "safetyNotes": "声明 agent.extension 以便在工具执行前检查，并按当前任务契约拦截；拦截是回给 Agent 的拒绝，宿主最终是否执行并未被观测。契约与审计记录只含元数据（不含代码、不含对话文本），用 Node 文件接口写入本插件自己的数据目录（~/.pi-desktop/plugins/data/io.github.techd81.stop-that-shit），不读写别处。声明 agent.prompt.inject 仅用于让宿主索引随包的两个 Skill。面板只读取同一数据目录，不调用任何宿主写入接口。无网络访问、无遥测、不读写剪贴板、不调用 shell。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/Techd81/pi-desktop-stop-that-shit",
+      "readmeMarkdown": "# Stop That Shit — 别再造史了\n\nA task-boundary guard for PI-Desktop: every tool call is checked against an explicit\ncontract you declared in the first line of the turn, and the calls the contract forbids\nare refused before they run. Everything the Guard decides is written to a local,\nmetadata-only audit record that the bundled panel reads back.\n\nThis repository is the PI-Desktop build of [lennney/stop-that-shit](https://github.com/lennney/stop-that-shit):\nthe same Skill, the same Guard decisions, and the same audit record, wired to the\nPI-Desktop extension surface instead of the Pi CLI hooks.\n\n## What it refuses\n\n| Action | Default once the Guard is armed |\n| --- | --- |\n| Write during `review`, `answer`, or `monitor` | Blocked |\n| Write outside `files=` | Blocked |\n| Add a dependency | Approval; `deps=allow` permits it |\n| Recognized hash operation | Blocked; `hash=allow` permits it |\n| Subagent launch beyond `agents=N` | Blocked |\n| Any tool whose target path cannot be proven | Approval |\n\nA block is a denial handed back to the agent: PI-Desktop decides whether the tool\nactually stopped, so the record keeps `hostEffect: unobserved`. Nothing is blocked\nuntil a directive arms the Guard — a fresh session starts `unobserved / unconfirmed`.\n\n## Quick start\n\nInstall the plugin from the plugin center, enable it, and start a new chat (an agent\nextension loads at the session's next turn boundary). Then install the slash templates:\n\n```powershell\nnpm run prompts:desktop     # from the plugin's own directory\n```\n\nSend a directive as the **first line** of the turn:\n\n```text\n/stop-that-shit review -- Review this diff. Report findings; do not edit.\n/stop-that-shit change -- Fix the failing config test.\n/stop-that-shit lock change files=src/config.cjs|test/config.test.cjs -- Fix this behavior.\n/stop-that-shit change deps=allow -- Add the requested parser dependency.\n/stop-that-shit watch -- Observe only.\n```\n\nFields: `answer | review | monitor | change | open`, `watch | guard | lock | off`,\n`agents=N`, `hash=deny|ask|allow`, `files=a|b|**`, `deps=deny|ask|allow`. The head is\nalso read in its raw forms: `/stop-that-shit …`, `/sts …`, `$sts …`, `/skill:sts …`,\nwith `:` as the separator (`/sts:status`). A directive that does not start the first\nline is reported as `DIRECTIVE_NOT_ARMED` instead of being silently ignored.\n\n## Queries\n\n```text\n/sts                 same as /sts status\n/sts status          contract, authority source, delegation capacity\n/sts runtime [all]   checked actions, Guard responses, label counts\n/sts explain evt_…   one recorded decision, with its reason code\n/sts label evt_… correct|incorrect|inconclusive\n/sts doctor          data directory, damaged records, stale locks, panel/extension agreement\n```\n\n## Panel\n\n`别再造史了` sits in the `+ 新建` menu beside 浏览器 / 文件管理器 / PI Canvas, and the\nsame page also opens as a standalone window from the command palette. It shows the\nactive contract, per-session contracts, the audit event list, one decision's detail,\nlabel buttons, and the doctor report. The `EN` / `中` button switches the interface\nlanguage and remembers the choice; reason codes, tool names, and policy values stay in\ntheir recorded form.\n\nData lives in `%USERPROFILE%\\.pi-desktop\\plugins\\data\\io.github.techd81.stop-that-shit`:\n\n```text\nsessions\\\u003csession\u003e.json     contract + delegation ledger (no code, no prompts)\nruntime\\\u003csession\u003e.jsonl     metadata-only decision events\nruntime\\annotations.jsonl   human labels\nruntime\\extension.json      which host API the agent extension registered with\n```\n\nRecords keep tool names, mutability, reason codes, and counts. They never keep file\ncontents, prompts, or conversation text. No network access, no telemetry.\n\n## Development\n\n```powershell\nnpm test                 # check:desktop + every test/*.test.cjs\nnpm run check:desktop    # manifest and declared files\nnpm run eval:desktop     # 24 upstream Bad/Good cases through this adapter\nnpm run pack:desktop     # dist/io.github.techd81.stop-that-shit-\u003cversion\u003e.piplug\n```\n\n[PI-DESKTOP.md](PI-DESKTOP.md) documents the host mapping, the panel, and the known\nlimits (links and junctions compared by name, shell write targets never proven, a\ndetached `Task` keeping its reservation for the session).\n\n## 中文说明\n\n插件装好后启用，**另起一个新会话**（agent extension 在下一个回合边界加载），再装斜杠模板：\n\n```powershell\nnpm run prompts:desktop\n```\n\n在**第一行**写契约，剩下的才交给 Agent：\n\n```text\n/stop-that-shit review -- 只审这次改动，报问题，别动手改。\n/stop-that-shit change -- 修好这个失败的配置测试。\n/stop-that-shit lock change files=src/config.cjs|test/config.test.cjs -- 只准改这两个文件。\n```\n\n没写契约就不拦任何东西（`unobserved / unconfirmed`）。拦下来的是\"回给 Agent 的拒绝\"，\n宿主最终是否真的没执行并不被观测，所以记录里写 `hostEffect: unobserved`。\n\n面板在 `+ 新建` 菜单里叫「别再造史了」，右上角 `EN` / `中` 切换界面语言；审计记录只存\n工具名、可变性、原因码和计数，不存代码、不存对话、不联网。\n\n## License\n\nMIT. Upstream © lennney; PI-Desktop port © Techd81.\n",
+      "safetyNotes": "Checks supported agent tool calls against an explicit task contract and writes metadata-only state under its own plugin data directory. No network access, no telemetry, no shell.",
+      "versions": [
+        {
+          "version": "0.2.6",
+          "publishedAt": "2026-11-16T06:31:03Z",
+          "changelog": "First release on the plugin center.\n\n- `别再造史了` joins the `+ 新建` menu as a sidebar view; the command opens the view\n  first and falls back to the standalone panel window when the host cannot reveal it.\n- The panel toolbar carries an `EN` / `中` switch. The choice is remembered locally and\n  overrides the host locale until you switch back; reason codes, tool names, and policy\n  values keep their recorded form.\n- The session table scrolls horizontally instead of clipping its last columns.\n- Doctor rows explain themselves in the selected language, including the record counts,\n  damaged-file count, stale locks, and registration time.\n- Plugin id is `io.github.techd81.stop-that-shit`, so the data directory becomes\n  `%USERPROFILE%\\.pi-desktop\\plugins\\data\\io.github.techd81.stop-that-shit`. A previous\n  `local.stop-that-shit` data directory is not migrated automatically; copy it over to\n  keep the existing audit history.\n- Host audit records now report the real host family instead of `other`, and a read-only\n  contract is no longer bypassed by `npm i`, `pnpm add`, `yarn add`, `bun add`, or\n  `uv add`.\n- A mistyped `/sts explain evt_…` no longer persists a directive error that used to\n  refuse every later `Task` call in the session.\n- The panel and `/sts doctor` survive a damaged or non-directory data path instead of\n  failing to render.",
+          "minPiDesktop": "\u003e=0.22.0",
+          "shasum": "15d1b8b754f023629bf87c9d2e2b13023775200cd2dc5baf962336977593be87",
+          "url": "packages/io.github.techd81.stop-that-shit-0.2.6.piplug",
+          "sizeBytes": 323846,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false
         }
       ]
     },
