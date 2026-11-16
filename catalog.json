@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-16T09:51:35Z",
-  "generatedAt": "2026-11-16T09:51:35Z",
+  "updatedAt": "2026-11-16T10:01:28Z",
+  "generatedAt": "2026-11-16T10:01:28Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -5566,6 +5566,30 @@
       "safetyNotes": "Checks supported agent tool calls against an explicit task contract and writes metadata-only state under its own plugin data directory. No network access, no telemetry, no shell.",
       "versions": [
         {
+          "version": "0.2.7",
+          "publishedAt": "2026-11-16T10:01:28Z",
+          "changelog": "- Slash commands work right after installation, and stay current: on load the plugin\n  writes the `/stop-that-shit` and `/sts` composer templates into `~/.pi/agent/prompts`\n  and replaces either one when the shipped text changed, so an upgrade reaches users who\n  never run the installer. The displaced text is kept once as a `.md.bak` copy.\n- `npm run prompts:desktop` performs the same write from a checkout.",
+          "minPiDesktop": "\u003e=0.22.0",
+          "shasum": "7670b7f552467eb6695eff1b6df8a058930f5d2e0556f8a4f0928cf33d72a901",
+          "url": "packages/io.github.techd81.stop-that-shit-0.2.7.piplug",
+          "sizeBytes": 325095,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "ui.panel",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Techd81/pi-desktop-stop-that-shit",
+            "sourceRef": "v0.2.7",
+            "sourceCommit": "a899f703236030e9561b34a687a6d1256b136a08",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-16T10:01:28Z"
+          }
+        },
+        {
           "version": "0.2.6",
           "publishedAt": "2026-11-16T06:33:14Z",
           "changelog": "First release on the plugin center.\n\n- `别再造史了` joins the `+ 新建` menu as a sidebar view; the command opens the view\n  first and falls back to the standalone panel window when the host cannot reveal it.\n- The panel toolbar carries an `EN` / `中` switch. The choice is remembered locally and\n  overrides the host locale until you switch back; reason codes, tool names, and policy\n  values keep their recorded form.\n- The session table scrolls horizontally instead of clipping its last columns.\n- Doctor rows explain themselves in the selected language, including the record counts,\n  damaged-file count, stale locks, and registration time.\n- Plugin id is `io.github.techd81.stop-that-shit`, so the data directory becomes\n  `%USERPROFILE%\\.pi-desktop\\plugins\\data\\io.github.techd81.stop-that-shit`. A previous\n  `local.stop-that-shit` data directory is not migrated automatically; copy it over to\n  keep the existing audit history.\n- Host audit records now report the real host family instead of `other`, and a read-only\n  contract is no longer bypassed by `npm i`, `pnpm add`, `yarn add`, `bun add`, or\n  `uv add`.\n- A mistyped `/sts explain evt_…` no longer persists a directive error that used to\n  refuse every later `Task` call in the session.\n- The panel and `/sts doctor` survive a damaged or non-directory data path instead of\n  failing to render.",
@@ -8601,7 +8625,7 @@
       "versions": [
         {
           "version": "0.9.1",
-          "publishedAt": "2026-11-16T09:51:35Z",
+          "publishedAt": "2026-11-16T09:53:57Z",
           "changelog": "## 0.9.1\n\n修掉 SSH 工作区一直停在 Loading —— 远程目录与文本 / 图片预览改走配对 Host 的 pi.fs.list / pi.fs.readPreview 作用域读取（带 workspacePath），本地 Node fs 不再接触远程项目身份；远程项目标注为只读，新建 / 重命名 / 移动 / 删除、搜索、git、监听、本地应用与编辑一律停用，超大或不支持的文件明确说明，较老的 Host 提示升级。切换工作区后迟到的预览、祖先目录展开与刷新链一律作废，回到本地项目恢复编辑器探测、内置浏览器与监听能力。根级与嵌套目录失败显示真实错误与「重试」，不再假装 Loading。凭据类路径（.env*、*.pem、.ssh/、.git/**）在远程列目录里与本地一样不显示。\n\n### 其他改动\n\n- The editor's find / replace panel and the \"Go to line\" dialog (Ctrl/Cmd+Alt+G)\n  follow the plugin palette: fields, placeholders, carets and buttons stay\n  readable in dark and light appearances instead of falling back to CodeMirror's\n  white light-theme defaults. `pnpm verify` now checks the rule in the source CSS\n  and in the shipped `views/assets/index.js`.\n- Fix SSH workspaces remaining on Loading: remote directories and text/image\n  previews now use the paired Host's scoped SDK reads, with explicit read-only\n  controls, upgrade/errors and retry. Local file operations never receive an\n  opaque remote project identity.\n- Discard late previews, ancestor-directory opens and refresh loops after a\n  workspace change. Restore local editor detection, Browser and watch\n  capabilities when returning from a remote project.\n- Show root and nested directory failures with their actual error and Retry\n  action, rather than incorrectly showing Loading indefinitely.\n\n- Explain line-reference clipboard fallback, show Host rejection reasons, and\n  indicate when saving or reloading is required before referencing source lines.\n\n- Copying saved source selections includes file paths and line ranges while\n  retaining plain text. Supporting Hosts can enable Add to chat; unsaved\n  selections continue to copy plain text only.\n- HTML、HTM 与 XHTML 文件的「通过…打开」菜单新增「在内置浏览器中打开」，仅在宿主提供 Browser API 时显示；与宿主声明的 `fs.read` 文件范围一致。\n- 新增 **xlsx 只读预览**：`.xlsx` 不再被当成二进制。主进程只读取工作表里的共享字符串、内联文字和数字，转成制表符文本后复用现有表格视图；多张表用表名隔开。不改原文件、不执行宏。\n  工作簿只有表格这一种看法，主进程也拒绝对 `xlsx` / `xlsm` 写入——它显示的是派生文本，不是文件字节，过去那种「编辑页签 + 保存」会把整个工作簿替换成纯文本。\n  上限：压缩包 8 MiB、单个部件解压 32 MiB（防压缩炸弹）、8 张表、5000 行、60 列、单格 2000 字、整份预览 2 MiB；超出与「部件读不到」都在表格上方按界面语言说明（视图本地化，主进程只回标志与上限）。损坏文件和老的 `.xls` 仍显示不支持预览。\n- 重新整理目录树右键菜单的分组与顺序，并补齐右键刷新；空白区域只显示新建和刷新，文件与文件夹按类型显示操作。\n- 新增 **PDF 只读预览**：连续上下滚动，支持「单页 / 双页 / 双页（封面单独）」布局、上一页 / 下一页、输入页码跳转、10%–400% 手动缩放、适应宽度、100% 实际大小，以及有文字层时的选择与复制。\n- 新增可收起的 **导航侧栏**：按可见范围渲染的缩略图与当前页标记、可展开的嵌套目录 / 书签（支持显式与命名目标）、文件名 / 体积 / 页数及 PDF Info / XMP 元数据；无内置目录时明确提示，PDF 页码标签与物理页码同时显示。窄面板中侧栏覆盖显示，跳转后自动收起，Escape 可关闭；界面跟随中英文与亮暗主题。\n- PDF.js 兼容构建、Worker、CMaps、标准字体、WASM 解码器与 ICC 色彩资源全部随包内置，支持离线 `file://` 视图；随构建输出第三方许可声明。PDF 独立设置 **24 MiB** 上限，需要密码、损坏、空文件与超限文件均显示明确提示。\n- 适应宽度按当前布局中已知最宽页面组的实际尺寸计算，兼容横竖混排、旋转与特殊页面单位；滚动切页保持比例，独立封面和末尾落单页不会触发反复缩放与渲染。面板或侧栏尺寸变化时重新适应，仅收集已经初始化页面的尺寸，兼容惰性加载。\n- 主视图由 PDF.js 管理邻近页面渲染与缓存，缩略图复用其清理事件释放主缓存外的页资源；限制画布像素，切换文件、加载失败或离开查看器时清理文档、监听器、Worker 与 Blob URL。返回缓存页时同步加载状态，快速切页后缩放保留最新阅读位置。\n- 新增 `verify:pdf` 并纳入 `verify`，覆盖二进制传递、大小边界、路径限制、切换文件夹、稳定页面组宽度、混合尺寸和惰性 / 乱序加载；查看器路由校验补充 PDF 只读类型。浏览器验收覆盖导航与内容显示、交界滚动和拖动稳定性，以及错误恢复和资源释放。\n- PDF 全文查找复用匹配版本的 `PDFFindController`，支持中英文命中高亮、计数、前后匹配、Enter / Shift+Enter 与阅读区内 Ctrl/Cmd+F；清空、关闭、重载或切换文档时重置查找。输入法组合按键保留候选词操作，普通输入沿用 PDF.js 的防抖。\n- PDF 查找按钮使用 SVG 放大镜，明确图标尺寸并随工具栏字号缩放；保留窄面板换行与可访问标签，避免字体字符过小或因系统字体而改变外观。\n- PDF 全文查找新增区分大小写、全字匹配与正则表达式开关，可组合使用；无效或不支持的表达式会清除高亮并给出可访问提示，修正后恢复。\n- PDF 三种查找开关使用界面内的悬停与键盘聚焦提示，搜索框为空或清空后也能显示；中英文说明不再依赖宿主的原生 title 提示。\n- 正则匹配移入离线独立 Worker，按页串行执行，单页超时（1 秒）或超过 10 万个命中时停止并提示；清空、关闭、切换模式与文档时取消旧任务，丢弃过期结果，空闲 Worker 自动释放。\n- 修复 PDF Worker 故障及无响应时的销毁：有限等待后清理文档所属字体、滤镜、页面任务与消息监听，再终止端口和撤销 Blob URL；启动和渲染取消的等待同样受限。\n- 修复重复书签导航的文字层监听累积：每个文档只保留一个导航监听，已完成目标直接聚焦，新跳转或销毁取消旧目标。\n- 修复嵌入字体 PDF 的文字层横向度量：优先使用 PDF.js 已加载的嵌入字体，并保留词间空白的独立几何项；普通正文的选区与画布对齐得到改善，Type3 / 缺失字体继续使用 fallback。\n- 有效后续页加载失败进入既有错误与资源释放流程；打开文件的监听判断使用当前路径，恢复 PDF / 普通文本自动重读，有未保存文本时仅提示并保留编辑。\n- 新增隔离 Electron 桌面回归检查，使用临时项目与 profile、合成 PDF 和生产 `file://` 视图，覆盖查找、监听、损坏页与 Worker 故障恢复。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "2d56488db565d451c21bb83e2a8ea5197a4f11fd1687d4290493e487ad3457f1",
