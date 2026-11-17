@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-17T09:56:39Z",
-  "generatedAt": "2026-11-17T09:56:39Z",
+  "updatedAt": "2026-11-17T10:53:04Z",
+  "generatedAt": "2026-11-17T10:53:04Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1922,6 +1922,27 @@
       "publisherId": "corripo",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.1.2",
+          "publishedAt": "2026-11-17T10:53:04Z",
+          "changelog": "补充中英双语插件简介，说明桌面自动化能力及 Wayland 下 fcitx5 文本注入的默认保护与显式 opt-in 行为。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "f7ed680edd8c1159c9e44272017b76972ec2430533681635998273231c70d280",
+          "url": "packages/corripo.computer-use-0.1.2.piplug",
+          "sizeBytes": 92126,
+          "permissions": [
+            "agent.tool.register"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/ProgramerLiang/pi-computer-use",
+            "sourceRef": "v0.1.2",
+            "sourceCommit": "3f50df54f8517b071a6af34981e8693a70fea34f",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T10:53:04Z"
+          }
+        },
         {
           "version": "0.1.1",
           "publishedAt": "2026-11-17T09:18:29Z",
