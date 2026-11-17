@@ -8,6 +8,60 @@
   "generatedAt": "2026-11-17T07:35:50Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
+  "categoryLabels": {
+    "agents-workflow": {
+      "en": "Agents \u0026 Workflow",
+      "zh-CN": "智能体与工作流"
+    },
+    "ai-models": {
+      "en": "Models \u0026 Providers",
+      "zh-CN": "模型与供应商"
+    },
+    "desktop-system": {
+      "en": "Desktop \u0026 System",
+      "zh-CN": "桌面与系统"
+    },
+    "developer-tools": {
+      "en": "Developer Tools",
+      "zh-CN": "开发工具"
+    },
+    "fun": {
+      "en": "Fun",
+      "zh-CN": "娱乐休闲"
+    },
+    "integrations": {
+      "en": "Integrations",
+      "zh-CN": "第三方接入"
+    },
+    "media-creative": {
+      "en": "Media \u0026 Creative",
+      "zh-CN": "媒体与创意"
+    },
+    "memory-knowledge": {
+      "en": "Memory \u0026 Knowledge",
+      "zh-CN": "记忆与知识库"
+    },
+    "productivity": {
+      "en": "Productivity",
+      "zh-CN": "效率工具"
+    },
+    "search-web": {
+      "en": "Search \u0026 Web",
+      "zh-CN": "联网与检索"
+    },
+    "themes": {
+      "en": "Themes",
+      "zh-CN": "外观主题"
+    },
+    "usage-analytics": {
+      "en": "Usage \u0026 Analytics",
+      "zh-CN": "用量与统计"
+    },
+    "writing": {
+      "en": "Writing \u0026 Docs",
+      "zh-CN": "写作与文档"
+    }
+  },
   "plugins": [
     {
       "id": "adoin.deepseek-harness",
@@ -20,7 +74,9 @@
           "description": "让DeepSeek的模型在pi-desktop上使用更接近dsh：提示词优化、请求协议、缓存和推理参数优化。"
         }
       },
-      "categories": [],
+      "categories": [
+        "ai-models"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "adoin",
@@ -58,6 +114,7 @@
         }
       },
       "categories": [
+        "desktop-system",
         "integrations"
       ],
       "verified": false,
@@ -178,7 +235,7 @@
         }
       },
       "categories": [
-        "knowledge"
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -239,8 +296,7 @@
       "description": "Generate PNG images from configured GPT image models in Agent conversations. Manage encrypted provider credentials and browse local generation records with previews and downloads. Credential persistence currently supports macOS.",
       "author": "taokoplay",
       "categories": [
-        "ai",
-        "media"
+        "media-creative"
       ],
       "verified": false,
       "trust": "community",
@@ -534,8 +590,7 @@
       "description": "A general user-owned project knowledge base with automatic agent memory, Obsidian-style tree explorer and multi-format asset management.",
       "author": "taokoplay",
       "categories": [
-        "developer-tools",
-        "productivity"
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -976,8 +1031,7 @@
       "description": "跨项目、模型和会话查看 PI-Desktop 的 Token 用量，支持每日趋势、活动热力图、CSV 导出及自定义单价成本估算。只读取已完成轮次计数和项目元数据，不读取对话正文。",
       "author": "taokoplay",
       "categories": [
-        "developer-tools",
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -1047,8 +1101,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -1094,8 +1147,7 @@
         }
       },
       "categories": [
-        "integrations",
-        "productivity"
+        "integrations"
       ],
       "verified": false,
       "trust": "community",
@@ -1166,7 +1218,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -1235,7 +1287,7 @@
         }
       },
       "categories": [
-        "developer-tools"
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
@@ -1309,7 +1361,8 @@
         }
       },
       "categories": [
-        "developer-tools"
+        "agents-workflow",
+        "ai-models"
       ],
       "verified": false,
       "trust": "community",
@@ -1376,7 +1429,7 @@
         }
       },
       "categories": [
-        "creative"
+        "media-creative"
       ],
       "verified": false,
       "trust": "community",
@@ -1418,7 +1471,7 @@
         }
       },
       "categories": [
-        "knowledge"
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -1470,7 +1523,7 @@
         }
       },
       "categories": [
-        "knowledge"
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -1512,7 +1565,9 @@
           "description": "在 PI-Desktop 输入框工具栏放一个用量图标，点开即看当前会话的 Token 消耗。"
         }
       },
-      "categories": [],
+      "categories": [
+        "usage-analytics"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "dragonnahs",
@@ -1612,7 +1667,7 @@
         }
       },
       "categories": [
-        "integrations"
+        "ai-models"
       ],
       "verified": false,
       "trust": "community",
@@ -1689,7 +1744,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
@@ -1767,7 +1822,9 @@
           "description": "通过本机 OpenAI 兼容桥接，在 PI-Desktop 中使用 Cloudflare Workers AI；支持动态模型目录、流式输出和工具调用转发。"
         }
       },
-      "categories": [],
+      "categories": [
+        "ai-models"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "community",
@@ -1817,6 +1874,7 @@
         }
       },
       "categories": [
+        "ai-models",
         "integrations"
       ],
       "verified": false,
@@ -2045,8 +2103,7 @@
       "description": "The agent reads code as code: structural search and rewrite with ast-grep, and go-to-definition, references, rename, hover, symbols and diagnostics from the language server picked by the file extension, and a debugger that shows the stack and values at a breakpoint, instead of grepping text.",
       "author": "Eskwisit",
       "categories": [
-        "developer-tools",
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -2105,8 +2162,7 @@
       "description": "A council of five advisors (Contrarian, First Principles, Expansionist, Outsider, Executor), cast from your own models, answers your question, reviews the answers anonymously, and a chairman delivers the verdict.",
       "author": "Eskwisit",
       "categories": [
-        "developer-tools",
-        "orchestration"
+        "agents-workflow"
       ],
       "verified": false,
       "trust": "community",
@@ -2195,9 +2251,7 @@
       "description": "An autonomous team for any LLM: your agent routes each request into a ticket and hands it to a worker sub-agent (code, research, analysis, review, docs) on the model from your list best suited to its type of task and requirements.",
       "author": "Eskwisit",
       "categories": [
-        "developer-tools",
-        "orchestration",
-        "productivity"
+        "agents-workflow"
       ],
       "verified": false,
       "trust": "community",
@@ -2682,7 +2736,8 @@
       "description": "Mumble for PI-Desktop cuts the talk, not the facts. Code and errors stay exact. Each original is one call away.",
       "author": "Eskwisit",
       "categories": [
-        "productivity"
+        "memory-knowledge",
+        "writing"
       ],
       "verified": false,
       "trust": "community",
@@ -2760,8 +2815,7 @@
       "description": "A live neural map of your PI-Desktop agents and their subagents, shown in the session's work panel.",
       "author": "Eskwisit",
       "categories": [
-        "productivity",
-        "themes"
+        "agents-workflow"
       ],
       "verified": false,
       "trust": "community",
@@ -3003,8 +3057,8 @@
       "description": "Keeps unit tests in step with code, for any test framework: uses the project's own verified test command, finds regressions on old vs new code, builds test suites for files without touching them, keeps only tests that can fail, and reports bugs instead of fixing them.",
       "author": "Eskwisit",
       "categories": [
-        "developer-tools",
-        "orchestration"
+        "agents-workflow",
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -3130,8 +3184,8 @@
       "description": "A hierarchical JEPA world model for agents and sub-agents: it learns in latent space what actions and intents do, imagines candidate plans and delegations before you commit, and flags surprising results so the agent replans. Also installs and runs the official H-JEPA world models from Hugging Face, on this computer's GPU or a remote NVIDIA GPU.",
       "author": "Eskwisit",
       "categories": [
-        "developer-tools",
-        "integrations"
+        "agents-workflow",
+        "ai-models"
       ],
       "verified": false,
       "trust": "community",
@@ -3195,6 +3249,7 @@
         }
       },
       "categories": [
+        "desktop-system",
         "developer-tools"
       ],
       "verified": false,
@@ -3291,7 +3346,7 @@
         }
       },
       "categories": [
-        "creative"
+        "fun"
       ],
       "verified": false,
       "trust": "community",
@@ -3423,7 +3478,7 @@
         }
       },
       "categories": [
-        "knowledge"
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -3625,8 +3680,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -3700,7 +3754,7 @@
         }
       },
       "categories": [
-        "creative"
+        "media-creative"
       ],
       "verified": false,
       "trust": "community",
@@ -3761,7 +3815,8 @@
         }
       },
       "categories": [
-        "productivity"
+        "ai-models",
+        "integrations"
       ],
       "verified": false,
       "trust": "community",
@@ -4091,7 +4146,9 @@
           "description": "把提示词绑定到指定模型：使用该模型的会话会自动注入系统提示词。支持单项启停、仅首轮或整个会话生效、包装模板和注入日志。"
         }
       },
-      "categories": [],
+      "categories": [
+        "ai-models"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -4140,7 +4197,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -4318,8 +4375,7 @@
       "description": "通过资源管理器、代码编辑器或其他应用打开当前 PI-Desktop 项目目录。可管理自定义打开方式、记住所选应用，并在输入框旁显示应用图标。需要 PI-Desktop 0.9.0 或更高版本。",
       "author": "Eureka-0x01",
       "categories": [
-        "developer-tools",
-        "productivity"
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
@@ -4370,7 +4426,7 @@
         }
       },
       "categories": [
-        "developer-tools"
+        "media-creative"
       ],
       "verified": false,
       "trust": "community",
@@ -4423,7 +4479,9 @@
           "description": "在工作面板中使用真正的 Windows 交互式终端：ConPTY 伪终端，支持 PowerShell 7 / Windows PowerShell 5.1 / cmd、多标签、中文输入输出、复制粘贴与 Ctrl+C 中断，终端内容不会交给 AI。"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -4563,7 +4621,8 @@
         }
       },
       "categories": [
-        "developer-tools"
+        "agents-workflow",
+        "search-web"
       ],
       "verified": false,
       "trust": "community",
@@ -4810,7 +4869,10 @@
       "name": "cline使用与上游选择",
       "description": "Expose ClinePass' real upstream choice.\r\n\r\nEvery chat request is logged with the provider that actually served it, how many fallbacks remained, the prompt-cache hit count and the exact cost. The model list ships 18 built-in cline-pass models with their context window and thinking levels; tick the ones you allow and anything else is rejected at forward time with 404 model_not_enabled. The ClinePass API key is sealed at rest with Windows DPAPI (bound to the current user) — only ciphertext touches disk, and it is decrypted into memory once at startup.\r\n\r\nNote: the Cline gateway ignores client-side routing hints. provider.only and allow_fallbacks were tested with three different providers and the request still landed on the affinity-pinned upstream, so this plugin reports the real route instead of promising to pin it.",
       "author": "",
-      "categories": [],
+      "categories": [
+        "ai-models",
+        "usage-analytics"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -4997,8 +5059,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "security"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -5074,7 +5135,8 @@
         }
       },
       "categories": [
-        "developer-tools"
+        "developer-tools",
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -5210,7 +5272,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -5261,7 +5323,7 @@
         }
       },
       "categories": [
-        "developer-tools"
+        "search-web"
       ],
       "verified": false,
       "trust": "community",
@@ -5356,8 +5418,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -5409,8 +5470,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "search-web"
       ],
       "verified": false,
       "trust": "community",
@@ -5461,8 +5521,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -5588,8 +5647,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "agents-workflow"
       ],
       "verified": false,
       "trust": "community",
@@ -5660,6 +5718,7 @@
         }
       },
       "categories": [
+        "agents-workflow",
         "developer-tools"
       ],
       "verified": false,
@@ -5857,7 +5916,9 @@
           "description": "让技能市场与 MCP 市场显示中文：列表卡片和安装前详情页（标题、简介、整篇 SKILL.md 预览）都会翻译。可用可选的谷歌云翻译密钥（不消耗模型额度），也可以用已在 PI-Desktop 中配置的模型；谷歌失败会自动回退模型。原文、安装命令与 MCP 配置一律不改，也不读取你的模型地址、API 密钥、聊天记录或项目文件。"
         }
       },
-      "categories": [],
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -5906,7 +5967,9 @@
           "safetyNotes": "Xidea 团队出品。通过微信官方 iLink Bot 协议安全连接手机与桌面智能体。"
         }
       },
-      "categories": [],
+      "categories": [
+        "integrations"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -6098,7 +6161,10 @@
           "safetyNotes": "仅读取和维护用户全局及当前工作区 .agents/skills 目录下的技能定义文件，无任何远程外联与遥测。"
         }
       },
-      "categories": [],
+      "categories": [
+        "desktop-system",
+        "memory-knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -6141,7 +6207,7 @@
       "description": "在 AI 智能体完成任务回合、发生报错或等待操作时播放清脆悦耳的系统提示音，支持试听与自定义替换。",
       "author": "XideaDev",
       "categories": [
-        "productivity"
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
@@ -6267,7 +6333,9 @@
           "description": "创建或加入共享房间，在原生会话中聊天，并在工作面板中管理成员。"
         }
       },
-      "categories": [],
+      "categories": [
+        "agents-workflow"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
@@ -6328,7 +6396,9 @@
           "description": "双阈值提前请求原生压缩，分批折叠旧工具输出与未签名思考；保留用户消息、助手结论和完整历史，支持按需找回原文。"
         }
       },
-      "categories": [],
+      "categories": [
+        "memory-knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -6368,7 +6438,9 @@
           "description": ""
         }
       },
-      "categories": [],
+      "categories": [
+        "memory-knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -6466,7 +6538,9 @@
       "name": "点灯人",
       "description": "按时点灯：每个 5 小时额度窗口一重置，就点亮下一个窗口。",
       "author": "",
-      "categories": [],
+      "categories": [
+        "usage-analytics"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -6505,7 +6579,10 @@
           "description": "给模型发送有大小预算的图片预览，支持原图坐标裁剪与高精度查看。默认2048px/512KiB，高精度4096px/1MiB；保留原文件，无网络权限。不改写粘贴附件或已有历史。"
         }
       },
-      "categories": [],
+      "categories": [
+        "ai-models",
+        "memory-knowledge"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -6563,7 +6640,10 @@
           "safetyNotes": "仅支持 macOS，且当前内置原生助手（native-open）仅编译了 Apple Silicon (arm64) 版本。所有文件操作均仅由用户右键点击触发，严格限制在当前本地项目目录或当前会话附件目录内的普通文件（拒绝敏感目录与可执行脚本后缀）。通过 macOS NSWorkspace 原生接口枚举关联应用并打开文件，不拼接或执行 shell 命令字符串，不修改系统默认应用，不联网。渲染扩展在应用窗口内运行以挂载右键菜单。"
         }
       },
-      "categories": [],
+      "categories": [
+        "desktop-system",
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -6614,6 +6694,7 @@
         }
       },
       "categories": [
+        "integrations",
         "productivity"
       ],
       "verified": false,
@@ -6861,7 +6942,9 @@
           "safetyNotes": "仅在回合完成或手动触发时调用当前会话模型（或插件设置中指定的模型），最多发送当前会话最近 12 条、12000 字符的已加载对话文本，会产生一次常规模型调用费用。不读取任何密钥或本地文件，不发起外部网络请求，生成的建议仅填入输入框草稿，绝不自动发送消息。渲染扩展仅用于在应用窗口内同步当前可见会话消息。"
         }
       },
-      "categories": [],
+      "categories": [
+        "productivity"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -6914,7 +6997,8 @@
         }
       },
       "categories": [
-        "productivity"
+        "agents-workflow",
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -7284,6 +7368,7 @@
         }
       },
       "categories": [
+        "desktop-system",
         "productivity"
       ],
       "verified": false,
@@ -7345,7 +7430,7 @@
         }
       },
       "categories": [
-        "integrations"
+        "ai-models"
       ],
       "verified": false,
       "trust": "community",
@@ -7395,7 +7480,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -7438,7 +7523,7 @@
         }
       },
       "categories": [
-        "integrations"
+        "ai-models"
       ],
       "verified": false,
       "trust": "community",
@@ -7487,8 +7572,8 @@
         }
       },
       "categories": [
-        "knowledge",
-        "productivity"
+        "productivity",
+        "writing"
       ],
       "verified": false,
       "trust": "community",
@@ -7556,7 +7641,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "agents-workflow"
       ],
       "verified": false,
       "trust": "community",
@@ -7589,7 +7674,7 @@
       "description": "在侧边栏按来源和时间筛选会话：勾选你想看到的（PI-Desktop 原生会话 / Pi 会话 / 最新 / 近 7 天 / 近 14 天 / 更早），不勾就是全部显示。项目标题栏上有一个漏斗按钮。",
       "author": "麦铭",
       "categories": [
-        "productivity"
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
@@ -7656,7 +7741,7 @@
         }
       },
       "categories": [
-        "knowledge",
+        "memory-knowledge",
         "productivity"
       ],
       "verified": false,
@@ -7734,8 +7819,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "integrations"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -7785,7 +7869,9 @@
           "description": "为会话选择标记符号和颜色，为项目原有文件夹图标选择颜色。支持预设色、自定义颜色与清除标记，设置保存在本机。"
         }
       },
-      "categories": [],
+      "categories": [
+        "desktop-system"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -7825,7 +7911,9 @@
           "description": "原dsh插件Source Code Mgmt，迁移改造pi desktop可使用，git管理工具，可识别本地仓库，推送/拉取，新建仓库"
         }
       },
-      "categories": [],
+      "categories": [
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -7933,7 +8021,7 @@
       "description": "PI-Desktop 工作面板里的内嵌终端：按项目隔离会话，支持 ⌘T 唤起、右键菜单和输入法自动切换。",
       "author": "zwwangoo",
       "categories": [
-        "terminal"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -8131,8 +8219,8 @@
         }
       },
       "categories": [
-        "productivity",
-        "themes"
+        "desktop-system",
+        "productivity"
       ],
       "verified": false,
       "trust": "community",
@@ -8238,7 +8326,10 @@
           "description": "在项目聊天框下添加了打开外部工具入口，可自定义配置打开诸如 VS Code、终端 等外部工具"
         }
       },
-      "categories": [],
+      "categories": [
+        "desktop-system",
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "mfy",
@@ -8387,6 +8478,7 @@
         }
       },
       "categories": [
+        "agents-workflow",
         "integrations"
       ],
       "verified": false,
@@ -8475,7 +8567,6 @@
         }
       },
       "categories": [
-        "community",
         "productivity"
       ],
       "verified": false,
@@ -8522,7 +8613,7 @@
         }
       },
       "categories": [
-        "integrations"
+        "ai-models"
       ],
       "verified": false,
       "trust": "community",
@@ -8980,7 +9071,7 @@
         }
       },
       "categories": [
-        "community",
+        "agents-workflow",
         "productivity"
       ],
       "verified": false,
@@ -9076,7 +9167,8 @@
       "description": "通过飞书、Telegram、微信等聊天工具接入 PI-Desktop Agent：发送任务、接收结果、回答问题和审阅计划。",
       "author": "icedly",
       "categories": [
-        "productivity"
+        "agents-workflow",
+        "integrations"
       ],
       "verified": false,
       "trust": "community",
@@ -9133,8 +9225,7 @@
         }
       },
       "categories": [
-        "community",
-        "theme"
+        "themes"
       ],
       "verified": false,
       "trust": "community",
@@ -9180,8 +9271,7 @@
         }
       },
       "categories": [
-        "community",
-        "theme"
+        "themes"
       ],
       "verified": false,
       "trust": "community",
@@ -9313,6 +9403,7 @@
         }
       },
       "categories": [
+        "memory-knowledge",
         "productivity"
       ],
       "verified": false,
@@ -9415,8 +9506,8 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity"
+        "agents-workflow",
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
@@ -9563,8 +9654,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "official"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -9664,8 +9754,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "official"
+        "developer-tools"
       ],
       "verified": false,
       "trust": "community",
@@ -9903,8 +9992,8 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "knowledge"
+        "agents-workflow",
+        "memory-knowledge"
       ],
       "verified": false,
       "trust": "community",
@@ -10183,7 +10272,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "usage-analytics"
       ],
       "verified": false,
       "trust": "community",
@@ -10234,9 +10323,7 @@
         }
       },
       "categories": [
-        "developer-tools",
-        "productivity",
-        "web"
+        "search-web"
       ],
       "verified": false,
       "trust": "community",
@@ -10293,7 +10380,7 @@
         }
       },
       "categories": [
-        "productivity"
+        "desktop-system"
       ],
       "verified": false,
       "trust": "community",
