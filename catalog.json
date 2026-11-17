@@ -1946,6 +1946,57 @@
       ]
     },
     {
+      "id": "corripo.superagent-orchestrator",
+      "name": "Superagent Orchestrator",
+      "description": "Route work from the main agent to isolated worker sessions. Delegation is asynchronous by default: the host appends a result card when a worker's turn ends, so the orchestrator dispatches and ends its turn instead of polling. Workers close their report with a status contract (state: ready | blocked | failed, human_action) so a blocked result shows \"needs your decision\" on the card and a ready one needs nothing.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "超级代理编排器",
+          "description": "让主代理把任务派给相互隔离的 worker 会话。默认异步：worker 回合结束时宿主把结果卡写回调用会话，主代理派完即结束回合，不必轮询。worker 在报告末尾附状态契约（state: ready | blocked | failed 与 human_action），受阻的结果会在卡片上直接显示「需要你决定」，ready 的结果无需任何操作。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "corripo",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-11-17T04:54:17Z",
+          "changelog": "0.1.1：插件 ID 由 local.superagent-orchestrator 更名为 corripo.superagent-orchestrator。功能同前——默认异步派活（notifyOnCompletion 默认 true）、worker 状态契约（state / human_action）驱动的结果卡分档、Workers 视图 en + zh-CN。本插件 fork 自 vastsa/pi-session-orchestrator，原始版权归 vastsa，LICENSE 原样保留。",
+          "minPiDesktop": "\u003e=0.14.7",
+          "shasum": "d0a35b6d46cfd7ff0cd900ef5d2c001e870d345c288ca3a6e5fe7a87d1bea26d",
+          "url": "packages/corripo.superagent-orchestrator-0.1.1.piplug",
+          "sizeBytes": 165518,
+          "permissions": [
+            "agent.tool.register",
+            "composer.suggest",
+            "desktop.control",
+            "models.list",
+            "session.update.all",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/ProgramerLiang/piD-super-agent",
+            "sourceRef": "v0.1.1",
+            "sourceCommit": "d50dde5677c175c57684d73526abb594e5237a7b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T04:54:17Z"
+          },
+          "review": {
+            "decision": "approved",
+            "risk": "medium",
+            "policyVersion": "2026.10.2",
+            "reviewedAt": "2026-11-17T09:09:24Z"
+          }
+        }
+      ]
+    },
+    {
       "id": "demo.hello",
       "name": "Hello",
       "description": "Official sample plugin with panel, command, and echo tool.",
