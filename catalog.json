@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-17T10:53:04Z",
-  "generatedAt": "2026-11-17T10:53:04Z",
+  "updatedAt": "2026-11-17T10:55:40Z",
+  "generatedAt": "2026-11-17T10:55:40Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1914,9 +1914,12 @@
     {
       "id": "corripo.computer-use",
       "name": "PI Computer Use",
-      "description": "",
-      "author": "",
-      "categories": [],
+      "description": "Linux desktop automation for PI-Desktop: screenshots, mouse, keyboard, and window inspection. On Wayland, text input is blocked while fcitx5 is active unless you explicitly opt in to temporary suspension. / PI-Desktop 的 Linux 桌面自动化工具：截图、鼠标、键盘与窗口检查。Wayland 下 fcitx5 运行时默认阻止文本注入；仅在明确启用时才会临时暂停输入法。",
+      "author": "Corripo",
+      "categories": [
+        "agents-workflow",
+        "desktop-system"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "corripo",
@@ -1924,7 +1927,7 @@
       "versions": [
         {
           "version": "0.1.2",
-          "publishedAt": "2026-11-17T10:53:04Z",
+          "publishedAt": "2026-11-17T10:55:40Z",
           "changelog": "补充中英双语插件简介，说明桌面自动化能力及 Wayland 下 fcitx5 文本注入的默认保护与显式 opt-in 行为。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "f7ed680edd8c1159c9e44272017b76972ec2430533681635998273231c70d280",
@@ -2265,7 +2268,7 @@
       "versions": [
         {
           "version": "0.18.0",
-          "publishedAt": "2026-11-17T09:55:43Z",
+          "publishedAt": "2026-11-17T10:55:40Z",
           "changelog": "# Changelog\n\n## 0.8.0\n\n### Features\n\n- **extension:** block edits of code under test, the fixer agent and short runs (`8069231`)\n- **main:** write guard.json per run, release action and guardMinutes setting (`4b7e54b`)\n\n### Documentation\n\n- **skills:** state the read-only rule once, enforced by the guard (`8d6f0d5`)\n- **subagents:** mention the guard to the writer (`e811bb7`)\n- **readme:** describe the guard, release and guardMinutes (`b592349`)\n\n### Tests\n\n- **tests:** cover the guard file and the extension (`05c0dfc`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "ddc5878b29f00e113ea39d498025cd3d637e55fddd24fe4767a26200f0498221",
@@ -2392,7 +2395,7 @@
       "versions": [
         {
           "version": "0.25.0",
-          "publishedAt": "2026-11-17T09:56:17Z",
+          "publishedAt": "2026-11-17T10:55:40Z",
           "changelog": "# Changelog\n\n## 0.25.0\n\n### Features\n\n- **extension:** block Task calls that match no running launch item (`adb65e3`)\n\n### Documentation\n\n- **skills:** drop the generic sub-agent rule the guard enforces (`4f6116a`)\n- **readme:** describe the Task guard (`2b97e73`)\n\n### Tests\n\n- **tests:** cover the Task guard (`77d4074`)\n\n### Chores\n\n- update memory (`0d068a7`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "cff352b8b15e755117094494723cad72faae12980763644c11b351acef995fa9",
@@ -3245,7 +3248,7 @@
       "versions": [
         {
           "version": "0.8.0",
-          "publishedAt": "2026-11-17T09:55:04Z",
+          "publishedAt": "2026-11-17T10:55:40Z",
           "changelog": "# Changelog\n\n## 0.8.0\n\n### Features\n\n- **extension:** block edits of code under test, the fixer agent and short runs (`8069231`)\n- **main:** write guard.json per run, release action and guardMinutes setting (`4b7e54b`)\n\n### Documentation\n\n- **skills:** state the read-only rule once, enforced by the guard (`8d6f0d5`)\n- **subagents:** mention the guard to the writer (`e811bb7`)\n- **readme:** describe the guard, release and guardMinutes (`b592349`)\n\n### Tests\n\n- **tests:** cover the guard file and the extension (`05c0dfc`)",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "43b3a98afe3c15b66badbac68c43abf0a401c1d4745d917677ac21f34205e8a4",
