@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-17T09:54:25Z",
-  "generatedAt": "2026-11-17T09:54:25Z",
+  "updatedAt": "2026-11-17T09:56:39Z",
+  "generatedAt": "2026-11-17T09:56:39Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -2163,7 +2163,7 @@
       "versions": [
         {
           "version": "0.9.0",
-          "publishedAt": "2026-11-17T09:54:25Z",
+          "publishedAt": "2026-11-17T09:56:39Z",
           "changelog": "# Changelog\n\n## 0.9.0\n\n### Features\n\n- **extension:** report diagnostics of the changed files after an ast_grep apply (`00f63de`)\n- **extension:** block sed and perl identifier renames in code files (`ff1051a`)\n\n### Documentation\n\n- keep only the 0.7.1 section in the changelog (`61f5512`)\n- **skills:** rely on the rename guard and the apply diagnostics (`0c72252`)\n- **readme:** describe the rename guard and the apply diagnostics (`2bf6781`)\n\n### Tests\n\n- **tests:** cover the rename guard and the diagnostics after apply (`3a149eb`)",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "1049aaae9a68da75338202511bb598c6bf5933aa4c5909deb601f226eb1ccb30",
@@ -2242,6 +2242,44 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.18.0",
+          "publishedAt": "2026-11-17T09:55:43Z",
+          "changelog": "# Changelog\n\n## 0.8.0\n\n### Features\n\n- **extension:** block edits of code under test, the fixer agent and short runs (`8069231`)\n- **main:** write guard.json per run, release action and guardMinutes setting (`4b7e54b`)\n\n### Documentation\n\n- **skills:** state the read-only rule once, enforced by the guard (`8d6f0d5`)\n- **subagents:** mention the guard to the writer (`e811bb7`)\n- **readme:** describe the guard, release and guardMinutes (`b592349`)\n\n### Tests\n\n- **tests:** cover the guard file and the extension (`05c0dfc`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "ddc5878b29f00e113ea39d498025cd3d637e55fddd24fe4767a26200f0498221",
+          "url": "packages/eskwisit.llm-council-0.18.0.piplug",
+          "sizeBytes": 156300,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".llm-council/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".llm-council/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-council",
+            "sourceRef": "v0.18.0",
+            "sourceCommit": "c7e409e5a4ed454ddcb3d7a4aa4ae4ed87b79f91",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T09:55:43Z"
+          }
+        },
         {
           "version": "0.16.2",
           "publishedAt": "2026-11-12T20:20:12Z",
@@ -2331,6 +2369,52 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.25.0",
+          "publishedAt": "2026-11-17T09:56:17Z",
+          "changelog": "# Changelog\n\n## 0.25.0\n\n### Features\n\n- **extension:** block Task calls that match no running launch item (`adb65e3`)\n\n### Documentation\n\n- **skills:** drop the generic sub-agent rule the guard enforces (`4f6116a`)\n- **readme:** describe the Task guard (`2b97e73`)\n\n### Tests\n\n- **tests:** cover the Task guard (`77d4074`)\n\n### Chores\n\n- update memory (`0d068a7`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "cff352b8b15e755117094494723cad72faae12980763644c11b351acef995fa9",
+          "url": "packages/eskwisit.llm-superagent-0.25.0.piplug",
+          "sizeBytes": 399444,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "delete": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/tickets/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.25.0",
+            "sourceCommit": "b5ba2f48211b75b0fc0a918d855cbdc1db325218",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T09:56:17Z"
+          }
+        },
         {
           "version": "0.24.1",
           "publishedAt": "2026-11-12T19:59:41Z",
@@ -3138,6 +3222,44 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.8.0",
+          "publishedAt": "2026-11-17T09:55:04Z",
+          "changelog": "# Changelog\n\n## 0.8.0\n\n### Features\n\n- **extension:** block edits of code under test, the fixer agent and short runs (`8069231`)\n- **main:** write guard.json per run, release action and guardMinutes setting (`4b7e54b`)\n\n### Documentation\n\n- **skills:** state the read-only rule once, enforced by the guard (`8d6f0d5`)\n- **subagents:** mention the guard to the writer (`e811bb7`)\n- **readme:** describe the guard, release and guardMinutes (`b592349`)\n\n### Tests\n\n- **tests:** cover the guard file and the extension (`05c0dfc`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "43b3a98afe3c15b66badbac68c43abf0a401c1d4745d917677ac21f34205e8a4",
+          "url": "packages/eskwisit.test-warden-0.8.0.piplug",
+          "sizeBytes": 232843,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".test-warden/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-test-warden",
+            "sourceRef": "v0.8.0",
+            "sourceCommit": "cff6f726cca94fd3bdbca5e51df2241049077b77",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T09:55:04Z"
+          }
+        },
         {
           "version": "0.6.0",
           "publishedAt": "2026-11-05T07:07:21Z",
