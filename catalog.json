@@ -4,9 +4,9 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-17T07:35:50Z",
-  "generatedAt": "2026-11-17T07:35:50Z",
-  "policyVersion": "2026.10.2",
+  "updatedAt": "2026-11-17T09:54:25Z",
+  "generatedAt": "2026-11-17T09:54:25Z",
+  "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
     "agents-workflow": {
@@ -1924,7 +1924,7 @@
       "versions": [
         {
           "version": "0.1.1",
-          "publishedAt": "2026-11-17T07:35:50Z",
+          "publishedAt": "2026-11-17T09:18:29Z",
           "changelog": "v0.1.1：首次公开发布 Linux PI-Desktop computer-use 插件，包含截图、屏幕信息、窗口列表、鼠标与键盘工具。修正 niri scale 1.25 下区域截图坐标。Wayland + fcitx5 时键盘默认 fail-closed；cu_type_text 的 allowImeSuspend 为显式 opt-in，会短暂停用并尝试恢复 fcitx5。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "70998e105cea287e860c6a4b04b14750f888aaf55fcd139b5ce8f222afd417b4",
@@ -1964,7 +1964,7 @@
       "versions": [
         {
           "version": "0.1.1",
-          "publishedAt": "2026-11-17T04:54:17Z",
+          "publishedAt": "2026-11-17T09:18:29Z",
           "changelog": "0.1.1：插件 ID 由 local.superagent-orchestrator 更名为 corripo.superagent-orchestrator。功能同前——默认异步派活（notifyOnCompletion 默认 true）、worker 状态契约（state / human_action）驱动的结果卡分档、Workers 视图 en + zh-CN。本插件 fork 自 vastsa/pi-session-orchestrator，原始版权归 vastsa，LICENSE 原样保留。",
           "minPiDesktop": "\u003e=0.14.7",
           "shasum": "d0a35b6d46cfd7ff0cd900ef5d2c001e870d345c288ca3a6e5fe7a87d1bea26d",
@@ -2161,6 +2161,28 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.9.0",
+          "publishedAt": "2026-11-17T09:54:25Z",
+          "changelog": "# Changelog\n\n## 0.9.0\n\n### Features\n\n- **extension:** report diagnostics of the changed files after an ast_grep apply (`00f63de`)\n- **extension:** block sed and perl identifier renames in code files (`ff1051a`)\n\n### Documentation\n\n- keep only the 0.7.1 section in the changelog (`61f5512`)\n- **skills:** rely on the rename guard and the apply diagnostics (`0c72252`)\n- **readme:** describe the rename guard and the apply diagnostics (`2bf6781`)\n\n### Tests\n\n- **tests:** cover the rename guard and the diagnostics after apply (`3a149eb`)",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "1049aaae9a68da75338202511bb598c6bf5933aa4c5909deb601f226eb1ccb30",
+          "url": "packages/eskwisit.ast-lens-0.9.0.piplug",
+          "sizeBytes": 300180,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-ast-lens",
+            "sourceRef": "v0.9.0",
+            "sourceCommit": "fdf1b3c8a24218d4b10983cc402d6f8fe2618f16",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T09:54:25Z"
+          }
+        },
         {
           "version": "0.7.1",
           "publishedAt": "2026-11-08T08:08:33Z",
