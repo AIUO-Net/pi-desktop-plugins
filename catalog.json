@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-16T10:01:28Z",
-  "generatedAt": "2026-11-16T10:01:28Z",
+  "updatedAt": "2026-11-16T10:03:51Z",
+  "generatedAt": "2026-11-16T10:03:51Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -5567,7 +5567,7 @@
       "versions": [
         {
           "version": "0.2.7",
-          "publishedAt": "2026-11-16T10:01:28Z",
+          "publishedAt": "2026-11-16T10:03:51Z",
           "changelog": "- Slash commands work right after installation, and stay current: on load the plugin\n  writes the `/stop-that-shit` and `/sts` composer templates into `~/.pi/agent/prompts`\n  and replaces either one when the shipped text changed, so an upgrade reaches users who\n  never run the installer. The displaced text is kept once as a `.md.bak` copy.\n- `npm run prompts:desktop` performs the same write from a checkout.",
           "minPiDesktop": "\u003e=0.22.0",
           "shasum": "7670b7f552467eb6695eff1b6df8a058930f5d2e0556f8a4f0928cf33d72a901",
