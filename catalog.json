@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-16T10:03:51Z",
-  "generatedAt": "2026-11-16T10:03:51Z",
+  "updatedAt": "2026-11-17T07:35:50Z",
+  "generatedAt": "2026-11-17T07:35:50Z",
   "policyVersion": "2026.10.2",
   "artifactBaseUrl": null,
   "plugins": [
@@ -1849,6 +1849,40 @@
             "sourceCommit": "cb6998c14a0d7eb3b3a4ee44901f07e6908b2c40",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-08T12:22:02Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "corripo.computer-use",
+      "name": "PI Computer Use",
+      "description": "",
+      "author": "",
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "corripo",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.1",
+          "publishedAt": "2026-11-17T07:35:50Z",
+          "changelog": "v0.1.1：首次公开发布 Linux PI-Desktop computer-use 插件，包含截图、屏幕信息、窗口列表、鼠标与键盘工具。修正 niri scale 1.25 下区域截图坐标。Wayland + fcitx5 时键盘默认 fail-closed；cu_type_text 的 allowImeSuspend 为显式 opt-in，会短暂停用并尝试恢复 fcitx5。",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "70998e105cea287e860c6a4b04b14750f888aaf55fcd139b5ce8f222afd417b4",
+          "url": "packages/corripo.computer-use-0.1.1.piplug",
+          "sizeBytes": 91824,
+          "permissions": [
+            "agent.tool.register"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/ProgramerLiang/pi-computer-use",
+            "sourceRef": "v0.1.1",
+            "sourceCommit": "fdd80f609f6905de8eaa64cb5c0da30061f8a4c6",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-17T07:35:50Z"
           }
         }
       ]
