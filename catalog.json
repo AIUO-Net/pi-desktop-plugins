@@ -1974,13 +1974,10 @@
       "name": "Superagent Orchestrator",
       "description": "Route work from the main agent to isolated worker sessions. Delegation is asynchronous by default: the host appends a result card when a worker's turn ends, so the orchestrator dispatches and ends its turn instead of polling. Workers close their report with a status contract (state: ready | blocked | failed, human_action) so a blocked result shows \"needs your decision\" on the card and a ready one needs nothing.",
       "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "超级代理编排器",
-          "description": "让主代理把任务派给相互隔离的 worker 会话。默认异步：worker 回合结束时宿主把结果卡写回调用会话，主代理派完即结束回合，不必轮询。worker 在报告末尾附状态契约（state: ready | blocked | failed 与 human_action），受阻的结果会在卡片上直接显示「需要你决定」，ready 的结果无需任何操作。"
-        }
-      },
-      "categories": [],
+      "categories": [
+        "agents-workflow",
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "corripo",
