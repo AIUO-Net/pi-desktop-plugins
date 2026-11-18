@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-18T11:32:44Z",
-  "generatedAt": "2026-11-18T11:32:44Z",
+  "updatedAt": "2026-11-18T13:02:42Z",
+  "generatedAt": "2026-11-18T13:02:42Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4080,7 +4080,7 @@
       "versions": [
         {
           "version": "1.3.2",
-          "publishedAt": "2026-11-18T11:32:44Z",
+          "publishedAt": "2026-11-18T11:34:53Z",
           "changelog": "- 修复 macOS 上无法识别 Qoder 国内版桌面登录的问题。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "db70246310f0fb5745fea906c300bf32704e2c6cc188359b4f838cbf2ba496bb",
@@ -4941,6 +4941,47 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-20T17:20:15Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.linuxdazhao.side-questions",
+      "name": "Side Questions",
+      "description": "Fork from a completed assistant reply and ask follow-up questions in a separate work-panel conversation. Continue, stop, and reopen branches from the panel.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "支线提问",
+          "description": "从已完成的助手回复分叉，在右侧工作面板单独追问、续聊、停止和查看历史。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-18T13:02:42Z",
+          "changelog": "First release. Open Side Questions from the work panel of a local Agent conversation. Choose a completed reply, send a follow-up, and reopen the branch from History. Package installation and the anchored conversation flow were verified on stock PI-Desktop v0.23.0-beta.2.",
+          "minPiDesktop": "\u003e=0.23.0-beta.2",
+          "shasum": "c422cd3d815a09d159d2b69554dad0c567ba5bdc01661ad55a03bdd07e13e659",
+          "url": "packages/io.github.linuxdazhao.side-questions-0.1.0.piplug",
+          "sizeBytes": 37497,
+          "permissions": [
+            "desktop.control",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Linuxdazhao/pi-side-questions",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "963c29560e839f9c353a4ce19c2db4ac85a128ec",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-18T13:02:42Z"
           }
         }
       ]
