@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-18T13:02:42Z",
-  "generatedAt": "2026-11-18T13:02:42Z",
+  "updatedAt": "2026-11-18T13:54:16Z",
+  "generatedAt": "2026-11-18T13:54:16Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4963,8 +4963,30 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.2.0",
+          "publishedAt": "2026-11-18T13:54:16Z",
+          "changelog": "Paste an excerpt into a fresh side question. The preview is short and removable. The first message sends the full excerpt and your question without the main conversation history.\n\n在右侧粘贴片段即可开新支线。引用以短卡片显示，发送前可整块移除。首条消息只带完整引用和新问题。",
+          "minPiDesktop": "\u003e=0.23.0-beta.2",
+          "shasum": "d2235650b12cfa49ebd683c421f768e1e80d5965c0b8e985e52e9bbe82f219ca",
+          "url": "packages/io.github.linuxdazhao.side-questions-0.2.0.piplug",
+          "sizeBytes": 47117,
+          "permissions": [
+            "desktop.control",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Linuxdazhao/pi-side-questions",
+            "sourceRef": "v0.2.0",
+            "sourceCommit": "ce17babab0d1073e63fb5adc7c92c7547b18e9bc",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-18T13:54:16Z"
+          }
+        },
+        {
           "version": "0.1.0",
-          "publishedAt": "2026-11-18T13:02:42Z",
+          "publishedAt": "2026-11-18T13:05:01Z",
           "changelog": "First release. Open Side Questions from the work panel of a local Agent conversation. Choose a completed reply, send a follow-up, and reopen the branch from History. Package installation and the anchored conversation flow were verified on stock PI-Desktop v0.23.0-beta.2.",
           "minPiDesktop": "\u003e=0.23.0-beta.2",
           "shasum": "c422cd3d815a09d159d2b69554dad0c567ba5bdc01661ad55a03bdd07e13e659",
