@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-18T15:18:35Z",
-  "generatedAt": "2026-11-18T15:18:35Z",
+  "updatedAt": "2026-11-18T21:40:01Z",
+  "generatedAt": "2026-11-18T21:40:01Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -2959,6 +2959,27 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.6.0",
+          "publishedAt": "2026-11-18T21:40:01Z",
+          "changelog": "# Changelog\n\n## 0.6.0\n\n### Features\n\n- **extension:** keep the voice in long sessions: a one-line voice reminder on each human message in the request (not stored, stable for the prompt cache), and a check of each final reply against the budget of the voice, with feedback on the next message and in `/mumble`",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "3485a097b58dc11290041fc1643d16fac84851e2609de619bcd07852c92cf3ef",
+          "url": "packages/eskwisit.mumble-0.6.0.piplug",
+          "sizeBytes": 108509,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-mumble",
+            "sourceRef": "v0.6.0",
+            "sourceCommit": "bf471cbc9bcff9f1697a50573ebcb825a9096463",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-18T21:40:01Z"
+          }
+        },
+        {
           "version": "0.5.4",
           "publishedAt": "2026-11-12T20:07:08Z",
           "changelog": "# Changelog\n\n## 0.5.4\n\n### Performance\n\n- **extension:** shorter voice sections, shrink note and footer (`792cd88`)\n\n### Documentation\n\n- **readme:** update the token cost of each voice (`5e13019`)",
@@ -4715,7 +4736,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-11-18T15:18:35Z",
+          "publishedAt": "2026-11-18T15:21:04Z",
           "changelog": "## 首个版本\n\n工作面板里的笔记：**收件箱 / 项目 / 全部** 三档范围，Markdown 编辑与预览，自动保存，置顶、搜索、删除撤销。\n\n- 数据只写插件自己的私有目录：`notes.json` 原子写 + 快照回退\n- 权限仅 `ui.view`、`clipboard.write`；无网络出口，资源全部内联\n- 深浅色跟随宿主并可手动切换；界面缩放 80%–160%，窄面板自适应\n- 中英双语，跟随宿主语言与外观实时切换",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "5e7e9a5bf166ff75b6fad3f4cc7bc3c1453bb2d5438bdaf83f08eaf66c91dab3",
