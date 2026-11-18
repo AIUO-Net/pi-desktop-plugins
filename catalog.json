@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-18T10:29:49Z",
-  "generatedAt": "2026-11-18T10:29:49Z",
+  "updatedAt": "2026-11-18T10:36:24Z",
+  "generatedAt": "2026-11-18T10:36:24Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1295,6 +1295,22 @@
       "downloads": 0,
       "readmeMarkdown": "# Computer Use\r\n\r\n复刻 Codex 的操控功能，让 AI 直接操控电脑完成简单作业。\r\n\r\n已过测：**Grok 4.6**、**ChatGPT 5.6**、**Kimi K3**。\r\n\r\n## 安装\r\n\r\n导入 `dist/cn.star.computer-use-0.3.0.piplug`。导入后彻底退出 PI（含托盘）再开。权限会自动给。\r\n\r\n第一次打开 **Computer Use: Open Panel**，状态应是 `running`。没有 cua-driver 时，面板里确认一下就会装。\r\n\r\n## 对话里\r\n\r\n先看窗口，再动手。点完、打完字，别把「已经发出去」当成「已经做完」。\r\n\r\n| 工具 | 做什么 |\r\n| --- | --- |\r\n| `list_apps` / `list_windows` / `launch_app` | 找窗口、开应用 |\r\n| `get_app_state` | 截图、读控件树、等界面出现某段字、读精确值 |\r\n| `click` / `scroll` / `drag` | 鼠标 |\r\n| `type_text` / `press_key` / `paste_text` / `set_value` | 键盘和粘贴 |\r\n| `stop_computer_use` | 立刻停 |\r\n\r\n要停也可以按键盘 Esc，或点面板上的停止。停了要从面板再开。\r\n\r\n## 不会去动\r\n\r\n密码管理器、终端、锁屏、Windows 安全中心、PI-Desktop、ChatGPT、Codex。还可以再加允许列表，把目标缩得更窄。",
       "versions": [
+        {
+          "version": "0.5.0",
+          "publishedAt": "2026-11-18T10:36:24Z",
+          "changelog": "- 适配 **cua-driver 0.53.0**，保留对 0.28.2 的兼容。可在 Computer Use 面板中一键升级旧版驱动。\n- 改进控件点击和拖动。坐标点击绑定到目标窗口的截图，拖动前会核对窗口位置和大小。\n- 修复连续搜索不同关键词时漏掉控件的问题。即使上一次没有匹配结果，也能继续搜索同一份快照，无需手动刷新。\n- 修复等待窗口状态时可能误用其他窗口内容、提前报告成功的问题。\n- 加快面板刷新，复用近期的驱动检测结果。点击「重新检测」仍可立即读取实际版本。",
+          "minPiDesktop": "\u003e=0.14.0",
+          "shasum": "cbbfad03ce736d8955e8ce2c36e74dc12c9e0af7ce0ef85d655446cffc68af30",
+          "url": "packages/cn.star.computer-use-0.5.0.piplug",
+          "sizeBytes": 673428,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false
+        },
         {
           "version": "0.4.0",
           "publishedAt": "2026-09-19T08:30:21Z",
