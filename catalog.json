@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-19T05:45:14Z",
-  "generatedAt": "2026-11-19T05:45:14Z",
+  "updatedAt": "2026-11-19T06:47:42Z",
+  "generatedAt": "2026-11-19T06:47:42Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4736,7 +4736,7 @@
       "versions": [
         {
           "version": "0.1.1",
-          "publishedAt": "2026-11-19T05:45:14Z",
+          "publishedAt": "2026-11-19T05:47:25Z",
           "changelog": "## 0.1.1\n\n- 中文名改为 **PI·侧边栏笔记**（英文名 `Notes` 不变）。\n- 分发包内不再附带开发文档 `AGENT.md` 与 `.gitignore`，它们只留在仓库。",
           "minPiDesktop": "\u003e=0.9.0",
           "shasum": "4e19dde25920a3ebe7cac331fc3d2de19ed84917f848565e39dfe23442e01ce5",
@@ -8464,6 +8464,30 @@
       "downloads": 0,
       "homepage": "https://github.com/zwwangoo/pi-terminal",
       "versions": [
+        {
+          "version": "0.5.0",
+          "publishedAt": "2026-11-19T06:47:42Z",
+          "changelog": "### 新增\n- **远程项目终端**：打开位于远程主机的项目时，终端自动通过本机 `ssh` 在该主机的项目目录里启动登录 shell，不再落到本地终端。\n- **主机标识**：标签页和右上角角标显示远程主机名称（橙色），一眼看出当前命令落在哪台机器上。\n- **远程 tmux 持久会话**：开启 `tmuxMode` 时，tmux 会话运行在远程主机上（私有 socket `pi-terminal`），网络断开、重载插件或重启宿主后仍在，下次打开同一个会话自动接回；关闭标签或运行「结束所有 tmux 后台会话」也会清理该主机上的会话。\n- **连接预检与错误提示**：打开远程标签前先检查主机能否连通、tmux 是否存在（tmux 标签）以及项目目录能否进入；失败时直接在面板上显示原因，不会退回到本地 shell。\n- **设置项 `remoteHost`**：默认留空，按项目绑定的主机连接；仅在无法读取项目绑定时作为后备（填以 SSH 方式添加的主机名称或 hostKey），不会覆盖项目本身的绑定。\n\n### 升级提示\n- 如果远程会话在旧版本下开过本地 tmux 终端，升级后该会话将直接打开远程终端；旧的本地会话不会再接入，可用「结束所有 tmux 后台会话」清理。\n- 远程主机必须是以 SSH 方式添加的，且私钥支持免交互认证（无口令或已加入 ssh-agent）。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "9c5db7c480c78b9e67f928f833bd243b1c72aa7f910a439baff2e669e86ed6c5",
+          "url": "packages/local.terminal-0.5.0.piplug",
+          "sizeBytes": 638555,
+          "permissions": [
+            "clipboard.read",
+            "clipboard.write",
+            "shell.openExternal",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/zwwangoo/pi-terminal",
+            "sourceRef": "v0.5.0",
+            "sourceCommit": "33b070c65d26b1164a332b6cd7fe903c28b11768",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-19T06:47:42Z"
+          }
+        },
         {
           "version": "0.4.0",
           "publishedAt": "2026-11-09T10:39:18Z",
