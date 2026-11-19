@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-19T09:21:59Z",
-  "generatedAt": "2026-11-19T09:21:59Z",
+  "updatedAt": "2026-11-19T14:32:29Z",
+  "generatedAt": "2026-11-19T14:32:29Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -6850,6 +6850,40 @@
             "risk": "medium",
             "policyVersion": "2026.10.1",
             "reviewedAt": "2026-10-11T05:55:19Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.chrome-cdp",
+      "name": "Chrome CDP",
+      "description": "Real Google Chrome for the agent: launches a visible Chrome window and drives it over the DevTools Protocol (navigate, accessibility snapshot, click, fill, screenshots, JavaScript, console, tabs, raw CDP).",
+      "author": "",
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-19T14:32:29Z",
+          "changelog": "Initial release. Launches a real Google Chrome window (--remote-debugging-port, private profile) and exposes the \"Chrome\" agent tool: navigate, accessibility snapshot with uids, click via Input events, fill via native value setter, screenshots (jpeg/png, fullPage), evaluate, console capture, tab management and allowlisted raw CDP calls. Works entirely over 127.0.0.1 with no third-party dependencies.",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "6f28394c95c40ae5d08add1826e1760949b6b6ffe387d650fb2836e2a2188910",
+          "url": "packages/local.chrome-cdp-0.1.0.piplug",
+          "sizeBytes": 52856,
+          "permissions": [
+            "agent.tool.register"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/nnda152-prog/chrome-cdp",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "f0ec238407cdd6db31fafab31a78ea4def4a0054",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-19T14:32:29Z"
           }
         }
       ]
