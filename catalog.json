@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-19T09:19:45Z",
-  "generatedAt": "2026-11-19T09:19:45Z",
+  "updatedAt": "2026-11-19T09:21:59Z",
+  "generatedAt": "2026-11-19T09:21:59Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -2960,7 +2960,7 @@
       "versions": [
         {
           "version": "0.6.3",
-          "publishedAt": "2026-11-19T09:19:45Z",
+          "publishedAt": "2026-11-19T09:21:59Z",
           "changelog": "# Changelog\n\n## 0.6.3\n\n### Fixes\n\n- **extension:** drop the ultra length budget and loosen its article check (`19f238f`)\n\n### Documentation\n\n- **manifest:** describe the ultra article check in the safety notes (`f7339ff`)\n- **readme:** explain why ultra has no length budget (`fdf1f0c`)\n\n### Tests\n\n- **tests:** cover ultra without length budget and the 1-in-15 article rule (`edc904a`)",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "9b8dab40113bd25876ff81aa716c986626ee9b831a9499e2d50dd6fbe3cb611d",
@@ -4752,22 +4752,14 @@
     },
     {
       "id": "io.github.g1oow.sidebar-note",
-      "name": "Notes",
+      "name": "PI·侧边栏笔记",
       "description": "工作面板里的笔记：按项目隔离的笔记列表加一个全局收件箱，Markdown 编辑与预览，自动保存。",
       "author": "G1oow",
-      "i18n": {
-        "en": {
-          "name": "Notes",
-          "description": "Notes in the work panel: per-project notes plus a global inbox, Markdown editing and preview, autosave.",
-          "safetyNotes": "Notes live in the plugin's own data directory (notes.json with automatic snapshots). The plugin does not read or write workspace files, makes no network requests, and never reads the clipboard; it writes to it only when the user clicks Copy."
-        },
-        "zh-CN": {
-          "name": "笔记",
-          "description": "工作面板里的笔记：按项目隔离的笔记列表加一个全局收件箱，Markdown 编辑与预览，自动保存。",
-          "safetyNotes": "笔记保存在插件自己的数据目录（notes.json，附自动快照），不读写工作区文件，不访问网络，不使用剪贴板读取。仅在用户主动点“复制”时写入剪贴板。"
-        }
-      },
-      "categories": [],
+      "categories": [
+        "agents-workflow",
+        "productivity",
+        "writing"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "github",
