@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-19T07:52:59Z",
-  "generatedAt": "2026-11-19T07:52:59Z",
+  "updatedAt": "2026-11-19T09:19:45Z",
+  "generatedAt": "2026-11-19T09:19:45Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -2959,8 +2959,29 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.6.3",
+          "publishedAt": "2026-11-19T09:19:45Z",
+          "changelog": "# Changelog\n\n## 0.6.3\n\n### Fixes\n\n- **extension:** drop the ultra length budget and loosen its article check (`19f238f`)\n\n### Documentation\n\n- **manifest:** describe the ultra article check in the safety notes (`f7339ff`)\n- **readme:** explain why ultra has no length budget (`fdf1f0c`)\n\n### Tests\n\n- **tests:** cover ultra without length budget and the 1-in-15 article rule (`edc904a`)",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "9b8dab40113bd25876ff81aa716c986626ee9b831a9499e2d50dd6fbe3cb611d",
+          "url": "packages/eskwisit.mumble-0.6.3.piplug",
+          "sizeBytes": 112964,
+          "permissions": [
+            "agent.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-mumble",
+            "sourceRef": "v0.6.2",
+            "sourceCommit": "b974d6c9391d67c572fb2a659e7c2a0e9a9795ec",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-19T09:19:45Z"
+          }
+        },
+        {
           "version": "0.6.2",
-          "publishedAt": "2026-11-19T07:52:59Z",
+          "publishedAt": "2026-11-19T07:55:07Z",
           "changelog": "# Changelog\n\n## 0.6.2\n\n### Fixes\n\n- **extension:** never edit the Claude Code line of the system prompt (`b78c4af`)\n- **extension:** add the voice reminder to the request, not the context (`db0c2b2`)\n\n### Tests\n\n- cover the Claude Code line and the reminder in each payload shape (`ccd6a4e`)",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "e1e73dd2f47a993ce91e1803db484bf638f6ee804f60688b60619a6ec81eb727",
