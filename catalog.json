@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-20T06:41:46Z",
-  "generatedAt": "2026-11-20T06:41:46Z",
+  "updatedAt": "2026-11-20T07:20:29Z",
+  "generatedAt": "2026-11-20T07:20:29Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -5143,6 +5143,28 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.3.0",
+          "publishedAt": "2026-11-20T07:20:29Z",
+          "changelog": "On PI-Desktop builds that support transcript selection actions, select text and choose Side Questions from the context menu to open a draft with a removable excerpt. The paste flow remains available on earlier supported builds.\n\n支持选区菜单的新客户端可在选中文字后右键点击「支线提问」，直接打开带可移除引用的草稿。旧版客户端仍可在工作面板中粘贴引用。",
+          "minPiDesktop": "\u003e=0.23.0-beta.2",
+          "shasum": "901d12a2f071486462783e83d3c04d14c694f811ec16ac0dcb456b5b659e0538",
+          "url": "packages/io.github.linuxdazhao.side-questions-0.3.0.piplug",
+          "sizeBytes": 48559,
+          "permissions": [
+            "desktop.control",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Linuxdazhao/pi-side-questions",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "82016f1a31d44bf1dd3877a38ed5135818eecbe8",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-20T07:20:29Z"
+          }
+        },
+        {
           "version": "0.2.0",
           "publishedAt": "2026-11-18T13:56:48Z",
           "changelog": "Paste an excerpt into a fresh side question. The preview is short and removable. The first message sends the full excerpt and your question without the main conversation history.\n\n在右侧粘贴片段即可开新支线。引用以短卡片显示，发送前可整块移除。首条消息只带完整引用和新问题。",
@@ -7510,7 +7532,7 @@
       "versions": [
         {
           "version": "0.6.0",
-          "publishedAt": "2026-11-20T06:41:46Z",
+          "publishedAt": "2026-11-20T06:44:09Z",
           "changelog": "## Nebula Spectrum 0.6.0\n\nThree editions of one appearance theme, all sharing the same token mapping:\n\n- **Nebula Spectrum** (dark) — deep navy conversation pane, cyan / blue / teal arcs with a single rose counterpoint lobe at the window edge.\n- **Nebula Spectrum Light** — calm white chrome carrying the text, the whole window washed in amber, rose, magenta, indigo, cyan and green light.\n- **Nebula Spectrum Onyx** (dark) — the conversation pane sinks to near-black, cards sit a hair above it, the spectrum stays at the edge.\n\nAppearance only: no scripts, no network, no file reads. `main.js` is an empty\nlifecycle shell; the whole plugin is three CSS files plus their manifest. Every\nrule is scoped to `:root[data-theme][data-plugin-theme=\"plugin:local.nebula-spectrum:\u003ctheme\u003e\"]`\nso it cannot leak into another theme or plugin.",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "22b54e58fd4ff733f236cb7cd8427c6bf6ce1e193512dfbb261f9e91ff1608da",
