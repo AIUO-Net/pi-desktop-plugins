@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-20T06:30:54Z",
-  "generatedAt": "2026-11-20T06:30:54Z",
+  "updatedAt": "2026-11-20T06:41:46Z",
+  "generatedAt": "2026-11-20T06:41:46Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4169,7 +4169,7 @@
       "versions": [
         {
           "version": "1.3.6",
-          "publishedAt": "2026-11-20T06:30:54Z",
+          "publishedAt": "2026-11-20T06:33:14Z",
           "changelog": "- 安全：数据目录按 0700、签到记录按 0600 创建。\n- 连接检查：宿主清单无法读取时报告失败，不再显示通过。\n- 隐私：说明请求携带厂商账号与设备标识（账号 UID、机器码、设备 ID）。\n- 成长中心：执行超过宿主等待时间后，任务结束时按钮恢复可用。\n- 自动签到：上一轮仍在进行时，按钮显示运行中并保持不可点，结束后恢复。\n- 文档：精简 README。\n\n## [1.3.5]\n\n- 流式对话：收到 WorkBuddy、Trae、Qoder 的拒绝响应后及时关闭上游连接，避免换号或重试时遗留连接。\n- WorkBuddy：扫描时从磁盘清除超过 30 天保留期的过期凭证归档。\n- WorkBuddy：删除账号与重新登录同时进行时，保留新登录。\n- 输入框积分：宿主模型目录读取失败时，暂缓显示归属未确认的模型积分；切换账号成功后清除此前的错误提示。\n- 面板：来源和区域选择器以按钮组报告选中状态；页面标签支持方向键导航与 Enter/Space 激活。\n- Qoder：macOS 解密成功但会话缺少账号标识时，正确提示登录数据无效，不再误报 Keychain 权限问题。\n\n## [1.3.4]\n\n- 流式对话：宿主采集响应流时，上游拒绝请求可及时返回错误，避免等待响应流结束而卡住。\n- 取消请求：停止生成或取消响应流时，同时关闭上游连接，释放宿主采集与网络资源。\n\n## [1.3.3]\n\n- Trae 对话：主路由失效后改用备用路由时，按备用路由的窗口启用 Max 模式，避免长对话被较小的默认窗口拒绝。\n- 端口检查：地址漂移时提示检查实际网关、暂停受影响模型，再按检查结果释放端口或重启 PI-Desktop，避免宿主继续使用缓存地址。\n- Trae 签到：设备 ID 迁移后优先使用唯一数字设备号，修复已签到仍显示可签到、领取返回 9074 的问题。\n- 隐私：流式失败日志仅记录错误类别和 Trae 错误码；macOS 读取 Qoder 登录时需访问登录钥匙串。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "3dbd56d794cb9a455914547450b56c9f470130e885c9775519f78261727fd35e",
@@ -7477,6 +7477,57 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-22T18:55:01Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.nebula-spectrum",
+      "name": "Nebula Spectrum",
+      "description": "A vibrant, high-tech appearance theme for PI-Desktop in three editions: a white conversation pane, a deep-ocean dark, and a near-black Onyx. All three keep the full spectrum at the window edges.",
+      "author": "LiuHongXuMaritime",
+      "i18n": {
+        "en": {
+          "name": "Nebula Spectrum",
+          "description": "A vibrant, high-tech appearance theme for PI-Desktop in three editions: a white conversation pane, a deep-ocean dark, and a near-black Onyx. All three keep the full spectrum at the window edges.",
+          "safetyNotes": "Appearance only. Ships no code beyond an empty lifecycle entry, makes no network requests, reads no files, and injects nothing but CSS custom properties scoped to its own theme id. Declares ui.window.appearance so the native window background can match the theme."
+        },
+        "zh-CN": {
+          "name": "Nebula 光谱",
+          "description": "炫彩科技感的 PI-Desktop 主题，含三套配色：白色对话面板、深海暗色、近黑 Onyx。三套都保留窗口边缘的整条光谱极光。",
+          "safetyNotes": "只改外观。除空的生命周期入口外不含任何代码，不发起网络请求，不读取文件，只注入限定在本主题 id 下的 CSS 变量。声明 ui.window.appearance 仅用于让原生窗口底色跟随主题。"
+        }
+      },
+      "categories": [
+        "themes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/LiuHongXuMaritime/pi-desktop-theme-nebula-spectrum",
+      "readmeMarkdown": "# Nebula Spectrum\n\nPI-Desktop 外观主题插件，同一套光谱语言下的**三个版本**。\n\n| 主题 | id | 基础色 | 外观 |\n| --- | --- | --- | --- |\n| Nebula Spectrum | `nebula` | `dark` | **深色对话区**（`#0a171f`）+ 窗口外围多色光谱（琥珀 / 玫红 / 洋红 / 靛蓝 / 青 / 青绿） |\n| Nebula Spectrum Onyx | `nebula-onyx` | `dark` | **更黑的纯黑版**（对话区 `#04070b`、画布 `#000000`），同款外围光谱 |\n| Nebula Spectrum Light | `nebula-light` | `light` | **白色对话区** + 窗口外围多色光谱（琥珀 / 玫红 / 洋红 / 靛蓝 / 青 / 绿） |\n\n- 插件 id：`local.nebula-spectrum`\n- 完整主题 id：`plugin:local.nebula-spectrum:nebula` / `plugin:local.nebula-spectrum:nebula-light`\n- 权限：`ui.theme`（注入主题 CSS）、`ui.window.appearance`（原生窗口底色，消除启动白闪）\n\n## 预览\n\n三套主题共用同一份布局，只改令牌映射与主色：\n\n**Nebula Spectrum**（深色）— 深海军蓝对话区，青 / 蓝 / 青绿弧线，窗口右下角一点玫红\n\n![Nebula Spectrum](https://raw.githubusercontent.com/LiuHongXuMaritime/pi-desktop-theme-nebula-spectrum/main/docs/preview-nebula.jpg)\n\n**Nebula Spectrum Light** — 白色面板承载文字，整窗铺琥珀 / 玫红 / 洋红 / 靛蓝 / 青 / 绿的光谱\n\n![Nebula Spectrum Light](https://raw.githubusercontent.com/LiuHongXuMaritime/pi-desktop-theme-nebula-spectrum/main/docs/preview-light.jpg)\n\n**Nebula Spectrum Onyx**（深色）— 对话区沉到近黑，卡片只比面板亮一丝，光谱收在窗口边缘\n\n![Nebula Spectrum Onyx](https://raw.githubusercontent.com/LiuHongXuMaritime/pi-desktop-theme-nebula-spectrum/main/docs/preview-onyx.jpg)\n\n\u003e 截图来自主题 CSS 在真实宿主令牌下的渲染（1440 × 820）。\n\n## 安装\n\n1. 打开 PI-Desktop 的「插件」页。\n2. 载入本目录 `nebula-spectrum/`（开发模式热重载），或 `PluginPack` 打成 `.piplug` 后从文件安装。\n3. 在 设置 → 外观 里选择 **Nebula Spectrum** 或 **Nebula Spectrum Light**。\n\n## 实现要点\n\n两套主题都是纯 CSS，没有脚本、没有外部资源；`main.js` 只是插件入口的空壳。\n\n1. 选择器全部是 `:root[data-theme][data-plugin-theme=\"plugin:local.nebula-spectrum:\u003c主题\u003e\"]`。\n   三重属性选择器的特异性 (0,3,0) 高于宿主自己的 `:root[data-theme=dark]` / `[data-theme=light]` 令牌块，\n   所以无论样式表顺序如何都能覆盖，也不会泄漏到另一个主题或其它插件。\n2. 先重映射 `--gray-*` 中性色阶（深色版是紫调墨色，浅色版是紫调纸白），再显式覆盖语义令牌 `--ds-*`；\n   宿主从这两者派生的组件颜色会自动跟着变。\n3. 再对少数高曝光表面单独上渐变：`.app-shell`（极光）、`.sidebar-surface`（玻璃侧栏）、\n   `.composer-shell`（光谱描边）、`.send-btn`、`.message-bubble`、`.code-block-head`。\n\n浅色版的思路：**对话区（`.main-pane`）是纯白面板**，和输入框、代码块同一种白，正文直接落在白纸上；\n颜色只留在窗口外围——`.app-shell` 的 118° 多色 wash（琥珀→玫红→靛蓝→青→绿）、侧栏玻璃、输入框五段光谱描边、\n彩虹发送键，以及 `.main-pane` 顶部一条很淡的暖色光带。取色：对话框底 `#ffffff`、墨 `#1a1a26`（对比 ≈ 16:1）、\n强调色 `#be185d`（白底 ≈ 6.0:1）。\n\n气泡样式只作用于**用户自己的消息**（`.message-row.user .message-bubble`）：宿主的助手消息也带 `.message-bubble`，\n只把它重置成透明无内边距，所以助手回复直接落在阅读面上，不会被套进一个白框／深色框。\n用户气泡用 `#ffffff` + 1px 中性描边 + 轻微阴影，靠右下角的直角与大圆角区分\"我发的\"。\n\n深色版用同一套分层逻辑：对话区是**一整块沉稳的深色阅读面**（`.main-pane` → `#0a171f`），\n气泡 `#14262f`、代码块 `#0f1e27`、输入框半透明深色，彼此只靠发丝线和一两档明度差分层；\n彩色只留在窗口外围——`.app-shell` 的琥珀 / 玫红 / 洋红 / 靛蓝 / 青 / 青绿极光、玻璃侧栏、\n输入框五段光谱描边、彩虹发送键与顶部彩虹细线，以及对话区顶部一条很淡的彩色光带。\n两套主题共用同一套光谱色相，只是底色与文字层次相反。\n\n第三套 **Nebula Spectrum Onyx** 是深色版的再加黑一档：画布 `#000000`、对话区 `#04070b`、\n用户气泡 `#0b1218`、代码块 `#080d11`，层与层之间只差一两档明度，边框降到 `rgba(148,190,210,0.12–0.14)`；\n外围光谱与另两套完全一致（同一组色相，alpha 略降），阴影改成纯黑，让极光成为唯一的发光来源。\n\n## 想改颜色\n\n| 目标 | 变量 |\n| --- | --- |\n| 主背景 | `--ds-bg-primary` |\n| 面板 / 浮层 | `--ds-bg-secondary`、`--ds-bg-elevated` |\n| 强调色 | `--ds-accent`、`--ds-accent-hover` |\n| 文字层次 | `--ds-text-primary` / `-secondary` / `-muted` / `-faint` |\n| 分割线 | `--ds-border-default` |\n| 极光本体 | `.app-shell` 里的 `radial-gradient(...)` 层 |\n\n想更亮 / 更暗，通常只动两个数：`--ds-bg-primary` 和 `.app-shell` 各层极光的 alpha。\n\n## 预览\n\n`preview/` 里是原生尺寸的样张，直接双击打开：\n\n- `compare.html` — 深色与浅色并排对比\n- `specimen.html` / `specimen-light.html` — 单版本样张（文字层次、表面令牌、侧栏、气泡、代码块、输入框、设置卡片）\n\n## 开发校验\n\n`python validate_theme.py nebula-spectrum` 会跑一份宿主规则的本地镜像：\nmanifest 字段、主题 id / 路径 / 基础色、权限、CSS 体积上限、禁止项（`@import`、markup、脚本表达式、外部 `url()`），\n以及括号配平、规则作用域、声明完整性——`contributes.themes` 里的每个主题都会检查。\n",
+      "versions": [
+        {
+          "version": "0.6.0",
+          "publishedAt": "2026-11-20T06:41:46Z",
+          "changelog": "## Nebula Spectrum 0.6.0\n\nThree editions of one appearance theme, all sharing the same token mapping:\n\n- **Nebula Spectrum** (dark) — deep navy conversation pane, cyan / blue / teal arcs with a single rose counterpoint lobe at the window edge.\n- **Nebula Spectrum Light** — calm white chrome carrying the text, the whole window washed in amber, rose, magenta, indigo, cyan and green light.\n- **Nebula Spectrum Onyx** (dark) — the conversation pane sinks to near-black, cards sit a hair above it, the spectrum stays at the edge.\n\nAppearance only: no scripts, no network, no file reads. `main.js` is an empty\nlifecycle shell; the whole plugin is three CSS files plus their manifest. Every\nrule is scoped to `:root[data-theme][data-plugin-theme=\"plugin:local.nebula-spectrum:\u003ctheme\u003e\"]`\nso it cannot leak into another theme or plugin.",
+          "minPiDesktop": "\u003e=0.2.0",
+          "shasum": "22b54e58fd4ff733f236cb7cd8427c6bf6ce1e193512dfbb261f9e91ff1608da",
+          "url": "packages/local.nebula-spectrum-0.6.0.piplug",
+          "sizeBytes": 47453,
+          "permissions": [
+            "ui.theme",
+            "ui.window.appearance"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/LiuHongXuMaritime/pi-desktop-theme-nebula-spectrum",
+            "sourceRef": "v0.6.0",
+            "sourceCommit": "a085e7012dc9d5d1d1abfd56e5b371d93e537e87",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-20T06:41:46Z"
           }
         }
       ]
