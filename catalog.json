@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-20T07:20:29Z",
-  "generatedAt": "2026-11-20T07:20:29Z",
+  "updatedAt": "2026-11-20T15:59:58Z",
+  "generatedAt": "2026-11-20T15:59:58Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -5144,7 +5144,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-11-20T07:20:29Z",
+          "publishedAt": "2026-11-20T07:22:53Z",
           "changelog": "On PI-Desktop builds that support transcript selection actions, select text and choose Side Questions from the context menu to open a draft with a removable excerpt. The paste flow remains available on earlier supported builds.\n\n支持选区菜单的新客户端可在选中文字后右键点击「支线提问」，直接打开带可移除引用的草稿。旧版客户端仍可在工作面板中粘贴引用。",
           "minPiDesktop": "\u003e=0.23.0-beta.2",
           "shasum": "901d12a2f071486462783e83d3c04d14c694f811ec16ac0dcb456b5b659e0538",
@@ -6490,6 +6490,51 @@
             "sourceCommit": "d921308618caae60c1e97eb7c0da29a419e879ea",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-18T12:04:06Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.xelzsss.macos-classic-theme",
+      "name": "Mac OS Classic Theme",
+      "description": "Theme plugins for PI-Desktop, ported from huacnlee/zed-theme-macos-classic",
+      "author": "XELZSSS",
+      "i18n": {
+        "zh-CN": {
+          "name": "",
+          "description": "PI-Desktop 的主题插件，移植自 huacnlee/zed-theme-macos-classic"
+        }
+      },
+      "categories": [
+        "themes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/XELZSSS/PI-Mac-OS-Classic-Theme",
+      "safetyNotes": "纯外观主题插件，仅申请 ui.theme 与 ui.window.appearance 权限，用于应用 macOS Classic 配色及调整窗口外观样式",
+      "versions": [
+        {
+          "version": "1.3.0",
+          "publishedAt": "2026-11-20T15:59:58Z",
+          "changelog": "Adapted for the new PI-Desktop interface\n适配新的 PI-Desktop 界面",
+          "minPiDesktop": "\u003e=0.23.0",
+          "shasum": "0e268615370b978ce042813cca25ba352089d736aed1acacf575e5204fa24dce",
+          "url": "packages/io.github.xelzsss.macos-classic-theme-1.3.0.piplug",
+          "sizeBytes": 24144,
+          "permissions": [
+            "ui.theme",
+            "ui.window.appearance"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/XELZSSS/PI-Mac-OS-Classic-Theme",
+            "sourceRef": "v1.3.0",
+            "sourceCommit": "9db252cd996635276769e87303156f98f5cebe9d",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-20T15:59:58Z"
           }
         }
       ]
