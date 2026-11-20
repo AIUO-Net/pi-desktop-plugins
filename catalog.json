@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-20T15:59:58Z",
-  "generatedAt": "2026-11-20T15:59:58Z",
+  "updatedAt": "2026-11-20T21:46:38Z",
+  "generatedAt": "2026-11-20T21:46:38Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -3125,6 +3125,29 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.45.1",
+          "publishedAt": "2026-11-20T21:46:38Z",
+          "changelog": "# Changelog\n\n## 0.45.1\n\n### Fixes\n\n- **view:** label an open question card as question for you (`e166fc9`)\n\n### Documentation\n\n- **readme:** use the question for you label (`ad89e0c`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "c5bce4d367783156bb06ea750880c88a97b76b66caf7f5f7a508e773b23c23c9",
+          "url": "packages/eskwisit.neural-radar-0.45.1.piplug",
+          "sizeBytes": 300591,
+          "permissions": [
+            "desktop.control",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.45.1",
+            "sourceCommit": "ecb5f1ba16713fd89915bf3725d3e6bb3e79f1b3",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-20T21:46:38Z"
+          }
+        },
         {
           "version": "0.41.0",
           "publishedAt": "2026-11-13T14:37:01Z",
@@ -6517,7 +6540,7 @@
       "versions": [
         {
           "version": "1.3.0",
-          "publishedAt": "2026-11-20T15:59:58Z",
+          "publishedAt": "2026-11-20T16:02:24Z",
           "changelog": "Adapted for the new PI-Desktop interface\n适配新的 PI-Desktop 界面",
           "minPiDesktop": "\u003e=0.23.0",
           "shasum": "0e268615370b978ce042813cca25ba352089d736aed1acacf575e5204fa24dce",
