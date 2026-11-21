@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-21T04:34:14Z",
-  "generatedAt": "2026-11-21T04:34:14Z",
+  "updatedAt": "2026-11-21T13:28:02Z",
+  "generatedAt": "2026-11-21T13:28:02Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -2493,6 +2493,52 @@
       "publisherId": "eskwisit",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.25.1",
+          "publishedAt": "2026-11-21T13:28:02Z",
+          "changelog": "# Changelog\n\n## 0.25.1\n\n### Fixes\n\n- **main:** install the workers at load so new sessions can launch them (`1dde629`)\n\n### Documentation\n\n- **manifest:** state that the workers are installed at load (`0bf2d54`)\n- **readme:** state that the workers are installed at load (`291ae92`)\n\n### Tests\n\n- **tests:** expect the worker personas installed at load (`96ccbc7`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "8c2f2a7398543ab8f9734945e56c6bad97d1700bf4cb46b4834b9d38e8002ad1",
+          "url": "packages/eskwisit.llm-superagent-0.25.1.piplug",
+          "sizeBytes": 400210,
+          "permissions": [
+            "agent.extension",
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.delete",
+            "fs.read",
+            "fs.write",
+            "models.list"
+          ],
+          "fs": {
+            "delete": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/tickets/**"
+              ]
+            },
+            "read": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                ".superagent/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-llm-superagent",
+            "sourceRef": "v0.25.1",
+            "sourceCommit": "1757a0af95f4c84d0aa5f43b0c5dabd39b5151e7",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-21T13:28:02Z"
+          }
+        },
         {
           "version": "0.25.0",
           "publishedAt": "2026-11-17T10:55:40Z",
@@ -7662,7 +7708,7 @@
       "versions": [
         {
           "version": "0.9.0",
-          "publishedAt": "2026-11-21T04:34:14Z",
+          "publishedAt": "2026-11-21T04:36:33Z",
           "changelog": "0.9.0 — 主题改为中文命名：光谱·青蓝 / 彩虹 / 暖阳 / 冰蓝 / 玫瑰 / 余烬 / 朱红 / 霓虹；移除 Onyx，新增朱红（红黑 + 完整外围光谱）；气泡样式只作用于用户消息，助手回复不再被套框；各主题对话区改为实色，彩色只留在窗口边缘。",
           "minPiDesktop": "\u003e=0.2.0",
           "shasum": "be3ba109c1e32973726471ab816619e6a363677fe7e24062cf2a6393981a5444",
