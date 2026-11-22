@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-22T13:14:54Z",
-  "generatedAt": "2026-11-22T13:14:54Z",
+  "updatedAt": "2026-11-22T21:49:58Z",
+  "generatedAt": "2026-11-22T21:49:58Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -3295,6 +3295,29 @@
       "downloads": 0,
       "versions": [
         {
+          "version": "0.45.3",
+          "publishedAt": "2026-11-22T21:49:58Z",
+          "changelog": "# Changelog\n\n## 0.45.3\n\n### Fixes\n\n- **view:** keep the drawer open when clicking the open agent's tooltip (`7f80e24`)\n- **view:** keep the drawer open after sending a message (`05ee161`)\n\n### Documentation\n\n- **readme:** describe tooltip clicks and sending with the drawer open (`903f9e3`)",
+          "minPiDesktop": "\u003e=0.9.0",
+          "shasum": "3b6ded02e1b930fcf8300fb64feae7c80f937beca567cc5f6a2c092dc4706074",
+          "url": "packages/eskwisit.neural-radar-0.45.3.piplug",
+          "sizeBytes": 300702,
+          "permissions": [
+            "desktop.control",
+            "notify",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/eskwisit/pi-neural-radar",
+            "sourceRef": "v0.45.3",
+            "sourceCommit": "0a6cc177c19f49e683a66f1739b8c745e27c5d9c",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-22T21:49:58Z"
+          }
+        },
+        {
           "version": "0.45.1",
           "publishedAt": "2026-11-20T21:49:00Z",
           "changelog": "# Changelog\n\n## 0.45.1\n\n### Fixes\n\n- **view:** label an open question card as question for you (`e166fc9`)\n\n### Documentation\n\n- **readme:** use the question for you label (`ad89e0c`)",
@@ -6290,7 +6313,7 @@
       "versions": [
         {
           "version": "0.1.4",
-          "publishedAt": "2026-11-22T13:14:54Z",
+          "publishedAt": "2026-11-22T13:17:12Z",
           "changelog": "- 请求日志：顶栏新增日志按钮，按 cc-switch 的请求日志布局打开——三张表（请求日志 / 供应商 / 模型）、状态码筛选、列显示开关、每页 20 / 50 / 100 条与翻页；请求行给出时间、应用、供应商、模型、成本、新增输入、输出、缓存命中、缓存写入、命中率、速度、首字、总耗时、状态与状态码（「应用」列用来源各自的 logo），供应商与模型两张表按请求数 / 成本 / Tokens / 成功率 / 速度点表头排序\n- 状态码：筛选菜单是 cc-switch 那一套 200 / 400 / 401 / 403 / 404 / 429 / 500 / 502 / 503 / 504 / 520 / 529，窗口里出现列表外的码（例如 `CONTEXT_TOO_LARGE` 的 413）会自动追加在后面；完成即 200，错误按宿主真正记下的响应码显示——桌面侧取 `meta.error.details.providerStatus`，Pi-CLI 取 `errorMessage` 的前缀（`\"500: {…}\"`），连不上网的一类没有 HTTP 码就留 `—`\n- 首字：紧跟用户发问或工具结果的每次请求都给出「触发它的那条消息 → 首个流事件」的真实耗时（桌面侧 `createdAt` 由宿主的 `message_start` 处理器打点，实测与宿主数据库同口径：p50 2.9s、p90 7.1s），本机 17,751 条桌面请求里 15,673 条有值；前面紧挨着另一条 assistant 消息、或会话文件从中间开始的那 2,078 条没有可测的请求边界，保持 `—`。Pi-CLI 会话文件里没有首个流事件的时刻，整列为 `—`，表头写明口径\n- 模型分布：两个来源都用到同一个模型时，图例在模型名后标注来源（`(PI-Desktop)` / `(Pi-CLI)`），同名扇区不再无法区分；来源只有一个时不加标注\n- 命名统一：面板文案、manifest、README、脚本与适配器注释里的来源名统一写成 `Pi-CLI`\n- `npm run probe` 增加「插件的统计 ↔ 会话文件原始求和」两条对账行作为回归门槛（两侧本机实测都逐位一致），`pi.sqlite` 与旧缓存的对比改为参考行——它们还包含已被压缩或已删除会话的历史，出现负差属预期\n- 性能：目录富化结果按「记录数 + 扫描时刻 + 目录更新时间」缓存，不再每次查询都重建整份记录数组；聚合每条记录只构造一个 `Date`，并且只在 `全部` 区间才扫最早时间戳。同一份 4.86 万条真实缓存上，`usage.get`（全部区间）中位耗时 55.6ms → 41.9ms，7 天区间 34.2ms → 20.0ms；请求日志单页在 4.86 万条上约 20–31ms（服务端分页，面板一次只收一页）\n- 修复：模型环形图的「其他模型」现在包含被 50 行上限截掉的模型，圆环中心与窗口合计一致；项目分布的比例改用窗口合计作分母，行数超过上限时不再高估\n- 修复：打包清单忽略 `spec.md`（仓库里的设计稿），打包文件数回到 26 个\n- 速度：桌面侧 17,751 条里 14,634 条有宿主记录的耗时；Pi-CLI 只在少数行写 `durationMs`，缺的那些用「行写入时间 − 派发时间」补上——同一批 6,269 条同时有两者的记录上，两者比值 p10/p50/p90 = 0.9974/0.9993/0.9998，所以这是同一个量的补齐，不是换口径；超过 24 小时的一律丢弃（时钟错乱或续跑的会话）。改完后 Pi-CLI 的 31,086 条请求全部有速度\n- 修复：日志弹窗里的两个下拉按钮点了没反应——`.menu-host` 缺定位，菜单被挂到 `position: fixed` 的遮罩上、渲染到视口下方；现在锚在按钮自己身上，并去掉弹窗的裁切，短弹窗里的长菜单也不会被切\n- 修复：列显示开关勾选后表格不刷新——现在按新的列集合重建表格，弹窗与菜单保持不动\n- 缓存 schema 升到 5：记录新增状态码与首字字段，旧游标自动作废并重扫一次\n\n- 修复：缓存写入失败（磁盘满、文件被占用）不再静默丢记录——整批退回队列等下一次重试，游标也不会先于记录落盘\n- 修复：缓存 schema 升版后，废掉的游标会连同旧记录一起丢弃，已删除会话的记录不会再永久留在总计里\n- 修复：成本口径——宿主标为「估算」的数字不再冒充精确账单（按估算计，合计带 `≈`），标为「未知」的数字不作为价格，交给价格表或留空\n- 修复：首字超过 10 分钟不再记为测量值（触发它的消息没有留下记录时，这个间隔横跨了整轮对话），显示 `—`\n- 修复：文件被替换、但这次扫描的预算用尽只读了一半时，不再提前删掉旧记录\n- 修复：定价弹窗重绘会连带删掉请求日志弹窗；Esc 先关日志里的下拉菜单，再关弹窗\n- 修复：供应商 / 模型两张表里恒为 `—` 的「首字」列去掉（这两张表没有逐请求的首字数据）\n- 修复：`.grid-2` 少一个闭合括号，`.chart-svg` 的宽度规则一直被当成嵌套规则忽略",
           "minPiDesktop": "\u003e=0.20.1",
           "shasum": "c79caeb9ef188c7b2368915fe73106e6c7c9b252a9405efc5d1cee85592df2f4",
