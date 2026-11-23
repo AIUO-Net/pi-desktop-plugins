@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-23T13:00:01Z",
-  "generatedAt": "2026-11-23T13:00:01Z",
+  "updatedAt": "2026-11-23T14:04:32Z",
+  "generatedAt": "2026-11-23T14:04:32Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -308,7 +308,7 @@
       "versions": [
         {
           "version": "0.7.7",
-          "publishedAt": "2026-11-23T13:00:01Z",
+          "publishedAt": "2026-11-23T13:02:45Z",
           "changelog": "## 0.7.7\n\n- Increase the bounded `/object_info` response budget used only by in-plugin Canvas conversion for large ComfyUI node libraries.\n- Preserve safe diagnostics for oversized or invalid Host responses instead of collapsing them into an unavailable generation result.\n\nValidation: 351 Node tests, Canvas/remote generation regressions, Canvas settings browser cases, 8 i18n browser tests, manifest synchronization, PluginCheck, PluginPack and clean package validation passed. No live provider task was resubmitted during validation.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "a30b876123ed34d90890b41e6e55b20a726b0c385452e28d2b7ad35a831475d6",
@@ -6506,6 +6506,62 @@
             "sourceCommit": "c27a9129d5df601c7e091354fd39d0a8d43e5da4",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-19T00:23:20Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.realzsy.opencode-quota-bubble",
+      "name": "OpenCode Go 额度气泡",
+      "description": "在聊天输入框旁实时显示 OpenCode Go 订阅剩余额度（滚动 5 小时档，剩余 ≤25% 变黄、≤10% 变红，悬停看三档明细，点击打开详情面板）。只读，仅访问一个接口；中英双语，默认跟随系统语言。",
+      "author": "realzsy (based on caopengfei's pi-desktop-opencode-quota)",
+      "i18n": {
+        "en": {
+          "name": "OpenCode Go Quota Bubble",
+          "description": "Live OpenCode Go subscription quota beside the chat composer: rolling 5-hour allowance left, amber under 25%, red under 10%, hover for all three windows and reset times, click to open the detail panel. Read-only, one endpoint, English and Simplified Chinese.",
+          "safetyNotes": "Read-only. It calls exactly one endpoint (GET opencode.ai/zen/go/v1/usage) with an OpenCode Go API key that you paste into this plugin's settings, and only while the active provider is an OpenCode Go one — with any other provider the composer indicator stays hidden and no request is made. renderer.extension only draws this plugin's own indicator next to the chat input. It never reads chats, transcripts, project files, or PI-Desktop's own provider secrets; the key stays in this plugin's local settings file on your machine and is sent nowhere else."
+        },
+        "zh-CN": {
+          "name": "OpenCode Go 额度气泡",
+          "description": "在聊天输入框旁实时显示 OpenCode Go 订阅剩余额度：滚动 5 小时档剩余 ≤25% 变黄、≤10% 变红，悬停查看三档明细与重置倒计时，点击打开详情面板。只读，仅访问一个接口；中英双语，默认跟随系统语言。",
+          "safetyNotes": "只读。唯一请求是 GET opencode.ai/zen/go/v1/usage，且仅在当前供应商为 OpenCode Go 时发出；换成其他供应商时输入框指示器自动隐藏、也不发请求。renderer.extension 只用于在输入框旁绘制本插件自己的指示器。不读取对话记录、项目文件，也不读取 PI-Desktop 自身的供应商密钥；API Key 保存在本机插件设置文件中，不会发往任何其他地方。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "homepage": "https://github.com/realzsy/opencode-quota-bubble",
+      "readmeMarkdown": "# OpenCode Go 额度气泡 ｜ OpenCode Go Quota Bubble\n\n在 PI-Desktop 里直接看到 **OpenCode Go** 订阅还剩多少额度，不用再开浏览器。\n\nShow how much of your **OpenCode Go** subscription is left, without leaving PI-Desktop.\n\n---\n\n## 中文\n\n### 聊天输入框实时指示器（0.4.0 新增）\n\n在聊天输入框右侧（与上下文剩余读数同一排）常驻一个小指示器：\n\n- 彩色圆点 + 滚动 5 小时档剩余百分比；剩余 ≤25% 变黄，≤10% 变红。\n- 悬停显示三档额度与各自的重置倒计时。\n- 点击打开详情面板。\n- 当前供应商不是 OpenCode Go / Zen 时，指示器自动隐藏且不发任何请求。\n- 数据经插件主进程的单一接口获取（`renderer → plugin.call → onRendererCall`），与面板共用同一套逻辑；每 60 秒刷新。\n\n### 功能\n\n一个紧凑面板，每个额度窗口一行：\n\n| 窗口 | 含义 |\n| --- | --- |\n| 滚动 5 小时 | 首次使用后 5 小时重置 |\n| 每周 | 每周一 00:00 UTC 重置 |\n| 每月 | 随订阅周期重置 |\n\n每行显示进度条（**已用**多少）、**剩余**百分比，以及还有多久重置。剩余低于 25% 变黄，低于 10% 变红，一眼就能看出哪一档快用完了。\n\n面板每分钟刷新一次，窗口重新获得焦点时也会刷新。\n\n### 只在适用时显示\n\n面板会向 PI-Desktop 查询当前使用的供应商。若**不是** OpenCode Go / Zen 供应商，就**不显示任何数字、也不发请求**，只提示当前用的是什么。若在那里显示 `0%`，会被读成「额度全满」，与事实正好相反。\n\n### 配置\n\n1. 从命令面板执行 **OpenCode Quota: Open**。\n2. 在本插件设置里填入 **OpenCode Go API 密钥** —— 可在 [opencode.ai/console](https://opencode.ai/console) 的「账户 → 个人 API 密钥」创建。\n3. 完成。下次轮询就会显示数据。\n\n### 语言\n\n内置简体中文与英文，**默认跟随系统语言**；也可以在插件设置里手动指定。繁体中文（`zh-TW` / `zh-HK` / `zh-Hant`）回落英文，而不是硬塞简体。\n\n### 隐私\n\n- **只读。** 插件唯一会发的请求是 `GET https://opencode.ai/zen/go/v1/usage`，且只在当前供应商是 OpenCode Go 时才发。\n- **只访问一个域名。** manifest 声明了 `net.domains: [\"opencode.ai\"]`，其他主机一律不可达。\n- **不扫描文件。** 不读取对话、记录、项目文件，也不读取 PI-Desktop 自身的供应商密钥（宿主不允许插件读取凭据，所以密钥需要你手填）。\n- **密钥只留在本机。** 保存在本插件自己的 `settings.json`（位于 PI-Desktop 数据目录），除上述接口外不发给任何地方。\n- **不做缓存。** 额度不落盘，每次打开面板都是实时数据。\n\n### 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.panel` | 绘制额度面板 |\n| `models.list` | 读取当前供应商，避免在错误的供应商下显示额度 |\n| `net.fetch` | 调用 `opencode.ai` 上唯一的额度接口 |\n\n### 更新记录\n\n- **0.3.1** —— 上架信息改为中文。\n- **0.3.0** —— 首个公开版本：改用紧凑单行布局；更新时间移到标题栏、刷新按钮之前；滚动 / 每周 / 每月三档额度，中英双语并跟随系统语言。\n\n---\n\n## English\n\n### What it does\n\nA compact panel with one row per quota window:\n\n| Window | What it means |\n| --- | --- |\n| Rolling 5h | Resets 5 hours after your first use |\n| Weekly | Resets every Monday 00:00 UTC |\n| Monthly | Resets with your paid period |\n\nEach row shows the progress bar (how much is *used*), the share **still available**, and how long until it resets. Rows turn amber at 25% left and red at 10%.\n\nThe panel refreshes every minute, and again whenever the window regains focus.\n\n### Only when it applies\n\nThe panel asks PI-Desktop which provider is active. If it is **not** an OpenCode Go / Zen provider, no numbers are shown and **no request is made**. Printing `0%` there would read as \"full quota\", the opposite of the truth.\n\n### Setup\n\n1. Run **OpenCode Quota: Open** from the command palette.\n2. Paste an **OpenCode Go API key** into this plugin's settings — create one at [opencode.ai/console](https://opencode.ai/console) under **Account → Personal API keys**.\n\n### Language\n\nEnglish and Simplified Chinese, **following your system language** by default. Pin it in the plugin settings if you prefer. Traditional Chinese falls back to English rather than showing Simplified text.\n\n### Privacy\n\n- **Read-only.** The only request is `GET https://opencode.ai/zen/go/v1/usage`, and only while an OpenCode Go provider is active.\n- **One domain.** `net.domains: [\"opencode.ai\"]`, so no other host is reachable.\n- **No file scanning.** It never reads chats, transcripts, project files, or PI-Desktop's own provider secrets.\n- **The key stays local.** It lives in this plugin's own `settings.json` and is sent to no one but the endpoint above.\n- **Nothing is cached.** Quota is never written to disk.\n\n### Changelog\n\n- **0.3.1** — Marketplace copy switched to Chinese.\n- **0.3.0** — First public release.\n",
+      "safetyNotes": "只读。唯一请求是 GET opencode.ai/zen/go/v1/usage，且仅在当前供应商为 OpenCode Go 时发出；换成其他供应商时输入框指示器自动隐藏、也不发请求。manifest 已把出网范围限制为 opencode.ai。renderer.extension 只用于在输入框旁绘制本插件自己的指示器；不读取对话记录、项目文件，也不读取 PI-Desktop 自身的供应商密钥；API Key 保存在本机插件设置文件中，不会发往任何其他地方。",
+      "versions": [
+        {
+          "version": "0.5.0",
+          "publishedAt": "2026-11-23T14:04:32Z",
+          "changelog": "## OpenCode Go 额度气泡 0.5.0\n\n在 PI-Desktop 聊天输入框右侧实时显示 OpenCode Go 订阅剩余额度：\n\n- 彩色圆点 + Go xx%（剩余 ≤25% 变黄、≤10% 变红），每 60 秒刷新\n- 点击弹出居中锚定的详情卡片：滚动 5 小时 / 每周 / 每月三档进度条与重置倒计时（Esc / 点击外部 / 关闭按钮均可关闭）\n- 非 OpenCode Go 供应商时指示器自动隐藏且不发任何请求；只读，唯一请求为 GET opencode.ai/zen/go/v1/usage\n- 需在插件设置中填入 OpenCode Go API Key（opencode.ai/console 创建）\n\n基于 caopengfei/pi-desktop-opencode-quota（MIT）增强，新增输入框插槽与详情卡片。",
+          "minPiDesktop": "\u003e=0.20.0",
+          "shasum": "4a92adfcab225840db4b8fab1ef25050aaf7aa26cb9c9acde0b256759f2a81d1",
+          "url": "packages/io.github.realzsy.opencode-quota-bubble-0.5.0.piplug",
+          "sizeBytes": 47958,
+          "permissions": [
+            "models.list",
+            "net.fetch",
+            "notify",
+            "renderer.extension",
+            "ui.panel"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/realzsy/opencode-quota-bubble",
+            "sourceRef": "v0.5.0",
+            "sourceCommit": "f362775a5228d0d35f3720903134571bd0474e84",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-23T14:04:32Z"
           }
         }
       ]
