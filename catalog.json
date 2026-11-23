@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-23T11:57:53Z",
-  "generatedAt": "2026-11-23T11:57:53Z",
+  "updatedAt": "2026-11-23T13:00:01Z",
+  "generatedAt": "2026-11-23T13:00:01Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -307,8 +307,49 @@
       "safetyNotes": "服务凭据在本机使用 AES-256-GCM 加密，主密钥保存在 macOS 钥匙串；通过系统 security 命令访问钥匙串，不执行用户提供的 shell。供应商目录查询与生成请求通过宿主网络权限访问用户配置的 HTTP/HTTPS 地址。生成可能收费，未知结果不自动重试。工作区写权限仅用于 bone-media/exports/** 中的图片交接文件，最终 PNG 由 Agent 获准的执行工具解码。配置和旧记录页为插件级共享；新 Agent 任务查询按会话隔离。",
       "versions": [
         {
+          "version": "0.7.7",
+          "publishedAt": "2026-11-23T13:00:01Z",
+          "changelog": "## 0.7.7\n\n- Increase the bounded `/object_info` response budget used only by in-plugin Canvas conversion for large ComfyUI node libraries.\n- Preserve safe diagnostics for oversized or invalid Host responses instead of collapsing them into an unavailable generation result.\n\nValidation: 351 Node tests, Canvas/remote generation regressions, Canvas settings browser cases, 8 i18n browser tests, manifest synchronization, PluginCheck, PluginPack and clean package validation passed. No live provider task was resubmitted during validation.",
+          "minPiDesktop": "\u003e=0.1.0",
+          "shasum": "a30b876123ed34d90890b41e6e55b20a726b0c385452e28d2b7ad35a831475d6",
+          "url": "packages/bone.aimedia.services-0.7.7.piplug",
+          "sizeBytes": 1001909,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "net.anyHost",
+            "net.fetch",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "bone-media/exports/**",
+                "bone-media/references/**"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                "bone-media/exports/**"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-aimedia-services",
+            "sourceRef": "00b2b6e53fe94fa2d3a78d1695bed82ca2f27ded",
+            "sourceCommit": "00b2b6e53fe94fa2d3a78d1695bed82ca2f27ded",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-23T13:00:01Z"
+          }
+        },
+        {
           "version": "0.7.6",
-          "publishedAt": "2026-11-23T11:57:53Z",
+          "publishedAt": "2026-11-23T12:00:17Z",
           "changelog": "## 0.7.6\n\n- Add safe in-plugin Canvas-to-API conversion using ComfyUI `/object_info` metadata, link validation and widget mapping.\n- Allow Canvas workflows to enter the existing local import review or remote temporary execution flow when every mapping is proven; unresolved, bypassed or missing nodes remain blocked without saving or submitting.\n- Add Canvas conversion diagnostics, reference-image upload coverage and settings/browser regression coverage.\n\nValidation: 351 Node tests, 43 settings browser tests split into stable groups with Canvas cases passed, 8 i18n browser tests, official i18n gate with 0 failures, manifest synchronization, PluginCheck, PluginPack and clean package validation passed. One unrelated MiniMax browser fixture intermittently timed out while locating an existing workflow row; Canvas tests passed independently.",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "eea4fc4f34410500bec82b00fb56afe4ffc8daafaa10a25f7e7423d72d0b110f",
