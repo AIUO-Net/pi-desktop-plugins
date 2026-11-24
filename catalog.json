@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-24T16:13:40Z",
-  "generatedAt": "2026-11-24T16:13:40Z",
+  "updatedAt": "2026-11-24T17:04:13Z",
+  "generatedAt": "2026-11-24T17:04:13Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -9239,7 +9239,7 @@
       "versions": [
         {
           "version": "1.1.3",
-          "publishedAt": "2026-11-24T16:13:40Z",
+          "publishedAt": "2026-11-24T16:16:22Z",
           "changelog": "## 1.1.3\n\n- 分类改用官方目录的分类表：外观归入 themes（清单里原先的 appearance 不在目录分类里）。\n- 新增 docs/MARKET-COMPLIANCE.md：逐条列出每个权限的实际调用点、网络出口、写入位置与已知攻击面。\n- scene 引擎改为字面量动态引入，通过插件目录的源码审查（SEC003）；加载时机与行为不变。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "c6726ea9991b23753a46f16f452987e0e81166c196bae6966ca5b52e79184228",
@@ -10896,6 +10896,68 @@
           ],
           "fs": {},
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "pi.piopt",
+      "name": "PiOpt",
+      "description": "PiOpt 是 PI-Desktop 的控制台插件：外观（界面动效的克制预设与实时预览、减弱动态保护、推理强度滑杆的吸附动效，以及可即时开关的窗口磨砂材质、背景图与 Wallpaper Engine 壁纸（video 直接播放、scene 由随插件分发的 WebWallGL 引擎渲染），以及按帧率重绘视频壁纸的性能模式）、行为（聊天框的模型浮窗始终列出全部模型，可按默认顺序 / 供应商 / 厂商 / 名称排列，选中标记可用圆角框替代对勾，推理强度滑杆的档位可译成中文，窗口入口（新建任务、搜索）可从会话标题栏搬进侧边栏）、远程（同一局域网里配对后的设备可以看会话、发指令、停止运行，电脑浏览器同样可用）与插件市场（读取官方目录，经镜像下载并按 sha256 校验），并在侧边栏左下角第二个按钮后提供一个控制台入口。",
+      "author": "Lu-Mine",
+      "i18n": {
+        "en": {
+          "name": "PiOpt",
+          "description": "PiOpt is the PI-Desktop control console: appearance (unified symmetric motion language at 0.4–2.0x speed applied live with reduced-motion protection, a snap on the reasoning-effort slider, plus an instantly switchable frosted window material with an optional wallpaper, a Wallpaper Engine clip or a rendered Wallpaper Engine scene), behavior (the chat composer's model popup always lists every model in host order, by provider, by vendor or by name, with an optional rounded frame instead of the selected row's check and Chinese names for the reasoning-effort ticks), the phone (a paired phone on the same LAN can read sessions, send prompts and stop a turn), and a plugin market and update preparer (official catalog, mirrored downloads verified by sha256), plus a console entry in the sidebar footer, right after the second of the host's buttons.",
+          "safetyNotes": "The file context menu can open allowlisted files from the active session scratch or project directory using the system default application. The plugin process resolves real paths and refuses directory escapes. The market feature reads the plugin registry and catalog with Node fs inside the plugin process, writes only its own data folder, and downloads packages over https from four hard-coded hosts, verifying sizeBytes and sha256; it never installs. The appearance feature registers one runtime theme containing motion CSS (including the reasoning-effort slider's snap) and an optional glass layer built only from background fills, gradients and backdrop filters, with no color tokens, network or file access outside its own data folder; it also reads Steam's 431960 workshop folder, read-only, to list projects, read their square cover images and, for a picked scene, write that project's scene.pkg into its own data folder as one base64 payload file, keeping only the newest. ui.theme is used only for that one runtime theme, and agent.prompt.inject only indexes skills/piopt.md for on-demand loading. renderer.extension is used for one module that mounts a single entry button into the host window's sidebar footer and removes it on unload; the same module coordinates reversible animations on inert clones while motion optimization is active and rewrites the chat composer's model popup in that window using cloned buttons, hiding the selected row's check in favour of a ring and relabelling the reasoning slider's ticks when asked, with RPC actions going through plugin.call back to the plugin process. The module reads no files and sends no network requests, and touches no other plugin's UI; its wallpaper layer is either a single video element pointed at the path the plugin process hands it, decoded by the host's Chromium rather than by the module, or a WebGL2 canvas driven by the bundled WebWallGL engine (MIT) over the bytes that same process streams to it."
+        },
+        "zh-CN": {
+          "name": "PiOpt 控制台",
+          "description": "PiOpt 是 PI-Desktop 的控制台插件：外观（0.4–2.0× 统一对称界面动效、推理强度滑杆的吸附动效、窗口磨砂材质与 Wallpaper Engine 壁纸（video 直接播放、scene 由内置引擎渲染），改完即时生效）、行为（聊天框的模型浮窗始终列出全部模型，可按默认顺序、供应商、厂商或名称排列，选中标记可用圆角框替代对勾，推理强度滑杆的档位可译成中文，窗口入口可搬进侧边栏）、远程（同一局域网里配对后的设备可以看会话、发指令、停止运行，电脑浏览器同样可用）与插件市场（官方目录、镜像下载并按 sha256 校验），并在侧边栏左下角第二个按钮后提供一个控制台入口。",
+          "safetyNotes": "文件右键菜单可通过系统默认程序打开当前会话临时目录或当前项目目录内允许的文件类型；插件进程解析真实路径并拒绝越界。市场功能在插件进程内用 Node fs 读取插件注册表与官方目录，只写自己的数据目录；.piplug 只从四个硬编码域名走 https 下载，且只有 sizeBytes 与 sha256 校验通过才会保留，从不安装、不改 registry.json。外观功能只注册一个运行时主题，其中只有动效规则（含推理强度滑杆停在每一格时的吸附）与可选的玻璃层（背景填充、渐变、backdrop-filter），不含颜色 token，除自己的数据目录（存放用户选的背景图）与 Steam 的 431960 创意工坊目录（只读：列出项目、读它的 project.json 与方形封面；选中 scene 时把它的 scene.pkg 转成数据目录里的一份 scene-payload-{id}.js（base64，只留最近一份））外不访问文件或网络。每个功能的状态都存放在插件自己的 settings 中。ui.theme 仅用于这一个外观主题，agent.prompt.inject 仅用于收录 skills/piopt.md。renderer.extension 只用于一个渲染模块：它在宿主窗口侧边栏左下角的按钮栏里挂一个入口按钮，卸载时移除；在开启载荷动效时用惰性克隆协调可往返动画的对称退回与打断；并改写聊天框的模型浮窗（展开全部模型、用克隆按钮按所选方式排列，需要时把选中行的对勾换成圆角边框、把推理强度的档位换成中文、把「新建任务」与「搜索」搬进侧边栏并按实测偏差摆正面板开关的图标），以及壁纸层——video 是一个指向插件进程给出的路径的视频元素，由宿主自己的 Chromium 解码；scene 是一块由随插件分发的 WebWallGL（MIT）绘制的 WebGL2 画布，画的是插件进程分块送来的 scene.pkg 字节；两种情况下模块自己都不做文件读写——RPC 均经 plugin.call 交回插件进程。模块不读文件、不访问网络、不触碰其他插件的界面。"
+        }
+      },
+      "categories": [
+        "developer-tools",
+        "productivity",
+        "themes"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "pi",
+      "downloads": 0,
+      "homepage": "https://github.com/Lu-Mine/PiOpt",
+      "readmeMarkdown": "# PiOpt\n\nPI-Desktop 的控制台插件：外观（界面动效与窗口磨砂材质）、行为（聊天框模型浮窗）、插件市场、局域网远程控制，四栏合在一个面板里。\n\n当前版本 `2.0.0` · 需要 PI-Desktop `0.21.0` 或更高 · MIT\n\n\u003e **注意**：本项目由 Vibe Coding 开发，不保证可用性、安全性或特定用途适用性；使用风险由使用者自行承担。\n\n## 核心功能\n\n面板挂在侧栏左下角的控制台入口后面，左侧按「外观 / 行为 / 插件市场 / 远程」切换，`Alt+1`–`Alt+4` 直达。\n\n| 模块 | 能做什么 |\n|---|---|\n| 外观 | 注册统一的 `PiOpt Appearance` 主题：对称减速度动效预设（强度 50–150%、速度 0.40–2.00×、减弱动态跟随或彻底禁用），以及窗口内磨砂玻璃（模糊强度、本地背景图、Wallpaper Engine `video` 与 `scene` 壁纸） |\n| 行为 | 聊天框的模型浮窗一次列出全部模型，可按默认顺序 / 供应商 / 厂商 / 名称排列；品牌图标、圆角框选中态、中文推理强度、把新建任务与搜索搬进侧边栏、会话文件右键打开 |\n| 插件市场 | 读取官方目录，按 jsDelivr → raw → GitHub Blobs API → plugins.aiuo.net 的顺序回退下载更新包，流式校验 `sizeBytes` 与 `sha256`，并给出通道诊断与权限风险分级 |\n| 远程 | 同一 Wi-Fi 下用手机或另一台电脑的浏览器连接：扫码 + 6 位配对码，看项目与会话、发指令、中止运行、从历史消息分叉重问 |\n\n## 安装\n\n1. 确认宿主是 PI-Desktop `0.21.0` 或更高版本。\n2. 在 **Plugins → 市场**里搜索 PiOpt 安装，按提示授予扩展、网络、主题与会话相关权限。\n3. 想用离线包：从 Releases 下载 `pi.piopt-2.0.0.piplug`，在 Plugins 页面选择安装包。\n\n### 开发模式\n\n在 **Plugins → Load development plugin** 里选本仓库根目录，保存即重载；改动 `manifest.json` 的权限时需要手动重载一次。\n\n```\nnode --test test/*.test.js\nnode --check main.js\n```\n\n## 常用入口\n\n命令面板里：\n\n- `PiOpt: 打开控制台`：回到上次停留的那一栏\n- `PiOpt: 打开外观` / `PiOpt: 打开窗口材质`：直达外观的两个小节\n- `PiOpt: 打开远程访问`：打开局域网配对与二维码\n- `Pimarket: 准备全部可用更新`：串行下载并校验所有可更新的插件\n\n## 文档\n\n- [技术架构与实现说明](https://github.com/Lu-Mine/PiOpt/blob/main/docs/ARCHITECTURE.md)：动效曲线、双层磨砂原理、Wallpaper Engine 通道、权限边界与目录结构\n- [上架合规说明](https://github.com/Lu-Mine/PiOpt/blob/main/docs/MARKET-COMPLIANCE.md)：每条权限的实际调用点、网络出口、写入位置与已知攻击面\n- [版本与提交规范](https://github.com/Lu-Mine/PiOpt/blob/main/VERSIONING.md)：语义化版本规则与发布约束\n\n## 许可\n\nMIT。内置 `lobe-icons` 与 `WebWallGL` 遵循各自附带的 MIT 许可证。\n",
+      "safetyNotes": "A user can open allowlisted files in the active session scratch or project directory via the file context menu and the system default application. The plugin process resolves real paths and rejects paths outside that directory. PiOpt bundles three features that each stay inside their own boundary. The market feature reads the plugin registry and market catalog with Node fs inside the plugin process, writes only its own data folder, and downloads .piplug files over https from four hard-coded hosts, verifying sizeBytes and sha256 before a package is kept; it never installs and never edits registry.json. The appearance feature registers one runtime theme whose CSS carries motion rules (including the snap the reasoning-effort slider makes between stops) and an optional glass layer made only of background fills, gradients and backdrop filters: no color tokens of its own, no remote resources, no file or network access outside its own data folder, where an uploaded wallpaper is written, plus read-only access to Steam's 431960 workshop folder to list projects, read each project.json and its square cover image, and - for a scene the user picks - write that project's scene.pkg into its own data folder as one base64 payload file, keeping only the newest. Each feature keeps its state in the plugin's own settings. ui.theme is used only for that one PiOpt Appearance runtime theme. agent.prompt.inject only indexes skills/piopt.md for on-demand loading. renderer.extension is used for one module that mounts a single entry button into the host window's sidebar footer, right after the second button, coordinates reversible exit/interruption animations on inert clones while motion optimization is active, and rewrites the chat composer's model popup in that window — expanding it, building a sorted list out of cloned buttons, hiding the selected row's check in favour of a ring, and relabelling the reasoning slider's ticks — with RPC actions going through plugin.call back to the plugin process. The module reads no files and sends no network requests, and touches no other plugin's UI; it does mount one wallpaper layer: for a clip, a video element pointed at the absolute path the plugin process hands it, decoded by the host's own Chromium; for a scene, a WebGL2 canvas driven by the bundled WebWallGL engine (MIT) over the scene.pkg bytes that same process streams to it. The module itself never opens a file. The remote feature runs one HTTP server on the LAN only while the user turns it on in the panel: it serves a small phone page plus an API that lists sessions, reads one transcript, sends a prompt and aborts a turn. Sessions and their metadata come from the desktop channel (session/list, session/get); a transcript is read from that session's own jsonl in the PI-Desktop data folder with Node fs - the tail only (256 KB, cached by file size) - the same way the market feature reads the plugin registry, because the desktop channel does not carry message bodies. Prompts and aborts go through desktop.invoke. It never approves tool permissions or plans, never deletes, configures or renames anything, and requires a device token minted by pairing with a six-digit code shown in the panel; pairing is rate limited per address, and the server stops listening on unload or when the panel switch is turned off.",
+      "versions": [
+        {
+          "version": "2.0.0",
+          "publishedAt": "2026-11-24T17:04:13Z",
+          "changelog": "## 2.0.0\n\nPiOpt 在官方目录里的第一个版本：一个面板里集成外观、行为、插件市场与局域网远程四栏。\n\n- 版本号从 2.0.0 起：插件 id 定为 `pi.piopt`，对以前装过 `local.piopt` 的安装是不兼容变更。\n- 以前装过 `local.piopt` 的，先在 Plugins 页卸载它，再把 `~/.pi-desktop/plugins/data/local.piopt/` 复制成 `~/.pi-desktop/plugins/data/pi.piopt/`，然后装本版本。两个 id 同时启用会抢同一批命令和同一张主题。\n- 说明文档为纯 Markdown：宿主渲染时丢弃 HTML、主窗口 CSP 只允许 `data:` / `blob:` 图片，所以不放徽章与外链图。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "4bf46debacd920bee833d795d8eae4505ed6486b8942ea1610e055f86be05c33",
+          "url": "packages/pi.piopt-2.0.0.piplug",
+          "sizeBytes": 2078828,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "clipboard.write",
+            "desktop.control",
+            "net.fetch",
+            "renderer.extension",
+            "session.read",
+            "shell.openExternal",
+            "ui.panel",
+            "ui.theme"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/Lu-Mine/PiOpt",
+            "sourceRef": "v2.0.0",
+            "sourceCommit": "989c00dc55e93e639ed1f13e3931204ce9cbd6f9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-24T17:04:13Z"
+          }
         }
       ]
     },
