@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-24T11:26:21Z",
-  "generatedAt": "2026-11-24T11:26:21Z",
+  "updatedAt": "2026-11-24T15:10:17Z",
+  "generatedAt": "2026-11-24T15:10:17Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4521,7 +4521,7 @@
       "versions": [
         {
           "version": "1.2.0",
-          "publishedAt": "2026-11-24T11:26:21Z",
+          "publishedAt": "2026-11-24T11:28:54Z",
           "changelog": "轻量重写：面向 PI-Desktop 0.23.0（最低 \u003e= 0.20.1），改用宿主主题变量优先与核心面精修的轻量结构，单份主题 CSS 体积缩减至约 23 KB。\n配色与表面层次：重调浅色与深色画布、侧栏、输入区、弹层投影、语义色与幽灵悬停/选中态，并修复深色模式下开关滑块对比度。\n阅读与排版：规范正文人文衬线与等宽代码块层次，优先匹配本机已安装的 Source Serif 4 / Newsreader / Literata 与思源宋体并自动回落系统字体。\n焦点与无障碍：搜索框与表单聚焦改为克制的 1px 中性描边，非输入控件保留键盘 :focus-visible 焦点环，统一禁用态样式并完整支持高对比度、强制色与减弱动效。\n安全与权限：维持纯声明式 ui.theme 权限，不内嵌字体、不访问网络。",
           "minPiDesktop": "\u003e=0.20.1",
           "shasum": "0fad7f5c8ad0e42ed8f1609ce08c1a589a374690237d76d64b0a67820ac45267",
@@ -7792,6 +7792,48 @@
             "sourceCommit": "a12b3c0b0842d6e6c556d46d1547987922aee4c5",
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-11-14T05:07:00Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.git-workbench",
+      "name": "Git Workbench",
+      "description": "Keep Git in the PI-Desktop work panel: review changed files, stage or discard them, write or let the model generate the commit message, then commit, pull and push — plus a commit history at the bottom of the panel with the properties, changed files and diff of any commit, without leaving the app.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "Git 工作台",
+          "description": "在 PI-Desktop 右侧工作面板里完成 Git 日常操作：查看改动文件、暂存或放弃改动、手写或让模型生成提交信息，然后提交、拉取、推送；面板底部可查看最近提交历史与单个提交的属性、改动文件和差异，无需离开应用。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-24T15:10:17Z",
+          "changelog": "首个公开版本。\n\n新增：\n- 右侧 Git 工作面板：分支、仓库、ahead/behind，顶栏拉取、推送、刷新。\n- 提交框：手写或让模型流式生成提交信息；提交下拉菜单支持仅暂存 / 全部更改 / 提交后推送 / --signoff。\n- 文件列表：已暂存与更改两组，行内暂存、取消暂存、放弃更改；分组标题右侧常驻全部暂存 / 全部放弃 / 全部取消暂存，无文件时置灰。\n- 左右分栏 diff：点击文件在面板内右半屏查看差异（着色 + 增删统计），分隔条可拖拽、双击复位、Esc 关闭。\n- 提交历史：底部可折叠列表，展开看属性表、改动文件与该提交的 diff；滚动到底部自动加载下一批（每次 30 条，上限 200）。\n- 主题跟随宿主（含插件主题令牌映射）与中英双语。",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "3fe8f81f129d34f45d3a0834c5df0f21595b3b73815b7f9543b5e6064710a2a3",
+          "url": "packages/local.git-workbench-0.1.0.piplug",
+          "sizeBytes": 155577,
+          "permissions": [
+            "agent.complete",
+            "models.list",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/itzhoujun/pi-desktop-plugin",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "7a3ae9530582468ec6f0db25c0051a9af3b70fd9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-24T15:10:17Z"
           }
         }
       ]
