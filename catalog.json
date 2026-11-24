@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-24T06:12:33Z",
-  "generatedAt": "2026-11-24T06:12:33Z",
+  "updatedAt": "2026-11-24T06:15:25Z",
+  "generatedAt": "2026-11-24T06:15:25Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1037,18 +1037,24 @@
     },
     {
       "id": "bone.openpencil",
-      "name": "矢量设计工具",
-      "description": "",
-      "author": "",
-      "categories": [],
+      "name": "Bone OpenPencil",
+      "description": "A PI-Desktop port of the DSH OpenPencil plugin for inspecting and editing OpenPencil .op design documents. It supports OpenPencil v0.8.6 pages and legacy documents.",
+      "author": "Bone",
+      "categories": [
+        "developer-tools",
+        "media-creative"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "bone",
       "downloads": 0,
+      "homepage": "https://github.com/taokoplay/bone-openpencil-plugin",
+      "readmeMarkdown": "# Bone OpenPencil\n\nBone OpenPencil 是将 ZSeven-W/dsh-openpencil 移植到 PI-Desktop 的插件。\n\n## 功能\n\n- 在右侧 Work Panel 查看和切换 OpenPencil .op 页面\n- 支持 OpenPencil v0.8.6 的 pages[].children 文档结构\n- 兼容旧版顶层 children 文档\n- SVG 画布预览、节点选择、属性编辑和保存\n- 提供 openpencil_render、openpencil_selection、openpencil_new、openpencil_edit Agent 工具\n\n## 来源\n\n直接移植来源：ZSeven-W/dsh-openpencil。\nOpenPencil 项目是相关的文档格式和编辑器参考来源。本插件使用 PI-Desktop 的插件 API，未包含 DSH Cordis 服务或 Rust/WASM 原生渲染器。\n\n## 许可证\n\nMIT。",
+      "safetyNotes": "移植自 ZSeven-W/dsh-openpencil。仅读取和写入工作区范围内的 .op 文件，使用声明的 fs 权限和 PI-Desktop bridge，不访问网络，不启动外部进程。",
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-11-24T06:12:33Z",
+          "publishedAt": "2026-11-24T06:15:25Z",
           "changelog": "跟随 OpenPencil v0.8.6 canonical pages[].children 文档结构，同时兼容旧版顶层 children 文档。新增页面选择、页面感知的 Work Panel 画布、未知文档与编辑器元数据保留、canonical 页面文档创建，并补充 DSH OpenPencil 源头说明。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "636465484d3adb8912643cdc61a76edd6d8f0c3823f651888ca63d04333066b5",
