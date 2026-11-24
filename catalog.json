@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-24T05:13:31Z",
-  "generatedAt": "2026-11-24T05:13:31Z",
+  "updatedAt": "2026-11-24T06:12:33Z",
+  "generatedAt": "2026-11-24T06:12:33Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -308,7 +308,7 @@
       "versions": [
         {
           "version": "0.8.0",
-          "publishedAt": "2026-11-24T05:13:31Z",
+          "publishedAt": "2026-11-24T05:16:08Z",
           "changelog": "# 0.8.0\n\n失败的图片、语音和 ComfyUI 工作流记录详情现在提供“重新生成”操作。用户确认后会使用相同参数创建新的请求，保留原失败记录，并在本地生成记录中显示新任务。\n\n重新生成会使用新的 request ID；未知状态、进行中任务和已完成任务不会提供该操作，避免重复提交或重复收费。",
           "minPiDesktop": "\u003e=0.1.0",
           "shasum": "5e33616684e42e8c07e0d4375cfbd93a1cfb81307fd1bf49ad8bd7e3b027d159",
@@ -1032,6 +1032,59 @@
             }
           },
           "yanked": false
+        }
+      ]
+    },
+    {
+      "id": "bone.openpencil",
+      "name": "矢量设计工具",
+      "description": "",
+      "author": "",
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "bone",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-11-24T06:12:33Z",
+          "changelog": "跟随 OpenPencil v0.8.6 canonical pages[].children 文档结构，同时兼容旧版顶层 children 文档。新增页面选择、页面感知的 Work Panel 画布、未知文档与编辑器元数据保留、canonical 页面文档创建，并补充 DSH OpenPencil 源头说明。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "636465484d3adb8912643cdc61a76edd6d8f0c3823f651888ca63d04333066b5",
+          "url": "packages/bone.openpencil-0.2.0.piplug",
+          "sizeBytes": 888165,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "fs.read",
+            "fs.write",
+            "ui.view"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "*.op",
+                "**/*.op"
+              ]
+            },
+            "write": {
+              "root": "workspace",
+              "scope": [
+                "*.op",
+                "**/*.op"
+              ]
+            }
+          },
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-openpencil-plugin",
+            "sourceRef": "v0.2.0",
+            "sourceCommit": "4bf1fa7fff7ac3c4ebba0898d0030a674f809bf9",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-24T06:12:33Z"
+          }
         }
       ]
     },
