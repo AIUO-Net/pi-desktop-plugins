@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-24T17:04:13Z",
-  "generatedAt": "2026-11-24T17:04:13Z",
+  "updatedAt": "2026-11-24T17:06:42Z",
+  "generatedAt": "2026-11-24T17:06:42Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -9214,62 +9214,6 @@
       ]
     },
     {
-      "id": "local.piopt",
-      "name": "PiOpt",
-      "description": "A control console for PI-Desktop: motion presets and frosted window material (with Wallpaper Engine wallpapers), an enhanced composer model popup, a plugin market, and LAN remote control from a phone or another browser.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "PiOpt 控制台",
-          "description": "PI-Desktop 的控制台插件：界面动效与窗口磨砂材质（含 Wallpaper Engine 壁纸）、聊天框模型浮窗增强、插件市场（官方目录 + 镜像下载并按 sha256 校验）、同 Wi-Fi 手机或浏览器远程控制，并在侧边栏左下提供一个控制台入口。"
-        }
-      },
-      "categories": [
-        "developer-tools",
-        "productivity",
-        "themes"
-      ],
-      "verified": false,
-      "trust": "community",
-      "publisherId": "local",
-      "downloads": 0,
-      "homepage": "https://github.com/Lu-Mine/PiOpt",
-      "readmeMarkdown": "\u003cdiv align=\"center\"\u003e\r\n\r\n# PiOpt\r\n\r\n专为 PI-Desktop 打造的控制台插件，一站整合界面动效、磨砂材质、模型列表增强、局域网远程控制与插件市场。\r\n\r\n![Version](https://img.shields.io/badge/version-1.1.3-2563eb?style=flat-square)\r\n![PI-Desktop](https://img.shields.io/badge/PI--Desktop-%3E%3D0.21.0-0f172a?style=flat-square)\r\n![License](https://img.shields.io/badge/license-MIT-16a34a?style=flat-square)\r\n\r\n\u003c/div\u003e\r\n\r\n\u003e [!WARNING]\r\n\u003e 本项目由 Vibe Coding 开发，不保证可用性、安全性或特定用途适用性；使用风险由使用者自行承担。\r\n\r\n## ✨ 核心功能\r\n\r\n面板集成在侧栏左下角控制台入口，左侧按 `外观 / 行为 / 插件市场 / 远程` 四栏切换（支持 `Alt+1`–`Alt+4`）：\r\n\r\n| 模块 | 面向用户的主要能力 |\r\n|---|---|\r\n| 🎨 **外观** | 注册统一的 `PiOpt Appearance` 主题：包含对称减速度动效预设（速度/强度调节、减弱动态跟随或 `1ms` 彻底禁用）与窗口内磨砂玻璃（模糊强度、本地背景图及 Wallpaper Engine `video`/`scene` 壁纸渲染） |\r\n| 🧩 **行为** | 展开聊天框分页模型浮窗一次列出全部模型，支持 `默认 / 供应商 / 厂商 / 名称` 四种排列、内置品牌图标、圆角框选中态、中文推理强度译名、侧栏功能入口重排及临时会话文件右键打开 |\r\n| 📦 **插件市场** | 读取本地已装插件与官方 catalog，按 `jsDelivr → raw → GitHub Blobs API → plugins.aiuo.net` 自动回退下载更新包，流式校验 `sizeBytes` 与 `sha256`，并提供通道诊断与风险分级权限说明 |\r\n| 📱 **远程控制** | 同 Wi-Fi 下手机或电脑浏览器扫码 + 6 位配对码连接：查看项目与临时会话、发指令、中止运行、从历史消息分叉重问、提示等待人工确认的交互状态（不开放危险审批操作） |\r\n\r\n## 🚀 安装与使用\r\n\r\n### 正式安装\r\n\r\n1. 确认宿主为 **PI-Desktop `0.21.0` 或更高版本**。\r\n2. 在 PI-Desktop 的 **Plugins** 页面安装 `dist/local.piopt-1.1.3.piplug`，按提示授予扩展、网络、主题与会话相关权限。\r\n\r\n### 开发模式\r\n\r\n在 PI-Desktop 的 **Plugins → Load development plugin** 选择本仓库根目录即可启用保存即重载（权限变动需手动重载）：\r\n\r\n```bash\r\nnode --test test/*.test.js\r\nnode --check main.js\r\n```\r\n\r\n### 常用命令面板入口\r\n\r\n- `PiOpt: 打开控制台` — 打开面板并停在插件市场\r\n- `PiOpt: 打开外观` / `PiOpt: 打开窗口材质` — 直达外观设置对应小节\r\n- `PiOpt: 打开远程访问` — 打开局域网控制与配对二维码\r\n- `Pimarket: 准备全部可用更新` — 串行下载并校验所有可更新插件\r\n\r\n## 📚 相关文档\r\n\r\n- [技术架构与实现说明](docs/ARCHITECTURE.md) — 动效曲线、双层磨砂原理、Wallpaper Engine 通道、权限边界与目录结构\r\n- [上架合规说明](docs/MARKET-COMPLIANCE.md) — 面向目录审查：每条权限的实际调用点、网络出口、写入位置与已知攻击面\r\n- [版本与提交规范](VERSIONING.md) — 语义化版本规则与发布约束\r\n- 许可证：MIT（项目清单声明；内置 `lobe-icons` 与 `WebWallGL` 遵循各自附带的 MIT 许可证）",
-      "safetyNotes": "PiOpt 只在用户打开开关时监听局域网：配对需要面板显示的 6 位配对码，除页面外每个接口都校验设备令牌，配对按来源地址限速。它只写自己的数据目录，从不安装或卸载插件、不改 registry.json。下载只走四个固定主机并校验 sha256，HTML 响应直接丢弃。壁纸读取 Steam 431960 目录为只读。它会改写宿主窗口的模型浮窗与侧栏入口，不触碰其他插件的界面。它从不代替用户批准任何权限、计划或工具调用。逐条清单见仓库 docs/MARKET-COMPLIANCE.md。",
-      "versions": [
-        {
-          "version": "1.1.3",
-          "publishedAt": "2026-11-24T16:16:22Z",
-          "changelog": "## 1.1.3\n\n- 分类改用官方目录的分类表：外观归入 themes（清单里原先的 appearance 不在目录分类里）。\n- 新增 docs/MARKET-COMPLIANCE.md：逐条列出每个权限的实际调用点、网络出口、写入位置与已知攻击面。\n- scene 引擎改为字面量动态引入，通过插件目录的源码审查（SEC003）；加载时机与行为不变。",
-          "minPiDesktop": "\u003e=0.21.0",
-          "shasum": "c6726ea9991b23753a46f16f452987e0e81166c196bae6966ca5b52e79184228",
-          "url": "packages/local.piopt-1.1.3.piplug",
-          "sizeBytes": 2387244,
-          "permissions": [
-            "agent.prompt.inject",
-            "agent.tool.register",
-            "clipboard.write",
-            "desktop.control",
-            "net.fetch",
-            "renderer.extension",
-            "session.read",
-            "shell.openExternal",
-            "ui.panel",
-            "ui.theme"
-          ],
-          "fs": {},
-          "yanked": false,
-          "provenance": {
-            "sourceRepository": "https://github.com/Lu-Mine/PiOpt",
-            "sourceRef": "v1.1.3",
-            "sourceCommit": "0ef31f81e297a16cab955d78c109a03b8a6ef099",
-            "builder": "console-upload@1.0.0",
-            "builtAt": "2026-11-24T16:13:40Z"
-          }
-        }
-      ]
-    },
-    {
       "id": "local.project-memory-api-probe",
       "name": "KnowStack",
       "description": "Concise, deduplicated native project memory for PI-Desktop, with session-bound saves, per-project automatic saving or user approval, and a memory editor.",
@@ -10931,7 +10875,7 @@
       "versions": [
         {
           "version": "2.0.0",
-          "publishedAt": "2026-11-24T17:04:13Z",
+          "publishedAt": "2026-11-24T17:06:42Z",
           "changelog": "## 2.0.0\n\nPiOpt 在官方目录里的第一个版本：一个面板里集成外观、行为、插件市场与局域网远程四栏。\n\n- 版本号从 2.0.0 起：插件 id 定为 `pi.piopt`，对以前装过 `local.piopt` 的安装是不兼容变更。\n- 以前装过 `local.piopt` 的，先在 Plugins 页卸载它，再把 `~/.pi-desktop/plugins/data/local.piopt/` 复制成 `~/.pi-desktop/plugins/data/pi.piopt/`，然后装本版本。两个 id 同时启用会抢同一批命令和同一张主题。\n- 说明文档为纯 Markdown：宿主渲染时丢弃 HTML、主窗口 CSP 只允许 `data:` / `blob:` 图片，所以不放徽章与外链图。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "4bf46debacd920bee833d795d8eae4505ed6486b8942ea1610e055f86be05c33",
