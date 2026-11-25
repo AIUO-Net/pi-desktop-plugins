@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-25T00:27:53Z",
-  "generatedAt": "2026-11-25T00:27:53Z",
+  "updatedAt": "2026-11-25T02:47:36Z",
+  "generatedAt": "2026-11-25T02:47:36Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4813,7 +4813,7 @@
       "versions": [
         {
           "version": "1.4.0",
-          "publishedAt": "2026-11-25T00:27:53Z",
+          "publishedAt": "2026-11-25T00:30:27Z",
           "changelog": "- 面板：工具操作与成长状态使用图标，详细说明和运行结果按需展开，窄窗口使用图标导航。读取模型期间修改设置后，重新进入模型页会刷新目录。\n- 成长中心：按账号展开本月登录状态，四行显示，绿色表示已登录，灰色表示未登录，悬停日期可查看日期；支持选择旅行地点、领取旅行积分、单档连登兑换、单次抽奖和指定日期补签。「立即执行」包含猫猫旅行。\n- WorkBuddy：识别新版 `available` 连登档位，并依据兑换回执统计积分。旅行领取适配新版请求，状态缺少 `record_id` 时仍可领取。\n- 成长中心：手动和定时运行的积分合计均包含旅行奖励。查询失败时保留已到账积分；抽奖次数读取失败时仍可领取连登奖励；消耗次数、补签卡或旅行机会前会请求确认。\n- 自动签到：「立即运行」仅处理已启用的来源和地区；执行中停用或移除账号后停止后续领取；仅启用 Trae 国内版或 Qoder 时，同一时段也只执行一次。\n- 账号：刷新输入框积分时仍会检测其他账号，旧读数不会覆盖新余额。同一账号的两种备份格式可以混合导入，按所选地区保留最新登录。修正 Trae 到期判断、Qoder 密钥缓存和专属资源包统计。\n- 模型目录：WorkBuddy 首账号失效后尝试其他账号；手动刷新时重新读取 Trae、Qoder 目录。连接检查保留脱敏后的目录错误原因，并结合宿主已加载的模型判断提供商同步状态。\n- 生命周期：停止或重载后终止旧签到、旅行与续期任务的后续请求，避免旧批次清除新缓存。\n- 预览：更新演示交互和全部面板截图，领取按钮使用绿色强调样式。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "3ab59f8341945dba3e99a4287a14ce857d06752aec9dfd9a15f17b4f2f4e31c1",
@@ -7840,6 +7840,29 @@
       "publisherId": "local",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-11-25T02:47:36Z",
+          "changelog": "0.2.0 推送前预检与 SSH 主机指纹确认\n\n- 新增推送预检：解析远端与当前分支，判断是否缺少上游分支，只在需要时弹出确认卡片\n- 新增 SSH 主机指纹确认：known_hosts 缺失时展示 SHA256 指纹与写入路径，确认后只写入核对过的密钥\n- 推送可指定远端与远端分支，并自动 --set-upstream\n- 推送失败按类型给出中英双语提示：未知主机、主机密钥变更、认证失败、无上游分支、非快进、仓库不存在、网络错误\n- 提交后推送失败不再整体失败：提交会保留，并单独提示推送失败原因",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "6539ba732c81b62e90fc108f4763497ed24600f6a62d4570dfa5f17065652b07",
+          "url": "packages/local.git-workbench-0.2.0.piplug",
+          "sizeBytes": 204083,
+          "permissions": [
+            "agent.complete",
+            "models.list",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/itzhoujun/pi-desktop-plugin",
+            "sourceRef": "v0.2.0",
+            "sourceCommit": "3fca4174bae1daa7bf8ef96fb27d782c30abc50e",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-25T02:47:36Z"
+          }
+        },
         {
           "version": "0.1.0",
           "publishedAt": "2026-11-24T15:12:56Z",
