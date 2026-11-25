@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-25T02:47:36Z",
-  "generatedAt": "2026-11-25T02:47:36Z",
+  "updatedAt": "2026-11-25T02:50:02Z",
+  "generatedAt": "2026-11-25T02:50:02Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -7827,14 +7827,10 @@
       "id": "local.git-workbench",
       "name": "Git Workbench",
       "description": "Keep Git in the PI-Desktop work panel: review changed files, stage or discard them, write or let the model generate the commit message, then commit, pull and push — plus a commit history at the bottom of the panel with the properties, changed files and diff of any commit, without leaving the app.",
-      "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "Git 工作台",
-          "description": "在 PI-Desktop 右侧工作面板里完成 Git 日常操作：查看改动文件、暂存或放弃改动、手写或让模型生成提交信息，然后提交、拉取、推送；面板底部可查看最近提交历史与单个提交的属性、改动文件和差异，无需离开应用。"
-        }
-      },
-      "categories": [],
+      "author": "white",
+      "categories": [
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -7842,7 +7838,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-11-25T02:47:36Z",
+          "publishedAt": "2026-11-25T02:50:02Z",
           "changelog": "0.2.0 推送前预检与 SSH 主机指纹确认\n\n- 新增推送预检：解析远端与当前分支，判断是否缺少上游分支，只在需要时弹出确认卡片\n- 新增 SSH 主机指纹确认：known_hosts 缺失时展示 SHA256 指纹与写入路径，确认后只写入核对过的密钥\n- 推送可指定远端与远端分支，并自动 --set-upstream\n- 推送失败按类型给出中英双语提示：未知主机、主机密钥变更、认证失败、无上游分支、非快进、仓库不存在、网络错误\n- 提交后推送失败不再整体失败：提交会保留，并单独提示推送失败原因",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "6539ba732c81b62e90fc108f4763497ed24600f6a62d4570dfa5f17065652b07",
