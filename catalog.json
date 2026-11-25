@@ -7826,7 +7826,7 @@
     {
       "id": "local.git-workbench",
       "name": "Git Workbench",
-      "description": "Keep Git in the PI-Desktop work panel: review changed files, stage or discard them, write or let the model generate the commit message, then commit, pull and push — plus a commit history at the bottom of the panel with the properties, changed files and diff of any commit, without leaving the app.",
+      "description": "模型读你本次改动，自动写出规范的提交信息：在 PI-Desktop 右侧工作面板查看改动文件、按文件暂存或放弃，点一下就让模型根据 diff 生成 commit message（也可以自己手写），再提交、拉取、推送；面板底部还能查看提交历史与单个提交的属性、改动文件和差异，全程不用离开应用。",
       "author": "white",
       "categories": [
         "developer-tools"
