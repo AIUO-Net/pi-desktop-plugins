@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-25T12:22:35Z",
-  "generatedAt": "2026-11-25T12:22:35Z",
+  "updatedAt": "2026-11-26T02:48:16Z",
+  "generatedAt": "2026-11-26T02:48:16Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -4813,7 +4813,7 @@
       "versions": [
         {
           "version": "1.4.1",
-          "publishedAt": "2026-11-25T12:22:35Z",
+          "publishedAt": "2026-11-25T12:25:11Z",
           "changelog": "- Trae：最后一帧同时包含回复内容和结束标记时，及时结束生成并释放连接。\n- 账号池：正确识别 HTTP 日期格式的限流等待时间，按服务端要求冷却账号。\n- 成长中心：读取列表、详情或领取奖励时，登录过期后自动续期；修复并发读取将已恢复账号误判为登录失效的问题。\n- 输入框积分：账号列表弹层根据可用空间展开，短窗口中也能查看和选择完整列表。\n- 输入框积分：并行刷新同一地区的账号，较慢账号不会阻止其他账号更新余额。\n- 模型设置：保存期间切换来源，保存完成后保留当前来源打开的编辑器。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "cb6c6fccf4ab2d4656f9ca26cfe2d616f54694ecead9682134670241645eb900",
@@ -7770,6 +7770,48 @@
             "risk": "medium",
             "policyVersion": "2026.10.1",
             "reviewedAt": "2026-10-11T05:55:19Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.agy-cli",
+      "name": "AGY CLI",
+      "description": "Run the locally installed Antigravity CLI from PI-Desktop. Submit development tasks in the background, view their status and output, and cancel running tasks.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "AGY CLI 任务助手",
+          "description": "在 PI-Desktop 中调用本机 Antigravity CLI。支持后台提交开发任务、查看状态和输出，以及取消正在运行的任务。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-11-26T02:48:16Z",
+          "changelog": "首次提交插件市场，版本 0.3.0。\n- 支持后台提交 AGY 任务，按任务 ID 查询状态和输出，并可取消运行中的任务。\n- 在右侧 Antigravity 面板查看任务记录和日志；支持设置默认模型和代理。\n- 需要 PI-Desktop 0.22.0 或更高版本，以及已在本机登录的 AGY CLI。",
+          "minPiDesktop": "\u003e=0.22.0",
+          "shasum": "b2c57ba550c2a69b6076da2ab1bfad8ae16146924f414c9b6f977206ce25c659",
+          "url": "packages/local.agy-cli-0.3.0.piplug",
+          "sizeBytes": 175145,
+          "permissions": [
+            "agent.prompt.inject",
+            "agent.tool.register",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/chenliang2023/pi-desktop-agy-cli",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "a11b223d6e123dc607d85e1da8fbebb0f73b0d88",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-26T02:48:16Z"
           }
         }
       ]
