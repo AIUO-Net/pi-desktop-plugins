@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-26T08:17:43Z",
-  "generatedAt": "2026-11-26T08:17:43Z",
+  "updatedAt": "2026-11-26T10:56:05Z",
+  "generatedAt": "2026-11-26T10:56:05Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -7950,6 +7950,29 @@
       "publisherId": "local",
       "downloads": 0,
       "versions": [
+        {
+          "version": "0.3.0",
+          "publishedAt": "2026-11-26T10:56:05Z",
+          "changelog": "## [0.3.0] - 2026-11-26\n\n插件不再提供命令，所有操作都从工作面板发起；没有改动可提交时，主按钮改为把本地与远端同步。\n\n### 新增\n\n- 「提交」按钮会按状态切换：工作区干净、但当前分支与上游已经分叉时，按钮变成「同步更改 1↑」（落后时是 `2↓`，两侧都有差异时是 `1↑ 2↓`），图标换成同步箭头，提交下拉菜单自动收起。\n- 点这个按钮会先 `git pull --no-rebase --no-edit`，把落后的提交拉下来，再推送本地提交，因此不会再被远端以 non-fast-forward 拒绝；拉取失败或留下冲突时只停在拉取，不会继续推送。\n- 悬浮提示写明这一步会做什么（推送 N 个本地提交 / 拉取 N 个远端提交 / 先拉后推）；`⌘/Ctrl + Enter` 与主按钮行为一致。\n- 同步、拉取、刷新进行中时，刷新按钮与同步按钮上的圆形箭头会旋转，一眼看出后台正在和远端通信。\n\n### 移除\n\n- 删除 `contributes.commands` 里的 `git-workbench.open`、`git-workbench.pull`、`git-workbench.push` 三条命令，以及对应的 `onCommand:` 激活事件（只保留 `onStartup`）。\n- `main.js` 不再注册、注销命令，也不再为命令维护标题与提示文案；打开、拉取、推送只在面板内发起。\n- README 里的「命令」一节随之删除，改为「设置与工具」下的「命令：无」。\n\n### 说明\n\n- 面板能力与后端通道完全不变：`git.pull`、`git.push`、`git.pushPreflight`、`git.trustSshHost` 等仍由面板调用，推送前的确认流程与之前一致。\n- 已安装 0.2.0 的用户升级后，命令面板里这三条命令会消失，其余行为不变。\n- 提交信息输入框聚焦时不再出现蓝色描边，只保留中性边框（光标即为焦点提示）。\n- AI 生成按钮的图标与描边改用提交按钮那套变量（`--commit`），跟随宿主主题的强调色。",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "17d53e6dbc8c88a2ea761bb29f3e2dc1d32c70b459148ce021efd07f7489d3c8",
+          "url": "packages/local.git-workbench-0.3.0.piplug",
+          "sizeBytes": 209807,
+          "permissions": [
+            "agent.complete",
+            "models.list",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/itzhoujun/pi-desktop-plugin",
+            "sourceRef": "v0.3.0",
+            "sourceCommit": "16996f964e3e96f36308de18caacbe20916abbd3",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-26T10:56:05Z"
+          }
+        },
         {
           "version": "0.2.0",
           "publishedAt": "2026-11-25T02:50:02Z",
