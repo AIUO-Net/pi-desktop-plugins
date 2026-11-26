@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-26T02:48:16Z",
-  "generatedAt": "2026-11-26T02:48:16Z",
+  "updatedAt": "2026-11-26T02:50:55Z",
+  "generatedAt": "2026-11-26T02:50:55Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -7779,13 +7779,10 @@
       "name": "AGY CLI",
       "description": "Run the locally installed Antigravity CLI from PI-Desktop. Submit development tasks in the background, view their status and output, and cancel running tasks.",
       "author": "",
-      "i18n": {
-        "zh-CN": {
-          "name": "AGY CLI 任务助手",
-          "description": "在 PI-Desktop 中调用本机 Antigravity CLI。支持后台提交开发任务、查看状态和输出，以及取消正在运行的任务。"
-        }
-      },
-      "categories": [],
+      "categories": [
+        "agents-workflow",
+        "developer-tools"
+      ],
       "verified": false,
       "trust": "community",
       "publisherId": "local",
@@ -7793,7 +7790,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-11-26T02:48:16Z",
+          "publishedAt": "2026-11-26T02:50:55Z",
           "changelog": "首次提交插件市场，版本 0.3.0。\n- 支持后台提交 AGY 任务，按任务 ID 查询状态和输出，并可取消运行中的任务。\n- 在右侧 Antigravity 面板查看任务记录和日志；支持设置默认模型和代理。\n- 需要 PI-Desktop 0.22.0 或更高版本，以及已在本机登录的 AGY CLI。",
           "minPiDesktop": "\u003e=0.22.0",
           "shasum": "b2c57ba550c2a69b6076da2ab1bfad8ae16146924f414c9b6f977206ce25c659",
