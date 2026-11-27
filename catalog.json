@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-27T04:28:46Z",
-  "generatedAt": "2026-11-27T04:28:46Z",
+  "updatedAt": "2026-11-27T05:25:59Z",
+  "generatedAt": "2026-11-27T05:25:59Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1553,7 +1553,7 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishedAt": "2026-11-27T04:28:46Z",
+          "publishedAt": "2026-11-27T04:31:08Z",
           "changelog": "# 0.2.0\n\n- Token 统计页新增「剩余余额」。点击「添加配置」，选择 AI 渠道并输入 API Key，验证后即可查看余额。\n- 支持 DeepSeek、MiniMax、智谱 BigModel / Z.ai Coding Plan、Moonshot、Kimi Code、OpenRouter、小米 MiMo、硅基流动国际站和 Vercel AI Gateway。面板按上游返回显示金额、积分、限额或周期额度。\n- 渠道配置保存在本机。Key 仅保留在当次插件运行的内存中，重启客户端或重载插件后可补填。可更新 Key 或移除配置。\n- 支持 PI-Desktop 0.21.0 及更新版本。升级时需要授予网络访问权限，查询只发往清单中的官方域名。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "827821bad5f40579d86f2ad8c018c775985331ca8b35fa22617e9e37bbbfb11d",
@@ -9545,6 +9545,57 @@
             "risk": "medium",
             "policyVersion": "2026.09.2",
             "reviewedAt": "2026-09-29T20:33:27Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "local.run-deck",
+      "name": "Run Deck",
+      "description": "Run Deck keeps a project's launch commands one click away in a work-panel tab: start and stop them, watch their output, and let the agent manage the list.",
+      "author": "PI-Desktop",
+      "i18n": {
+        "en": {
+          "name": "Run Deck",
+          "description": "Keeps a project's launch commands one tab away in the work panel: start and stop them, watch their output live, and let the agent manage the list. Each launch can pin its own working directory and environment variables.",
+          "safetyNotes": "Runs the commands the user writes, through the user's own login shell, in the launch's working directory (the project root when unset), with the optional environment overrides merged in. Output is captured in memory and shown in a read-only terminal. At load it runs the user's shell once, interactively and as a login shell, to read the real PATH; that probe is capped at 5 seconds and everything except the PATH value is discarded. Launch configuration is stored only in the plugin's private data directory, never in the workspace, and environment values are stored there in plain text. No network access and no other files are read."
+        },
+        "zh-CN": {
+          "name": "Run Deck",
+          "description": "把项目的启动命令放进工作面板的一个标签页：一键启动、停止，实时查看输出，Agent 也能直接维护这份列表。每条启动项都可以指定自己的工作目录和环境变量。",
+          "safetyNotes": "执行的是用户自己写的命令，通过用户自己的登录 shell，在启动项指定的工作目录（未指定则为项目根目录）中运行，并合并用户可选填的环境变量。输出保存在内存中，显示在只读终端里。插件加载时会以登录且交互的方式执行一次用户的 shell 以读取真实的 PATH，该探测限时 5 秒，除 PATH 外的输出全部丢弃。启动项配置只保存在插件的私有数据目录，不写入工作区；环境变量以明文保存在该目录中。不访问网络，也不读取其他文件。"
+        }
+      },
+      "categories": [
+        "developer-tools"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "readmeMarkdown": "# Run Deck\n\nA project's launch commands, one click away, inside the main window.\n\nRun Deck contributes a **work-panel view** (`contributes.views`), so the UI\nlives as a tab in the host's work panel, scoped to the current session — which\nmakes it per-project for free. There is no `open` command: the tab is opened\nfrom the work panel's own view picker, next to Review and the other plugin\nviews, exactly like `git-workbench` does it. It is not a floating OS window:\nthe host gives plugins no way to anchor or clip a panel window to the main\nwindow.\n\n## What it does\n\n- **Launch** = `{ name, command, cwd?, env? }`, and every project has its own\n  list — there is no shared or global list to switch between.\n- Start / stop a launch, watch its output in a read-only xterm terminal, see\n  the port it announced, clear the buffer.\n- Double-clicking a row starts it (stop while it runs); the start/stop icon in\n  the row does the same. The pencil icon opens the editor dialog — the same\n  dialog that ＋ uses for a new launch. The command box is multi-line (Enter\n  adds a line, `Cmd`/`Ctrl`+`Enter` saves) because a real launch is often a\n  short script, not one command. `Esc`, a click on the dimmed area, or Cancel\n  closes the dialog without saving; a run's row still shows the command on one\n  line. The dialog belongs to the project it was opened in — switching project\n  closes it, and re-emitting `workspace:changed` for the same project does not.\n- Starting a launch opens its output panel below automatically (taking over\n  whichever launch was expanded before). A failed start leaves it closed.\n- Max 8 concurrent processes, one process per launch.\n- Agent tools (CRUD only, the agent cannot start anything):\n  `run_deck_list`, `run_deck_create`, `run_deck_update`, `run_deck_delete`.\n  `create` and `update` also take `cwd` (string) and `env` (flat\n  `{KEY: \"value\"}` object); passing an empty value clears the field.\n- The output panel is remembered per project: switching project hides it (that\n  launch belongs to the other project), switching back reopens the same launch.\n  Closing it yourself — or deleting the launch — is what forgets it.\n\n## Where a launch runs\n\n**Directory**: the launch's own `cwd` when set — `~`, `~/sub` and absolute paths\nare taken as written, a relative path is resolved against the project — else the\nproject the launch belongs to (its workspace realpath), then `$HOME`. A missing\ndirectory refuses to start (`NO_CWD`) instead of silently running somewhere else.\n\n**Environment**: `env` is merged over the inherited environment and handed to\n`spawn` directly, never through a shell, so a value with spaces or `$` stays\nliterally what was entered.\n\n**PATH**: a GUI-launched app inherits launchd's minimal PATH, and `$SHELL -lc`\n(login, non-interactive) never reads `.zshrc` — so `uv` in `~/.local/bin`,\n`cargo` in `~/.cargo/bin`, nvm, asdf and pyenv all look \"not installed\".\nRun Deck therefore asks the user's own login shell once per plugin load\n(`$SHELL -ilc`, sentinel-marked so rc chatter cannot corrupt the answer, 5 s\ncap) and prepends that PATH to the inherited one. If the probe fails or times\nout, the inherited PATH is used unchanged. `deck.snapshot` reports the result\nas `environment: {shell, source: \"login-shell\" | \"inherited\", path}`.\n\n## Storage\n\nConfig is plugin-private, never in the workspace:\n`~/.pi-desktop/plugins/data/local.run-deck/launches.json`\n\nThe path comes from the host (`pi.plugin.getDataPath()`); the plugin never uses\n`localStorage`, `IndexedDB` or any other browser storage, and never writes into\nthe workspace.\n\n```json\n{\n  \"version\": 3,\n  \"projects\": {\n    \"\u003cworkspace realpath\u003e\": [\n      {\n        \"id\": \"…\",\n        \"name\": \"API\",\n        \"command\": \"uv run python main.py\",\n        \"cwd\": \"~/code/backend\",\n        \"env\": { \"ENABLE_SCHEDULER\": \"False\" },\n        \"createdAt\": 0,\n        \"updatedAt\": 0\n      }\n    ]\n  }\n}\n```\n\n`cwd` and `env` are optional and written only when set. **`env` values are\nstored in plain text** in that file — they are conveniences like\n`ENABLE_SCHEDULER=False`, not a secret store. Files from the older flat-list\nlayout are migrated once and left behind as `launches.json.v1-backup`.\n\n`runs.json` holds only orphan hints (pid + name) from a previous session; it is\nnever used to kill anything automatically, because pids get reused.\n\n## Execution\n\nNo PTY in v0.1 — output only, via `child_process.spawn`:\n\n```js\nspawn(shell, [\"-lc\", command], { cwd, env, detached: true, stdio: [\"ignore\", \"pipe\", \"pipe\"] })\n```\n\nwith `TERM=xterm-256color`, `FORCE_COLOR=3`, `CLICOLOR_FORCE=1`,\n`PYTHONUNBUFFERED=1` so colours and line buffering behave without a tty.\n(`script`/`unbuffer` were tried and rejected: `tcgetattr: Operation not\nsupported on socket`, `stty size` → `0 0`.) Windows uses `cmd /d /s /c`.\n\nStop escalates `SIGINT` → 3 s → `SIGTERM` → 2 s → `SIGKILL`, against the\nprocess group when detached. `onUnload` stops everything.\n\nOutput is kept in a per-process ring buffer (1500 chunks / 200k chars, monotonic\n`seq`) and streamed to the panel by long-polling (`deck.poll`, ≤ 10 s per call,\nunder the host's 30 s panel-channel budget).\n\n## Styling\n\nA plugin page is its own webContents, so the host's stylesheet never reaches it.\nTo keep the tab pixel-consistent with the app, the host's own design system is\nvendored instead of approximated:\n\n- `renderer/host-tokens.css` — the host's `--gray-*` scale, type scale, radii,\n  motion, and the full `--ds-*` semantic set for dark and light, copied from\n  `out/renderer/assets/index-*.css`.\n- `renderer/host-controls.css` — the host's `.btn`, `.btn-primary`,\n  `.btn-secondary`, `.btn-ghost`, `.icon-btn`, `.icon-btn-square` rules verbatim,\n  plus the preflight subset they rely on and a `.field` input built from the same\n  tokens as the host's own search fields.\n- `renderer/deck.css` — layout only. No colour, radius or size is invented here.\n\nTheme and language come from the host API, not from CSS:\n`pluginBridge.invoke(\"app.getAppearance\")` returns `{ theme, base, locale }` and\n`pluginBridge.on(\"appearance:changed\", …)` pushes later changes (switching the\napp theme, the system appearance, or the interface language). `app.js` writes\n`data-theme=\"light|dark\"` on `\u003chtml\u003e` to pick the token block and re-themes xterm\nfrom `--ds-bg-inset` / `--ds-text-primary`. There is no `--pi-plugin-panel-theme`\nCSS variable, and an embedded view has no `pi-plugin-panel-chrome` element, so an\nunknown appearance falls back to `prefers-color-scheme`, never to a hard-coded\ndark. Strings live in one `STRINGS = { en, zh }` table: `zh*` locales read\nChinese, everything else reads English. `workspace:changed` is also subscribed,\nso switching project refills the list immediately.\n\nThe full rules (and the signals that look right but are not) are in\n[`../AGENTS.md`](../AGENTS.md).\n\nWhen the host stylesheet changes, re-copy those two files.\n\n## Manifest\n\n```json\n\"contributes\": {\n  \"views\": [\n    {\n      \"id\": \"deck\",\n      \"title\": { \"en\": \"Run Deck\", \"zh-CN\": \"启动台\" },\n      \"icon\": \"terminal\",\n      \"entry\": \"renderer/index.html\",\n      \"order\": 20\n    }\n  ]\n},\n\"permissions\": [\"ui.view\", \"agent.tool.register\"]\n```\n\nNo `contributes.commands`: like `git-workbench`, the view is reachable from the\nwork panel's own picker (`pi.desktop.plugin/views` → `{title, icon, pluginName}`),\nso the plugin does not need to open anything itself.\n\n`ui.view` requires the plugin being active in the current project; the view is a\nper-session tab, so the same plugin shows a different list in each project.\n`title` and `icon` are optional — `title` accepts an i18n object, `icon` must be\none of the host's view icon tokens (an unknown one renders as a letter tile).\n\n## Development\n\n`DevPluginWatcher` reloads the plugin on any edit under this directory. Rapid\nsuccessive saves can race an unload and leave the plugin unloaded\n(`plugin.reload.error: Plugin host process is no longer active`) — reload it from\nthe Plugins page if the tab stops responding.\n",
+      "safetyNotes": "Runs the commands the user writes, through the user's own login shell, in the launch's working directory (the project root when unset), with the optional environment overrides merged in. Output is captured in memory and shown in a read-only terminal. At load it runs the user's shell once, interactively and as a login shell, to read the real PATH; that probe is capped at 5 seconds and everything except the PATH value is discarded. Launch configuration is stored only in the plugin's private data directory, never in the workspace, and environment values are stored there in plain text. No network access and no other files are read.",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-27T05:25:59Z",
+          "changelog": "## Run Deck 0.1.0\n\n工作面板里的「启动台」标签页：按项目保存启动命令，一键启动与停止，实时看输出。\n\n- 启动项支持 `cwd`（`~`、相对、绝对路径）与 `env`（每行 `KEY=value`，原样传给进程）\n- 弹窗编辑：行内铅笔图标或 ＋ 打开，命令框多行，`Cmd`/`Ctrl`+`Enter` 保存；双击行启动或停止\n- 输出面板按项目记忆，启动后自动展开；浅色主题下面板与页面同色\n- 加载时用你自己的登录 shell 探测一次 PATH，uv、cargo、nvm 等不再“未安装”\n- Agent 工具仅 CRUD：`run_deck_list` / `create` / `update` / `delete`\n- 配置只存在插件私有数据目录，不写工作区；环境变量以明文保存在其中\n\nFirst release. Requires PI-Desktop 0.23.0 or newer.",
+          "minPiDesktop": "\u003e=0.23.0",
+          "shasum": "aeea52075537fe6c442bbd1a35a1c3562c0dea5a67368444f7815c16ec4a325f",
+          "url": "packages/local.run-deck-0.1.0.piplug",
+          "sizeBytes": 394239,
+          "permissions": [
+            "agent.tool.register",
+            "ui.view"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/itzhoujun/pi-desktop-plugin",
+            "sourceRef": "run-deck-v0.1.0",
+            "sourceCommit": "1ce27113876568a818dd5df863566321f77a2936",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-27T05:25:59Z"
           }
         }
       ]
