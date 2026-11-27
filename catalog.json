@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-27T05:25:59Z",
-  "generatedAt": "2026-11-27T05:25:59Z",
+  "updatedAt": "2026-11-27T06:32:53Z",
+  "generatedAt": "2026-11-27T06:32:53Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1551,6 +1551,30 @@
       "readmeMarkdown": "# Token用量统计\n\n跨项目 Token 用量统计，支持时间、项目、模型筛选，每日趋势、周小时热力图和 CSV 导出。\n\n![统计界面](https://raw.githubusercontent.com/taokoplay/bone-token-statistics/v0.1.1/docs/images/token-statistics-dashboard.png)\n\n## 0.1.1\n修复项目名称回退为编号，改为读取宿主项目列表。升级需接受 desktop.control 权限，然后刷新统计页。\n\n源代码与完整说明：https://github.com/taokoplay/bone-token-statistics/tree/v0.1.1\n\n采用 MIT 开源许可证。",
       "safetyNotes": "仅查询本地已完成轮次统计。desktop.control 仅调用只读 project/list 获取项目名称，不读取会话正文，不修改宿主状态。成本按用户配置的单价估算。",
       "versions": [
+        {
+          "version": "0.2.7",
+          "publishedAt": "2026-11-27T06:32:53Z",
+          "changelog": "# 0.2.7\n\n- 顶部时间筛选新增「今日」和「昨日」。按本机时区和轮次完成时间统计，可与项目、模型筛选一起使用。\n- 中英文界面的 Token 用量和图表刻度统一使用 K、M、B。悬停可查看完整数值，CSV 导出保留原始计数。\n- 在「剩余余额」添加 AI 渠道并填写 API Key，即可查看账户余额或套餐额度。支持 DeepSeek、MiniMax（含 M Plan）、智谱 BigModel / Z.ai、Moonshot、Kimi Code、OpenRouter、小米 MiMo、硅基流动国际站和 Vercel AI Gateway。\n- 余额配置和 API Key 在本机加密保存。可为同一渠道的多个账号分别命名，并在余额区单独刷新。\n- 支持 PI-Desktop 0.21.0 及以上。余额查询需要网络权限，仅访问所选服务商的官方接口。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "e620378a37879095bd5ab96bf5c192ba3b858f89a7460d826286a3da23d40660",
+          "url": "packages/bone.token.statistics-0.2.7.piplug",
+          "sizeBytes": 241777,
+          "permissions": [
+            "desktop.control",
+            "net.fetch",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-token-statistics",
+            "sourceRef": "b5cc161d41ebe4417767ffb7c9f5f41d428efa4b",
+            "sourceCommit": "b5cc161d41ebe4417767ffb7c9f5f41d428efa4b",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-27T06:32:53Z"
+          }
+        },
         {
           "version": "0.2.0",
           "publishedAt": "2026-11-27T04:31:08Z",
@@ -9578,7 +9602,7 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishedAt": "2026-11-27T05:25:59Z",
+          "publishedAt": "2026-11-27T05:28:30Z",
           "changelog": "## Run Deck 0.1.0\n\n工作面板里的「启动台」标签页：按项目保存启动命令，一键启动与停止，实时看输出。\n\n- 启动项支持 `cwd`（`~`、相对、绝对路径）与 `env`（每行 `KEY=value`，原样传给进程）\n- 弹窗编辑：行内铅笔图标或 ＋ 打开，命令框多行，`Cmd`/`Ctrl`+`Enter` 保存；双击行启动或停止\n- 输出面板按项目记忆，启动后自动展开；浅色主题下面板与页面同色\n- 加载时用你自己的登录 shell 探测一次 PATH，uv、cargo、nvm 等不再“未安装”\n- Agent 工具仅 CRUD：`run_deck_list` / `create` / `update` / `delete`\n- 配置只存在插件私有数据目录，不写工作区；环境变量以明文保存在其中\n\nFirst release. Requires PI-Desktop 0.23.0 or newer.",
           "minPiDesktop": "\u003e=0.23.0",
           "shasum": "aeea52075537fe6c442bbd1a35a1c3562c0dea5a67368444f7815c16ec4a325f",
