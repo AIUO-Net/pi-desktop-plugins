@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-26T10:56:05Z",
-  "generatedAt": "2026-11-26T10:56:05Z",
+  "updatedAt": "2026-11-27T04:28:46Z",
+  "generatedAt": "2026-11-27T04:28:46Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1551,6 +1551,30 @@
       "readmeMarkdown": "# Token用量统计\n\n跨项目 Token 用量统计，支持时间、项目、模型筛选，每日趋势、周小时热力图和 CSV 导出。\n\n![统计界面](https://raw.githubusercontent.com/taokoplay/bone-token-statistics/v0.1.1/docs/images/token-statistics-dashboard.png)\n\n## 0.1.1\n修复项目名称回退为编号，改为读取宿主项目列表。升级需接受 desktop.control 权限，然后刷新统计页。\n\n源代码与完整说明：https://github.com/taokoplay/bone-token-statistics/tree/v0.1.1\n\n采用 MIT 开源许可证。",
       "safetyNotes": "仅查询本地已完成轮次统计。desktop.control 仅调用只读 project/list 获取项目名称，不读取会话正文，不修改宿主状态。成本按用户配置的单价估算。",
       "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-11-27T04:28:46Z",
+          "changelog": "# 0.2.0\n\n- Token 统计页新增「剩余余额」。点击「添加配置」，选择 AI 渠道并输入 API Key，验证后即可查看余额。\n- 支持 DeepSeek、MiniMax、智谱 BigModel / Z.ai Coding Plan、Moonshot、Kimi Code、OpenRouter、小米 MiMo、硅基流动国际站和 Vercel AI Gateway。面板按上游返回显示金额、积分、限额或周期额度。\n- 渠道配置保存在本机。Key 仅保留在当次插件运行的内存中，重启客户端或重载插件后可补填。可更新 Key 或移除配置。\n- 支持 PI-Desktop 0.21.0 及更新版本。升级时需要授予网络访问权限，查询只发往清单中的官方域名。",
+          "minPiDesktop": "\u003e=0.21.0",
+          "shasum": "827821bad5f40579d86f2ad8c018c775985331ca8b35fa22617e9e37bbbfb11d",
+          "url": "packages/bone.token.statistics-0.2.0.piplug",
+          "sizeBytes": 218497,
+          "permissions": [
+            "desktop.control",
+            "net.fetch",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/taokoplay/bone-token-statistics",
+            "sourceRef": "f5cbbfab510e9d7a59353d906814e91d767a5781",
+            "sourceCommit": "f5cbbfab510e9d7a59353d906814e91d767a5781",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-27T04:28:46Z"
+          }
+        },
         {
           "version": "0.1.2",
           "publishedAt": "2026-10-30T08:21:22Z",
@@ -4834,7 +4858,7 @@
       "versions": [
         {
           "version": "1.4.2",
-          "publishedAt": "2026-11-26T08:17:43Z",
+          "publishedAt": "2026-11-26T10:58:33Z",
           "changelog": "- 账号：Trae、Qoder 的固定选择随账号增减、改名和重启保持生效；同名账号的冷却和签到状态独立，旧面板操作不会指向同名替换账号。登录到期后，输入框及时显示其他可用账号。Qoder 扫描重复安装目录时保留可用登录。\n- Trae：账号昵称与其他账号 ID 相同时，选择和签到仍指向各自账号；模型目录部分刷新失败时，仅保留失败接口的旧记录，及时移除已下架模型并更新上下文限制；损坏登录文件的错误信息隐藏凭据片段。\n- WorkBuddy：首次请求按扫描后的账号数量轮换，避免漏掉可用账号；后台扫描与登录同时进行时，保留并使用新凭据；续期后的路由域名随登录文件保存；HTTP 200 返回 JSON 错误时及时释放上游连接。\n- 网关：停止或重载时取消 Trae、Qoder 的目录请求；Trae 目录被拒后及时释放连接。\n- 面板：旧轮询失败不再干扰新一轮刷新、签到和成长任务的状态。\n- 输入框积分：切换模型再切回时忽略旧操作的响应，刷新按钮及时恢复，新请求保持各自的忙碌状态。\n- 面板：切换长短页面、确认删除或刷新成长明细时保持控件位置；切换页面后，旧请求不再拉回滚动位置。\n- 模型：别名忽略首尾空格，清空后恢复默认名称。\n- 账号：不同账号不再因文件名相似而相互覆盖。删除账号时，也会清除旧版为它保存的重复登录文件，不影响其他账号。\n- 导入：默认保留已存登录。强制导入仅接受较新记录，并保留导入期间续期的登录。\n- 隐私：损坏的登录文件不会在错误中暴露原文；诊断隐藏企业与租户标识；面板和导入工具的文件错误隐藏账号标识与本机路径。",
           "minPiDesktop": "\u003e=0.15.0",
           "shasum": "9d0dcd39c0e5a5d0fadb47ec9be8e3ff111df18e4ef9f16d4e10b487792a6a2c",
@@ -7952,7 +7976,7 @@
       "versions": [
         {
           "version": "0.3.0",
-          "publishedAt": "2026-11-26T10:56:05Z",
+          "publishedAt": "2026-11-26T10:58:33Z",
           "changelog": "## [0.3.0] - 2026-11-26\n\n插件不再提供命令，所有操作都从工作面板发起；没有改动可提交时，主按钮改为把本地与远端同步。\n\n### 新增\n\n- 「提交」按钮会按状态切换：工作区干净、但当前分支与上游已经分叉时，按钮变成「同步更改 1↑」（落后时是 `2↓`，两侧都有差异时是 `1↑ 2↓`），图标换成同步箭头，提交下拉菜单自动收起。\n- 点这个按钮会先 `git pull --no-rebase --no-edit`，把落后的提交拉下来，再推送本地提交，因此不会再被远端以 non-fast-forward 拒绝；拉取失败或留下冲突时只停在拉取，不会继续推送。\n- 悬浮提示写明这一步会做什么（推送 N 个本地提交 / 拉取 N 个远端提交 / 先拉后推）；`⌘/Ctrl + Enter` 与主按钮行为一致。\n- 同步、拉取、刷新进行中时，刷新按钮与同步按钮上的圆形箭头会旋转，一眼看出后台正在和远端通信。\n\n### 移除\n\n- 删除 `contributes.commands` 里的 `git-workbench.open`、`git-workbench.pull`、`git-workbench.push` 三条命令，以及对应的 `onCommand:` 激活事件（只保留 `onStartup`）。\n- `main.js` 不再注册、注销命令，也不再为命令维护标题与提示文案；打开、拉取、推送只在面板内发起。\n- README 里的「命令」一节随之删除，改为「设置与工具」下的「命令：无」。\n\n### 说明\n\n- 面板能力与后端通道完全不变：`git.pull`、`git.push`、`git.pushPreflight`、`git.trustSshHost` 等仍由面板调用，推送前的确认流程与之前一致。\n- 已安装 0.2.0 的用户升级后，命令面板里这三条命令会消失，其余行为不变。\n- 提交信息输入框聚焦时不再出现蓝色描边，只保留中性边框（光标即为焦点提示）。\n- AI 生成按钮的图标与描边改用提交按钮那套变量（`--commit`），跟随宿主主题的强调色。",
           "minPiDesktop": "\u003e=0.8.0",
           "shasum": "17d53e6dbc8c88a2ea761bb29f3e2dc1d32c70b459148ce021efd07f7489d3c8",
