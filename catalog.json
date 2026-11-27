@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-27T06:32:53Z",
-  "generatedAt": "2026-11-27T06:32:53Z",
+  "updatedAt": "2026-11-27T09:51:17Z",
+  "generatedAt": "2026-11-27T09:51:17Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -1553,7 +1553,7 @@
       "versions": [
         {
           "version": "0.2.7",
-          "publishedAt": "2026-11-27T06:32:53Z",
+          "publishedAt": "2026-11-27T06:35:24Z",
           "changelog": "# 0.2.7\n\n- 顶部时间筛选新增「今日」和「昨日」。按本机时区和轮次完成时间统计，可与项目、模型筛选一起使用。\n- 中英文界面的 Token 用量和图表刻度统一使用 K、M、B。悬停可查看完整数值，CSV 导出保留原始计数。\n- 在「剩余余额」添加 AI 渠道并填写 API Key，即可查看账户余额或套餐额度。支持 DeepSeek、MiniMax（含 M Plan）、智谱 BigModel / Z.ai、Moonshot、Kimi Code、OpenRouter、小米 MiMo、硅基流动国际站和 Vercel AI Gateway。\n- 余额配置和 API Key 在本机加密保存。可为同一渠道的多个账号分别命名，并在余额区单独刷新。\n- 支持 PI-Desktop 0.21.0 及以上。余额查询需要网络权限，仅访问所选服务商的官方接口。",
           "minPiDesktop": "\u003e=0.21.0",
           "shasum": "e620378a37879095bd5ab96bf5c192ba3b858f89a7460d826286a3da23d40660",
@@ -7866,6 +7866,46 @@
             "risk": "medium",
             "policyVersion": "2026.10.1",
             "reviewedAt": "2026-10-11T05:55:19Z"
+          }
+        }
+      ]
+    },
+    {
+      "id": "io.github.yoruamekaze.paste-image",
+      "name": "paste image to agent",
+      "description": "Paste an image into the composer and it becomes an attachment, instead of turning into a WeChat/QQ temp-file path.",
+      "author": "",
+      "i18n": {
+        "zh-CN": {
+          "name": "粘贴图片，不是链接",
+          "description": "在输入框粘贴图片时，直接把图片本身作为附件送进对话，而不是插入微信 / QQ 的临时文件路径。"
+        }
+      },
+      "categories": [],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "github",
+      "downloads": 0,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-27T09:51:17Z",
+          "changelog": "第一次发布",
+          "minPiDesktop": "\u003e=0.8.0",
+          "shasum": "f9c30b0165a64a1f198e23f3b30c9fd92127a1dcce32512fcc09f3dd1b72c14f",
+          "url": "packages/io.github.yoruamekaze.paste-image-0.1.0.piplug",
+          "sizeBytes": 15420,
+          "permissions": [
+            "renderer.extension"
+          ],
+          "fs": {},
+          "yanked": false,
+          "provenance": {
+            "sourceRepository": "https://github.com/YoruAmeKaze/pi-plugin-paste-image",
+            "sourceRef": "v0.1.0",
+            "sourceCommit": "34f0be0ffe15fcfd725bcb8994bead735c71aa83",
+            "builder": "console-upload@1.0.0",
+            "builtAt": "2026-11-27T09:51:17Z"
           }
         }
       ]
