@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-27T17:07:37Z",
-  "generatedAt": "2026-11-27T17:07:37Z",
+  "updatedAt": "2026-11-28T09:30:32Z",
+  "generatedAt": "2026-11-28T09:30:32Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -5774,7 +5774,7 @@
       "versions": [
         {
           "version": "3.1.5",
-          "publishedAt": "2026-11-27T17:07:37Z",
+          "publishedAt": "2026-11-27T17:10:19Z",
           "changelog": "## 3.1.5 — first release on the PI Desktop Plugin Center\n\n- Packaging-gate fix only (market rule MAN015): `manifest.json` -\u003e `contributes.skills[0]` normalized from `./skills/blender-modeling/SKILL.md` to `skills/blender-modeling/SKILL.md`. The platform requires a normalized safe relative path; the declared path now matches the packaged member exactly.\n- No functional change: `skills/**` bytes, the addon source and `addon/dsh_blender_bridge-2.0.0.zip` (116,367 B, sha256 bcc0a796...b07168a, identical to 3.1.1/3.1.2/3.1.3/3.1.4), `bridge/**`, `vendor/**`, `panel/**`, `patches/**`, `scripts/**` and the `main.js` logic are untouched.\n- Version carrier 3.1.4 -\u003e 3.1.5 (`manifest.json`, `package.json`, `main.js`, README).\n- Built from tag `v3.1.5` (commit bd2b9df4). Gates: devkit `check` 0 error / 1 expected warn (permission.high-risk); official i18n gate 0 fail / 6 review (plain-string command titles only); official `pack_plugin` dry-run on this payload: `blockers: 0`, `readyToPublish: true`.",
           "minPiDesktop": "\u003e=0.23.0",
           "shasum": "12dc32db0922a3ac038d2edb93a813db2db8fa1c204edc11b8bf0815177d58d9",
@@ -9535,6 +9535,53 @@
             "builder": "console-upload@1.0.0",
             "builtAt": "2026-10-14T05:44:42Z"
           }
+        }
+      ]
+    },
+    {
+      "id": "local.pi-trajectory",
+      "name": "pi-desktop-trajectory",
+      "description": "# Session Trajectory\r\npiplug, which projects PI-Desktop sessions into time series ledgers, is ported from [ktappdev/pi-Trajectory](https://github.com/ktappdev/pi-Trajectory) (pi CLI's `/trajectory` extension + standalone HTTP inspector).\r\n\r\n## Difference from upstream\r\n\r\n| | Upstream (pi CLI package) | This plug-in (piplug) |\r\n| --- | --- | --- |\r\n| Server side | Independent HTTP service, `127.0.0.1:8787` (Vite + API) | No service, projection is completed within the plug-in process |\r\n| Data source | Direct parsing `~/.pi/agent/sessions/*.jsonl` | Host session API + session JSONL double reading |\r\n| Opening method | `/trajectory` slash command to open the browser | Right work panel tab / Sidebar tab / two commands |\r\n| UI | Full-width browser page (React + Vite) | The same HTML, shared docking and sidebar tabs (native DOM, no building steps) |\r\n\r\n## Data source\r\n\r\nThe two paths are used together and complement each other:\r\n\r\n1. **Host API** (`pi.session.list/get/listMessages`, `pi.usage.listTurns`) - authoritative message sequence, ownership relationship and round-by-round token counting.\r\n2. **Session JSONL** (`lib/jsonl.js`, read-only) - Fields not projected by the host API: `meta.usage`, `meta.responseDurationMs`, `meta.modelId/providerId` for message by message, `durationMs`/`args`/`result`, `type: \"compaction\"` for tool blocks Compressed records, `meta.modelSystem` (prompt anatomy, with `sections` segments), `meta.error`, `meta.agentName`.\r\n\r\nIt will work if either side is missing: when JSONL cannot be read, it will automatically fall back to the host API and explain it on the panel.\r\n\r\n## Function\r\n\r\n- **Conversation Selector**: Searchable conversation list with message count and update time\r\n- **Show only current conversation**: This view will always project only one conversation - the one you are looking at. There is no conversation selector, no other conversations are visible, the title only appears once, and the subline is the message number and source.\r\n- **Automatically turn on track (always on)**: When opening any conversation, automatically display the track of the conversation on the right panel; automatically follow it when switching conversations in the sidebar. There are no switches and no manual clicks required.\r\n- **Explicitly specify the session**: `Trajectory: Open the session trace in the right panel` command uses `pi.ui.revealView({location})` to specify the current session (`?piViewOpen=` and `view:open`, the payload is in the form of `{ path }`).\r\n- **Conversation Selector**: When you want to switch to another conversation, the list on the left is always available (you don’t have to manually search for 100 conversations - switching conversations will follow automatically).\r\n- **Tool Grouping**: Continuous tool calls with the same name (without other tools in between) are combined into a block, marked `Read ×60`. Click to expand to view the time consumption and start and end time of each call one by one. Each item can jump to the corresponding record in the ledger.\r\n- **Concurrency Visualization**: The tool track is drawn according to the actual [initiated, initiated + time taken] of each call, and simultaneous calls occupy different rows. Reading N files concurrently will appear as N parallel tracks, ending at the same moment, instead of suddenly having a few more lines.\r\n- **Three Lane Timeline**: Input/model/tool are projected to the same sequence, click on the square to jump to the corresponding record\r\n- **Virtualized ledger**: only renders a few lines in the viewport, supports keyword filtering; the tool line directly displays the time consumption (such as `Bash · success · 1.5s`)\r\n- **Inspector**: record details, tool input/output/time consumption, usage of this message (including - **Compression record**: `compaction` lines are inserted into the ledger in chronological order",
+      "author": "DestinyCycloid",
+      "i18n": {
+        "zh-CN": {
+          "name": "类DSH会话轨迹",
+          "description": "# Trajectory 会话轨迹\n\n把 PI-Desktop 会话投影成时序账本的 piplug，移植自 [ktappdev/pi-Trajectory](https://github.com/ktappdev/pi-Trajectory)（pi CLI 的 `/trajectory` 扩展 + 独立 HTTP 检查器）。\n\n## 与上游的差别\n\n| | 上游（pi CLI 包） | 本插件（piplug） |\n| --- | --- | --- |\n| 服务端 | 独立 HTTP 服务，`127.0.0.1:8787`（Vite + API） | 无服务，投影在插件进程内完成 |\n| 数据来源 | 直接解析 `~/.pi/agent/sessions/*.jsonl` | 宿主会话 API + 会话 JSONL 双读 |\n| 打开方式 | `/trajectory` 斜杠命令开浏览器 | 右侧工作面板页签 / 侧边栏页签 / 两个命令 |\n| UI | 浏览器全宽页面（React + Vite） | 同一份 HTML，停靠与侧边栏页签共用（原生 DOM，无构建步骤） |\n\n## 数据来源\n\n两条路并用，互相补足：\n\n1. **宿主 API**（`pi.session.list/get/listMessages`、`pi.usage.listTurns`）——权威的消息序列、归属关系与逐轮 token 计数。\n2. **会话 JSONL**（`lib/jsonl.js`，只读）——宿主 API 不投影的字段：逐条消息的 `meta.usage`、`meta.responseDurationMs`、`meta.modelId/providerId`、工具块的 `durationMs`/`args`/`result`、`type: \"compaction\"` 压缩记录、`meta.modelSystem`（prompt 解剖，含 `sections` 分段）、`meta.error`、`meta.agentName`。\n\n任一侧缺失都能工作：JSONL 读不到时自动退回宿主 API，并在面板上说明。\n\n## 功能\n\n- **会话选择器**：可搜索的会话列表，带消息数与更新时间\n- **只显示当前会话**：这个视图永远只投影一个对话——你正在看的那个。没有会话选择器，看不到其他对话，标题只出现一次，副行是消息数与来源。\n- **自动开启轨迹（常开）**：打开任意对话时自动在右侧面板展示该对话的轨迹；在侧边栏切换对话时自动跟随。没有开关，也不需要手动点。\n- **显式指定会话**：`Trajectory: 在右侧面板打开会话轨迹` 命令用 `pi.ui.revealView({location})` 指定当前会话（`?piViewOpen=` 与 `view:open`，payload 形如 `{ path }`）。\n- **会话选择器**：想翻别的对话时，左侧列表始终可用（100 个会话也不用手动找——切换对话会自动跟随）。\n- **工具分组**：连续的同名工具调用（中间没有其他工具）合并为一个块，标注 `Read ×60`，点击展开可逐条查看每次调用的耗时与起止时间，每条都能跳到账本里的对应记录。\n- **并发可视化**：工具轨道按每次调用的真实 [发起, 发起+耗时] 绘制，同时进行的调用分占不同行。并发读取 N 个文件会显示为 N 条并行轨道、在同一刻结束，而不是突然多出几行。\n- **三泳道时间线**：输入 / 模型 / 工具投影到同一条序列，点方块跳到对应记录\n- **虚拟化账本**：只渲染视口内若干行，支持关键词过滤；工具行直接显示耗时（如 `Bash · success · 1.5s`）\n- **检查器**：记录详情、工具入参/出参/耗时、本条消息用量（含- **压缩记录**：`compaction` 行按时间顺序插入账本"
+        }
+      },
+      "categories": [
+        "productivity"
+      ],
+      "verified": false,
+      "trust": "community",
+      "publisherId": "local",
+      "downloads": 0,
+      "homepage": "https://github.com/DestinyCycloid",
+      "readmeMarkdown": "# Trajectory 会话轨迹\r\n\r\n把 PI-Desktop 会话投影成时序账本的 piplug，移植自 [ktappdev/pi-Trajectory](https://github.com/ktappdev/pi-Trajectory)（pi CLI 的 `/trajectory` 扩展 + 独立 HTTP 检查器）。\r\n\r\n## 与上游的差别\r\n\r\n| | 上游（pi CLI 包） | 本插件（piplug） |\r\n| --- | --- | --- |\r\n| 服务端 | 独立 HTTP 服务，`127.0.0.1:8787`（Vite + API） | 无服务，投影在插件进程内完成 |\r\n| 数据来源 | 直接解析 `~/.pi/agent/sessions/*.jsonl` | 宿主会话 API + 会话 JSONL 双读 |\r\n| 打开方式 | `/trajectory` 斜杠命令开浏览器 | 右侧工作面板页签 / 侧边栏页签 / 两个命令 |\r\n| UI | 浏览器全宽页面（React + Vite） | 同一份 HTML，停靠与侧边栏页签共用（原生 DOM，无构建步骤） |\r\n\r\n## 数据来源\r\n\r\n两条路并用，互相补足：\r\n\r\n1. **宿主 API**（`pi.session.list/get/listMessages`、`pi.usage.listTurns`）——权威的消息序列、归属关系与逐轮 token 计数。\r\n2. **会话 JSONL**（`lib/jsonl.js`，只读）——宿主 API 不投影的字段：逐条消息的 `meta.usage`、`meta.responseDurationMs`、`meta.modelId/providerId`、工具块的 `durationMs`/`args`/`result`、`type: \"compaction\"` 压缩记录、`meta.modelSystem`（prompt 解剖，含 `sections` 分段）、`meta.error`、`meta.agentName`。\r\n\r\n任一侧缺失都能工作：JSONL 读不到时自动退回宿主 API，并在面板上说明。\r\n\r\n## 功能\r\n\r\n- **会话选择器**：可搜索的会话列表，带消息数与更新时间\r\n- **只显示当前会话**：这个视图永远只投影一个对话——你正在看的那个。没有会话选择器，看不到其他对话，标题只出现一次，副行是消息数与来源。\r\n- **自动开启轨迹（常开）**：打开任意对话时自动在右侧面板展示该对话的轨迹；在侧边栏切换对话时自动跟随。没有开关，也不需要手动点。\r\n- **显式指定会话**：`Trajectory: 在右侧面板打开会话轨迹` 命令用 `pi.ui.revealView({location})` 指定当前会话（`?piViewOpen=` 与 `view:open`，payload 形如 `{ path }`）。\r\n- **会话选择器**：想翻别的对话时，左侧列表始终可用（100 个会话也不用手动找——切换对话会自动跟随）。\r\n- **工具分组**：连续的同名工具调用（中间没有其他工具）合并为一个块，标注 `Read ×60`，点击展开可逐条查看每次调用的耗时与起止时间，每条都能跳到账本里的对应记录。\r\n- **并发可视化**：工具轨道按每次调用的真实 [发起, 发起+耗时] 绘制，同时进行的调用分占不同行。并发读取 N 个文件会显示为 N 条并行轨道、在同一刻结束，而不是突然多出几行。\r\n- **三泳道时间线**：输入 / 模型 / 工具投影到同一条序列，点方块跳到对应记录\r\n- **虚拟化账本**：只渲染视口内若干行，支持关键词过滤；工具行直接显示耗时（如 `Bash · success · 1.5s`）\r\n- **检查器**：记录详情、工具入参/出参/耗时、本条消息用量（含- **压缩记录**：`compaction` 行按时间顺序插入账本",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishedAt": "2026-11-28T09:30:32Z",
+          "changelog": "# Trajectory 会话轨迹\n\n把 PI-Desktop 会话投影成时序账本的 piplug，移植自 [ktappdev/pi-Trajectory](https://github.com/ktappdev/pi-Trajectory)（pi CLI 的 `/trajectory` 扩展 + 独立 HTTP 检查器）。\n\n## 与上游的差别\n\n| | 上游（pi CLI 包） | 本插件（piplug） |\n| --- | --- | --- |\n| 服务端 | 独立 HTTP 服务，`127.0.0.1:8787`（Vite + API） | 无服务，投影在插件进程内完成 |\n| 数据来源 | 直接解析 `~/.pi/agent/sessions/*.jsonl` | 宿主会话 API + 会话 JSONL 双读 |\n| 打开方式 | `/trajectory` 斜杠命令开浏览器 | 右侧工作面板页签 / 侧边栏页签 / 两个命令 |\n| UI | 浏览器全宽页面（React + Vite） | 同一份 HTML，停靠与侧边栏页签共用（原生 DOM，无构建步骤） |\n\n## 数据来源\n\n两条路并用，互相补足：\n\n1. **宿主 API**（`pi.session.list/get/listMessages`、`pi.usage.listTurns`）——权威的消息序列、归属关系与逐轮 token 计数。\n2. **会话 JSONL**（`lib/jsonl.js`，只读）——宿主 API 不投影的字段：逐条消息的 `meta.usage`、`meta.responseDurationMs`、`meta.modelId/providerId`、工具块的 `durationMs`/`args`/`result`、`type: \"compaction\"` 压缩记录、`meta.modelSystem`（prompt 解剖，含 `sections` 分段）、`meta.error`、`meta.agentName`。\n\n任一侧缺失都能工作：JSONL 读不到时自动退回宿主 API，并在面板上说明。\n\n## 功能\n\n- **会话选择器**：可搜索的会话列表，带消息数与更新时间\n- **只显示当前会话**：这个视图永远只投影一个对话——你正在看的那个。没有会话选择器，看不到其他对话，标题只出现一次，副行是消息数与来源。\n- **自动开启轨迹（常开）**：打开任意对话时自动在右侧面板展示该对话的轨迹；在侧边栏切换对话时自动跟随。没有开关，也不需要手动点。\n- **显式指定会话**：`Trajectory: 在右侧面板打开会话轨迹` 命令用 `pi.ui.revealView({location})` 指定当前会话（`?piViewOpen=` 与 `view:open`，payload 形如 `{ path }`）。\n- **会话选择器**：想翻别的对话时，左侧列表始终可用（100 个会话也不用手动找——切换对话会自动跟随）。\n- **工具分组**：连续的同名工具调用（中间没有其他工具）合并为一个块，标注 `Read ×60`，点击展开可逐条查看每次调用的耗时与起止时间，每条都能跳到账本里的对应记录。\n- **并发可视化**：工具轨道按每次调用的真实 [发起, 发起+耗时] 绘制，同时进行的调用分占不同行。并发读取 N 个文件会显示为 N 条并行轨道、在同一刻结束，而不是突然多出几行。\n- **三泳道时间线**：输入 / 模型 / 工具投影到同一条序列，点方块跳到对应记录\n- **虚拟化账本**：只渲染视口内若干行，支持关键词过滤；工具行直接显示耗时（如 `Bash · success · 1.5s`）\n- **检查器**：记录详情、工具入参/出参/耗时、本条消息用量（含- **压缩记录**：`compaction` 行按时间顺序插入账本\n\n## 已知边界\n\n1. **逐条耗时来自 JSONL**，不是宿主 API；JSONL 不可读时会退回逐轮统计。\n2. **没有分支树**：上游用 `buildContextEntries` 取活跃分支；宿主 API 返回扁平消息序列。\n3. **内容可能被截断**：宿主按 `contentLimit` 截断（上限 512 KiB），截断时检查器会注明。\n\n## 刷新策略\n\n事件驱动优先，轮询只做兜底：\n\n| 触发 | 行为 |\n| --- | --- |\n| `session:turnEnded` | 主信号。一轮结束立即重投影，`reason` 区分 completed/cancelled/error |\n| `session:modelChanged` | 模型切换会影响后续记录，重投影 |\n| `session:activated` | 切换会话时重投影 |\n| 可见性兜底 | 页签可见且空闲 ≥1.5s 时，每 **800ms** 用 `traj.stamp` 探一次 JSONL 的 size/mtime；真变了才重投影 |\n\n探测本身只做一次 `stat`；只有文件真的增长才重新投影，所以 800ms 的频率不会造成无谓重绘。页签不可见时完全暂停。\n\n### 分页\n\n一个页面只展示一页记录（默认 250 条）。**时间线只覆盖当前页的时间范围**，否则长会话里每个块都会小于 1 像素、无法点中。翻页不重新读取文件，数据一次读入内存。\n\n## 已知限制：没有实时流\n\npi *只在*一条消息或一次工具调用**完成时**才向 JSONL 追加一整行（实测 904 条消息 id 无重复、3282 次工具调用全部带 `durationMs`/`completedAt`、`meta.status` 只有 `complete`）。因此：\n\n- 助手正在生成的文字、正在执行的工具，都**还没有**落盘，插件读不到；\n- 实时增量只存在于宿主渲染进程内部的 agent 事件通道（`agentMessage`），不经过插件桥，插件视图无法订阅，且声明 `agent.extension` 也不能把渲染事件转成视图事件；\n- 所以刷新能做到“每完成一条就尽快出现”，但做不到“逐 token / 执行中进度”。\n\n## 权限\n\n| 权限 | 用途 |\n| --- | --- |\n| `ui.view` | 右侧工作面板页签 |\n| `session.read.all` | 读取任意会话的标题与消息历史（高风险，安装时需明确授权） |\n| `usage.read` | 逐轮 token 计数 |\n| `fs.read` | 声明读取会话 JSONL 的意图；实际读取走插件进程内的 Node `fs` |\n\n`fs.read` 会让 `PluginCheck` 报 \"declared but never calls fs.readText\"——这是准确的：宿主 `pi.fs.*` 只接受工作区相对路径，读不到应用数据目录下的会话文件，所以这里用原生 `fs`。路径限制由 `lib/jsonl.js` 自己实现：拒绝 `..` 与路径分隔符，解析后仍必须落在 `\u003c用户目录\u003e/.pi-desktop/sessions/` 内。\n\n只读：不写入任何文件、不控制运行中的 agent、无网络访问。\n\n## 设置\n\n| 键 | 含义 | 默认 |\n| --- | --- | --- |\n| `pageSize` | 每页显示多少条记录（50–500）；分页后时间线只覆盖当前页的时间范围 | 250 |\n| `maxMessages` | 整个会话最多读取多少条消息（100–10000）；超出会截断并在顶部提示 | 5000 |\n\n## 开发\n\n```powershell\nnode --check main.js\nnode --check lib/jsonl.js\nnode --check views/trajectory.js\n```\n\n校验与打包请用 PI-Desktop 的 `PluginCheck` / `PluginPack`（`.piplug` 必须是 store-only zip，普通压缩包会被拒绝）。开发加载指向本目录，保存即热重载；**放宽 `permissions` 必须重新加载插件**，热重载不会偷偷授予新权限。\n\n### 两个容易再犯的坑\n\n- 视图脚本里不要在顶层用 `const location` / `const name` 之类与浏览器只读全局同名的绑定——那会让整份脚本抛 `SyntaxError` 且**一行都不执行**，而用 `new Function()` 做的语法校验发现不了。\n- 宿主传给视图的 `piViewOpen` 是**纯字符串**（`url.searchParams.set` 直传），不是 JSON；`view:open` 推送的 payload 是 `{ path }`。\n- **别假设视图知道自己该看哪个会话**：点页签时没有任何 subject，必须主动调 `session.getActive` 并订阅 `session:activated`。只读会话列表就收工，用户会看到全部对话。",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "4c703f5a4044c348d51e0abc0b93288ac7a6640a51c1aaa7f82c96c627eba3a5",
+          "url": "packages/local.pi-trajectory-0.1.0.piplug",
+          "sizeBytes": 91680,
+          "permissions": [
+            "fs.read",
+            "session.read.all",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*.jsonl"
+              ]
+            }
+          },
+          "yanked": false
         }
       ]
     },
