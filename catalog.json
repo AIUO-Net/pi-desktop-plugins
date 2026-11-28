@@ -9541,7 +9541,7 @@
     {
       "id": "local.pi-trajectory",
       "name": "pi-desktop-trajectory",
-      "description": "DSH-like session trajectory, Turn AI conversations into clear, searchable timelines. Track tool calls, parallel activity, and token usage; inspect messages, results, errors, and prompts—all in one place. Read-only and local, Trajectory makes every session easier to understand and review.",
+      "description": "DSH-like session trajectory, Turn AI conversations into clear, searchable timelines. Track tool calls, parallel activity, and token usage; inspect messages, results, errors, and prompts—all in one place. Read-only and local, Trajectory makes every session easier to understand and review.\n\n类DSH会话轨迹，把 AI 会话从“聊完就翻不到”变成一份清晰可查的工作记录：将当前会话整理成按时间排列的消息账本，直观呈现模型轮次、工具调用顺序与并发耗时，并可搜索、筛选、分页，快速定位关键对话和慢任务；点开任意记录，还能检查工具参数与结果、Token 用量、错误信息及 Prompt 快照。无论是复盘一次复杂任务、排查工具为什么耗时，还是了解 Token 花在哪里，都能少翻记录、少猜原因。数据仅在本地只读查看，不写入会话、不控制 Agent——让每次 AI 协作都更透明、更容易复盘。",
       "author": "DestinyCycloid",
       "categories": [
         "developer-tools",
@@ -9553,7 +9553,6 @@
       "publisherId": "local",
       "downloads": 0,
       "homepage": "https://github.com/DestinyCycloid",
-      "readmeMarkdown": "类DSH会话轨迹，把 AI 会话从“聊完就翻不到”变成一份清晰可查的工作记录：将当前会话整理成按时间排列的消息账本，直观呈现模型轮次、工具调用顺序与并发耗时，并可搜索、筛选、分页，快速定位关键对话和慢任务；点开任意记录，还能检查工具参数与结果、Token 用量、错误信息及 Prompt 快照。无论是复盘一次复杂任务、排查工具为什么耗时，还是了解 Token 花在哪里，都能少翻记录、少猜原因。数据仅在本地只读查看，不写入会话、不控制 Agent——让每次 AI 协作都更透明、更容易复盘。",
       "versions": [
         {
           "version": "0.1.0",
