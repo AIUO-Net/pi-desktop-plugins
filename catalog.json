@@ -4,8 +4,8 @@
   "catalogId": "pi-plugin-center",
   "name": "PI-Desktop Official Plugins",
   "homepage": "https://github.com/vastsa/pi-desktop-plugins",
-  "updatedAt": "2026-11-28T09:32:59Z",
-  "generatedAt": "2026-11-28T09:32:59Z",
+  "updatedAt": "2026-11-28T09:59:18Z",
+  "generatedAt": "2026-11-28T09:59:18Z",
   "policyVersion": "2026.10.3",
   "artifactBaseUrl": null,
   "categoryLabels": {
@@ -9554,6 +9554,30 @@
       "downloads": 0,
       "homepage": "https://github.com/DestinyCycloid",
       "versions": [
+        {
+          "version": "0.2.0",
+          "publishedAt": "2026-11-28T09:59:18Z",
+          "changelog": "Session Trajectory, Supports Simplified Chinese and English\nOrganize the current conversation into a chronological, searchable, filterable, and paginated ledger—making it easy to find important messages and tool calls. Use the timeline to follow user input, model responses, and tool activity, including tool durations and concurrency. Select any record to inspect its content, tool arguments and results, token usage, errors, and prompt snapshots. All data is viewed locally and read-only\n\n会话轨迹，支持简体中文和英文\n将当前会话整理为按时间排列的记录账本，支持关键词搜索、筛选与分页，方便快速找到重要消息和工具调用。通过时间线查看输入、模型回复及工具执行过程，并直观了解工具耗时与并发情况；点击记录可查看消息内容、工具参数和结果、Token 用量、错误信息及 Prompt 快照。数据仅在本地只读查看",
+          "minPiDesktop": "\u003e=0.17.0",
+          "shasum": "677862f1a89a5f04a8d93b3e29b124c56b13d89193a06cd376cc88bb612d65dd",
+          "url": "packages/local.pi-trajectory-0.2.0.piplug",
+          "sizeBytes": 131694,
+          "permissions": [
+            "fs.read",
+            "session.read.all",
+            "ui.view",
+            "usage.read"
+          ],
+          "fs": {
+            "read": {
+              "root": "workspace",
+              "scope": [
+                "**/*.jsonl"
+              ]
+            }
+          },
+          "yanked": false
+        },
         {
           "version": "0.1.0",
           "publishedAt": "2026-11-28T09:32:59Z",
